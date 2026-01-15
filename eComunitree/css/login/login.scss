@@ -11,12 +11,12 @@ $color-fondo: #7e976f;
 // RESPONSIVE TAMAÑO FIJO
 @mixin respond-to($size) {
     @if $size == small {
-        @media (max-width: 800px) {
+        @media (max-width: 600px) {
             @content;
         }
     }
     @else if $size == medium {
-        @media (min-width: 801px) and (max-width: 1200px) {
+        @media (min-width: 601px) and (max-width: 1200px) {
             @content;
         }
     }
@@ -24,7 +24,7 @@ $color-fondo: #7e976f;
 // RESPONSIVE TAMAÑO MÍNIMO
 @mixin respond-to-min($size) {
     @if $size == medium {
-        @media (min-width: 801px) {
+        @media (min-width: 601px) {
             @content;
         }
     }
@@ -78,8 +78,7 @@ $color-fondo: #7e976f;
 
 html {
     background-color: $color-fondo;
-
-    padding: 50px 50px;
+    padding: 50px 20px;
 }
 
 body {
@@ -89,9 +88,9 @@ body {
     padding: 20px;
     margin: 0 auto;
     max-width: 1000px;
-
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 header {
@@ -99,7 +98,6 @@ header {
     box-shadow: darken($color-secundario, 20%) 5px 5px 0px 0px;
     border-radius: 15px;
     padding: 20px;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,11 +110,8 @@ header {
     
     h1 {
         font-size: 4em;
-        color: darken($color-secundario, 50%);
+        color: darken($color-secundario, 45%);
         text-shadow: darken($color-secundario, 25%) 3px 3px 0px;
-        @include respond-to(small) {
-            font-size: 8vw;
-        }
     }
 }
 

@@ -1,0 +1,68 @@
+@font-face {
+  font-family: "Imprima";
+  src: url(/eComunitree/fonts/Imprima-Regular.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Imprima";
+}
+
+html {
+  background-color: #7e976f;
+  padding: 50px 20px;
+}
+
+body {
+  background-color: #fcf8f0;
+  box-shadow: rgb(76.7741935484, 92.9032258065, 67.0967741935) 5px 5px 0px 0px;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #daab6e;
+  box-shadow: rgb(180.0549450549, 121.6923076923, 45.9450549451) 5px 5px 0px 0px;
+  border-radius: 100px;
+  padding: 20px 40px;
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-shadow: rgb(226.5, 188.5, 112.5) 3px 3px 0px;
+}
+header h1 {
+  color: #fcf8f0;
+  font-size: 3em;
+}
+header .usuario {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #fcf8f0;
+}
+header .usuario p {
+  text-align: end;
+  font-size: 1.3em;
+  text-shadow: rgb(226.5, 188.5, 112.5) 2px 2px 0px;
+  font-weight: bold;
+}
+@media (max-width: 600px) {
+  header .usuario p {
+    display: none;
+  }
+}
+header .usuario a {
+  text-decoration: none;
+}
+header .usuario a i {
+  font-size: 3em;
+}
+
+aside {
+  background-color: #e6e4ce;
+}/*# sourceMappingURL=index.css.map */

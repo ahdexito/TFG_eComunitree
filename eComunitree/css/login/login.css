@@ -11,7 +11,7 @@
 
 html {
   background-color: #7e976f;
-  padding: 50px 50px;
+  padding: 50px 20px;
 }
 
 body {
@@ -23,6 +23,7 @@ body {
   max-width: 1000px;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 header {
@@ -41,13 +42,8 @@ header img {
 }
 header h1 {
   font-size: 4em;
-  color: rgb(58.1593406593, 39.3076923077, 14.8406593407);
+  color: rgb(78.4752747253, 53.0384615385, 20.0247252747);
   text-shadow: rgb(159.739010989, 107.9615384615, 40.760989011) 3px 3px 0px;
-}
-@media (max-width: 800px) {
-  header h1 {
-    font-size: 8vw;
-  }
 }
 
 h3 {
@@ -68,12 +64,12 @@ main {
   justify-content: space-between;
   gap: 50px;
 }
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   main {
     flex-direction: column;
   }
 }
-@media (min-width: 801px) {
+@media (min-width: 601px) {
   main {
     flex-direction: row;
   }
@@ -165,7 +161,7 @@ main .registrarse button:hover {
   background-color: rgb(228.3681318681, 194.5384615385, 150.6318681319);
   color: rgb(98.7912087912, 66.7692307692, 25.2087912088);
 }
-@media (min-width: 801px) {
+@media (min-width: 601px) {
   main .registrarse button {
     margin-top: 60px;
   }
