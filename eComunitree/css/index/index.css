@@ -1,7 +1,4 @@
-@font-face {
-  font-family: "Imprima";
-  src: url(/eComunitree/fonts/Imprima-Regular.ttf);
-}
+@import url("https://fonts.googleapis.com/css2?family=Gugi&family=Imprima&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jura:wght@300..700&display=swap");
 * {
   margin: 0;
   padding: 0;

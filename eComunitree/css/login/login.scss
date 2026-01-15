@@ -1,12 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Gugi&family=Imprima&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jura:wght@300..700&display=swap');
+
 $color-primario: #fcf8f0;
 $color-secundario: #daab6e;
 $color-form: #678167;
 $color-fondo: #7e976f;
-
-@font-face {
-    font-family: 'Imprima';
-    src: url(/eComunitree/fonts/Imprima-Regular.ttf);
-}
 
 // RESPONSIVE TAMAÑO FIJO
 @mixin respond-to($size) {
