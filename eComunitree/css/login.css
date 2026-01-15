@@ -1,0 +1,172 @@
+@font-face {
+  font-family: "Imprima";
+  src: url(/eComunitree/fonts/Imprima-Regular.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Imprima";
+}
+
+html {
+  background-color: #7e976f;
+  padding: 50px 50px;
+}
+
+body {
+  background-color: #fcf8f0;
+  box-shadow: rgb(76.7741935484, 92.9032258065, 67.0967741935) 5px 5px 0px 0px;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #daab6e;
+  box-shadow: rgb(180.0549450549, 121.6923076923, 45.9450549451) 5px 5px 0px 0px;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+header img {
+  width: 100px;
+}
+header h1 {
+  font-size: 4em;
+  color: rgb(58.1593406593, 39.3076923077, 14.8406593407);
+  text-shadow: rgb(159.739010989, 107.9615384615, 40.760989011) 3px 3px 0px;
+}
+@media (max-width: 800px) {
+  header h1 {
+    font-size: 8vw;
+  }
+}
+
+h3 {
+  font-size: 1.5em;
+  margin: 20px;
+  text-align: center;
+  color: rgb(98.7912087912, 66.7692307692, 25.2087912088);
+  text-shadow: #bebebd 2px 2px 0px;
+}
+
+main {
+  background-color: #678167;
+  box-shadow: rgb(57.7155172414, 72.2844827586, 57.7155172414) 5px 5px 0px 0px;
+  text-shadow: rgb(57.7155172414, 72.2844827586, 57.7155172414) 2px 2px 0px;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+@media (max-width: 800px) {
+  main {
+    flex-direction: column;
+  }
+}
+@media (min-width: 801px) {
+  main {
+    flex-direction: row;
+  }
+}
+main h2 {
+  color: #fcf8f0;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+main form {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  gap: 10px;
+}
+main form input {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  box-shadow: rgb(57.7155172414, 72.2844827586, 57.7155172414) 5px 5px 0px 1px;
+}
+main form .recuerdame {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 15px;
+}
+main form .recuerdame .check {
+  width: 20px;
+  height: 20px;
+}
+main form .recuerdame label {
+  color: #fcf8f0;
+}
+main form button {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  box-shadow: rgb(57.7155172414, 72.2844827586, 57.7155172414) 5px 5px 0px 1px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  background-color: #daab6e;
+  color: rgb(58.1593406593, 39.3076923077, 14.8406593407);
+}
+main form button:hover {
+  background-color: rgb(228.3681318681, 194.5384615385, 150.6318681319);
+  color: rgb(98.7912087912, 66.7692307692, 25.2087912088);
+}
+main hr {
+  border: 2px solid #fcf8f0;
+  border-radius: 10px;
+}
+main .registrarse {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  gap: 10px;
+}
+main .registrarse p {
+  color: #fcf8f0;
+  font-size: 1.8em;
+  text-align: center;
+}
+main .registrarse button {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  box-shadow: rgb(57.7155172414, 72.2844827586, 57.7155172414) 5px 5px 0px 1px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  background-color: #daab6e;
+  color: rgb(58.1593406593, 39.3076923077, 14.8406593407);
+}
+main .registrarse button:hover {
+  background-color: rgb(228.3681318681, 194.5384615385, 150.6318681319);
+  color: rgb(98.7912087912, 66.7692307692, 25.2087912088);
+}
+@media (min-width: 801px) {
+  main .registrarse button {
+    margin-top: 60px;
+  }
+}/*# sourceMappingURL=login.css.map */
