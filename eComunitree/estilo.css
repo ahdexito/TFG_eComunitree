@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Imprima';
+    src: url(/eComunitree/fonts/Imprima-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    color: #482a0d;
+    font-family: 'Imprima';
+}
+
+html {
+    background-color: #89997c;
+
+    padding: 5vw 10vw;
+}
+
+body {
+    background-color: #fcfaf0;
+    border-radius: 20px;
+    padding: 2%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #f5b97f;
+    border-radius: 15px;
+    padding: 2vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+img {
+    width: 10vw;
+}
+
+h1 {
+    font-size: 8vw;
+}
+
+h3 {
+    font-size: 3vw;
+    margin: 3vw;
+    text-align: center;
+}
+
+section {
+    background-color: #546347;
+    border-radius: 15px;
+}
+
+label {
+    color: #fcfaf0;
+}
+
+p {
+    color: #fcfaf0;
+}
