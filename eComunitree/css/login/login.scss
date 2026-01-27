@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Gugi&family=Imprima&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jura:wght@300..700&display=swap');
 
-$color-primario: #fcf8f0;
-$color-secundario: #daab6e;
-$color-form: #678167;
-$color-fondo: #7e976f;
+$color-light: #fcf8f0;
+$color-primary: #345334e0;
+$color-accent: #aeb474da;
 
 // RESPONSIVE TAMAÑO FIJO
 @mixin respond-to($size) {
@@ -38,7 +37,6 @@ $color-fondo: #7e976f;
     border: none;
     border-radius: 25px;
     font-size: 1.1em;
-    box-shadow: darken($color-form, 20%) 5px 5px 0px 1px;
 }
 
 @mixin button {
@@ -46,11 +44,10 @@ $color-fondo: #7e976f;
     font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
-    background-color: $color-secundario;
-    color: darken($color-secundario, 50%);
+    background-color: darken($color-primary, $amount: 20);
+    color: $color-light;
     &:hover {
-        background-color: lighten($color-secundario, 10%);
-        color: darken($color-secundario, 40%);
+        background-color: darken($color-primary, $amount: 10);
     }
 }
 
@@ -64,8 +61,6 @@ $color-fondo: #7e976f;
     gap: 10px;
 }
 
-
-
 * {
     margin: 0;
     padding: 0;
@@ -73,14 +68,18 @@ $color-fondo: #7e976f;
     font-family: 'Imprima';
 }
 
-html {
-    background-color: $color-fondo;
+body {
+    background: url(../../img/fondo-login.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
     padding: 50px 20px;
 }
 
-body {
-    background-color: $color-primario;
-    box-shadow: darken($color-fondo, 20%) 5px 5px 0px 0px;
+main {
+    background-color: #ffffff62;
     border-radius: 20px;
     padding: 20px;
     margin: 0 auto;
@@ -91,8 +90,7 @@ body {
 }
 
 header {
-    background-color: $color-secundario;
-    box-shadow: darken($color-secundario, 20%) 5px 5px 0px 0px;
+    background-color: $color-accent;
     border-radius: 15px;
     padding: 20px;
     display: flex;
@@ -107,8 +105,8 @@ header {
     
     h1 {
         font-size: 4em;
-        color: darken($color-secundario, 45%);
-        text-shadow: darken($color-secundario, 25%) 3px 3px 0px;
+        color: darken($color-accent, 45%);
+        text-shadow: darken($color-accent, 25%) 3px 3px 0px;
     }
 }
 
@@ -116,29 +114,27 @@ h3 {
     font-size: 1.5em;
     margin: 20px;
     text-align: center;
-    color: darken($color-secundario, 40%);
-    text-shadow: #bebebd 2px 2px 0px;
+    color: darken($color-primary, $amount: 20);
 }
 
-main {
-    background-color: $color-form;
-    box-shadow: darken($color-form, 20%) 5px 5px 0px 0px;
-    text-shadow: darken($color-form, 20%) 2px 2px 0px; 
+.contenido {
+    background-color: $color-primary;
     border-radius: 15px;
     padding: 20px;
     display: flex;
     justify-content: space-between;
-    gap: 50px;
     
     @include respond-to(small) {
         flex-direction: column;
+        gap: 30px;
     }
     @include respond-to-min(medium) {
         flex-direction: row;
+        gap: 60px;
     }
 
     h2 {
-        color: $color-primario;
+        color: darken($color-primary, $amount: 20);
         font-size: 2em;
         margin-bottom: 30px;
     }
@@ -162,7 +158,7 @@ main {
             }
 
             label {
-                color: $color-primario;
+                color: $color-light;
             }
         }
 
@@ -173,7 +169,7 @@ main {
     }
 
     hr {
-        border: 2px solid $color-primario;
+        border: 2px solid darken($color-primary, $amount: 10);
         border-radius: 10px
     }
     
@@ -181,7 +177,7 @@ main {
         @include section;
 
         p {
-            color: $color-primario;
+            color: $color-light;
             font-size: 1.8em;
             text-align: center
         }

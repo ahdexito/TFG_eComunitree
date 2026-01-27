@@ -6,14 +6,18 @@
   font-family: "Imprima";
 }
 
-html {
-  background-color: #7e976f;
+body {
+  background: url(../../img/fondo-login.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
   padding: 50px 20px;
 }
 
-body {
-  background-color: #fcf8f0;
-  box-shadow: rgb(76.7741935484, 92.9032258065, 67.0967741935) 5px 5px 0px 0px;
+main {
+  background-color: rgba(255, 255, 255, 0.3843137255);
   border-radius: 20px;
   padding: 20px;
   margin: 0 auto;
@@ -24,8 +28,7 @@ body {
 }
 
 header {
-  background-color: #daab6e;
-  box-shadow: rgb(180.0549450549, 121.6923076923, 45.9450549451) 5px 5px 0px 0px;
+  background-color: rgba(174, 180, 116, 0.8549019608);
   border-radius: 15px;
   padding: 20px;
   display: flex;
@@ -39,44 +42,42 @@ header img {
 }
 header h1 {
   font-size: 4em;
-  color: rgb(78.4752747253, 53.0384615385, 20.0247252747);
-  text-shadow: rgb(159.739010989, 107.9615384615, 40.760989011) 3px 3px 0px;
+  color: rgba(41.3294392523, 43.1939252336, 23.3060747664, 0.8549019608);
+  text-shadow: rgba(104.7219626168, 109.4462616822, 59.0537383178, 0.8549019608) 3px 3px 0px;
 }
 
 h3 {
   font-size: 1.5em;
   margin: 20px;
   text-align: center;
-  color: rgb(98.7912087912, 66.7692307692, 25.2087912088);
-  text-shadow: #bebebd 2px 2px 0px;
+  color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
 }
 
-main {
-  background-color: #678167;
-  box-shadow: rgb(57.7155172414, 72.2844827586, 57.7155172414) 5px 5px 0px 0px;
-  text-shadow: rgb(57.7155172414, 72.2844827586, 57.7155172414) 2px 2px 0px;
+.contenido {
+  background-color: rgba(52, 83, 52, 0.8784313725);
   border-radius: 15px;
   padding: 20px;
   display: flex;
   justify-content: space-between;
-  gap: 50px;
 }
 @media (max-width: 600px) {
-  main {
+  .contenido {
     flex-direction: column;
+    gap: 30px;
   }
 }
 @media (min-width: 601px) {
-  main {
+  .contenido {
     flex-direction: row;
+    gap: 60px;
   }
 }
-main h2 {
-  color: #fcf8f0;
+.contenido h2 {
+  color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
   font-size: 2em;
   margin-bottom: 30px;
 }
-main form {
+.contenido form {
   flex: 1;
   width: 100%;
   display: flex;
@@ -85,49 +86,46 @@ main form {
   text-align: center;
   gap: 10px;
 }
-main form input {
+.contenido form input {
   width: 100%;
   padding: 15px 20px;
   border: none;
   border-radius: 25px;
   font-size: 1.1em;
-  box-shadow: rgb(57.7155172414, 72.2844827586, 57.7155172414) 5px 5px 0px 1px;
 }
-main form .recuerdame {
+.contenido form .recuerdame {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-left: 15px;
 }
-main form .recuerdame .check {
+.contenido form .recuerdame .check {
   width: 20px;
   height: 20px;
 }
-main form .recuerdame label {
+.contenido form .recuerdame label {
   color: #fcf8f0;
 }
-main form button {
+.contenido form button {
   width: 100%;
   padding: 15px 20px;
   border: none;
   border-radius: 25px;
   font-size: 1.1em;
-  box-shadow: rgb(57.7155172414, 72.2844827586, 57.7155172414) 5px 5px 0px 1px;
   font-weight: bold;
   cursor: pointer;
   margin-top: 20px;
-  background-color: #daab6e;
-  color: rgb(58.1593406593, 39.3076923077, 14.8406593407);
+  background-color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
+  color: #fcf8f0;
 }
-main form button:hover {
-  background-color: rgb(228.3681318681, 194.5384615385, 150.6318681319);
-  color: rgb(98.7912087912, 66.7692307692, 25.2087912088);
+.contenido form button:hover {
+  background-color: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725);
 }
-main hr {
-  border: 2px solid #fcf8f0;
+.contenido hr {
+  border: 2px solid rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725);
   border-radius: 10px;
 }
-main .registrarse {
+.contenido .registrarse {
   flex: 1;
   width: 100%;
   display: flex;
@@ -136,30 +134,28 @@ main .registrarse {
   text-align: center;
   gap: 10px;
 }
-main .registrarse p {
+.contenido .registrarse p {
   color: #fcf8f0;
   font-size: 1.8em;
   text-align: center;
 }
-main .registrarse button {
+.contenido .registrarse button {
   width: 100%;
   padding: 15px 20px;
   border: none;
   border-radius: 25px;
   font-size: 1.1em;
-  box-shadow: rgb(57.7155172414, 72.2844827586, 57.7155172414) 5px 5px 0px 1px;
   font-weight: bold;
   cursor: pointer;
   margin-top: 20px;
-  background-color: #daab6e;
-  color: rgb(58.1593406593, 39.3076923077, 14.8406593407);
+  background-color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
+  color: #fcf8f0;
 }
-main .registrarse button:hover {
-  background-color: rgb(228.3681318681, 194.5384615385, 150.6318681319);
-  color: rgb(98.7912087912, 66.7692307692, 25.2087912088);
+.contenido .registrarse button:hover {
+  background-color: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725);
 }
 @media (min-width: 601px) {
-  main .registrarse button {
+  .contenido .registrarse button {
     margin-top: 60px;
   }
 }/*# sourceMappingURL=login.css.map */
