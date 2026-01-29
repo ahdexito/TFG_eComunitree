@@ -7,59 +7,166 @@
 }
 
 html {
-  background-color: #7e976f;
+  background: url(../../img/fondo-login.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
   padding: 50px 20px;
 }
 
 body {
-  background-color: #fcf8f0;
-  box-shadow: rgb(76.7741935484, 92.9032258065, 67.0967741935) 5px 5px 0px 0px;
+  background-color: rgba(255, 255, 255, 0.3843137255);
   border-radius: 20px;
   padding: 20px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: 30px;
 }
-
-header {
-  background-color: #daab6e;
-  box-shadow: rgb(180.0549450549, 121.6923076923, 45.9450549451) 5px 5px 0px 0px;
+body header {
+  background-color: rgba(109, 131, 58, 0.8784313725);
   border-radius: 100px;
   padding: 20px 40px;
   padding-right: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  text-shadow: rgb(226.5, 188.5, 112.5) 3px 3px 0px;
+  text-shadow: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725) 3px 3px 0px;
 }
-header h1 {
-  color: #fcf8f0;
+body header h1 {
+  color: #d9d9ce;
   font-size: 3em;
 }
-header .usuario {
+body header .usuario {
   display: flex;
   align-items: center;
   gap: 20px;
-  color: #fcf8f0;
+  color: #d9d9ce;
 }
-header .usuario p {
+body header .usuario p {
   text-align: end;
   font-size: 1.3em;
-  text-shadow: rgb(226.5, 188.5, 112.5) 2px 2px 0px;
+  text-shadow: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725) 2px 2px 0px;
   font-weight: bold;
 }
-@media (max-width: 600px) {
-  header .usuario p {
+@media (max-width: 800px) {
+  body header .usuario p {
     display: none;
   }
 }
-header .usuario a {
+body header .usuario a {
   text-decoration: none;
+  transition: all 0.1s ease;
 }
-header .usuario a i {
+body header .usuario a:hover {
+  transform: scale(1.2);
+}
+body header .usuario a i {
   font-size: 3em;
 }
-
-aside {
-  background-color: #e6e4ce;
+body main {
+  display: flex;
+  gap: 30px;
+}
+body main aside {
+  background-color: rgba(116, 91, 44, 0.8784313725);
+  border-radius: 50px;
+  padding: 30px;
+}
+body main aside h3 {
+  color: #d9d9ce;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+body main aside hr {
+  border: 2px solid #d9d9ce;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+body main aside ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+body main aside ul li {
+  padding: 10px;
+}
+body main aside ul li a {
+  background-color: #d9d9ce;
+  color: rgba(116, 91, 44, 0.8784313725);
+  font-size: 1.5em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 3px solid #d9d9ce;
+}
+body main aside ul li a:hover {
+  background-color: rgb(219.6982758621, 219.6982758621, 101.3017241379);
+  border: 3px solid rgba(42.05, 32.9875, 15.95, 0.8784313725);
+  color: rgba(42.05, 32.9875, 15.95, 0.8784313725);
+}
+body main section.feed {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+body main section.feed .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5em;
+}
+body main section.feed .section-header h2 {
+  color: rgba(21, 32, 21, 0.8784313725);
+}
+body main section.feed .section-header a.btn-filtrar {
+  color: rgba(21, 32, 21, 0.8784313725);
+  background-color: rgba(255, 255, 255, 0.3843137255);
+  padding: 10px 20px;
+  border: 3px solid;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+body main section.feed .section-header a.btn-filtrar:hover {
+  transform: scale(1.1);
+  border: 3px solid rgba(41.2075471698, 62.7924528302, 41.2075471698, 0.8784313725);
+  color: rgba(41.2075471698, 62.7924528302, 41.2075471698, 0.8784313725);
+}
+body main section.feed hr {
+  border: 3px solid rgba(21, 32, 21, 0.8784313725);
+  border-radius: 10px;
+  margin: 10px 0 30px;
+}
+body main section.feed article {
+  background-color: rgba(52, 83, 52, 0.8784313725);
+  padding: 20px;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+body main section.feed article .article-header {
+  display: flex;
+}
+body main section.feed article .article-header h3 {
+  background-color: rgba(109, 131, 58, 0.8784313725);
+  padding: 10px 20px;
+  color: #d9d9ce;
+  font-size: 1.5em;
+  border: 3px solid #d9d9ce;
+  border-radius: 50px;
+}
+body main section.feed article .article-content {
+  background-color: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725);
+  border-radius: 30px;
+  padding: 30px;
+  color: #d9d9ce;
 }/*# sourceMappingURL=index.css.map */

@@ -1,36 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gugi&family=Imprima&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jura:wght@300..700&display=swap');
 
-$color-primario: #fcf8f0;
-$color-secundario: #daab6e;
-$color-aside: #e6e4ce;
-$color-fondo: #7e976f;
-
-// RESPONSIVE TAMAÑO FIJO
-@mixin respond-to($size) {
-    @if $size == small {
-        @media (max-width: 600px) {
-            @content;
-        }
-    }
-    @else if $size == medium {
-        @media (min-width: 601px) and (max-width: 1200px) {
-            @content;
-        }
-    }
-}
-// RESPONSIVE TAMAÑO MÍNIMO
-@mixin respond-to-min($size) {
-    @if $size == medium {
-        @media (min-width: 601px) {
-            @content;
-        }
-    }
-    @else if $size == large {
-        @media (min-width: 1201px) {
-            @content;
-        }
-    }
-}
+@import '../variables';
+@import '../mixins';
 
 * {
     margin: 0;
@@ -40,62 +11,184 @@ $color-fondo: #7e976f;
 }
 
 html {
-    background-color: $color-fondo;
+    background: url(../../img/fondo-login.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
     padding: 50px 20px;
 }
 
 body {
-    background-color: $color-primario;
-    box-shadow: darken($color-fondo, 20%) 5px 5px 0px 0px;
+    background-color: $color-light-transparent;
     border-radius: 20px;
     padding: 20px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-}
+    gap: 30px;
 
-header {
-    background-color: $color-secundario;
-    box-shadow: darken($color-secundario, 20%) 5px 5px 0px 0px;
-    border-radius: 100px;
-    padding: 20px 40px;
-    padding-right: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-shadow: darken($color-primario, 30%) 3px 3px 0px;
-
-    h1 {
-        color: $color-primario;
-        font-size: 3em;
-    }
-
-    .usuario {
+    header {
+        background-color: $color-accent;
+        border-radius: 100px;
+        padding: 20px 40px;
+        padding-right: 10px;
         display: flex;
         align-items: center;
-        gap: 20px;
-        color: $color-primario;
-
-        p {
-            text-align: end;
-            font-size: 1.3em;
-            text-shadow: darken($color-primario, 30%) 2px 2px 0px;
-            font-weight: bold;
-
-            @include respond-to(small) {
-                display: none;
-            }
+        justify-content: space-between;
+        text-shadow: darken($color-primary, 10%) 3px 3px 0px;
+    
+        h1 {
+            color: $color-light;
+            font-size: 3em;
         }
+    
+        .usuario {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: $color-light;
+    
+            p {
+                @include respond-to(small) { display: none; }
 
-        a {
-            text-decoration: none;
-            i {
-                font-size: 3em;
+                text-align: end;
+                font-size: 1.3em;
+                text-shadow: darken($color-primary, 10%) 2px 2px 0px;
+                font-weight: bold;
+            }
+    
+            a {
+                text-decoration: none;
+                transition: all 0.1s ease;
+
+                &:hover { transform: scale(1.2); }
+
+                i { font-size: 3em; }
             }
         }
     }
-}
 
-aside {
-    background-color: $color-aside;
+    main {
+        display: flex;
+        gap: 30px;
+
+        aside {            
+            background-color: $color-aside-background;
+            border-radius: 50px;
+            padding: 30px;
+
+            h3 {
+                color: $color-light;
+                font-size: 2em;
+                margin-bottom: 10px;
+            }
+
+            hr {
+                border: 2px solid $color-light;
+                border-radius: 10px;
+                margin-bottom: 20px;
+            }
+
+            ul {
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+
+                li {
+                    padding: 10px;
+
+                    a {
+                        background-color: $color-light;
+                        color: $color-aside-background;
+                        font-size: 1.5em;
+                        text-decoration: none;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 30px;
+                        padding: 10px;
+                        border-radius: 10px;
+                        border: 3px solid $color-light;
+
+                        &:hover {
+                            background-color: darken(saturate($color-light, $amount: 50), $amount: 20) ;
+                            border: 3px solid darken($color-aside-background, $amount: 20);
+                            color: darken($color-aside-background, $amount: 20);
+                        }
+                    }
+                }   
+            }
+        }
+
+        section.feed {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            .section-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 1.5em;
+
+                h2 {
+                    color: $color-dark;
+                }
+
+                a.btn-filtrar {
+                    color: $color-dark;
+                    background-color: lighten($color-light-transparent, $amount: 100);
+                    padding: 10px 20px;
+                    border: 3px solid;
+                    border-radius: 50px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    transition: all 0.2s ease;
+
+                    &:hover {
+                        transform: scale(1.1);
+                        border: 3px solid lighten($color-dark, $amount: 10);
+                        color: lighten($color-dark, $amount: 10);
+                    }
+                }
+            }
+
+            hr {
+                border: 3px solid $color-dark;
+                border-radius: 10px;
+                margin: 10px 0 30px;
+            }
+
+            article {
+                background-color: $color-primary;
+                padding: 20px;
+                border-radius: 50px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .article-header {
+                    display: flex;
+
+                    h3 {
+                        background-color: $color-accent;
+                        padding: 10px 20px;
+                        color: $color-light;
+                        font-size: 1.5em;
+                        border: 3px solid $color-light;
+                        border-radius: 50px;
+                    }
+                }
+
+                .article-content {
+                    background-color: darken($color-primary, $amount: 10);
+                    border-radius: 30px;
+                    padding: 30px;
+                    color: $color-light;
+                }
+            }
+        }
+    }
 }

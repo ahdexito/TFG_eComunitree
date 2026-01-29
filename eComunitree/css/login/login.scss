@@ -1,35 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gugi&family=Imprima&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jura:wght@300..700&display=swap');
 
-$color-light: #fcf8f0;
-$color-primary: #345334e0;
-$color-accent: #aeb474da;
-
-// RESPONSIVE TAMAÑO FIJO
-@mixin respond-to($size) {
-    @if $size == small {
-        @media (max-width: 600px) {
-            @content;
-        }
-    }
-    @else if $size == medium {
-        @media (min-width: 601px) and (max-width: 1200px) {
-            @content;
-        }
-    }
-}
-// RESPONSIVE TAMAÑO MÍNIMO
-@mixin respond-to-min($size) {
-    @if $size == medium {
-        @media (min-width: 601px) {
-            @content;
-        }
-    }
-    @else if $size == large {
-        @media (min-width: 1201px) {
-            @content;
-        }
-    }
-}
+@import '../variables';
+@import '../mixins';
 
 @mixin input {
     width: 100%;
@@ -43,7 +15,6 @@ $color-accent: #aeb474da;
     @include input;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 20px;
     background-color: darken($color-primary, $amount: 20);
     color: $color-light;
     &:hover {
@@ -58,7 +29,7 @@ $color-accent: #aeb474da;
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 * {
@@ -68,7 +39,7 @@ $color-accent: #aeb474da;
     font-family: 'Imprima';
 }
 
-body {
+html {
     background: url(../../img/fondo-login.jpg);
     background-position: center;
     background-size: cover;
@@ -76,118 +47,108 @@ body {
     background-attachment: fixed;
     min-height: 100vh;
     padding: 50px 20px;
-}
 
-main {
-    background-color: #ffffff62;
-    border-radius: 20px;
-    padding: 20px;
-    margin: 0 auto;
-    max-width: 1000px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-header {
-    background-color: $color-accent;
-    border-radius: 15px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-
-    img {
-        width: 100px;
-    }
-    
-    h1 {
-        font-size: 4em;
-        color: darken($color-accent, 45%);
-        text-shadow: darken($color-accent, 25%) 3px 3px 0px;
-    }
-}
-
-h3 {
-    font-size: 1.5em;
-    margin: 20px;
-    text-align: center;
-    color: darken($color-primary, $amount: 20);
-}
-
-.contenido {
-    background-color: $color-primary;
-    border-radius: 15px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    
-    @include respond-to(small) {
+    body {
+        background-color: $color-light-transparent;
+        border-radius: 20px;
+        padding: 20px;
+        margin: 0 auto;
+        max-width: 1000px;
+        display: flex;
         flex-direction: column;
-        gap: 30px;
-    }
-    @include respond-to-min(medium) {
-        flex-direction: row;
-        gap: 60px;
-    }
+        gap: 10px;
 
-    h2 {
-        color: darken($color-primary, $amount: 20);
-        font-size: 2em;
-        margin-bottom: 30px;
-    }
-
-    form {
-        @include section;
-
-        input {
-            @include input;
-        }
-
-        .recuerdame {
+        header {
+            background-color: $color-accent;
+            border-radius: 15px;
+            padding: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-left: 15px;
-
-            .check {
-                width: 20px;
-                height: 20px;
-            }
-
-            label {
-                color: $color-light;
-            }
-        }
-
-        button {
-            @include button;
-        }
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         
-    }
-
-    hr {
-        border: 2px solid darken($color-primary, $amount: 10);
-        border-radius: 10px
-    }
-    
-    .registrarse {
-        @include section;
-
-        p {
-            color: $color-light;
-            font-size: 1.8em;
-            text-align: center
+            img {
+                width: 100px;
+            }
+            
+            h1 {
+                @include respond-to(small) { font-size: 3em; }
+                font-size: 3.5em;
+                color: $color-light;
+                text-shadow: darken($color-primary, 10%) 5px 5px 0px;
+            }
         }
-
-        button {
-            @include button;
-            @include respond-to-min(medium) {
-                margin-top: 60px;
+    
+        h2 {
+            font-size: 1.5em;
+            margin: 20px;
+            text-align: center;
+            color: darken($color-primary, $amount: 20);
+        }
+    
+        main {
+            background-color: $color-primary;
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 80px;
+            
+            @include respond-to(small) { flex-direction: column; }
+            @include respond-to(medium_large) { flex-direction: row; }
+        
+            h3 {
+                color: $color-light;
+                text-shadow: darken($color-primary, $amount: 20) 3px 3px 0;
+                font-size: 2em;
+            }
+        
+            form {
+                @include section;
+        
+                input {
+                    @include input;
+                }
+        
+                .recuerdame {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin-left: 15px;
+        
+                    .check {
+                        width: 20px;
+                        height: 20px;
+                    }
+        
+                    label { color: $color-light; }
+                }
+        
+                button { @include button; }
+                
+            }
+        
+            hr {
+                border: 2px solid darken($color-primary, $amount: 10);
+                border-radius: 10px;
+            }
+            
+            .registrarse {
+                @include section;
+        
+                p {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    color: $color-light;
+                    font-size: 1.8em;
+                    text-align: center;
+        
+                }
+        
+                button { @include button; }
             }
         }
     }
 }
-

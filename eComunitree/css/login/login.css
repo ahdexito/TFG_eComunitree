@@ -6,7 +6,7 @@
   font-family: "Imprima";
 }
 
-body {
+html {
   background: url(../../img/fondo-login.jpg);
   background-position: center;
   background-size: cover;
@@ -15,8 +15,7 @@ body {
   min-height: 100vh;
   padding: 50px 20px;
 }
-
-main {
+html body {
   background-color: rgba(255, 255, 255, 0.3843137255);
   border-radius: 20px;
   padding: 20px;
@@ -26,9 +25,8 @@ main {
   flex-direction: column;
   gap: 10px;
 }
-
-header {
-  background-color: rgba(174, 180, 116, 0.8549019608);
+html body header {
+  background-color: rgba(109, 131, 58, 0.8784313725);
   border-radius: 15px;
   padding: 20px;
   display: flex;
@@ -37,76 +35,78 @@ header {
   gap: 20px;
   flex-wrap: wrap;
 }
-header img {
+html body header img {
   width: 100px;
 }
-header h1 {
-  font-size: 4em;
-  color: rgba(41.3294392523, 43.1939252336, 23.3060747664, 0.8549019608);
-  text-shadow: rgba(104.7219626168, 109.4462616822, 59.0537383178, 0.8549019608) 3px 3px 0px;
+html body header h1 {
+  font-size: 3.5em;
+  color: #d9d9ce;
+  text-shadow: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725) 5px 5px 0px;
 }
-
-h3 {
+@media (max-width: 800px) {
+  html body header h1 {
+    font-size: 3em;
+  }
+}
+html body h2 {
   font-size: 1.5em;
   margin: 20px;
   text-align: center;
   color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
 }
-
-.contenido {
+html body main {
   background-color: rgba(52, 83, 52, 0.8784313725);
   border-radius: 15px;
   padding: 20px;
   display: flex;
   justify-content: space-between;
+  gap: 80px;
 }
-@media (max-width: 600px) {
-  .contenido {
+@media (max-width: 800px) {
+  html body main {
     flex-direction: column;
-    gap: 30px;
   }
 }
-@media (min-width: 601px) {
-  .contenido {
+@media (min-width: 801px) {
+  html body main {
     flex-direction: row;
-    gap: 60px;
   }
 }
-.contenido h2 {
-  color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
+html body main h3 {
+  color: #d9d9ce;
+  text-shadow: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725) 3px 3px 0;
   font-size: 2em;
-  margin-bottom: 30px;
 }
-.contenido form {
+html body main form {
   flex: 1;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  gap: 10px;
+  gap: 20px;
 }
-.contenido form input {
+html body main form input {
   width: 100%;
   padding: 15px 20px;
   border: none;
   border-radius: 25px;
   font-size: 1.1em;
 }
-.contenido form .recuerdame {
+html body main form .recuerdame {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-left: 15px;
 }
-.contenido form .recuerdame .check {
+html body main form .recuerdame .check {
   width: 20px;
   height: 20px;
 }
-.contenido form .recuerdame label {
-  color: #fcf8f0;
+html body main form .recuerdame label {
+  color: #d9d9ce;
 }
-.contenido form button {
+html body main form button {
   width: 100%;
   padding: 15px 20px;
   border: none;
@@ -114,32 +114,34 @@ h3 {
   font-size: 1.1em;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 20px;
   background-color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
-  color: #fcf8f0;
+  color: #d9d9ce;
 }
-.contenido form button:hover {
+html body main form button:hover {
   background-color: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725);
 }
-.contenido hr {
+html body main hr {
   border: 2px solid rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725);
   border-radius: 10px;
 }
-.contenido .registrarse {
+html body main .registrarse {
   flex: 1;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  gap: 10px;
+  gap: 20px;
 }
-.contenido .registrarse p {
-  color: #fcf8f0;
+html body main .registrarse p {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: #d9d9ce;
   font-size: 1.8em;
   text-align: center;
 }
-.contenido .registrarse button {
+html body main .registrarse button {
   width: 100%;
   padding: 15px 20px;
   border: none;
@@ -147,15 +149,9 @@ h3 {
   font-size: 1.1em;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 20px;
   background-color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
-  color: #fcf8f0;
+  color: #d9d9ce;
 }
-.contenido .registrarse button:hover {
+html body main .registrarse button:hover {
   background-color: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725);
-}
-@media (min-width: 601px) {
-  .contenido .registrarse button {
-    margin-top: 60px;
-  }
 }/*# sourceMappingURL=login.css.map */
