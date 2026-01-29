@@ -39,6 +39,9 @@
     font-family: 'Imprima';
 }
 
+// =========================================================
+// HTML
+// =========================================================
 html {
     background: url(../../img/fondo-login.jpg);
     background-position: center;
@@ -47,17 +50,25 @@ html {
     background-attachment: fixed;
     min-height: 100vh;
     padding: 50px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    // =========================================================
+    // BODY
+    // =========================================================
     body {
         background-color: $color-light-transparent;
         border-radius: 20px;
         padding: 20px;
-        margin: 0 auto;
         max-width: 1000px;
         display: flex;
         flex-direction: column;
         gap: 10px;
 
+        // =========================================================
+        // HEADER
+        // =========================================================
         header {
             background-color: $color-accent;
             border-radius: 15px;
@@ -87,6 +98,9 @@ html {
             color: darken($color-primary, $amount: 20);
         }
     
+        // =========================================================
+        // MAIN
+        // =========================================================
         main {
             background-color: $color-primary;
             border-radius: 15px;
@@ -104,6 +118,9 @@ html {
                 font-size: 2em;
             }
         
+            // =========================================================
+            // FORMULARIO
+            // =========================================================
             form {
                 @include section;
         
@@ -134,6 +151,9 @@ html {
                 border-radius: 10px;
             }
             
+            // =========================================================
+            // REGISTRARSE
+            // =========================================================
             .registrarse {
                 @include section;
         

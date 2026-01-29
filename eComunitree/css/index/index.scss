@@ -10,6 +10,9 @@
     font-family: 'Imprima';
 }
 
+// =========================================================
+// HTML
+// =========================================================
 html {
     background: url(../../img/fondo-login.jpg);
     background-position: center;
@@ -20,6 +23,9 @@ html {
     padding: 50px 20px;
 }
 
+// =========================================================
+// BODY
+// =========================================================
 body {
     background-color: $color-light-transparent;
     border-radius: 20px;
@@ -29,7 +35,13 @@ body {
     flex-direction: column;
     gap: 30px;
 
+    // =========================================================
+    // HEADER
+    // =========================================================
     header {
+        position: sticky;
+        top: 20px;
+        z-index: 10;
         background-color: $color-accent;
         border-radius: 100px;
         padding: 20px 40px;
@@ -70,14 +82,25 @@ body {
         }
     }
 
+    // =========================================================
+    // MAIN
+    // =========================================================
     main {
         display: flex;
         gap: 30px;
+        align-items: flex-start;
 
-        aside {            
+        // =========================================================
+        // ASIDE
+        // =========================================================
+        aside {  
+            @include respond-to(small) { display: none; }
+            position: sticky;  
+            top: 150px;       
             background-color: $color-aside-background;
-            border-radius: 50px;
+            border-radius: 20px;
             padding: 30px;
+            height: fit-content;
 
             h3 {
                 color: $color-light;
@@ -111,35 +134,38 @@ body {
                         padding: 10px;
                         border-radius: 10px;
                         border: 3px solid $color-light;
+                        transition: transform 0.1s linear;
 
                         &:hover {
-                            background-color: darken(saturate($color-light, $amount: 50), $amount: 20) ;
-                            border: 3px solid darken($color-aside-background, $amount: 20);
-                            color: darken($color-aside-background, $amount: 20);
+                            background-color: #fff;
+                            border: 3px solid darken($color-aside-background, $amount: 15);
+                            color: darken($color-aside-background, $amount: 15);
                         }
                     }
                 }   
             }
         }
 
+        // =========================================================
+        // SECTION / FEED
+        // =========================================================
         section.feed {
             flex: 1;
             display: flex;
             flex-direction: column;
 
+            // SECTION HEADER
             .section-header {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 font-size: 1.5em;
 
-                h2 {
-                    color: $color-dark;
-                }
+                h2 { color: $color-dark; }
 
                 a.btn-filtrar {
                     color: $color-dark;
-                    background-color: lighten($color-light-transparent, $amount: 100);
+                    background-color: $color-light;
                     padding: 10px 20px;
                     border: 3px solid;
                     border-radius: 50px;
@@ -149,8 +175,7 @@ body {
 
                     &:hover {
                         transform: scale(1.1);
-                        border: 3px solid lighten($color-dark, $amount: 10);
-                        color: lighten($color-dark, $amount: 10);
+                        background-color: lighten($color-accent, $amount: 30);
                     }
                 }
             }
@@ -161,33 +186,11 @@ body {
                 margin: 10px 0 30px;
             }
 
+            // =========================================================
+            // ARTICLE / VOTE
+            // =========================================================
             article {
-                background-color: $color-primary;
-                padding: 20px;
-                border-radius: 50px;
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-
-                .article-header {
-                    display: flex;
-
-                    h3 {
-                        background-color: $color-accent;
-                        padding: 10px 20px;
-                        color: $color-light;
-                        font-size: 1.5em;
-                        border: 3px solid $color-light;
-                        border-radius: 50px;
-                    }
-                }
-
-                .article-content {
-                    background-color: darken($color-primary, $amount: 10);
-                    border-radius: 30px;
-                    padding: 30px;
-                    color: $color-light;
-                }
+                @include article;
             }
         }
     }
