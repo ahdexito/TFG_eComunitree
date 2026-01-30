@@ -2,6 +2,7 @@
 
 @import '../variables';
 @import '../mixins';
+@import '../article-card';
 
 * {
     margin: 0;
@@ -38,7 +39,7 @@ body {
     // =========================================================
     // HEADER
     // =========================================================
-    header {
+    header.body-header {
         position: sticky;
         top: 20px;
         z-index: 10;
@@ -93,8 +94,8 @@ body {
         // =========================================================
         // ASIDE
         // =========================================================
-        aside {  
-            @include respond-to(small) { display: none; }
+        aside.main-aside {  
+            @include respond-to(small_medium) { display: none; }
             position: sticky;  
             top: 150px;       
             background-color: $color-aside-background;
@@ -104,12 +105,14 @@ body {
 
             h3 {
                 color: $color-light;
+                text-shadow: darken($color-aside-background, $amount: 10) 3px 3px 0;
                 font-size: 2em;
                 margin-bottom: 10px;
             }
 
             hr {
                 border: 2px solid $color-light;
+                box-shadow: darken($color-aside-background, $amount: 10) 3px 3px 0;
                 border-radius: 10px;
                 margin-bottom: 20px;
             }
@@ -125,7 +128,9 @@ body {
                     a {
                         background-color: $color-light;
                         color: $color-aside-background;
+                        box-shadow: darken($color-aside-background, $amount: 10) 3px 3px 0;
                         font-size: 1.5em;
+                        font-weight: bold;
                         text-decoration: none;
                         display: flex;
                         align-items: center;
@@ -140,6 +145,7 @@ body {
                             background-color: #fff;
                             border: 3px solid darken($color-aside-background, $amount: 15);
                             color: darken($color-aside-background, $amount: 15);
+                            transform: scale(1.05);
                         }
                     }
                 }   
@@ -155,27 +161,44 @@ body {
             flex-direction: column;
 
             // SECTION HEADER
-            .section-header {
+            .feed-header {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                gap: 30px;
                 font-size: 1.5em;
 
                 h2 { color: $color-dark; }
 
-                a.btn-filtrar {
-                    color: $color-dark;
-                    background-color: $color-light;
-                    padding: 10px 20px;
-                    border: 3px solid;
-                    border-radius: 50px;
-                    text-decoration: none;
-                    font-weight: bold;
-                    transition: all 0.2s ease;
+                .feed-btns {
+                    display: flex;
+                    justify-content: end;
+                    flex-wrap: wrap;
+                    gap: 10px;
 
-                    &:hover {
-                        transform: scale(1.1);
-                        background-color: lighten($color-accent, $amount: 30);
+                    .btn-filter, .btn-order {
+                        @include respond-to(small) { 
+                            width: auto;
+                            p { display: none; }
+                        }
+                        width: 200px;
+                        color: $color-dark;
+                        background-color: $color-light;
+                        padding: 10px 20px;
+                        border: 3px solid;
+                        border-radius: 50px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 10px;
+                        text-decoration: none;
+                        font-weight: bold;
+                        transition: all 0.2s ease;
+    
+                        &:hover {
+                            transform: scale(1.1);
+                            background-color: lighten($color-accent, $amount: 30);
+                        }
                     }
                 }
             }
@@ -187,11 +210,9 @@ body {
             }
 
             // =========================================================
-            // ARTICLE / VOTE
+            // ARTICLE CARD
             // =========================================================
-            article {
-                @include article;
-            }
+            article { @include article; }
         }
     }
 }

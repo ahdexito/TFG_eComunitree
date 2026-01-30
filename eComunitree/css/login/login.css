@@ -45,7 +45,7 @@ html body header h1 {
   color: #d9d9ce;
   text-shadow: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725) 5px 5px 0px;
 }
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   html body header h1 {
     font-size: 3em;
   }
@@ -64,12 +64,12 @@ html body main {
   justify-content: space-between;
   gap: 80px;
 }
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   html body main {
     flex-direction: column;
   }
 }
-@media (min-width: 801px) {
+@media (min-width: 601px) {
   html body main {
     flex-direction: row;
   }

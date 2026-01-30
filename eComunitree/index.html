@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
+    <header class="body-header">
         <h1>eComunitree</h1>
         <div class="usuario">
             <div class="izq">
@@ -20,7 +20,7 @@
     </header>
 
     <main>
-        <aside>
+        <aside class="main-aside">
             <h3>Opciones</h3>
 
             <hr>
@@ -40,53 +40,109 @@
         </aside>
 
         <section class="feed">
-            <div class="section-header">
+            <header class="feed-header">
                 <h2>Todas las publicaciones</h2>
-                <a href="#" class="btn-filtrar">FILTRAR</a>
-            </div>
+                <div class="feed-btns">
+                    <a href="#" class="btn-order">
+                        <i class="fa-solid fa-sort"></i>
+                        <p>ORDENAR</p>
+                    </a>
+                    <a href="#" class="btn-filter">
+                        <i class="fa-solid fa-filter"></i>
+                        <p>FILTRAR</p>
+                    </a>
+                </div>
+            </header>
 
             <hr>
             
-            <article class="vote">
-                <div class="article-header">
-                    <h3>VOTACIÓN</h3>
-                    <div class="article-header-info">
-                        <h4>TODAVÍA NO HAS VOTADO</h4>
-                        <p>Expira en: <u> 3 días</u></p>
+            <article class="vote-card">
+                <header class="article-header">
+                    <h3>
+                        <i class="fa-solid fa-envelope"></i>
+                        VOTACIÓN
+                    </h3>
+                    <aside class="header-info">
+                        <strong>TODAVÍA NO HAS VOTADO<i class="fa-solid fa-triangle-exclamation"></i></strong>
+                        <p>Expira en: <time>3 días</time><i class="fa-solid fa-hourglass-half"></i></p>
+                    </aside>
+                </header>
+
+                <section class="article-body">
+                    <header class="body-title">
+                        <h4>Nuevo color para las paredes del rellano.</h4>
+                    </header>
+
+                    <div class="body-content">
+                        <p>La pintura está empezando a desconcharse por la humedad. Los pintores vendrán la semana que viene.</p>
                     </div>
-                </div>
 
-                <div class="article-body">
-                    <div class="article-content">
-                        <div class="article-subject">
-                            <h4>Nuevo color para las paredes del rellano.</h4>
-                            <p>La pintura está empezando a desconcharse por la humedad. Los pintores vendrán la semana que viene.</p>
-                        </div>
-
+                    <footer class="body-footer">
                         <button>Blanco</button>
                         <button>Beige</button>
                         <button>Azul cielo</button>
-                    </div>
-                </div>
+                    </footer>
+                </section>
             </article>
 
-            <article class="advert">
-                <div class="article-header">
-                    <h3>ANUNCIO</h3>
-                    <div class="article-header-info">
-                        <h4>Publicado el: 29/01/2026</h4>
-                        <p>A las: 20:15H</p>
-                    </div>
-                </div>
+            <article class="advert-card">
+                <header class="article-header">
+                    <h3>
+                        <i class="fa-solid fa-bullhorn"></i>
+                        ANUNCIO
+                    </h3>
+                    <aside class="header-info">
+                        <strong>Publicado el: 29/01/2026<i class="fa-solid fa-calendar-days"></i></strong>
+                        <p>A las: 20:15h<i class="fa-regular fa-clock"></i></p>
+                    </aside>
+                </header>    
                 
-                <div class="article-body">
-                    <div class="article-content">
-                        <div class="article-subject">
-                            <h4>Corte de luz.</h4>
-                            <p>El próximo LUNES a las 9:45h se cortará el suministro de luz por labores de mantenimiento. El corte durará hasta las 13:00h aproximadamente.</p>
-                        </div>
+                <section class="article-body">
+                    <header class="body-title">
+                        <h4>Corte de luz.</h4>
+                    </header>
+
+                    <div class="body-content">
+                        <p>
+                            El próximo LUNES a las 9:45h se cortará el suministro 
+                            de luz por labores de mantenimiento. El corte durará 
+                            hasta las 13:00h aproximadamente.
+                        </p>
                     </div>
-                </div>
+                </section>
+            </article>
+
+            
+            <article class="incidence-card">
+                <header class="article-header">
+                    <h3>
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        INCIDENCIA
+                    </h3>
+                    <aside class="header-info">
+                        <strong>Publicado el: 27/01/2026<i class="fa-solid fa-calendar-days"></i></strong>
+                        <p>A las: 11:27h<i class="fa-regular fa-clock"></i></p>
+                    </aside>
+                </header>
+
+                <section class="article-body">
+                    <header class="body-title">
+                        <h4>Desperfecto estético.</h4>
+                        <p>Pintura de las paredes desgastada.</p>
+                    </header>
+
+                    <div class="body-content">
+                        <img src="img_incidencias/pintura-desconchada.jpg" alt="">
+                        <p>
+                            Hola a todos. Me gustaría llamar la atención 
+                            sobre el pésimo estado de las paredes del rellano; 
+                            la pintura está totalmente desgastada y da una imagen de 
+                            abandono lamentable. Por favor, solicito que se incluya su 
+                            repintado urgente en la próxima junta para mantener la 
+                            finca en condiciones dignas.
+                        </p>
+                    </div>
+                </section>
             </article>
         </section>
     </main>
