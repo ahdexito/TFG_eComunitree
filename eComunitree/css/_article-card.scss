@@ -6,6 +6,27 @@
     @else if $art-type == incidence { @content; }
 }
 
+@mixin button {
+    button {
+        background-color: $color-light;
+        width: 300px;
+        padding: 30px;
+        border: 3px solid $color-light;
+        border-radius: 50px;
+        color: $color-dark;
+        font-size: 1.5em;
+        font-weight: bold;
+        transition: all 0.1s linear;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $color-accent;
+            color: $color-light;
+            transform: scale(0.95);
+        }
+    }
+}
+
 @mixin article {
     background-color: $color-primary;
     padding: 20px;
@@ -15,7 +36,9 @@
     gap: 20px;
     margin-bottom: 50px;
 
+    // =========================================================
     // ARTICLE HEADER
+    // =========================================================
     header.article-header {
         @include respond-to(small_medium) {
             flex-direction: column;
@@ -24,7 +47,6 @@
         }
         display: flex;
         align-items: center;
-        justify-content: space-between;
         gap: 30px;
 
         h3 {
@@ -39,9 +61,15 @@
             display: flex;
             gap: 10px;
             align-items: center;
+            font-style: italic;
         }
 
-        aside.header-info {
+        // =========================================================
+        // ARTICLE ASIDE
+        // =========================================================
+        aside.article-header-info {
+            flex: 0;
+            width: auto;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
@@ -65,7 +93,9 @@
         }
     }
 
+    // =========================================================
     // ARTICLE BODY
+    // =========================================================
     section.article-body {
         background-color: darken($color-primary, $amount: 10);
         border-radius: 30px;
@@ -76,34 +106,70 @@
         gap: 30px;
 
         // ARTICLE BODY TITLE
-        header.body-title {
+        header.article-body-title {
+            display: flex;
+            flex-direction: column;
+
             h4 { 
                 color: $color-light;
                 width: 100%;
                 font-size: 2em; 
             }
+
             p { font-size: 1.5em ; }
+
+            .user-info {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                background-color: $color-dark;
+                padding: 10px;
+                border-radius: 50px;
+                margin-bottom: 30px;
+
+                img {
+                    width: 80px;
+                    border-radius: 50px;
+                }
+
+                p { font-size: 2em; }
+            }
         }
 
         // ARTICLE BODY CONTENT
-        div.body-content {
-            display: flex;
-            gap: 30px;
-
-            p { 
-                font-size: 1.5em; 
-                color: $color-accent-light;
-            }
+        div.article-body-content {
+            display: block;
+            overflow: hidden;
+            background-color: $color-light;
+            border-radius: 30px;
 
             img {
+                @include respond-to(small) {
+                    float: none;
+                    display: block;
+                    margin: 30px auto 30px;
+                }
+                float: left;
                 width: 200px;
                 height: 200px;
                 aspect-ratio: 1 / 1;
                 object-fit: cover;
+                border: 5px solid $color-dark;
+                border-radius: 20px;
+                margin: 30px;
+            }
+
+            p { 
+                font-size: 1.5em; 
+                font-weight: bold;
+                color: $color-dark;
+                margin: 30px;
+                i { margin-right: 10px; }
             }
         }
 
-        footer.body-footer {
+        // ARTICLE BODY FOOTER
+        .article-body-footer {
             margin-top: 30px;
             display: flex;
             flex-wrap: wrap;
@@ -111,24 +177,33 @@
             justify-content: center;
             gap: 30px;
 
-            button {
-                background-color: $color-light;
-                width: 300px;
-                padding: 30px;
-                border: 3px solid $color-light;
-                border-radius: 50px;
-                color: $color-dark;
-                font-size: 1.5em;
-                font-weight: bold;
-                transition: all 0.1s linear;
+            @include button;
+        }
+    }
 
-                &:hover {
-                    cursor: pointer;
-                    background-color: $color-accent;
-                    color: $color-light;
-                    transform: scale(0.95);
-                }
-            }
+    // =========================================================
+    // ARTICLE FOOTER
+    // =========================================================
+    footer.article-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        color: $color-light;
+        font-size: 1.5em;
+        background-color: $color-dark;
+        padding: 20px;
+        border-radius: 40px;
+        
+        p { color: $color-accent-light }
+
+        @include button;
+        button {
+            padding: 10px;
+            width: 100%;
+            max-width: 600px;
+            font-size: 1.1em;
+            margin-top: 30px;
         }
     }
 }

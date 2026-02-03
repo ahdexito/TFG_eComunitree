@@ -108,6 +108,31 @@ html body main form .recuerdame .check {
 html body main form .recuerdame label {
   color: #d9d9ce;
 }
+html body main form div.register-footer {
+  display: flex;
+  gap: 20px;
+}
+html body main form div.register-footer a {
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
+  color: #d9d9ce;
+  transition: all 0.2s ease;
+  flex: 0;
+  background-color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
+  padding: 15px 15px;
+}
+html body main form div.register-footer a:hover {
+  background-color: #d9d9ce;
+  color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
+  box-shadow: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725) 4px 5px;
+  transform: scale(0.98);
+}
 html body main form button {
   width: 100%;
   padding: 15px 20px;
@@ -118,9 +143,13 @@ html body main form button {
   cursor: pointer;
   background-color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
   color: #d9d9ce;
+  transition: all 0.2s ease;
 }
 html body main form button:hover {
-  background-color: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725);
+  background-color: #d9d9ce;
+  color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
+  box-shadow: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725) 4px 5px;
+  transform: scale(0.98);
 }
 html body main hr {
   border: 2px solid rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725);
@@ -153,7 +182,11 @@ html body main .registrarse button {
   cursor: pointer;
   background-color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
   color: #d9d9ce;
+  transition: all 0.2s ease;
 }
 html body main .registrarse button:hover {
-  background-color: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725);
+  background-color: #d9d9ce;
+  color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
+  box-shadow: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725) 4px 5px;
+  transform: scale(0.98);
 }/*# sourceMappingURL=login.css.map */

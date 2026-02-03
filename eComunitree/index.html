@@ -9,9 +9,12 @@
 </head>
 <body>
     <header class="body-header">
-        <h1>eComunitree</h1>
-        <div class="usuario">
-            <div class="izq">
+        <a href="index.html" class="btn-index">
+            <img src="img/logo-transparencia.png" alt="logotipo">
+            <h1>eComunitree</h1>
+        </a>
+        <div class="user">
+            <div class="user-name">
                 <p>Bienvenido,</p>
                 <p>Ángel</p>
             </div>
@@ -34,7 +37,7 @@
                     <i class="fa-solid fa-calendar-days"></i>Calendario</a></li>
                 <li><a href="#">
                     <i class="fa-regular fa-file-lines"></i>Documentación</a></li>
-                <li><a href="#">
+                <li><a href="panel_control.html">
                     <i class="fa-solid fa-gear"></i>Panel de control</a></li>
             </ul>
         </aside>
@@ -62,27 +65,41 @@
                         <i class="fa-solid fa-envelope"></i>
                         VOTACIÓN
                     </h3>
-                    <aside class="header-info">
-                        <strong>TODAVÍA NO HAS VOTADO<i class="fa-solid fa-triangle-exclamation"></i></strong>
-                        <p>Expira en: <time>3 días</time><i class="fa-solid fa-hourglass-half"></i></p>
+                    <aside class="article-header-info">
+                        <strong>31/01/2026<i class="fa-solid fa-calendar-days"></i></strong>
+                        <p>7:27h<i class="fa-regular fa-clock"></i></p>
                     </aside>
                 </header>
 
                 <section class="article-body">
-                    <header class="body-title">
+                    <header class="article-body-title">
+                        <div class="user-info">
+                            <img src="img_user/enrique.jpg" alt="">
+                            <p>Enrique</p>
+                        </div>
                         <h4>Nuevo color para las paredes del rellano.</h4>
                     </header>
 
-                    <div class="body-content">
-                        <p>La pintura está empezando a desconcharse por la humedad. Los pintores vendrán la semana que viene.</p>
+                    <div class="article-body-content">
+                        <p>
+                            <i class="fa-solid fa-comments"></i>
+                            La pintura está empezando a desconcharse por la humedad. 
+                            Los pintores vendrán la semana que viene.
+                        </p>
                     </div>
 
-                    <footer class="body-footer">
+                    <div class="article-body-footer">
                         <button>Blanco</button>
                         <button>Beige</button>
                         <button>Azul cielo</button>
-                    </footer>
+                    </div>
                 </section>
+
+                <footer class="article-footer">
+                    <strong>TODAVÍA NO HAS VOTADO<i class="fa-solid fa-triangle-exclamation"></i></strong>
+                    <p>Expira en: <time>3 días</time><i class="fa-solid fa-hourglass-half"></i></p>
+                    <button>CONFIRMAR</button>
+                </footer>
             </article>
 
             <article class="advert-card">
@@ -91,19 +108,24 @@
                         <i class="fa-solid fa-bullhorn"></i>
                         ANUNCIO
                     </h3>
-                    <aside class="header-info">
-                        <strong>Publicado el: 29/01/2026<i class="fa-solid fa-calendar-days"></i></strong>
-                        <p>A las: 20:15h<i class="fa-regular fa-clock"></i></p>
+                    <aside class="article-header-info">
+                        <strong>29/01/2026<i class="fa-solid fa-calendar-days"></i></strong>
+                        <p>20:15h<i class="fa-regular fa-clock"></i></p>
                     </aside>
                 </header>    
                 
                 <section class="article-body">
-                    <header class="body-title">
+                    <header class="article-body-title">
+                        <div class="user-info">
+                            <img src="img_user/antonio.jpg" alt="">
+                            <p>Antonio</p>
+                        </div>
                         <h4>Corte de luz.</h4>
                     </header>
 
-                    <div class="body-content">
+                    <div class="article-body-content">
                         <p>
+                            <i class="fa-solid fa-comments"></i>
                             El próximo LUNES a las 9:45h se cortará el suministro 
                             de luz por labores de mantenimiento. El corte durará 
                             hasta las 13:00h aproximadamente.
@@ -119,25 +141,30 @@
                         <i class="fa-solid fa-triangle-exclamation"></i>
                         INCIDENCIA
                     </h3>
-                    <aside class="header-info">
-                        <strong>Publicado el: 27/01/2026<i class="fa-solid fa-calendar-days"></i></strong>
-                        <p>A las: 11:27h<i class="fa-regular fa-clock"></i></p>
+                    <aside class="article-header-info">
+                        <strong>27/01/2026<i class="fa-solid fa-calendar-days"></i></strong>
+                        <p>11:27h<i class="fa-regular fa-clock"></i></p>
                     </aside>
                 </header>
 
                 <section class="article-body">
-                    <header class="body-title">
+                    <header class="article-body-title">
+                        <div class="user-info">
+                            <img src="img_user/fina.jpg" alt="">
+                            <p>Fina</p>
+                        </div>
                         <h4>Desperfecto estético.</h4>
                         <p>Pintura de las paredes desgastada.</p>
                     </header>
 
-                    <div class="body-content">
+                    <div class="article-body-content">
                         <img src="img_incidencias/pintura-desconchada.jpg" alt="">
                         <p>
+                            <i class="fa-solid fa-comments"></i>
                             Hola a todos. Me gustaría llamar la atención 
                             sobre el pésimo estado de las paredes del rellano; 
                             la pintura está totalmente desgastada y da una imagen de 
-                            abandono lamentable. Por favor, solicito que se incluya su 
+                            abandono lamentable. Solicito que se incluya su 
                             repintado urgente en la próxima junta para mantener la 
                             finca en condiciones dignas.
                         </p>

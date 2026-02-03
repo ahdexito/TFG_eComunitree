@@ -45,26 +45,42 @@ body {
         z-index: 10;
         background-color: $color-accent;
         border-radius: 100px;
-        padding: 20px 40px;
+        padding: 20px 20px;
         padding-right: 10px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        text-shadow: darken($color-primary, 10%) 3px 3px 0px;
+        text-shadow: darken($color-primary, 10%) 3px 3px 0;
+        
+        a.btn-index {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+
+            &:hover { transform: scale(1.05); }
+
+            img {
+                @include respond-to(small) { display: none; }
     
-        h1 {
-            color: $color-light;
-            font-size: 3em;
+                width: 60px;
+                margin-right: 10px;
+            }
+    
+            h1 {
+                color: $color-light;
+                font-size: 3em;
+            }
         }
     
-        .usuario {
+        .user {
             display: flex;
             align-items: center;
             gap: 20px;
             color: $color-light;
     
             p {
-                @include respond-to(small) { display: none; }
+                @include respond-to(small_medium) { display: none; }
 
                 text-align: end;
                 font-size: 1.3em;
@@ -78,7 +94,10 @@ body {
 
                 &:hover { transform: scale(1.2); }
 
-                i { font-size: 3em; }
+                i { 
+                    color: $color-light;
+                    font-size: 3em; 
+                }
             }
         }
     }
@@ -132,6 +151,7 @@ body {
                         font-size: 1.5em;
                         font-weight: bold;
                         text-decoration: none;
+                        text-wrap: nowrap;
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
@@ -179,6 +199,7 @@ body {
                     .btn-filter, .btn-order {
                         @include respond-to(small) { 
                             width: auto;
+                            padding: 12px 9px;
                             p { display: none; }
                         }
                         width: 200px;

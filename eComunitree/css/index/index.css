@@ -31,42 +31,61 @@ body header.body-header {
   z-index: 10;
   background-color: rgba(109, 131, 58, 0.8784313725);
   border-radius: 100px;
-  padding: 20px 40px;
+  padding: 20px 20px;
   padding-right: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  text-shadow: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725) 3px 3px 0px;
+  text-shadow: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725) 3px 3px 0;
 }
-body header.body-header h1 {
+body header.body-header a.btn-index {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+body header.body-header a.btn-index:hover {
+  transform: scale(1.05);
+}
+body header.body-header a.btn-index img {
+  width: 60px;
+  margin-right: 10px;
+}
+@media (max-width: 600px) {
+  body header.body-header a.btn-index img {
+    display: none;
+  }
+}
+body header.body-header a.btn-index h1 {
   color: #d9d9ce;
   font-size: 3em;
 }
-body header.body-header .usuario {
+body header.body-header .user {
   display: flex;
   align-items: center;
   gap: 20px;
   color: #d9d9ce;
 }
-body header.body-header .usuario p {
+body header.body-header .user p {
   text-align: end;
   font-size: 1.3em;
   text-shadow: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725) 2px 2px 0px;
   font-weight: bold;
 }
-@media (max-width: 600px) {
-  body header.body-header .usuario p {
+@media (max-width: 950px) {
+  body header.body-header .user p {
     display: none;
   }
 }
-body header.body-header .usuario a {
+body header.body-header .user a {
   text-decoration: none;
   transition: all 0.1s ease;
 }
-body header.body-header .usuario a:hover {
+body header.body-header .user a:hover {
   transform: scale(1.2);
 }
-body header.body-header .usuario a i {
+body header.body-header .user a i {
+  color: #d9d9ce;
   font-size: 3em;
 }
 body main {
@@ -115,6 +134,7 @@ body main aside.main-aside ul li a {
   font-size: 1.5em;
   font-weight: bold;
   text-decoration: none;
+  text-wrap: nowrap;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -169,6 +189,7 @@ body main section.feed .feed-header .feed-btns .btn-filter, body main section.fe
 @media (max-width: 600px) {
   body main section.feed .feed-header .feed-btns .btn-filter, body main section.feed .feed-header .feed-btns .btn-order {
     width: auto;
+    padding: 12px 9px;
   }
   body main section.feed .feed-header .feed-btns .btn-filter p, body main section.feed .feed-header .feed-btns .btn-order p {
     display: none;
@@ -195,7 +216,6 @@ body main section.feed article {
 body main section.feed article header.article-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 30px;
 }
 @media (max-width: 950px) {
@@ -217,8 +237,11 @@ body main section.feed article header.article-header h3 {
   display: flex;
   gap: 10px;
   align-items: center;
+  font-style: italic;
 }
-body main section.feed article header.article-header aside.header-info {
+body main section.feed article header.article-header aside.article-header-info {
+  flex: 0;
+  width: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -226,13 +249,13 @@ body main section.feed article header.article-header aside.header-info {
   font-size: 1.4em;
   font-weight: bold;
 }
-body main section.feed article header.article-header aside.header-info strong {
+body main section.feed article header.article-header aside.article-header-info strong {
   color: #d9d9ce;
   display: flex;
   align-items: center;
   gap: 10px;
 }
-body main section.feed article header.article-header aside.header-info p {
+body main section.feed article header.article-header aside.article-header-info p {
   color: #afce8d;
   display: flex;
   align-items: center;
@@ -247,30 +270,68 @@ body main section.feed article section.article-body {
   flex-direction: column;
   gap: 30px;
 }
-body main section.feed article section.article-body header.body-title h4 {
+body main section.feed article section.article-body header.article-body-title {
+  display: flex;
+  flex-direction: column;
+}
+body main section.feed article section.article-body header.article-body-title h4 {
   color: #d9d9ce;
   width: 100%;
   font-size: 2em;
 }
-body main section.feed article section.article-body header.body-title p {
+body main section.feed article section.article-body header.article-body-title p {
   font-size: 1.5em;
 }
-body main section.feed article section.article-body div.body-content {
+body main section.feed article section.article-body header.article-body-title .user-info {
   display: flex;
-  gap: 30px;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(21, 32, 21, 0.8784313725);
+  padding: 10px;
+  border-radius: 50px;
+  margin-bottom: 30px;
 }
-body main section.feed article section.article-body div.body-content p {
-  font-size: 1.5em;
-  color: #afce8d;
+body main section.feed article section.article-body header.article-body-title .user-info img {
+  width: 80px;
+  border-radius: 50px;
 }
-body main section.feed article section.article-body div.body-content img {
+body main section.feed article section.article-body header.article-body-title .user-info p {
+  font-size: 2em;
+}
+body main section.feed article section.article-body div.article-body-content {
+  display: block;
+  overflow: hidden;
+  background-color: #d9d9ce;
+  border-radius: 30px;
+}
+body main section.feed article section.article-body div.article-body-content img {
+  float: left;
   width: 200px;
   height: 200px;
   aspect-ratio: 1/1;
   -o-object-fit: cover;
      object-fit: cover;
+  border: 5px solid rgba(21, 32, 21, 0.8784313725);
+  border-radius: 20px;
+  margin: 30px;
 }
-body main section.feed article section.article-body footer.body-footer {
+@media (max-width: 600px) {
+  body main section.feed article section.article-body div.article-body-content img {
+    float: none;
+    display: block;
+    margin: 30px auto 30px;
+  }
+}
+body main section.feed article section.article-body div.article-body-content p {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: rgba(21, 32, 21, 0.8784313725);
+  margin: 30px;
+}
+body main section.feed article section.article-body div.article-body-content p i {
+  margin-right: 10px;
+}
+body main section.feed article section.article-body .article-body-footer {
   margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
@@ -278,7 +339,7 @@ body main section.feed article section.article-body footer.body-footer {
   justify-content: center;
   gap: 30px;
 }
-body main section.feed article section.article-body footer.body-footer button {
+body main section.feed article section.article-body .article-body-footer button {
   background-color: #d9d9ce;
   width: 300px;
   padding: 30px;
@@ -289,9 +350,47 @@ body main section.feed article section.article-body footer.body-footer button {
   font-weight: bold;
   transition: all 0.1s linear;
 }
-body main section.feed article section.article-body footer.body-footer button:hover {
+body main section.feed article section.article-body .article-body-footer button:hover {
   cursor: pointer;
   background-color: rgba(109, 131, 58, 0.8784313725);
   color: #d9d9ce;
   transform: scale(0.95);
+}
+body main section.feed article footer.article-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  color: #d9d9ce;
+  font-size: 1.5em;
+  background-color: rgba(21, 32, 21, 0.8784313725);
+  padding: 20px;
+  border-radius: 40px;
+}
+body main section.feed article footer.article-footer p {
+  color: #afce8d;
+}
+body main section.feed article footer.article-footer button {
+  background-color: #d9d9ce;
+  width: 300px;
+  padding: 30px;
+  border: 3px solid #d9d9ce;
+  border-radius: 50px;
+  color: rgba(21, 32, 21, 0.8784313725);
+  font-size: 1.5em;
+  font-weight: bold;
+  transition: all 0.1s linear;
+}
+body main section.feed article footer.article-footer button:hover {
+  cursor: pointer;
+  background-color: rgba(109, 131, 58, 0.8784313725);
+  color: #d9d9ce;
+  transform: scale(0.95);
+}
+body main section.feed article footer.article-footer button {
+  padding: 10px;
+  width: 100%;
+  max-width: 600px;
+  font-size: 1.1em;
+  margin-top: 30px;
 }/*# sourceMappingURL=index.css.map */

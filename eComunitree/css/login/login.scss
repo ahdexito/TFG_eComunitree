@@ -17,8 +17,12 @@
     cursor: pointer;
     background-color: darken($color-primary, $amount: 20);
     color: $color-light;
+    transition: all 0.2s ease;
     &:hover {
-        background-color: darken($color-primary, $amount: 10);
+        background-color: $color-light;
+        color: darken($color-primary, $amount: 20);
+        box-shadow: darken($color-primary, $amount: 20) 4px 5px;
+        transform: scale(0.98);
     }
 }
 
@@ -111,7 +115,7 @@ html {
             
             @include respond-to(small) { flex-direction: column; }
             @include respond-to(medium_large) { flex-direction: row; }
-        
+
             h3 {
                 color: $color-light;
                 text-shadow: darken($color-primary, $amount: 20) 3px 3px 0;
@@ -141,9 +145,20 @@ html {
         
                     label { color: $color-light; }
                 }
-        
-                button { @include button; }
                 
+                div.register-footer {
+                    display: flex;
+                    gap: 20px;
+
+                    a {
+                        @include button;
+                        flex: 0;
+                        background-color: darken($color-primary, $amount: 20);
+                        padding: 15px 15px;
+                    }
+                }
+
+                button { @include button; }
             }
         
             hr {

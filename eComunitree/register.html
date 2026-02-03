@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login/login.css">
-    <title>eComunitree | Login</title>
+    <title>eComunitree | Registro</title>
+    <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -16,25 +17,21 @@
 
     <main>
         <form action="#" method="POST">
-            <h3>¡Hola, vecin@!</h3>
+            <h3>Introduce tus datos</h3>
             <hr>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+            <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+            <input type="text" name="vivienda" id="vivienda" placeholder="Vivienda">
             <input type="email" name="email" id="email" placeholder="Correo electrónico">
             <input type="password" name="password" id="password" placeholder="Contraseña">
-            <div class="recuerdame">
-                <input type="checkbox" name="check" class="check">
-                <label for="check">recuérdame</label>
+            <hr>
+            <div class="register-footer">
+                <a href="login.html">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <button type="submit">Registrarme</button>
             </div>
-            <hr>
-            <button type="submit">Iniciar sesión</button>
         </form>
-        
-        <section class="registrarse">
-            <h3>¿Eres nuev@?</h3>
-            <hr>
-            <p>Comunícate, vota, reporta incidencias y mantente al día desde un único lugar.</p>
-            <hr>
-            <a href="register.html"><button>Registrarse</button></a>
-        </section>
     </main>
 </body>
 </html>
