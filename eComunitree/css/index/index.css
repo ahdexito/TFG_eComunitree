@@ -224,51 +224,53 @@ body main section.feed article {
   margin-bottom: 50px;
 }
 body main section.feed article header.article-header {
+  border-radius: 55px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 30px;
 }
-@media (max-width: 950px) {
-  body main section.feed article header.article-header {
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-  }
-}
-body main section.feed article header.article-header h3 {
-  flex: 1;
-  width: 100%;
-  background-color: rgba(21, 32, 21, 0.8784313725);
-  padding: 20px;
+body main section.feed article header.article-header .article-header-user {
   color: #d9d9ce;
   font-size: 1.5em;
   border-radius: 50px;
   display: flex;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
-  font-style: italic;
 }
-body main section.feed article header.article-header aside.article-header-info {
-  flex: 0;
-  width: auto;
+body main section.feed article header.article-header .article-header-user img {
+  width: 90px;
+  border: 5px solid rgba(21, 32, 21, 0.8784313725);
+  border-radius: 100px;
+}
+body main section.feed article header.article-header .article-header-user .user-info {
+  display: flex;
+  flex-direction: column;
+  color: rgba(21, 32, 21, 0.8784313725);
+}
+body main section.feed article header.article-header .article-header-user .user-info strong {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #d9d9ce;
+}
+body main section.feed article header.article-header .article-header-date {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   text-align: end;
   font-size: 1.4em;
-  font-weight: bold;
+  margin-right: 10px;
 }
-body main section.feed article header.article-header aside.article-header-info strong {
+body main section.feed article header.article-header .article-header-date strong {
   color: #d9d9ce;
-  display: flex;
-  align-items: center;
   gap: 10px;
 }
-body main section.feed article header.article-header aside.article-header-info p {
-  color: #afce8d;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+body main section.feed article header.article-header .article-header-date p {
+  font-weight: bold;
+  color: rgba(21, 32, 21, 0.8784313725);
+}
+body main section.feed article header.article-header .article-header-date i {
+  margin-left: 10px;
 }
 body main section.feed article section.article-body {
   background-color: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725);
@@ -282,36 +284,27 @@ body main section.feed article section.article-body {
 body main section.feed article section.article-body header.article-body-title {
   display: flex;
   flex-direction: column;
+  background-color: rgba(21, 32, 21, 0.8784313725);
+  padding: 20px;
+  border-radius: 20px;
+  color: #afce8d;
+}
+body main section.feed article section.article-body header.article-body-title h3 {
+  font-size: 2.2em;
+  color: #d9d9ce;
 }
 body main section.feed article section.article-body header.article-body-title h4 {
-  color: #d9d9ce;
   width: 100%;
   font-size: 2em;
+  color: rgba(138.4126984127, 166.3492063492, 73.6507936508, 0.8784313725);
 }
 body main section.feed article section.article-body header.article-body-title p {
   font-size: 1.5em;
 }
-body main section.feed article section.article-body header.article-body-title .user-info {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background-color: rgba(109, 131, 58, 0.8784313725);
-  padding: 10px;
-  border-radius: 50px;
-  margin-bottom: 30px;
-}
-body main section.feed article section.article-body header.article-body-title .user-info img {
-  width: 80px;
-  border: 5px solid rgba(21, 32, 21, 0.8784313725);
-  border-radius: 50px;
-}
-body main section.feed article section.article-body header.article-body-title .user-info p {
-  font-size: 2em;
-}
 body main section.feed article section.article-body div.article-body-content {
   display: block;
   overflow: hidden;
-  background-color: rgb(205.8620689655, 205.8620689655, 191.6379310345);
+  background-color: #d9d9ce;
   border-radius: 30px;
 }
 body main section.feed article section.article-body div.article-body-content img {

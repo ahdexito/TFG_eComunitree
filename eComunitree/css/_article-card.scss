@@ -40,55 +40,64 @@
     // ARTICLE HEADER
     // =========================================================
     header.article-header {
-        @include respond-to(small_medium) {
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 10px;
-        }
+        border-radius: 55px;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         gap: 30px;
 
-        h3 {
-            flex: 1;
-            width: 100%;
-            background-color: $color-dark;
-            padding: 20px;
+        // =========================================================
+        // ARTICLE HEADER USER
+        // =========================================================
+        .article-header-user {
             color: $color-light;
             font-size: 1.5em;
             border-radius: 50px;
             display: flex;
-            gap: 10px;
+            gap: 20px;
             align-items: center;
-            font-style: italic;
+
+            img {
+                width: 90px;
+                border: 5px solid $color-dark;
+                border-radius: 100px;
+            }
+
+            .user-info {
+                display: flex;
+                flex-direction: column;
+                color: $color-dark;
+
+                strong {
+                    font-size: 1.2em;
+                    font-weight: bold;
+                    color: $color-light
+                }
+            }
         }
 
         // =========================================================
-        // ARTICLE ASIDE
+        // ARTICLE HEADER DATE
         // =========================================================
-        aside.article-header-info {
-            flex: 0;
-            width: auto;
+        .article-header-date {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
             text-align: end;
             font-size: 1.4em;
-            font-weight: bold;
+            margin-right: 10px;
 
             strong { 
                 color: $color-light; 
-                display: flex;
-                align-items: center;
                 gap: 10px;
             }
 
             p { 
-                color: $color-accent-light;
-                display: flex;
-                align-items: center;
-                gap: 10px;
+                font-weight: bold;
+                color: $color-dark;
             }
+
+            i { margin-left: 10px; }
         }
     }
 
@@ -108,39 +117,30 @@
         header.article-body-title {
             display: flex;
             flex-direction: column;
+            background-color: $color-dark;
+            padding: 20px;
+            border-radius: 20px;
+            color: $color-accent-light;
+
+            h3 { 
+                font-size: 2.2em; 
+                color: $color-light;
+            }
 
             h4 { 
-                color: $color-light;
                 width: 100%;
                 font-size: 2em; 
+                color: lighten($color-accent, $amount: 10);
             }
 
             p { font-size: 1.5em ; }
-
-            .user-info {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-                background-color: $color-accent;
-                padding: 10px;
-                border-radius: 50px;
-                margin-bottom: 30px;
-
-                img {
-                    width: 80px;
-                    border: 5px solid $color-dark;
-                    border-radius: 50px;
-                }
-
-                p { font-size: 2em; }
-            }
         }
 
         // ARTICLE BODY CONTENT
         div.article-body-content {
             display: block;
             overflow: hidden;
-            background-color: darken($color-light, $amount: 5);
+            background-color: $color-light;
             border-radius: 30px;
 
             img {
