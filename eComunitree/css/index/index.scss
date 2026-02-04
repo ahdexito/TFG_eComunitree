@@ -21,7 +21,7 @@ html {
     background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 100vh;
-    padding: 50px 20px;
+    padding: 20px;
 }
 
 // =========================================================
@@ -30,6 +30,7 @@ html {
 body {
     background-color: $color-light-transparent;
     border-radius: 20px;
+    height: 95vh;
     padding: 20px;
     margin: 0 auto;
     display: flex;
@@ -40,9 +41,6 @@ body {
     // HEADER
     // =========================================================
     header.body-header {
-        position: sticky;
-        top: 20px;
-        z-index: 10;
         background-color: $color-accent;
         border-radius: 100px;
         padding: 20px 20px;
@@ -98,6 +96,13 @@ body {
                     color: $color-light;
                     font-size: 3em; 
                 }
+
+                img {
+                    margin-right: 10px;
+                    width: 90px;
+                    border: 5px solid $color-dark;
+                    border-radius: 100px;
+                }
             }
         }
     }
@@ -115,8 +120,6 @@ body {
         // =========================================================
         aside.main-aside {  
             @include respond-to(small_medium) { display: none; }
-            position: sticky;  
-            top: 150px;       
             background-color: $color-aside-background;
             border-radius: 20px;
             padding: 30px;
@@ -179,6 +182,19 @@ body {
             flex: 1;
             display: flex;
             flex-direction: column;
+            width: 100%;
+            height: 690px;
+            overflow-y: auto;
+            border-radius: 10px;
+            padding-right: 20px;
+            padding-top: 50px;
+            mask-image: linear-gradient(
+                to bottom,
+                transparent 0%,
+                black 5%,
+                black 95%,
+                transparent 100%
+            );
 
             // SECTION HEADER
             .feed-header {
@@ -234,6 +250,24 @@ body {
             // ARTICLE CARD
             // =========================================================
             article { @include article; }
+        }
+
+        .btn-up {
+            margin: auto;
+            margin-bottom: 80px;
+            padding: 12px 10px;
+            border: 5px solid $color-accent;
+            border-radius: 50px;
+            background-color: $color-dark;
+            color: $color-light;
+            font-size: 2em;
+            transition: all 0.2s ease;
+
+            &:hover {
+                transform: scale(1.2);
+                color: $color-dark;
+                background-color: $color-light;
+            }
         }
     }
 }

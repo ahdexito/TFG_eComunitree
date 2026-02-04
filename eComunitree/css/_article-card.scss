@@ -8,20 +8,20 @@
 
 @mixin button {
     button {
-        background-color: $color-light;
+        background-color: $color-accent;
         width: 300px;
         padding: 30px;
         border: 3px solid $color-light;
         border-radius: 50px;
-        color: $color-dark;
+        color: $color-light;
         font-size: 1.5em;
         font-weight: bold;
         transition: all 0.1s linear;
 
         &:hover {
             cursor: pointer;
-            background-color: $color-accent;
-            color: $color-light;
+            background-color: $color-light;
+            color: $color-dark;
             transform: scale(0.95);
         }
     }
@@ -52,11 +52,10 @@
         h3 {
             flex: 1;
             width: 100%;
-            background-color: $color-accent;
-            padding: 10px 20px;
+            background-color: $color-dark;
+            padding: 20px;
             color: $color-light;
             font-size: 1.5em;
-            border: 3px solid $color-light;
             border-radius: 50px;
             display: flex;
             gap: 10px;
@@ -122,13 +121,14 @@
                 display: flex;
                 align-items: center;
                 gap: 20px;
-                background-color: $color-dark;
+                background-color: $color-accent;
                 padding: 10px;
                 border-radius: 50px;
                 margin-bottom: 30px;
 
                 img {
                     width: 80px;
+                    border: 5px solid $color-dark;
                     border-radius: 50px;
                 }
 
@@ -140,7 +140,7 @@
         div.article-body-content {
             display: block;
             overflow: hidden;
-            background-color: $color-light;
+            background-color: darken($color-light, $amount: 5);
             border-radius: 30px;
 
             img {

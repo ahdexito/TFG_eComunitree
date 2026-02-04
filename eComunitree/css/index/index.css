@@ -13,12 +13,13 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
-  padding: 50px 20px;
+  padding: 20px;
 }
 
 body {
   background-color: rgba(255, 255, 255, 0.3843137255);
   border-radius: 20px;
+  height: 95vh;
   padding: 20px;
   margin: 0 auto;
   display: flex;
@@ -26,9 +27,6 @@ body {
   gap: 30px;
 }
 body header.body-header {
-  position: sticky;
-  top: 20px;
-  z-index: 10;
   background-color: rgba(109, 131, 58, 0.8784313725);
   border-radius: 100px;
   padding: 20px 20px;
@@ -88,14 +86,18 @@ body header.body-header .user a i {
   color: #d9d9ce;
   font-size: 3em;
 }
+body header.body-header .user a img {
+  margin-right: 10px;
+  width: 90px;
+  border: 5px solid rgba(21, 32, 21, 0.8784313725);
+  border-radius: 100px;
+}
 body main {
   display: flex;
   gap: 30px;
   align-items: flex-start;
 }
 body main aside.main-aside {
-  position: sticky;
-  top: 150px;
   background-color: rgba(116, 91, 44, 0.8784313725);
   border-radius: 20px;
   padding: 30px;
@@ -154,6 +156,14 @@ body main section.feed {
   flex: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 690px;
+  overflow-y: auto;
+  border-radius: 10px;
+  padding-right: 20px;
+  padding-top: 50px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 body main section.feed .feed-header {
   display: flex;
@@ -228,11 +238,10 @@ body main section.feed article header.article-header {
 body main section.feed article header.article-header h3 {
   flex: 1;
   width: 100%;
-  background-color: rgba(109, 131, 58, 0.8784313725);
-  padding: 10px 20px;
+  background-color: rgba(21, 32, 21, 0.8784313725);
+  padding: 20px;
   color: #d9d9ce;
   font-size: 1.5em;
-  border: 3px solid #d9d9ce;
   border-radius: 50px;
   display: flex;
   gap: 10px;
@@ -286,13 +295,14 @@ body main section.feed article section.article-body header.article-body-title .u
   display: flex;
   align-items: center;
   gap: 20px;
-  background-color: rgba(21, 32, 21, 0.8784313725);
+  background-color: rgba(109, 131, 58, 0.8784313725);
   padding: 10px;
   border-radius: 50px;
   margin-bottom: 30px;
 }
 body main section.feed article section.article-body header.article-body-title .user-info img {
   width: 80px;
+  border: 5px solid rgba(21, 32, 21, 0.8784313725);
   border-radius: 50px;
 }
 body main section.feed article section.article-body header.article-body-title .user-info p {
@@ -301,7 +311,7 @@ body main section.feed article section.article-body header.article-body-title .u
 body main section.feed article section.article-body div.article-body-content {
   display: block;
   overflow: hidden;
-  background-color: #d9d9ce;
+  background-color: rgb(205.8620689655, 205.8620689655, 191.6379310345);
   border-radius: 30px;
 }
 body main section.feed article section.article-body div.article-body-content img {
@@ -340,20 +350,20 @@ body main section.feed article section.article-body .article-body-footer {
   gap: 30px;
 }
 body main section.feed article section.article-body .article-body-footer button {
-  background-color: #d9d9ce;
+  background-color: rgba(109, 131, 58, 0.8784313725);
   width: 300px;
   padding: 30px;
   border: 3px solid #d9d9ce;
   border-radius: 50px;
-  color: rgba(21, 32, 21, 0.8784313725);
+  color: #d9d9ce;
   font-size: 1.5em;
   font-weight: bold;
   transition: all 0.1s linear;
 }
 body main section.feed article section.article-body .article-body-footer button:hover {
   cursor: pointer;
-  background-color: rgba(109, 131, 58, 0.8784313725);
-  color: #d9d9ce;
+  background-color: #d9d9ce;
+  color: rgba(21, 32, 21, 0.8784313725);
   transform: scale(0.95);
 }
 body main section.feed article footer.article-footer {
@@ -371,20 +381,20 @@ body main section.feed article footer.article-footer p {
   color: #afce8d;
 }
 body main section.feed article footer.article-footer button {
-  background-color: #d9d9ce;
+  background-color: rgba(109, 131, 58, 0.8784313725);
   width: 300px;
   padding: 30px;
   border: 3px solid #d9d9ce;
   border-radius: 50px;
-  color: rgba(21, 32, 21, 0.8784313725);
+  color: #d9d9ce;
   font-size: 1.5em;
   font-weight: bold;
   transition: all 0.1s linear;
 }
 body main section.feed article footer.article-footer button:hover {
   cursor: pointer;
-  background-color: rgba(109, 131, 58, 0.8784313725);
-  color: #d9d9ce;
+  background-color: #d9d9ce;
+  color: rgba(21, 32, 21, 0.8784313725);
   transform: scale(0.95);
 }
 body main section.feed article footer.article-footer button {
@@ -393,4 +403,20 @@ body main section.feed article footer.article-footer button {
   max-width: 600px;
   font-size: 1.1em;
   margin-top: 30px;
+}
+body main .btn-up {
+  margin: auto;
+  margin-bottom: 80px;
+  padding: 12px 10px;
+  border: 5px solid rgba(109, 131, 58, 0.8784313725);
+  border-radius: 50px;
+  background-color: rgba(21, 32, 21, 0.8784313725);
+  color: #d9d9ce;
+  font-size: 2em;
+  transition: all 0.2s ease;
+}
+body main .btn-up:hover {
+  transform: scale(1.2);
+  color: rgba(21, 32, 21, 0.8784313725);
+  background-color: #d9d9ce;
 }/*# sourceMappingURL=index.css.map */
