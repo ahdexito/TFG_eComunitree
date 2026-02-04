@@ -284,6 +284,7 @@ body main section.feed article section.article-body {
 body main section.feed article section.article-body header.article-body-title {
   display: flex;
   flex-direction: column;
+  gap: 10px;
   background-color: rgba(21, 32, 21, 0.8784313725);
   padding: 20px;
   border-radius: 20px;
@@ -305,6 +306,7 @@ body main section.feed article section.article-body div.article-body-content {
   display: block;
   overflow: hidden;
   background-color: #d9d9ce;
+  color: rgba(21, 32, 21, 0.8784313725);
   border-radius: 30px;
 }
 body main section.feed article section.article-body div.article-body-content img {
@@ -328,11 +330,10 @@ body main section.feed article section.article-body div.article-body-content img
 body main section.feed article section.article-body div.article-body-content p {
   font-size: 1.5em;
   font-weight: bold;
-  color: rgba(21, 32, 21, 0.8784313725);
   margin: 30px;
 }
 body main section.feed article section.article-body div.article-body-content p i {
-  margin-right: 10px;
+  font-size: 1.6em;
 }
 body main section.feed article section.article-body .article-body-footer {
   margin-top: 30px;

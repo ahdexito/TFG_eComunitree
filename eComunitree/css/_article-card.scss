@@ -46,9 +46,7 @@
         justify-content: space-between;
         gap: 30px;
 
-        // =========================================================
         // ARTICLE HEADER USER
-        // =========================================================
         .article-header-user {
             color: $color-light;
             font-size: 1.5em;
@@ -76,9 +74,7 @@
             }
         }
 
-        // =========================================================
         // ARTICLE HEADER DATE
-        // =========================================================
         .article-header-date {
             display: flex;
             flex-direction: column;
@@ -117,6 +113,7 @@
         header.article-body-title {
             display: flex;
             flex-direction: column;
+            gap: 10px;
             background-color: $color-dark;
             padding: 20px;
             border-radius: 20px;
@@ -141,6 +138,7 @@
             display: block;
             overflow: hidden;
             background-color: $color-light;
+            color: $color-dark;
             border-radius: 30px;
 
             img {
@@ -162,9 +160,10 @@
             p { 
                 font-size: 1.5em; 
                 font-weight: bold;
-                color: $color-dark;
                 margin: 30px;
-                i { margin-right: 10px; }
+                i { 
+                    font-size: 1.6em; 
+                }
             }
         }
 
