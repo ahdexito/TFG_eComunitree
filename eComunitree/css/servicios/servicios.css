@@ -140,15 +140,50 @@ aside.main-aside ul li a:hover {
   transform: scale(1.05);
 }
 
-.services article {
-  width: 350px;
-  background: linear-gradient(to bottom, rgba(21, 32, 21, 0.8784313725) 0, rgba(21, 32, 21, 0.8784313725) 70px, rgba(52, 83, 52, 0.6588235294) 150px, rgba(52, 83, 52, 0.6588235294) 100%);
-  padding: 20px;
-  border-radius: 50px;
+section.services-body article {
+  width: 380px;
+  background-color: rgba(109, 131, 58, 0.7137254902);
+  padding: 10px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+}
+section.services-body article .article-header {
+  background-color: rgba(21, 32, 21, 0.8784313725);
+  padding: 15px;
+  border-radius: 10px;
+}
+section.services-body article .article-header h3 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+  color: #afce8d;
+}
+section.services-body article .article-header p {
+  font-style: italic;
   color: #d9d9ce;
+}
+section.services-body article .article-body {
+  border-radius: 10px;
+  color: #345334;
+  font-weight: bold;
+}
+section.services-body article .article-body ul {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style-type: none;
+}
+section.services-body article .article-body ul li {
+  background-color: rgba(255, 255, 255, 0.3843137255);
+  padding: 10px;
+  border-radius: 10px;
+}
+section.services-body article .article-body ul li u {
+  color: #152015;
+}
+section.services-body article .article-body ul li a {
+  color: #345334;
 }
 
 body {
@@ -189,6 +224,14 @@ body main .services .services-header h2 {
   color: #152015;
   font-size: 2.5em;
 }
+body main .services .services-header input {
+  background-color: #d9d9ce;
+  padding: 10px;
+  border: 3px solid #152015;
+  border-radius: 20px;
+  width: 40%;
+  font-size: 1.3em;
+}
 body main .services hr {
   border: 3px solid #152015;
   border-radius: 10px;
@@ -198,5 +241,6 @@ body main .services .services-body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 40px;
+  padding-bottom: 40px;
 }/*# sourceMappingURL=servicios.css.map */
