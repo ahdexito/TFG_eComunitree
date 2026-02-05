@@ -1,0 +1,57 @@
+aside.main-aside {  
+    @include respond-to(small_medium) { display: none; }
+    background-color: $color-aside;
+    width: 360px;
+    border-radius: 20px;
+    padding: 30px;
+    height: fit-content;
+
+    h3 {
+        color: $color-light;
+        text-shadow: darken($color-aside, $amount: 10) 3px 3px 0;
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+
+    hr {
+        border: 2px solid $color-light;
+        box-shadow: darken($color-aside, $amount: 10) 3px 3px 0;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+
+        li {
+            padding: 10px;
+
+            a {
+                background-color: $color-light;
+                color: $color-aside;
+                box-shadow: darken($color-aside, $amount: 15) 3px 3px 0;
+                font-size: 1.5em;
+                font-weight: bold;
+                text-decoration: none;
+                text-wrap: nowrap;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 30px;
+                padding: 10px;
+                border-radius: 10px;
+                border: 3px solid $color-light;
+                transition: transform 0.1s linear;
+
+                &:hover {
+                    background-color: #fff;
+                    border: 3px solid darken($color-aside, $amount: 15);
+                    color: darken($color-aside, $amount: 15);
+                    transform: scale(1.05);
+                }
+            }
+        }   
+    }
+}

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gugi&family=Imprima&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jura:wght@300..700&display=swap');
 
-@import '../variables';
-@import '../mixins';
+@import '../common/variables';
+@import '../common/mixins';
 
 @mixin input {
     width: 100%;
@@ -74,7 +74,7 @@ html {
         // HEADER
         // =========================================================
         header {
-            background-color: $color-accent;
+            background-color: $color-accent-transparent;
             border-radius: 15px;
             padding: 20px;
             display: flex;
@@ -106,7 +106,7 @@ html {
         // MAIN
         // =========================================================
         main {
-            background-color: $color-primary;
+            background-color: $color-primary-transparent;
             border-radius: 15px;
             padding: 20px;
             display: flex;

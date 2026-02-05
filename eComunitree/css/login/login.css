@@ -28,7 +28,7 @@ html body {
   gap: 10px;
 }
 html body header {
-  background-color: rgba(109, 131, 58, 0.8784313725);
+  background-color: rgba(109, 131, 58, 0.7137254902);
   border-radius: 15px;
   padding: 20px;
   display: flex;
@@ -43,7 +43,7 @@ html body header img {
 html body header h1 {
   font-size: 3.5em;
   color: #d9d9ce;
-  text-shadow: rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725) 5px 5px 0px;
+  text-shadow: rgb(32.3555555556, 51.6444444444, 32.3555555556) 5px 5px 0px;
 }
 @media (max-width: 600px) {
   html body header h1 {
@@ -54,10 +54,10 @@ html body h2 {
   font-size: 1.5em;
   margin: 20px;
   text-align: center;
-  color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
+  color: rgb(12.7111111111, 20.2888888889, 12.7111111111);
 }
 html body main {
-  background-color: rgba(52, 83, 52, 0.8784313725);
+  background-color: rgba(52, 83, 52, 0.6588235294);
   border-radius: 15px;
   padding: 20px;
   display: flex;
@@ -76,7 +76,7 @@ html body main {
 }
 html body main h3 {
   color: #d9d9ce;
-  text-shadow: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725) 3px 3px 0;
+  text-shadow: rgb(12.7111111111, 20.2888888889, 12.7111111111) 3px 3px 0;
   font-size: 2em;
 }
 html body main form {
@@ -120,17 +120,17 @@ html body main form div.register-footer a {
   font-size: 1.1em;
   font-weight: bold;
   cursor: pointer;
-  background-color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
+  background-color: rgb(12.7111111111, 20.2888888889, 12.7111111111);
   color: #d9d9ce;
   transition: all 0.2s ease;
   flex: 0;
-  background-color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
+  background-color: rgb(12.7111111111, 20.2888888889, 12.7111111111);
   padding: 15px 15px;
 }
 html body main form div.register-footer a:hover {
   background-color: #d9d9ce;
-  color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
-  box-shadow: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725) 4px 5px;
+  color: rgb(12.7111111111, 20.2888888889, 12.7111111111);
+  box-shadow: rgb(12.7111111111, 20.2888888889, 12.7111111111) 4px 5px;
   transform: scale(0.98);
 }
 html body main form button {
@@ -141,18 +141,18 @@ html body main form button {
   font-size: 1.1em;
   font-weight: bold;
   cursor: pointer;
-  background-color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
+  background-color: rgb(12.7111111111, 20.2888888889, 12.7111111111);
   color: #d9d9ce;
   transition: all 0.2s ease;
 }
 html body main form button:hover {
   background-color: #d9d9ce;
-  color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
-  box-shadow: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725) 4px 5px;
+  color: rgb(12.7111111111, 20.2888888889, 12.7111111111);
+  box-shadow: rgb(12.7111111111, 20.2888888889, 12.7111111111) 4px 5px;
   transform: scale(0.98);
 }
 html body main hr {
-  border: 2px solid rgba(32.3555555556, 51.6444444444, 32.3555555556, 0.8784313725);
+  border: 2px solid rgb(32.3555555556, 51.6444444444, 32.3555555556);
   border-radius: 10px;
 }
 html body main .registrarse {
@@ -180,13 +180,13 @@ html body main .registrarse button {
   font-size: 1.1em;
   font-weight: bold;
   cursor: pointer;
-  background-color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
+  background-color: rgb(12.7111111111, 20.2888888889, 12.7111111111);
   color: #d9d9ce;
   transition: all 0.2s ease;
 }
 html body main .registrarse button:hover {
   background-color: #d9d9ce;
-  color: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725);
-  box-shadow: rgba(12.7111111111, 20.2888888889, 12.7111111111, 0.8784313725) 4px 5px;
+  color: rgb(12.7111111111, 20.2888888889, 12.7111111111);
+  box-shadow: rgb(12.7111111111, 20.2888888889, 12.7111111111) 4px 5px;
   transform: scale(0.98);
 }/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,23 @@
+.services article {
+    width: 350px;
+    background: linear-gradient(
+        to bottom, 
+        $color-dark-transparent 0,
+        $color-dark-transparent 70px,
+        $color-primary-transparent 150px,
+        $color-primary-transparent 100%) ;
+    padding: 20px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: $color-light;
+
+    // .article-header {
+    //     background-color: $color-accent;
+    // }
+
+    // .article-body {
+    //     background-color: $color-accent;
+    // }
+}

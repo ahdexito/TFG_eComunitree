@@ -1,34 +1,10 @@
-@import 'variables';
-
-@mixin article-type($art-type) {
-    @if $art-type == vote { @content; }
-    @else if $art-type == advert { @content; }
-    @else if $art-type == incidence { @content; }
-}
-
-@mixin button {
-    button {
-        background-color: $color-accent;
-        width: 300px;
-        padding: 30px;
-        border: 3px solid $color-light;
-        border-radius: 50px;
-        color: $color-light;
-        font-size: 1.5em;
-        font-weight: bold;
-        transition: all 0.1s linear;
-
-        &:hover {
-            cursor: pointer;
-            background-color: $color-light;
-            color: $color-dark;
-            transform: scale(0.95);
-        }
-    }
-}
-
-@mixin article {
-    background-color: $color-primary;
+section.feed article {
+    background: linear-gradient(
+        to bottom, 
+        $color-dark-transparent 0,
+        $color-dark-transparent 70px,
+        $color-primary-transparent 150px,
+        $color-primary-transparent 100%) ;
     padding: 20px;
     border-radius: 50px;
     display: flex;
@@ -42,20 +18,22 @@
     header.article-header {
         border-radius: 55px;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
-        gap: 30px;
+        flex-wrap: wrap;
 
         // ARTICLE HEADER USER
         .article-header-user {
-            color: $color-light;
+            @include respond-to(small) { font-size: 1.2em; }
+            color: $color-dark;
             font-size: 1.5em;
+            margin-right: 30px;
             border-radius: 50px;
             display: flex;
             gap: 20px;
-            align-items: center;
 
             img {
+                @include respond-to(small) { width: 70px; }
                 width: 90px;
                 border: 5px solid $color-dark;
                 border-radius: 100px;
@@ -64,33 +42,41 @@
             .user-info {
                 display: flex;
                 flex-direction: column;
-                color: $color-dark;
+                color: $color-light;
 
                 strong {
                     font-size: 1.2em;
                     font-weight: bold;
-                    color: $color-light
+                    color: $color-accent-light
                 }
             }
         }
 
         // ARTICLE HEADER DATE
         .article-header-date {
+            @include respond-to(small) { 
+                font-size: 1em; 
+                margin-top: 4px;
+            }
             display: flex;
             flex-direction: column;
             align-items: flex-end;
+            gap: 5px;
             text-align: end;
-            font-size: 1.4em;
+            font-size: 1.2em;
+            margin-top: 8px;
             margin-right: 10px;
+            margin-left: auto;
 
             strong { 
-                color: $color-light; 
+                color: $color-accent-light; 
                 gap: 10px;
             }
 
             p { 
                 font-weight: bold;
-                color: $color-dark;
+                color: $color-light;
+                text-wrap: nowrap;
             }
 
             i { margin-left: 10px; }
@@ -101,9 +87,7 @@
     // ARTICLE BODY
     // =========================================================
     section.article-body {
-        background-color: darken($color-primary, $amount: 10);
         border-radius: 30px;
-        padding: 30px;
         color: $color-light;
         display: flex;
         flex-direction: column;
@@ -166,18 +150,6 @@
                 }
             }
         }
-
-        // ARTICLE BODY FOOTER
-        .article-body-footer {
-            margin-top: 30px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-
-            @include button;
-        }
     }
 
     // =========================================================
@@ -187,22 +159,74 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 15px;
+        text-align: left;
+        gap: 5px;
         color: $color-light;
         font-size: 1.5em;
         background-color: $color-dark;
         padding: 20px;
         border-radius: 40px;
+        margin-top: 10px;
+
+        strong, p {width: 100%;}
         
         p { color: $color-accent-light }
 
-        @include button;
-        button {
-            padding: 10px;
+        hr {
+            border: 2px solid $color-light;
             width: 100%;
-            max-width: 600px;
-            font-size: 1.1em;
-            margin-top: 30px;
+            margin: 15px;
+        }
+
+        // VOTE BUTTONS
+        .vote-btns {
+            border-radius: 20px;
+            width: 100%;
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+
+            button {
+                background-color: $color-accent;
+                padding: 30px;
+                border: 3px solid $color-dark;
+                border-radius: 50px;
+                color: $color-light;
+                font-size: 1.5em;
+                font-weight: bold;
+                transition: all 0.1s linear;
+                text-wrap: nowrap;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $color-accent-light;
+                    color: $color-dark;
+                    border: 3px solid $color-dark;
+                    transform: scale(0.95);
+                }
+            }
+        }
+
+        button.vote-confirm {
+            background-color: $color-light;
+            width: 300px;
+            padding: 20px;
+            border: 3px solid $color-dark;
+            border-radius: 10px;
+            color: $color-dark;
+            font-size: 1.5em;
+            font-weight: bold;
+            transition: all 0.1s linear;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $color-accent-light;
+                color: $color-dark;
+                transform: scale(0.95);
+            }
         }
     }
 }
