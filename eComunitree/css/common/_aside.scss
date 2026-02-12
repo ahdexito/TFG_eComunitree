@@ -1,21 +1,62 @@
+@import 'variables';
+
 aside.main-aside {  
-    @include respond-to(small_medium) { display: none; }
-    background-color: $color-aside;
     width: 360px;
-    border-radius: 20px;
-    padding: 30px;
-    height: fit-content;
+    padding: 100px 30px;
+    height: 95vh;
+    position: sticky;
+    top: 20px;
+    right: -100%;
+    
+    transition: all 0.4s ease;
+
+    @include respond-to(small_medium) {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        left: auto;
+        max-width: 80%;
+        height: 100vh;
+        z-index: 100;
+        transition: all 0.4s ease;
+        padding-top: 80px;
+        border-left: 2px solid $color-light;
+        background: linear-gradient(
+            to bottom,
+            $color-dark,
+            $color-accent,
+            $color-accent,
+            $color-dark
+        );
+    }
+
+    background: linear-gradient(
+        to bottom,
+        $color-dark-transparent,
+        $color-accent-transparent 150px,
+        $color-accent-transparent calc(100% - 150px),
+        $color-dark-transparent
+    );
+
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 40px,
+        black calc(100% - 40px),
+        transparent 100%
+    );
 
     h3 {
         color: $color-light;
-        text-shadow: darken($color-aside, $amount: 10) 3px 3px 0;
-        font-size: 2em;
+        text-shadow: $color-dark 3px 3px 0;
+        font-size: 1.8em;
+        font-family: $subtitulo;
         margin-bottom: 10px;
     }
 
     hr {
         border: 2px solid $color-light;
-        box-shadow: darken($color-aside, $amount: 10) 3px 3px 0;
+        box-shadow: $color-dark 3px 3px 0;
         border-radius: 10px;
         margin-bottom: 20px;
     }
@@ -24,14 +65,14 @@ aside.main-aside {
         list-style-type: none;
         display: flex;
         flex-direction: column;
+        gap: 10px;
 
         li {
-            padding: 10px;
+            position: relative;
 
-            a {
+            a, p {
                 background-color: $color-light;
-                color: $color-aside;
-                box-shadow: darken($color-aside, $amount: 15) 3px 3px 0;
+                color: $color-dark;
                 font-size: 1.5em;
                 font-weight: bold;
                 text-decoration: none;
@@ -41,17 +82,22 @@ aside.main-aside {
                 justify-content: space-between;
                 gap: 30px;
                 padding: 10px;
+                border: 3px solid $color-dark;
+                box-shadow: $color-dark 4px 4px 0;
                 border-radius: 10px;
-                border: 3px solid $color-light;
-                transition: transform 0.1s linear;
-
-                &:hover {
-                    background-color: #fff;
-                    border: 3px solid darken($color-aside, $amount: 15);
-                    color: darken($color-aside, $amount: 15);
-                    transform: scale(1.05);
-                }
+                transition: all 0.2s ease;
             }
-        }   
+
+            p { cursor: default; }
+
+            &:hover > a, &:hover > p {
+                transform: scale(1.05);
+                background-color: $color-primary;
+                color: $color-light;
+                text-shadow: $color-dark 3px 3px;
+            }
+
+            &:hover > p { margin-bottom: 5px; }
+        }
     }
 }

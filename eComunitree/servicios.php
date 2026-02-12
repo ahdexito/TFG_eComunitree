@@ -26,6 +26,187 @@
     </header>
 
     <main>
+        <div class="services">
+            <header class="services-header">
+                <h2>Servicios</h2>
+                <input type="search" placeholder="Buscar...">
+            </header>
+            <hr>
+
+            <section class="services-body">
+                <article>
+                    <header class="article-header">
+                        <h3>FONTANERO</h3>
+                        <p>FONTANERÍA MANZANARO</p>
+                    </header>
+                    <section class="article-body">
+                        <ul>
+                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
+                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
+                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
+                        </ul>
+                    </section>
+                </article>
+                
+                <article>
+                    <header class="article-header">
+                        <h3>FONTANERO</h3>
+                        <p>FONTANERÍA MANZANARO</p>
+                    </header>
+                    <section class="article-body">
+                        <ul>
+                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
+                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
+                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
+                        </ul>
+                    </section>
+                </article>
+
+                <article>
+                    <header class="article-header">
+                        <h3>FONTANERO</h3>
+                        <p>FONTANERÍA MANZANARO</p>
+                    </header>
+                    <section class="article-body">
+                        <ul>
+                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
+                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
+                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
+                        </ul>
+                    </section>
+                </article>
+
+                <article>
+                    <header class="article-header">
+                        <h3>FONTANERO</h3>
+                        <p>FONTANERÍA MANZANARO</p>
+                    </header>
+                    <section class="article-body">
+                        <ul>
+                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
+                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
+                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
+                        </ul>
+                    </section>
+                </article>
+
+                <article>
+                    <header class="article-header">
+                        <h3>FONTANERO</h3>
+                        <p>FONTANERÍA MANZANARO</p>
+                    </header>
+                    <section class="article-body">
+                        <ul>
+                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
+                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
+                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
+                        </ul>
+                    </section>
+                </article>
+
+                <article>
+                    <header class="article-header">
+                        <h3>FONTANERO</h3>
+                        <p>FONTANERÍA MANZANARO</p>
+                    </header>
+                    <section class="article-body">
+                        <ul>
+                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
+                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
+                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
+                        </ul>
+                    </section>
+                </article>
+
+                <article>
+                    <header class="article-header">
+                        <h3>FONTANERO</h3>
+                        <p>FONTANERÍA MANZANARO</p>
+                    </header>
+                    <section class="article-body">
+                        <ul>
+                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
+                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
+                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
+                        </ul>
+                    </section>
+                </article>
+
+                <article>
+                    <header class="article-header">
+                        <h3>FONTANERO</h3>
+                        <p>FONTANERÍA MANZANARO</p>
+                    </header>
+                    <section class="article-body">
+                        <ul>
+                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
+                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
+                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
+                        </ul>
+                    </section>
+                </article>
+
+                <article>
+                    <header class="article-header">
+                        <h3>FONTANERO</h3>
+                        <p>FONTANERÍA MANZANARO</p>
+                    </header>
+                    <section class="article-body">
+                        <ul>
+                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
+                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
+                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
+                        </ul>
+                    </section>
+                </article>
+
+                <article>
+                    <header class="article-header">
+                        <h3>FONTANERO</h3>
+                        <p>FONTANERÍA MANZANARO</p>
+                    </header>
+                    <section class="article-body">
+                        <ul>
+                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
+                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
+                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
+                        </ul>
+                    </section>
+                </article>
+
+                <article>
+                    <header class="article-header">
+                        <h3>FONTANERO</h3>
+                        <p>FONTANERÍA MANZANARO</p>
+                    </header>
+                    <section class="article-body">
+                        <ul>
+                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
+                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
+                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
+                        </ul>
+                    </section>
+                </article>
+
+                <article>
+                    <header class="article-header">
+                        <h3>FONTANERO</h3>
+                        <p>FONTANERÍA MANZANARO</p>
+                    </header>
+                    <section class="article-body">
+                        <ul>
+                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
+                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
+                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
+                        </ul>
+                    </section>
+                </article>
+            </section>
+        </div>
+
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+        <label for="menu-toggle" class="menu-button"><i class="fa-solid fa-bars"></i></label>
+
         <aside class="main-aside">
             <h3>Navegación</h3>
             <hr>
@@ -60,196 +241,6 @@
                 </a></li>
             </ul>
         </aside>
-
-        <div class="services">
-            <header class="services-header">
-                <h2>Servicios</h2>
-                <input type="search" placeholder="Buscar...">
-            </header>
-            <hr>
-
-            <section class="services-body">
-                <article>
-                    <header class="article-header">
-                        <h3>FONTANERO</h3>
-                        <p>FONTANERÍA MANZANARO</p>
-                    </header>
-                    <section class="article-body">
-                        <ul>
-                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
-                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
-                            <li><u>Horario</u>: 24h</li>
-                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
-                        </ul>
-                    </section>
-                </article>
-                
-                <article>
-                    <header class="article-header">
-                        <h3>FONTANERO</h3>
-                        <p>FONTANERÍA MANZANARO</p>
-                    </header>
-                    <section class="article-body">
-                        <ul>
-                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
-                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
-                            <li><u>Horario</u>: 24h</li>
-                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
-                        </ul>
-                    </section>
-                </article>
-
-                <article>
-                    <header class="article-header">
-                        <h3>FONTANERO</h3>
-                        <p>FONTANERÍA MANZANARO</p>
-                    </header>
-                    <section class="article-body">
-                        <ul>
-                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
-                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
-                            <li><u>Horario</u>: 24h</li>
-                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
-                        </ul>
-                    </section>
-                </article>
-
-                <article>
-                    <header class="article-header">
-                        <h3>FONTANERO</h3>
-                        <p>FONTANERÍA MANZANARO</p>
-                    </header>
-                    <section class="article-body">
-                        <ul>
-                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
-                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
-                            <li><u>Horario</u>: 24h</li>
-                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
-                        </ul>
-                    </section>
-                </article>
-
-                <article>
-                    <header class="article-header">
-                        <h3>FONTANERO</h3>
-                        <p>FONTANERÍA MANZANARO</p>
-                    </header>
-                    <section class="article-body">
-                        <ul>
-                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
-                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
-                            <li><u>Horario</u>: 24h</li>
-                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
-                        </ul>
-                    </section>
-                </article>
-
-                <article>
-                    <header class="article-header">
-                        <h3>FONTANERO</h3>
-                        <p>FONTANERÍA MANZANARO</p>
-                    </header>
-                    <section class="article-body">
-                        <ul>
-                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
-                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
-                            <li><u>Horario</u>: 24h</li>
-                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
-                        </ul>
-                    </section>
-                </article>
-
-                <article>
-                    <header class="article-header">
-                        <h3>FONTANERO</h3>
-                        <p>FONTANERÍA MANZANARO</p>
-                    </header>
-                    <section class="article-body">
-                        <ul>
-                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
-                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
-                            <li><u>Horario</u>: 24h</li>
-                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
-                        </ul>
-                    </section>
-                </article>
-
-                <article>
-                    <header class="article-header">
-                        <h3>FONTANERO</h3>
-                        <p>FONTANERÍA MANZANARO</p>
-                    </header>
-                    <section class="article-body">
-                        <ul>
-                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
-                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
-                            <li><u>Horario</u>: 24h</li>
-                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
-                        </ul>
-                    </section>
-                </article>
-
-                <article>
-                    <header class="article-header">
-                        <h3>FONTANERO</h3>
-                        <p>FONTANERÍA MANZANARO</p>
-                    </header>
-                    <section class="article-body">
-                        <ul>
-                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
-                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
-                            <li><u>Horario</u>: 24h</li>
-                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
-                        </ul>
-                    </section>
-                </article>
-
-                <article>
-                    <header class="article-header">
-                        <h3>FONTANERO</h3>
-                        <p>FONTANERÍA MANZANARO</p>
-                    </header>
-                    <section class="article-body">
-                        <ul>
-                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
-                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
-                            <li><u>Horario</u>: 24h</li>
-                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
-                        </ul>
-                    </section>
-                </article>
-
-                <article>
-                    <header class="article-header">
-                        <h3>FONTANERO</h3>
-                        <p>FONTANERÍA MANZANARO</p>
-                    </header>
-                    <section class="article-body">
-                        <ul>
-                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
-                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
-                            <li><u>Horario</u>: 24h</li>
-                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
-                        </ul>
-                    </section>
-                </article>
-
-                <article>
-                    <header class="article-header">
-                        <h3>FONTANERO</h3>
-                        <p>FONTANERÍA MANZANARO</p>
-                    </header>
-                    <section class="article-body">
-                        <ul>
-                            <li><u>Teléfono</u>: +34 666 55 44 33</li>
-                            <li><u>Email</u>: fontaneriamanzanaro@gmail.com</li>
-                            <li><u>Horario</u>: 24h</li>
-                            <li><u>Web</u>: <a href="https://fontaneriamanzanaro.es/empresa/" target="_blank">https://fontaneriamanzanaro.es</a></li>
-                        </ul>
-                    </section>
-                </article>
-            </section>
-        </div>
     </main>
 </body>
 </html>

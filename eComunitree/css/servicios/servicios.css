@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Gugi&family=Imprima&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jura:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Imprima&family=Playwrite+NZ+Basic:wght@100..400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Imprima&family=Playwrite+NZ+Basic:wght@100..400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Imprima&family=Playwrite+NZ+Basic:wght@100..400&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +17,65 @@ html {
   background-attachment: fixed;
   min-height: 100vh;
   padding: 20px;
+}
+
+.menu-checkbox {
+  display: none;
+}
+
+.menu-button {
+  display: flex;
+  position: sticky;
+  top: 20px;
+  right: 10px;
+  border: 3px solid #152015;
+  z-index: 101;
+  background-color: #d9d9ce;
+  color: #152015;
+  font-size: 2em;
+  padding: 7px 4px;
+  margin-left: 40px;
+  margin-right: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: #152015 3px 3px 0;
+  transition: all 0.3s ease;
+}
+@media (max-width: 950px) {
+  .menu-button {
+    border-radius: 10px 0 0 10px;
+    border-right: none;
+    top: 260px;
+    right: 0;
+    position: fixed;
+    margin: 0;
+  }
+}
+.menu-button:hover {
+  transform: scale(1.1);
+  background-color: #6d833a;
+  text-shadow: #d9d9ce 3px 3px;
+  box-shadow: #152015 5px 5px 0;
+}
+
+.menu-checkbox:checked ~ aside.main-aside {
+  margin-right: -400px;
+  opacity: 0;
+}
+@media (max-width: 950px) {
+  .menu-checkbox:checked ~ aside.main-aside {
+    right: 0;
+    margin-right: 0;
+    opacity: 1;
+  }
+}
+@media (max-width: 950px) {
+  .menu-checkbox:checked ~ .menu-button {
+    right: 30px;
+    top: 65px;
+    border: 3px solid #152015;
+    border-radius: 10px;
+  }
 }
 
 header.body-header {
@@ -46,7 +108,8 @@ header.body-header a.btn-index img {
 }
 header.body-header a.btn-index h1 {
   color: #d9d9ce;
-  font-size: 3em;
+  font-size: 4em;
+  font-family: "Grand Hotel";
 }
 header.body-header .user {
   display: flex;
@@ -84,27 +147,42 @@ header.body-header .user a img {
 }
 
 aside.main-aside {
-  background-color: #837151;
   width: 360px;
-  border-radius: 20px;
-  padding: 30px;
-  height: -moz-fit-content;
-  height: fit-content;
+  padding: 100px 30px;
+  height: 95vh;
+  position: sticky;
+  top: 20px;
+  right: -100%;
+  transition: all 0.4s ease;
+  background: linear-gradient(to bottom, rgba(21, 32, 21, 0.8784313725), rgba(109, 131, 58, 0.7137254902) 150px, rgba(109, 131, 58, 0.7137254902) calc(100% - 150px), rgba(21, 32, 21, 0.8784313725));
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
 }
 @media (max-width: 950px) {
   aside.main-aside {
-    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    left: auto;
+    max-width: 80%;
+    height: 100vh;
+    z-index: 100;
+    transition: all 0.4s ease;
+    padding-top: 80px;
+    border-left: 2px solid #d9d9ce;
+    background: linear-gradient(to bottom, #152015, #6d833a, #6d833a, #152015);
   }
 }
 aside.main-aside h3 {
   color: #d9d9ce;
-  text-shadow: rgb(99.4858490566, 85.8160377358, 61.5141509434) 3px 3px 0;
-  font-size: 2em;
+  text-shadow: #152015 3px 3px 0;
+  font-size: 1.8em;
+  font-family: "Playwrite NZ Basic";
   margin-bottom: 10px;
 }
 aside.main-aside hr {
   border: 2px solid #d9d9ce;
-  box-shadow: rgb(99.4858490566, 85.8160377358, 61.5141509434) 3px 3px 0;
+  box-shadow: #152015 3px 3px 0;
   border-radius: 10px;
   margin-bottom: 20px;
 }
@@ -112,14 +190,14 @@ aside.main-aside ul {
   list-style-type: none;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 aside.main-aside ul li {
-  padding: 10px;
+  position: relative;
 }
-aside.main-aside ul li a {
+aside.main-aside ul li a, aside.main-aside ul li p {
   background-color: #d9d9ce;
-  color: #837151;
-  box-shadow: rgb(83.7287735849, 72.2240566038, 51.7712264151) 3px 3px 0;
+  color: #152015;
   font-size: 1.5em;
   font-weight: bold;
   text-decoration: none;
@@ -129,15 +207,22 @@ aside.main-aside ul li a {
   justify-content: space-between;
   gap: 30px;
   padding: 10px;
+  border: 3px solid #152015;
+  box-shadow: #152015 4px 4px 0;
   border-radius: 10px;
-  border: 3px solid #d9d9ce;
-  transition: transform 0.1s linear;
+  transition: all 0.2s ease;
 }
-aside.main-aside ul li a:hover {
-  background-color: #fff;
-  border: 3px solid rgb(83.7287735849, 72.2240566038, 51.7712264151);
-  color: rgb(83.7287735849, 72.2240566038, 51.7712264151);
+aside.main-aside ul li p {
+  cursor: default;
+}
+aside.main-aside ul li:hover > a, aside.main-aside ul li:hover > p {
   transform: scale(1.05);
+  background-color: #345334;
+  color: #d9d9ce;
+  text-shadow: #152015 3px 3px;
+}
+aside.main-aside ul li:hover > p {
+  margin-bottom: 5px;
 }
 
 section.services-body article {
