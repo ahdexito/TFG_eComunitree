@@ -41,15 +41,15 @@ html body header {
 html body header img {
   width: 100px;
 }
-html body header h1 {
-  font-size: 3.5em;
-  color: #d9d9ce;
-  text-shadow: rgb(32.3555555556, 51.6444444444, 32.3555555556) 5px 5px 0px;
-}
 @media (max-width: 600px) {
   html body header h1 {
     font-size: 3em;
   }
+}
+html body header h1 {
+  font-size: 3.5em;
+  color: #d9d9ce;
+  text-shadow: rgb(32.3555555556, 51.6444444444, 32.3555555556) 5px 5px 0px;
 }
 html body h2 {
   font-size: 1.5em;
@@ -124,15 +124,17 @@ html body main form div.register-footer a {
   background-color: rgb(12.7111111111, 20.2888888889, 12.7111111111);
   color: #d9d9ce;
   transition: all 0.2s ease;
-  flex: 0;
-  background-color: rgb(12.7111111111, 20.2888888889, 12.7111111111);
-  padding: 15px 15px;
 }
 html body main form div.register-footer a:hover {
   background-color: #d9d9ce;
   color: rgb(12.7111111111, 20.2888888889, 12.7111111111);
   box-shadow: rgb(12.7111111111, 20.2888888889, 12.7111111111) 4px 5px;
   transform: scale(0.98);
+}
+html body main form div.register-footer a {
+  flex: 0;
+  background-color: rgb(12.7111111111, 20.2888888889, 12.7111111111);
+  padding: 15px 15px;
 }
 html body main form button {
   width: 100%;

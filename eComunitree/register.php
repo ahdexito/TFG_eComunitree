@@ -26,7 +26,7 @@
             <input type="password" name="password" id="password" placeholder="Contraseña">
             <hr>
             <div class="register-footer">
-                <a href="login.html">
+                <a href="login.php">
                     <i class="fa-solid fa-arrow-left"></i>
                 </a>
                 <button type="submit">Registrarme</button>

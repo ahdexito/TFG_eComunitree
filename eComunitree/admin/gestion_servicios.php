@@ -1,17 +1,17 @@
 <?php
     session_start();
+
+    include("../db/db.inc");
     
     if (!isset($_SESSION["rol"])) {
-        header("location:../index.php");
+        header("location:../login.php");
         die();
     }
     
     elseif ($_SESSION["rol"] == 'vecino') {
-        header("location:../index.php");
+        header("location:../login.php");
         die();
     }
-
-    include("../db/db.inc");
 
     // PAGINADOR
     $num_lineas = 10;
@@ -28,15 +28,10 @@
     // OBTENER SERVICIOS
     $resultado = $conn->query(
         "SELECT * FROM servicios 
-        ORDER BY activo DESC, creado DESC
+        ORDER BY id_servicio DESC
         LIMIT $num_lineas OFFSET $offset"
     );
     $servicios = $resultado->fetch_all(MYSQLI_ASSOC);
-
-    // LÓGICA DE RANGO PARA EL HTML
-    $rango = 1; // cuántas páginas mostrar a cada lado de la actual
-    $inicio = max(1, $pagina - $rango);
-    $fin = min($total_paginas, $pagina + $rango);
 
     // ELIMINAR SERVICIOS
     if (isset($_GET["eliminar"])) {
@@ -58,17 +53,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eComunitree | Panel Control</title>
-    <link rel="stylesheet" href="css/index/index.css">
+    <link rel="stylesheet" href="../css/index/index.css">
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="body-header">
-        <a href="index.html" class="btn-index">
-            <img src="img/logo-transparencia.png" alt="logotipo">
+        <a href="../login.php" class="btn-index">
+            <img src="../img/logo-transparencia.png" alt="logotipo">
             <h1>eComunitree</h1>
         </a>
         <div class="user">
-            <a href="#"><i class="fa-regular fa-circle-user usuario"></i></a>
+            <div class="user-name">
+                <p><?= $_SESSION["nombre"] ?> (<?= $_SESSION["vivienda"] ?>)</p>
+                <p><?= ucfirst($_SESSION["rol"]) ?></p>
+            </div>
+            <a href="desconectar_admin.php" title="Cerrar sesión">
+                <img src="../img_user/<?= $_SESSION["foto"]; ?>" alt="Perfil de <?= $_SESSION['nombre']; ?>">
+            </a>
         </div>
     </header>
 
@@ -128,7 +129,7 @@
                     </thead>
 
                     <tbody>
-                        <?php foreach ($servicio as $s): ?>
+                        <?php foreach ($servicios as $s): ?>
                         <tr>
                             <td>
                                 <a href="edit_servicio.php?edit=<?= $s['id'] ?>">
@@ -147,7 +148,7 @@
                                     elseif ($s['activo'] == 1) echo '<i class="fa-solid fa-check"></i>';
                                 ?>
                             </td>
-                            <td><?= htmlspecialchars($s['nombre']) ?></td>
+                            <td> <?= htmlspecialchars($s['nombre']) ?> </td>
                             <td> <?= htmlspecialchars($s['descripcion']) ?> </td>
                             <td> <?= htmlspecialchars($s['telefono']) ?> </td>
                             <td> <?= htmlspecialchars($s['email']) ?> </td>                            
@@ -191,7 +192,7 @@
             <hr>
             <ul>
                 <li>
-                    <a href="index.html">
+                    <a href="../index.php">
                         <i class="fa-solid fa-house"></i>
                         Inicio
                     </a></li>
@@ -201,7 +202,7 @@
                     Nueva incidencia
                     </a></li>
                 <li>
-                    <a href="servicios.html">
+                    <a href="../servicios.php">
                     <i class="fa-solid fa-phone-volume"></i>
                     Servicios
                 </a></li>
@@ -214,7 +215,7 @@
                     <i class="fa-regular fa-file-lines"></i>
                     Documentación
                 </a></li>
-                <li><a href="panel_control.html">
+                <li><a href="panel_control.php">
                     <i class="fa-solid fa-gear"></i>
                     Panel de control
                 </a></li>

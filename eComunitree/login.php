@@ -1,3 +1,68 @@
+<?php
+include("db/db.inc");
+
+$error_msg = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    // Validación de formato de email
+    if(isset($_POST["email"]) && !empty($_POST["email"]) && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+        
+        // Validación de presencia de contraseña
+        if(isset($_POST["password"]) && !empty($_POST["password"])) {
+            
+            // Limpieza de datos (email) y cifrado (password)
+            $email_input = trim($_POST["email"]);
+            $password_input = $_POST["password"];
+
+            // Preparación de consulta segura contra SQL Injection
+            $stmt = $conn->prepare(
+                "SELECT id_usuario, nombre, email, password, rol, vivienda, foto 
+                FROM usuarios 
+                WHERE email = ?"
+                );
+
+            $stmt->bind_param("s", $email_input);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            // Verificación de existencia del usuario
+            if ($usuario = $result->fetch_assoc()) {
+
+                if (password_verify($password_input, $usuario["password"])) {
+                    
+                    session_start();
+
+                    $_SESSION["id"] = $usuario["id_usuario"];
+                    $_SESSION["nombre"] = $usuario["nombre"];
+                    $_SESSION["email"] = $usuario["email"];
+                    $_SESSION["rol"] = $usuario["rol"];
+                    $_SESSION["vivienda"] = $usuario["vivienda"];
+                    $_SESSION["foto"] = $usuario["foto"];
+
+                    header("location:./index.php");
+                    die();
+                } else {
+                    // Contraseña incorrecta
+                    $error_msg = "El email y/o la contraseña NO coinciden.";
+                }
+            } else {
+                // Email no encontrado
+                $error_msg = "El email y/o la contraseña NO coinciden.";
+            }
+
+            $stmt->close();
+        } else {
+            $error_msg = "Error en el campo 'contraseña'.";
+        }
+    } else {
+        if (isset($_POST["email"])) {
+            $error_msg = "El email NO es válido.";
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +79,16 @@
 
     <h2>Gestiona tu comunidad de forma fácil y digital.</h2>
 
+    
+    <!-- Renderizado de errores si existen tras el procesamiento superior -->
+    <?php if (!empty($error_msg)): ?>
+            <div class='error'>
+                <i class='fa-solid fa-triangle-exclamation'></i><?php echo $error_msg; ?>
+            </div>
+    <?php endif; ?>
+
     <main>
-        <form action="#" method="POST">
+        <form method="POST">
             <h3>¡Hola, vecin@!</h3>
             <hr>
             <input type="email" name="email" id="email" placeholder="Correo electrónico">
@@ -33,7 +106,7 @@
             <hr>
             <p>Comunícate, vota, reporta incidencias y mantente al día desde un único lugar.</p>
             <hr>
-            <a href="register.html"><button>Registrarse</button></a>
+            <a href="register.php"><button>Registrarse</button></a>
         </section>
     </main>
 </body>

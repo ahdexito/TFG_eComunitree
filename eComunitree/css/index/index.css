@@ -93,6 +93,11 @@ section.feed article header.article-header {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+@media (max-width: 600px) {
+  section.feed article header.article-header .article-header-user {
+    font-size: 1.2em;
+  }
+}
 section.feed article header.article-header .article-header-user {
   color: #152015;
   font-size: 1.5em;
@@ -102,19 +107,14 @@ section.feed article header.article-header .article-header-user {
   gap: 20px;
 }
 @media (max-width: 600px) {
-  section.feed article header.article-header .article-header-user {
-    font-size: 1.2em;
+  section.feed article header.article-header .article-header-user img {
+    width: 70px;
   }
 }
 section.feed article header.article-header .article-header-user img {
   width: 90px;
   border: 5px solid #152015;
   border-radius: 100px;
-}
-@media (max-width: 600px) {
-  section.feed article header.article-header .article-header-user img {
-    width: 70px;
-  }
 }
 section.feed article header.article-header .article-header-user .user-info {
   display: flex;
@@ -126,6 +126,12 @@ section.feed article header.article-header .article-header-user .user-info stron
   font-weight: bold;
   color: #afce8d;
 }
+@media (max-width: 600px) {
+  section.feed article header.article-header .article-header-date {
+    font-size: 1em;
+    margin-top: 4px;
+  }
+}
 section.feed article header.article-header .article-header-date {
   display: flex;
   flex-direction: column;
@@ -136,12 +142,6 @@ section.feed article header.article-header .article-header-date {
   margin-top: 8px;
   margin-right: 10px;
   margin-left: auto;
-}
-@media (max-width: 600px) {
-  section.feed article header.article-header .article-header-date {
-    font-size: 1em;
-    margin-top: 4px;
-  }
 }
 section.feed article header.article-header .article-header-date strong {
   color: #afce8d;
@@ -191,6 +191,13 @@ section.feed article section.article-body div.article-body-content {
   color: #152015;
   border-radius: 30px;
 }
+@media (max-width: 600px) {
+  section.feed article section.article-body div.article-body-content img {
+    float: none;
+    display: block;
+    margin: 30px auto 30px;
+  }
+}
 section.feed article section.article-body div.article-body-content img {
   float: left;
   width: 200px;
@@ -201,13 +208,6 @@ section.feed article section.article-body div.article-body-content img {
   border: 5px solid #152015;
   border-radius: 20px;
   margin: 30px;
-}
-@media (max-width: 600px) {
-  section.feed article section.article-body div.article-body-content img {
-    float: none;
-    display: block;
-    margin: 30px auto 30px;
-  }
 }
 section.feed article section.article-body div.article-body-content p {
   font-size: 1.5em;
@@ -306,14 +306,14 @@ header.body-header a.btn-index {
 header.body-header a.btn-index:hover {
   transform: scale(1.05);
 }
-header.body-header a.btn-index img {
-  width: 90px;
-  margin-right: 10px;
-}
 @media (max-width: 600px) {
   header.body-header a.btn-index img {
     display: none;
   }
+}
+header.body-header a.btn-index img {
+  width: 90px;
+  margin-right: 10px;
 }
 header.body-header a.btn-index h1 {
   color: #d9d9ce;
@@ -326,16 +326,16 @@ header.body-header .user {
   gap: 20px;
   color: #d9d9ce;
 }
+@media (max-width: 950px) {
+  header.body-header .user p {
+    display: none;
+  }
+}
 header.body-header .user p {
   text-align: end;
   font-size: 1.3em;
   text-shadow: rgb(32.3555555556, 51.6444444444, 32.3555555556) 2px 2px 0px;
   font-weight: bold;
-}
-@media (max-width: 950px) {
-  header.body-header .user p {
-    display: none;
-  }
 }
 header.body-header .user a {
   text-decoration: none;
@@ -363,9 +363,6 @@ aside.main-aside {
   top: 20px;
   right: -100%;
   transition: all 0.4s ease;
-  background: linear-gradient(to bottom, rgba(21, 32, 21, 0.8784313725), rgba(109, 131, 58, 0.7137254902) 150px, rgba(109, 131, 58, 0.7137254902) calc(100% - 150px), rgba(21, 32, 21, 0.8784313725));
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
-          mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
 }
 @media (max-width: 950px) {
   aside.main-aside {
@@ -381,6 +378,11 @@ aside.main-aside {
     border-left: 2px solid #d9d9ce;
     background: linear-gradient(to bottom, #152015, #6d833a, #6d833a, #152015);
   }
+}
+aside.main-aside {
+  background: linear-gradient(to bottom, rgba(21, 32, 21, 0.8784313725), rgba(109, 131, 58, 0.7137254902) 150px, rgba(109, 131, 58, 0.7137254902) calc(100% - 150px), rgba(21, 32, 21, 0.8784313725));
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
 }
 aside.main-aside h3 {
   color: #d9d9ce;
@@ -436,7 +438,6 @@ aside.main-aside ul li:hover > p {
 
 body {
   border-radius: 20px;
-  height: 95vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -476,6 +477,15 @@ body main section.feed .section-header .section-btns {
   flex-wrap: wrap-reverse;
   gap: 10px;
 }
+@media (max-width: 600px) {
+  body main section.feed .section-header .section-btns .btn-filter, body main section.feed .section-header .section-btns .btn-order {
+    width: auto;
+    padding: 12px 9px;
+  }
+  body main section.feed .section-header .section-btns .btn-filter p, body main section.feed .section-header .section-btns .btn-order p {
+    display: none;
+  }
+}
 body main section.feed .section-header .section-btns .btn-filter, body main section.feed .section-header .section-btns .btn-order {
   width: 130px;
   color: #152015;
@@ -489,15 +499,6 @@ body main section.feed .section-header .section-btns .btn-filter, body main sect
   text-decoration: none;
   font-weight: bold;
   transition: all 0.2s ease;
-}
-@media (max-width: 600px) {
-  body main section.feed .section-header .section-btns .btn-filter, body main section.feed .section-header .section-btns .btn-order {
-    width: auto;
-    padding: 12px 9px;
-  }
-  body main section.feed .section-header .section-btns .btn-filter p, body main section.feed .section-header .section-btns .btn-order p {
-    display: none;
-  }
 }
 body main section.feed .section-header .section-btns .btn-filter:hover, body main section.feed .section-header .section-btns .btn-order:hover {
   transform: scale(1.05);

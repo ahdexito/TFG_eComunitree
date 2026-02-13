@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    include("db/db.inc");
+
+    if (!isset($_SESSION["rol"])) {
+        header("location:login.php");
+        die();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +19,17 @@
 </head>
 <body>
     <header class="body-header">
-        <a href="index.html" class="btn-index">
+        <a href="login.php" class="btn-index">
             <img src="img/logo-transparencia.png" alt="logotipo">
             <h1>eComunitree</h1>
         </a>
         <div class="user">
             <div class="user-name">
-                <p>Bienvenido,</p>
-                <p>Ángel</p>
+                <p><?= $_SESSION["nombre"] ?> (<?= $_SESSION["vivienda"] ?>)</p>
+                <p><?= ucfirst($_SESSION["rol"]) ?></p>
             </div>
-            <a href="login.html">
-                <!-- <i class="fa-regular fa-circle-user usuario"></i> -->
-                <img src="img_user/oscar.jpg" alt="">
+            <a href="desconectar.php" title="Cerrar sesión">
+                <img src="img_user/<?= $_SESSION["foto"]; ?>" alt="Perfil de <?= $_SESSION['nombre']; ?>">
             </a>
         </div>
     </header>
@@ -169,7 +178,7 @@
                     </div>
                 </section>
             </article>
-            <a href="index.html" class="btn-up">
+            <a href="index.php" class="btn-up">
                 <i class="fa-solid fa-angles-up"></i>
             </a>
         </section>
@@ -182,33 +191,43 @@
             <hr>
             <ul>
                 <li>
-                    <a href="index.html">
+                    <a href="index.php">
                         <i class="fa-solid fa-house"></i>
                         Inicio
-                    </a></li>
+                    </a>
+                </li>
                 <li>
                     <a href="#">
-                    <i class="fa-solid fa-plus"></i>
-                    Nueva incidencia
-                    </a></li>
+                        <i class="fa-solid fa-plus"></i>
+                        Nueva incidencia
+                    </a>
+                </li>
                 <li>
-                    <a href="servicios.html">
-                    <i class="fa-solid fa-phone-volume"></i>
-                    Servicios
-                </a></li>
+                    <a href="servicios.php">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        Servicios
+                    </a>
+                </li>
                 <li>
                     <a href="#">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    Calendario
-                </a></li>
-                <li><a href="#">
-                    <i class="fa-regular fa-file-lines"></i>
-                    Documentación
-                </a></li>
-                <li><a href="panel_control.html">
-                    <i class="fa-solid fa-gear"></i>
-                    Panel de control
-                </a></li>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        Calendario
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-regular fa-file-lines"></i>
+                        Documentación
+                    </a>
+                </li>
+                <?php if ($_SESSION["rol"] !== "vecino"): ?>
+                    <li>
+                        <a href="admin/panel_control.php">
+                            <i class="fa-solid fa-gear"></i>
+                            Panel de control
+                        </a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </aside>
     </main>

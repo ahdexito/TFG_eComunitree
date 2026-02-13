@@ -97,14 +97,14 @@ header.body-header a.btn-index {
 header.body-header a.btn-index:hover {
   transform: scale(1.05);
 }
-header.body-header a.btn-index img {
-  width: 90px;
-  margin-right: 10px;
-}
 @media (max-width: 600px) {
   header.body-header a.btn-index img {
     display: none;
   }
+}
+header.body-header a.btn-index img {
+  width: 90px;
+  margin-right: 10px;
 }
 header.body-header a.btn-index h1 {
   color: #d9d9ce;
@@ -117,16 +117,16 @@ header.body-header .user {
   gap: 20px;
   color: #d9d9ce;
 }
+@media (max-width: 950px) {
+  header.body-header .user p {
+    display: none;
+  }
+}
 header.body-header .user p {
   text-align: end;
   font-size: 1.3em;
   text-shadow: rgb(32.3555555556, 51.6444444444, 32.3555555556) 2px 2px 0px;
   font-weight: bold;
-}
-@media (max-width: 950px) {
-  header.body-header .user p {
-    display: none;
-  }
 }
 header.body-header .user a {
   text-decoration: none;
@@ -154,9 +154,6 @@ aside.main-aside {
   top: 20px;
   right: -100%;
   transition: all 0.4s ease;
-  background: linear-gradient(to bottom, rgba(21, 32, 21, 0.8784313725), rgba(109, 131, 58, 0.7137254902) 150px, rgba(109, 131, 58, 0.7137254902) calc(100% - 150px), rgba(21, 32, 21, 0.8784313725));
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
-          mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
 }
 @media (max-width: 950px) {
   aside.main-aside {
@@ -172,6 +169,11 @@ aside.main-aside {
     border-left: 2px solid #d9d9ce;
     background: linear-gradient(to bottom, #152015, #6d833a, #6d833a, #152015);
   }
+}
+aside.main-aside {
+  background: linear-gradient(to bottom, rgba(21, 32, 21, 0.8784313725), rgba(109, 131, 58, 0.7137254902) 150px, rgba(109, 131, 58, 0.7137254902) calc(100% - 150px), rgba(21, 32, 21, 0.8784313725));
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
 }
 aside.main-aside h3 {
   color: #d9d9ce;
@@ -272,10 +274,7 @@ section.services-body article .article-body ul li a {
 }
 
 body {
-  background-color: rgba(255, 255, 255, 0.3843137255);
   border-radius: 20px;
-  height: 95vh;
-  padding: 20px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -283,21 +282,20 @@ body {
 }
 body main {
   display: flex;
-  gap: 30px;
   align-items: flex-start;
+  justify-content: center;
 }
 body main .services {
-  background-color: rgba(255, 255, 255, 0.3843137255);
   flex: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 690px;
-  overflow-y: auto;
+  max-width: 1200px;
   border-radius: 10px;
   padding: 50px 20px 0;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
-          mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+  background-color: rgba(255, 255, 255, 0.3843137255);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
 }
 body main .services .services-header {
   display: flex;
