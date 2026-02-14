@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Imprima&family=Playwrite+NZ+Basic:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Imprima&family=Playwrite+NZ+Basic:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Imprima&family=Playwrite+NZ+Basic:wght@100..400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Imprima&family=Playwrite+NZ+Basic:wght@100..400&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -189,143 +188,150 @@ aside.main-aside ul li:hover > p {
   margin-bottom: 5px;
 }
 
-section.services-body article {
-  width: 380px;
-  background-color: rgba(109, 131, 58, 0.7137254902);
-  padding: 10px;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
+main {
+  flex: 1;
+  padding: 20px;
 }
-section.services-body article .article-header {
-  background-color: rgba(21, 32, 21, 0.8784313725);
-  padding: 15px;
-  border-radius: 10px;
-}
-section.services-body article .article-header h3 {
-  font-size: 1.5em;
-  margin-bottom: 5px;
-  color: #afce8d;
-}
-section.services-body article .article-header p {
-  font-style: italic;
-  color: #d9d9ce;
-}
-section.services-body article .article-body {
-  border-radius: 10px;
-  color: #345334;
-  font-weight: bold;
-}
-section.services-body article .article-body ul {
-  margin-top: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  list-style-type: none;
-}
-section.services-body article .article-body ul li {
-  background-color: rgba(255, 255, 255, 0.3843137255);
-  padding: 10px;
-  border-radius: 10px;
-}
-section.services-body article .article-body ul li u {
-  color: #152015;
-}
-section.services-body article .article-body ul li a {
-  color: #345334;
-}
-
-.pager {
+main .panel-control {
   width: 100%;
+  margin: auto;
+  padding: 20px;
+  background-color: #345334;
+  border-radius: 5px;
+  box-shadow: 0 0 15px 5px #000;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+}
+main .panel-control form {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgb(32.3555555556, 51.6444444444, 32.3555555556);
+  border-radius: 10px;
+}
+main .panel-control form .form {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 50px;
   gap: 20px;
 }
-.pager a, .pager span {
-  text-decoration: none;
-  width: 50px;
-  height: 50px;
+main .panel-control form .form .casilla {
+  width: 100%;
+  min-width: 300px;
+  max-width: 400px;
+  padding: 15px 20px;
+  border: 0;
+  border-radius: 15px;
+  font-size: 1.2em;
   background-color: #d9d9ce;
-  border: 3px solid #152015;
-  border-radius: 30px;
-  color: #152015;
-  font-size: 1.5em;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(22.5333333333, 35.9666666667, 22.5333333333);
+  color: #d9d9ce;
+}
+main .panel-control form .form .casilla label, main .panel-control form .form .casilla p {
+  margin: 10px 20px;
+}
+main .panel-control form .form .casilla input:not(.checkbox, .imagen) {
+  width: 100%;
+  min-width: 300px;
+  max-width: 400px;
+  padding: 15px 20px;
+  border: 0;
+  border-radius: 15px;
+  font-size: 1.2em;
+  background-color: #d9d9ce;
+}
+main .panel-control form .form .casilla .seleccion {
+  width: 100%;
+  min-width: 300px;
+  max-width: 400px;
+  padding: 15px 20px;
+  border: 0;
+  border-radius: 15px;
+  font-size: 1.2em;
+  background-color: #d9d9ce;
+  background-color: #d9d9ce;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+}
+main .panel-control form .form .casilla .area-texto {
+  width: 100%;
+  min-width: 300px;
+  max-width: 400px;
+  padding: 15px 20px;
+  border: 0;
+  border-radius: 15px;
+  font-size: 1.2em;
+  background-color: #d9d9ce;
+  height: 57px;
+}
+main .panel-control form .form .casilla .imagen {
+  padding: 15px;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background-color: #d9d9ce;
+  color: #000;
+  font-size: 0.7em;
+  cursor: pointer;
+}
+main .panel-control form .form .casilla .imagen::file-selector-button {
+  cursor: pointer;
+  font-size: 1.7em;
+  border: 0;
+  background-color: #d9d9ce;
+  font-family: "Jura";
+}
+main .panel-control form .form .checkbox-background {
+  width: 100%;
+  min-width: 300px;
+  max-width: 400px;
+  padding: 15px 20px;
+  border: 0;
+  border-radius: 15px;
+  font-size: 1.2em;
+  background-color: #d9d9ce;
+  background-color: #d9d9ce;
+  height: 57px;
+  border-radius: 15px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
-.pager a:active, .pager span:active {
-  background-color: #152015;
-  border-color: #6d833a;
-  color: #d9d9ce;
+main .panel-control form .form .checkbox-background .checkbox {
+  min-width: 0;
+  max-width: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
-.pager a.activo {
-  background-color: #152015;
-  border-color: #6d833a;
-  color: #d9d9ce;
+main .panel-control form .form .checkbox-background .checkbox-info {
+  color: #000;
 }
-.pager span {
-  background-color: rgb(150.1724137931, 150.1724137931, 119.8275862069);
+main .panel-control form .guardar {
+  width: 100%;
+  min-width: 300px;
+  max-width: 400px;
+  padding: 15px 20px;
+  border: 0;
+  border-radius: 15px;
+  font-size: 1.2em;
+  background-color: #d9d9ce;
+  max-width: none;
+  display: block;
+  margin: 50px auto 0;
+  cursor: pointer;
+  background-color: #d9d9ce;
+  color: rgb(32.3555555556, 51.6444444444, 32.3555555556);
+  font-weight: bold;
+  font-size: 2em;
+  transition: 0.2s ease;
 }
-.pager .pag-arrow {
+main .panel-control form .guardar:hover {
   background-color: #6d833a;
   color: #d9d9ce;
-  text-shadow: #152015 3px 3px;
-}
-
-body {
-  border-radius: 20px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-body main {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-body main .services {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 1200px;
-  border-radius: 10px;
-  padding: 50px 20px 0;
-  background-color: rgba(255, 255, 255, 0.3843137255);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
-          mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
-}
-body main .services .services-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 30px;
-}
-body main .services .services-header h2 {
-  color: #152015;
-  font-size: 2.5em;
-}
-body main .services .services-header input {
-  background-color: #d9d9ce;
-  padding: 10px;
-  border: 3px solid #152015;
-  border-radius: 20px;
-  width: 40%;
-  font-size: 1.3em;
-}
-body main .services hr {
-  border: 3px solid #152015;
-  border-radius: 10px;
-  margin: 10px 0 30px;
-}
-body main .services .services-body {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 40px;
-  padding-bottom: 40px;
-}/*# sourceMappingURL=servicios.css.map */
+  box-shadow: rgb(12.7111111111, 20.2888888889, 12.7111111111) 5px 5px 10px;
+}/*# sourceMappingURL=insert_edit.css.map */

@@ -47,48 +47,14 @@
             <hr>
 
             <article>
-                <h3>PUBLICACIONES</h3>
-                <a href="">Crear Aviso</a>
-                <a href="">Crear Votación</a>
-                <a href="">Cambiar Estado Incidencia</a>
+                <a href="#">PUBLICACIONES</a>
 
-                <!-- administrador -->
-                <?php if ($_SESSION["rol"] == 'admin'): ?>
+                <a href="gestion_servicios.php">SERVICIOS</a>
 
-                <a href="">Gestionar Publicaciones</a>
+                <a href="#">DOCUMENTACIÓN</a>
 
-                <?php endif; ?>
+                <a href="#">USUARIOS</a>
             </article>
-
-            <article>
-                <h3>SERVICIOS</h3>
-                <a href="">Añadir Servicio</a>
-                <a href="">Editar Servicio</a>
-                <a href="">Eliminar Servicio</a>
-            </article>
-
-            <article>
-                <h3>DOCUMENTACIÓN</h3>
-                <a href="">Añadir Documentación</a>
-
-                <!-- administrador -->
-                <?php if ($_SESSION["rol"] == 'admin'): ?>
-
-                <a href="">Eliminar documentación</a>
-
-                <?php endif; ?>
-            </article>
-
-            <!-- administrador -->
-            <?php if ($_SESSION["rol"] == 'admin'): ?>
-            <article>
-                <h3>USUARIOS</h3>
-                <a href="">Crear Usuario</a>
-                <a href="">Editar Usuario</a>
-                <a href="">Eliminar Usuario</a>
-                </ul>
-            </article>
-            <?php endif; ?>
         </section>
 
         <input type="checkbox" id="menu-toggle" class="menu-checkbox">
@@ -102,30 +68,38 @@
                     <a href="../index.php">
                         <i class="fa-solid fa-house"></i>
                         Inicio
-                    </a></li>
+                    </a>
+                </li>
                 <li>
                     <a href="#">
-                    <i class="fa-solid fa-plus"></i>
-                    Nueva incidencia
-                    </a></li>
+                        <i class="fa-solid fa-plus"></i>
+                        Nueva incidencia
+                    </a>
+                </li>
                 <li>
                     <a href="../servicios.php">
-                    <i class="fa-solid fa-phone-volume"></i>
-                    Servicios
-                </a></li>
+                        <i class="fa-solid fa-phone-volume"></i>
+                        Servicios
+                    </a>
+                </li>
                 <li>
                     <a href="#">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    Calendario
-                </a></li>
-                <li><a href="#">
-                    <i class="fa-regular fa-file-lines"></i>
-                    Documentación
-                </a></li>
-                <li><a href="panel_control.php">
-                    <i class="fa-solid fa-gear"></i>
-                    Panel de control
-                </a></li>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        Calendario
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-regular fa-file-lines"></i>
+                        Documentación
+                    </a>
+                </li>
+                <li>
+                    <a href="panel_control.php">
+                        <i class="fa-solid fa-gear"></i>
+                        Panel de control
+                    </a>
+                </li>
             </ul>
         </aside>
     </main>

@@ -25,6 +25,12 @@
     $total_filas = $total_resultado -> fetch_assoc()['total'];
     $total_paginas = ceil($total_filas / $num_lineas);
 
+    // RENDERIZADO DEL PAGINADOR
+    $url_f = "";
+    $rango = 1;
+    $inicio = max(1, $pagina - $rango);
+    $fin = min($total_paginas, $pagina + $rango);
+
     // OBTENER SERVICIOS
     $resultado = $conn->query(
         "SELECT * FROM servicios 
@@ -37,7 +43,7 @@
     if (isset($_GET["eliminar"])) {
         $id_servicio = intval($_GET["eliminar"]);
 
-        $stmt = $conn -> prepare("DELETE FROM servicios WHERE id = ?");
+        $stmt = $conn -> prepare("DELETE FROM servicios WHERE id_servicio = ?");
         $stmt -> bind_param("i", $id_servicio);
         $stmt -> execute();
         $stmt -> close();
@@ -53,12 +59,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eComunitree | Panel Control</title>
-    <link rel="stylesheet" href="../css/index/index.css">
+    <link rel="stylesheet" href="../css/gestion/gestion.css">
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="body-header">
-        <a href="../login.php" class="btn-index">
+        <a href="../index.php" class="btn-index">
             <img src="../img/logo-transparencia.png" alt="logotipo">
             <h1>eComunitree</h1>
         </a>
@@ -100,7 +106,7 @@
     ?>
 
     <main>
-    <section class="panel-control">
+        <section class="panel-control">
             <div class="section-header">
                 <i class="fa-solid fa-shop icono-header"></i>
                 <h2>Gestión de Servicios</h2>
@@ -132,16 +138,16 @@
                         <?php foreach ($servicios as $s): ?>
                         <tr>
                             <td>
-                                <a href="edit_servicio.php?edit=<?= $s['id'] ?>">
+                                <a href="edit_servicio.php?edit=<?= $s['id_servicio'] ?>">
                                     <i class="fa-regular fa-pen-to-square"></i>
                                 </a>
 
-                                <a href="?eliminar=<?= $s['id'] ?>" 
+                                <a href="?eliminar=<?= $s['id_servicio'] ?>" 
                                 onclick="return confirm('¿Eliminar servicio?');">
                                     <i class="fa-regular fa-trash-can"></i>
                                 </a>
                             </td>
-                            <td>#<?= $s['id'] ?></td>
+                            <td>#<?= $s['id_servicio'] ?></td>
                             <td>
                                 <?php
                                     if ($s['activo'] == 0) echo '<i class="fa-solid fa-x"></i>'; 
@@ -159,9 +165,9 @@
                 </table>
             </div>
 
-            <div class="paginador">
+            <div class="pager">
                 <?php if ($pagina > 1): ?>
-                    <a href="?pag=<?= $pagina - 1 ?>" class="icono-flecha"><i class="fa-solid fa-angle-left"></i></a>
+                    <a class="pag-arrow" href="?pag=<?= $pagina - 1 ?>" class="icono-flecha"><i class="fa-solid fa-angle-left"></i></a>
                 <?php endif; ?>
 
                 <?php if ($inicio > 1): ?>
@@ -179,7 +185,7 @@
                 <?php endif; ?>
 
                 <?php if ($pagina < $total_paginas): ?>
-                    <a href="?pag=<?= $pagina + 1 ?>" class="icono-flecha"><i class="fa-solid fa-angle-right"></i></a>
+                    <a class="pag-arrow" href="?pag=<?= $pagina + 1 ?>" class="icono-flecha"><i class="fa-solid fa-angle-right"></i></a>
                 <?php endif; ?>
             </div>
         </section>

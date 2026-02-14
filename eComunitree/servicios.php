@@ -20,6 +20,12 @@
     $total_filas = $total_resultado -> fetch_assoc()['total'];
     $total_paginas = ceil($total_filas / $num_lineas);
 
+    // RENDERIZADO DEL PAGINADOR
+    $url_f = "";
+    $rango = 1;
+    $inicio = max(1, $pagina - $rango);
+    $fin = min($total_paginas, $pagina + $rango);
+
     // OBTENER SERVICIOS
     $resultado = $conn->query(
         "SELECT * FROM servicios 
@@ -58,12 +64,13 @@
     <main>
         <div class="services">
             <header class="services-header">
-                <h2>Servicios</h2>
+                <h2>Servicios: <small>Página <?= $pagina ?></small></h2>
                 <input type="search" placeholder="Buscar...">
             </header>
             <hr>
 
             <section class="services-body">
+
             <?php foreach ($servicios as $s): ?>
                 <article>
                     <header class="article-header">
@@ -97,6 +104,37 @@
                 </article>
             <?php endforeach; ?>
             </section>
+
+            <div class="pager">
+                <?php if ($pagina > 1): ?>
+                    <a class="pag-arrow" href="?pag=<?= $pagina - 1 ?><?= $url_f ?>" class="icono-flecha">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </a>
+                <?php endif; ?>
+
+                <?php if ($inicio > 1): ?>
+                    <a href="?pag=1<?= $url_f ?>" class="pagina-limite">1</a>
+                    <?php if ($inicio > 2): ?><span>...</span><?php endif; ?>
+                <?php endif; ?>
+
+                <?php for ($i = $inicio; $i <= $fin; $i++): ?>
+                    <a href="?pag=<?= $i ?><?= $url_f ?>" class="<?= $i == $pagina ? 'activo' : '' ?>">
+                        <?= $i ?>
+                    </a>
+                <?php endfor; ?>
+
+                <?php if ($fin < $total_paginas): ?>
+                    <?php if ($fin < $total_paginas - 1): ?><span>...</span><?php endif; ?>
+                    <a href="?pag=<?= $total_paginas ?><?= $url_f ?>" class="pagina-limite"><?= $total_paginas ?></a>
+                <?php endif; ?>
+
+                <?php if ($pagina < $total_paginas): ?>
+                    <a class="pag-arrow" href="?pag=<?= $pagina + 1 ?><?= $url_f ?>" class="icono-flecha">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                <?php endif; ?>
+            </div>
+
         </div>
 
         <input type="checkbox" id="menu-toggle" class="menu-checkbox">
