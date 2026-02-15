@@ -13,44 +13,28 @@
         die();
     }
 
-    if (!isset($_GET['edit'])) {
-        header("location:gestion_servicios.php");
-        die();
-    }
-
-    $id_servicio = intval($_GET['edit']);
-    $sql = "SELECT * FROM servicios WHERE id_servicio = $id_servicio";
-    $res = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($res) === 0) {
-        header("location:gestion_servicios.php");
-        die();
-    }
-
-    $servicio = mysqli_fetch_assoc($res);
-
-    if (isset($_POST['nombre'])) {
+    if (isset($_POST["nombre"])) {
+        $nombre = htmlspecialchars($_POST["nombre"]);
         $activo = intval($_POST['activo']);
-        $nombre = htmlspecialchars($_POST['nombre']);
-        $descripcion = htmlspecialchars($_POST['descripcion']);
-        $telefono = htmlspecialchars($_POST['telefono']);
-        $email = htmlspecialchars($_POST['email']);
-        $enlace = htmlspecialchars($_POST['enlace']);
+        $descripcion = htmlspecialchars($_POST["descripcion"]);
+        $telefono = htmlspecialchars($_POST["telefono"]);
+        $email = htmlspecialchars($_POST["email"]);
+        $enlace = htmlspecialchars($_POST["enlace"]);
 
-        $sql_update = 
-            "UPDATE servicios SET 
-            nombre = '$nombre', descripcion = '$descripcion', telefono = '$telefono', 
-            email = '$email', enlace = '$enlace', activo = '$activo'
-            WHERE id_servicio = '$id_servicio'";
+        $sql = 
+            "INSERT INTO servicios (nombre, descripcion, telefono, email, enlace, activo)
+            VALUES ('$nombre', '$descripcion', '$telefono', '$email', '$enlace', '$activo')";
 
-        if(mysqli_query($conn, $sql_update)) {
-            header("location:gestion_servicios.php?upt=0"); // actualizado correctamente
+        if (mysqli_query($conn, $sql)) {
+            header("location:gestion_servicios.php?serv=0");// insertado correctamente
         } 
+            
         else {
-            header("location:gestion_servicios.php?upt=1"); // error al actualizar
+            header("location:gestion_servicios.php?serv=1");// error al insertar
         }
+
         die();
-    }
+    }    
 ?>
 
 <!DOCTYPE html>
@@ -58,11 +42,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Servicio</title>
+    <title>Insertar Servicio</title>
     <link rel="stylesheet" href="../css/insert_edit/insert_edit.css">
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
     <header class="body-header">
         <a href="../index.php" class="btn-index">
@@ -79,51 +62,53 @@
             </a>
         </div>
     </header>
-
+    
     <main>
         <section class="panel-control">
             <div class="section-header">
-                <i class="fa-regular fa-pen-to-square icono-header"></i>
-                <h2>Actualizar Servicio</h2>
+                <i class="fa-regular fa-square-plus icono-header"></i>
+                <h2>Insertar Servicio</h2>
             </div>
+
             <hr>
+
             <form method="POST">
                 <div class="form">
                     <div class="casilla">
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" value="<?= htmlspecialchars($servicio['nombre']) ?>" required>
+                        <input type="text" name="nombre" placeholder="Texto" required>
                     </div>
-
+                    
                     <div class="casilla">
                         <label for="descripcion">Descripción</label>
-                        <textarea name="descripcion" class="area-texto"><?= htmlspecialchars($servicio['descripcion']) ?></textarea>
+                        <textarea name="descripcion" class="area-texto" placeholder="Área de texto"></textarea>
                     </div>
 
                     <div class="casilla">
                         <label for="telefono">Teléfono</label>
-                        <input type="text" name="telefono" value="<?= htmlspecialchars($servicio['telefono']) ?>">
+                        <input type="text" name="telefono" placeholder="Texto">
                     </div>
 
                     <div class="casilla">
                         <label for="email">Email</label>
-                        <input type="text" name="email" value="<?= htmlspecialchars($servicio['email']) ?>">
+                        <input type="text" name="email" placeholder="Texto">
                     </div>
 
                     <div class="casilla">
                         <label for="enlace">Enlace</label>
-                        <input type="text" name="enlace" value="<?= htmlspecialchars($servicio['enlace']) ?>">
+                        <input type="text" name="enlace" placeholder="Texto">
                     </div>
 
                     <div class="casilla">
                         <label for="activo">Activo</label>
-                        <select name="activo" class="seleccion" required>
-                            <option value="0" <?= $servicio['activo']==0?'selected':'' ?> >Desactivado</option>
-                            <option value="1" <?= $servicio['activo']==1?'selected':'' ?> >Activado</option>
+                        <select name="activo" id="activo" class="seleccion" required>
+                            <option value="1" selected>Activado</option>
+                            <option value="0">Desactivado</option>
                         </select>
                     </div>
                 </div>
 
-                <button type="submit" class="guardar"><i class="fa-solid fa-floppy-disk"></i> Actualizar Servicio</button>
+                <button type="submit" class="guardar"><i class="fa-solid fa-floppy-disk"></i> Guardar Servicio</button>
             </form>
         </section>
     </main>

@@ -34,7 +34,7 @@
     // OBTENER SERVICIOS
     $resultado = $conn->query(
         "SELECT * FROM servicios 
-        ORDER BY id_servicio DESC
+        ORDER BY activo DESC, id_servicio DESC
         LIMIT $num_lineas OFFSET $offset"
     );
     $servicios = $resultado->fetch_all(MYSQLI_ASSOC);
@@ -114,9 +114,9 @@
 
             <hr>
 
-            <a href="ins_producto.php" class="boton-insertar">
+            <a href="ins_servicio.php" class="boton-insertar">
                 <i class="fa-regular fa-square-plus"></i>
-                Añadir servicio
+                Añadir Servicio
             </a>
 
             <div class="caja-overflow">
