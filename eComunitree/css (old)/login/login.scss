@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gugi&family=Imprima&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jura:wght@300..700&display=swap');
+
 @import '../common/variables';
 @import '../common/mixins';
 
@@ -7,27 +9,19 @@
     border: none;
     border-radius: 25px;
     font-size: 1.1em;
-    border: 3px solid $color-dark;
-    color: $color-dark;
-    box-shadow: $color-dark 3px 3px;
 }
 
 @mixin button {
     @include input;
-
-    border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
-    background-color: $color-light;
-    border: 3px solid $color-dark;
-    color: $color-dark;
-    box-shadow: $color-dark 3px 3px;
+    background-color: darken($color-primary, $amount: 20);
+    color: $color-light;
     transition: all 0.2s ease;
     &:hover {
-        background-color: $color-accent-light;
-        color: $color-light;
-        text-shadow: $color-dark 2px 2px;
-        box-shadow: $color-dark 5px 5px;
+        background-color: $color-light;
+        color: darken($color-primary, $amount: 20);
+        box-shadow: darken($color-primary, $amount: 20) 4px 5px;
         transform: scale(0.98);
     }
 }
@@ -46,14 +40,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Google Sans Code';
+    font-family: 'Imprima';
 }
 
 // =========================================================
 // HTML
 // =========================================================
 html {
-    background: url(../../img/fondo.jpg);
+    background: url(../../img/fondo-login.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -80,15 +74,7 @@ html {
         // HEADER
         // =========================================================
         header {
-            background: linear-gradient(
-                160deg,
-                $color-dark-transparent,
-                $color-primary-transparent,
-                $color-primary-transparent,
-                $color-dark-transparent
-            );
-            border: 3px solid $color-light;
-            box-shadow: $color-dark 4px 4px;
+            background-color: $color-accent-transparent;
             border-radius: 15px;
             padding: 20px;
             display: flex;
@@ -105,8 +91,7 @@ html {
                 @include respond-to(small) { font-size: 3em; }
                 font-size: 3.5em;
                 color: $color-light;
-                text-shadow: $color-dark 5px 5px 0px;
-                font-family: $titulo;
+                text-shadow: darken($color-primary, 10%) 5px 5px 0px;
             }
         }
     
@@ -114,23 +99,14 @@ html {
             font-size: 1.5em;
             margin: 20px;
             text-align: center;
-            color: $color-light;
-            text-shadow: $color-dark 3px 3px;
+            color: darken($color-primary, $amount: 20);
         }
     
         // =========================================================
         // MAIN
         // =========================================================
         main {
-            background: linear-gradient(
-                to bottom,
-                $color-dark-transparent,
-                $color-accent-transparent,
-                $color-accent-transparent,
-                $color-dark-transparent
-            );
-            border: 3px solid $color-light;
-            box-shadow: $color-dark 4px 4px;
+            background-color: $color-primary-transparent;
             border-radius: 15px;
             padding: 20px;
             display: flex;
@@ -142,9 +118,8 @@ html {
 
             h3 {
                 color: $color-light;
-                text-shadow: $color-dark 3px 3px 0;
+                text-shadow: darken($color-primary, $amount: 20) 3px 3px 0;
                 font-size: 2em;
-                font-family: $titulo;
             }
         
             // =========================================================
@@ -178,84 +153,17 @@ html {
                     a {
                         @include button;
                         flex: 0;
-                        background-color: $color-light;
+                        background-color: darken($color-primary, $amount: 20);
                         padding: 15px 15px;
-
-                        &:hover { background-color: $color-primary; }
                     }
                 }
 
                 button { @include button; }
-
-                .form-group {
-                    display: flex;
-                    flex-direction: column;
-
-                    label {
-                        margin: 0 20px 5px;
-                        color: $color-light;
-                        text-shadow: $color-dark 2px 2px;
-                        text-align: left;
-                    }
-                }
-
-                .form-group-genero {
-
-                    p {
-                        margin: 0 20px 5px;
-                        color: $color-light;
-                        text-shadow: $color-dark 2px 2px;
-                        text-align: left;
-                        flex-basis: 100%;
-                    }
-
-                    .btns-genero {
-                        display: flex;
-                        justify-content: space-between;
-
-                        .form-genero {
-                            width: 27%;
-                            margin: 0 10px;
-                            position: relative;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-
-                            &:nth-of-type(1) { --btn-color: #{lighten($color-dark, 30%)}; }
-                            &:nth-of-type(2) { --btn-color: #{$color-accent}; }
-                            &:nth-of-type(3) { --btn-color: #{$color-primary}; }
-
-                            input[type="radio"] {
-                                box-shadow: none;
-                                opacity: 0;
-                                position: absolute;
-                                width: 0;
-                                height: 0;
-                            }
-
-                            label {
-                                @include button;
-                                font-size: 0.9em;
-
-                                &:hover { background-color: var(--btn-color); }
-
-                                &:active { background-color: $color-accent-light; }
-                            }
-
-                            input[type="radio"]:checked + label {
-                                background-color: $color-accent-light;
-                                color: $color-light;
-                                text-shadow: $color-dark 2px 2px;
-                            }
-                        }
-                    }
-                }
             }
         
             hr {
-                border: 2px solid $color-light;
+                border: 2px solid darken($color-primary, $amount: 10);
                 border-radius: 10px;
-                box-shadow: $color-dark 3px 3px;
             }
             
             // =========================================================
@@ -269,17 +177,24 @@ html {
                     display: flex;
                     align-items: center;
                     color: $color-light;
-                    font-size: 1.6em;
+                    font-size: 1.8em;
                     text-align: center;
-                    font-family: $parrafo;
+        
                 }
         
-                button { 
-                    @include button; 
-
-                    &:hover { background-color: $color-primary; }
-                }
+                button { @include button; }
             }
+        }
+
+        .error {
+            background-color: rgba(158, 18, 18, 0.726);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.3em;
+            transition: opacity 2s ease-in;
         }
     }
 }

@@ -11,10 +11,10 @@
 // =========================================================
 body {
     border-radius: 20px;
-    padding: 20px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    gap: 30px;
 
     // =========================================================
     // MAIN
@@ -28,19 +28,14 @@ body {
         // SECTION / FEED
         // =========================================================
         section.feed {
-            width: 100%;
-            max-width: 1200px;
-            background: linear-gradient(
-                to bottom,
-                $color-accent-transparent,
-                $color-light-transparent 300px,
-                $color-light-transparent calc(100% - 300px),
-                $color-accent-transparent
-            );
             flex: 1;
             display: flex;
             flex-direction: column;
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 10px;
             padding: 60px 20px 0;
+            background-color: $color-light-transparent;
             mask-image: linear-gradient(
                 to bottom,
                 transparent 0%,
@@ -52,39 +47,34 @@ body {
             // SECTION HEADER
             .section-header {
                 display: flex;
-                flex-wrap: wrap;
                 align-items: flex-end;
                 justify-content: space-between;
-                gap: 10px;
-                padding-bottom: 20px;
+                gap: 30px;
 
                 h2 { 
-                    font-family: $titulo;
-                    flex: 1;
-                    color: $color-light; 
-                    font-size: 2.5em;
-                    margin-right: 30px;
-                    text-shadow: $color-dark 3px 3px 0;
-                    width: 100%;
+                    color: $color-dark; 
+                    font-size: 2em;
+                    font-family: $subtitulo;
                 }
 
                 // SECTION HEADER BUTTONS
                 .section-btns {
                     display: flex;
                     justify-content: end;
-                    flex-wrap: wrap;
+                    flex-wrap: wrap-reverse;
                     gap: 10px;
-                    font-size: 0.8em;
-                    margin-top: 30px;
-                    margin-left: auto;
 
                     .btn-filter, .btn-order {
-                        width: 120px;
+                        @include respond-to(small) { 
+                            width: auto;
+                            padding: 12px 9px;
+                            p { display: none; }
+                        }
+                        width: 130px;
                         color: $color-dark;
                         background-color: $color-light;
                         padding: 10px;
                         border: 3px solid $color-dark;
-                        box-shadow: $color-dark 2px 2px;
                         border-radius: 50px;
                         display: flex;
                         align-items: center;
@@ -95,30 +85,25 @@ body {
     
                         &:hover {
                             transform: scale(1.05);
+                            background-color: $color-dark;
                             color: $color-light;
-                            text-shadow: $color-dark 1px 2px;
-                            background-color: $color-accent-light;
-                            box-shadow: $color-dark 3px 3px;
                         }
                     }
-
-                    .btn-order:hover { background-color: $color-primary }
                 }
+            }
+
+            hr {
+                border: 3px solid $color-dark;
+                border-radius: 10px;
+                margin: 10px 0 30px;
             }
         }
 
-        .hr-feed {
-            width: 100%;
-            border: 3px solid $color-light;
-            border-radius: 10px;
-            margin-bottom: 50px;
-            box-shadow: $color-dark 3px 3px 0;
-        }
-
         .btn-up {
-            margin: 50px auto 70px;
-            padding: 12px;
-            border: 5px solid $color-light;
+            margin: auto;
+            margin-bottom: 80px;
+            padding: 12px 10px;
+            border: 5px solid $color-accent;
             border-radius: 50px;
             background-color: $color-dark;
             color: $color-light;
@@ -129,7 +114,6 @@ body {
                 transform: scale(1.2);
                 color: $color-dark;
                 background-color: $color-light;
-                border-color: $color-dark;
             }
         }
     }

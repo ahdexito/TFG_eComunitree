@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Imprima&family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+
+$titulo: 'Grand Hotel';
+$subtitulo: 'Playwrite NZ Basic';
+
+$color-primary: #345334;
+$color-primary-darken: darken($color-primary, $amount: 5);
+$color-accent: #6d833a;
+$color-accent-light: #afce8d;
+$color-dark: #152015;
+$color-light: #d9d9ce;
+$color-aside: #837151;
+
+
+$color-primary-transparent: #345334d2;
+$color-accent-transparent: #6d833ab6;
+$color-dark-transparent: #152015e0;
+$color-light-transparent: #ffffff62;
+$color-aside-transparent: #837151e0;

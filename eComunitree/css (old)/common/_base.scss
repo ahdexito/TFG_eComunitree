@@ -5,11 +5,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'SN Pro';
+    font-family: 'Imprima';
 }
 
 html {
-    background: url(../../img/fondo.jpg);
+    background: url(../../img/fondo-login.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -35,7 +35,7 @@ html {
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: $color-dark 3px 3px 0;
+    box-shadow: $color-dark-transparent 3px 3px 0;
 
     &:hover {
         transform: scale(1.1);
@@ -54,7 +54,7 @@ html {
     }
 
     & ~ .menu-button {
-        top: 80px;
+        top: 95px;
         right: 30px;
     }
 }

@@ -4,17 +4,16 @@
 @import '../common/header';
 @import '../common/aside';
 @import '../common/service-card';
-@import '../common/pager';
 
 // =========================================================
 // BODY
 // =========================================================
 body {
     border-radius: 20px;
+    padding: 20px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 30px;
 
     // =========================================================
     // MAIN
@@ -28,14 +27,19 @@ body {
         // SERVICES
         // =========================================================
         .services {
+            width: 100%;
+            max-width: 1200px;
+            background: linear-gradient(
+                to bottom,
+                $color-accent-transparent,
+                $color-light-transparent 300px,
+                $color-light-transparent calc(100% - 300px),
+                $color-accent-transparent
+            );
             flex: 1;
             display: flex;
             flex-direction: column;
-            width: 100%;
-            max-width: 1200px;
-            border-radius: 10px;
-            padding: 50px 20px 0;
-            background-color: $color-light-transparent;
+            padding: 60px 20px 40px;
             mask-image: linear-gradient(
                 to bottom,
                 transparent 0%,
@@ -46,30 +50,52 @@ body {
 
             // SERVICES HEADER
             .services-header {
+                @include respond-to(small_medium) { 
+                    flex-direction: column; 
+                    align-items: flex-start;
+                }
                 display: flex;
+                flex-wrap: wrap;
                 align-items: flex-end;
                 justify-content: space-between;
-                gap: 30px;
+                gap: 10px;
 
                 h2 { 
-                    color: $color-dark; 
+                    @include respond-to(small_medium) { order: 1; }
+                    font-family: $titulo;
+                    flex: 1;
+                    color: $color-light; 
                     font-size: 2.5em;
+                    margin-right: 30px;
+                    text-shadow: $color-dark 3px 3px 0;
                 }
 
                 input {
+                    @include respond-to(small_medium) { 
+                        width: 100%; 
+                        order: 3; 
+                        margin-top: 10px;
+                        margin-bottom: 50px;
+                    }
                     background-color: $color-light;
                     padding: 10px;
                     border: 3px solid $color-dark;
                     border-radius: 20px;
                     width: 40%;
-                    font-size: 1.3em;
+                    font-size: 1em;
                 }
-            }
 
-            hr {
-                border: 3px solid $color-dark;
-                border-radius: 10px;
-                margin: 10px 0 30px;
+                hr {
+                    @include respond-to(small_medium) { 
+                        order: 2; 
+                        margin-bottom: 0;
+                    }
+                    width: 100%;
+                    border: 3px solid $color-light;
+                    border-radius: 10px;
+                    margin-bottom: 60px;
+                    box-shadow: $color-dark 3px 3px 0;
+                }
             }
 
             // SERVICES BODY
@@ -79,6 +105,24 @@ body {
                 flex-wrap: wrap;
                 gap: 40px;
                 padding-bottom: 40px;
+            }
+        }
+
+        .btn-up {
+            margin: 50px auto 70px;
+            padding: 12px;
+            border: 5px solid $color-light;
+            border-radius: 50px;
+            background-color: $color-dark;
+            color: $color-light;
+            font-size: 2em;
+            transition: all 0.2s ease;
+
+            &:hover {
+                transform: scale(1.2);
+                color: $color-dark;
+                background-color: $color-light;
+                border-color: $color-dark;
             }
         }
     }

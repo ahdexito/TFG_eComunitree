@@ -11,7 +11,6 @@ aside.main-aside {
     z-index: 100;
     transition: all 0.4s ease;
     border-left: 2px solid $color-light;
-    box-shadow: $color-dark 0 0 30px 10px;
     
     background: linear-gradient(
         to bottom,
@@ -25,7 +24,7 @@ aside.main-aside {
         color: $color-light;
         text-shadow: $color-dark 3px 3px 0;
         font-size: 1.8em;
-        font-family: $titulo;
+        font-family: $subtitulo;
         margin-bottom: 10px;
     }
 
@@ -40,7 +39,7 @@ aside.main-aside {
         list-style-type: none;
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
 
         li {
             position: relative;

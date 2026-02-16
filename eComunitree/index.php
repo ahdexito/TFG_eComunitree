@@ -73,7 +73,7 @@
     <main>
         <section class="feed">
             <header class="section-header">
-                <h2>Todas las Publicaciones</h2>
+                <h2>Últimas Publicaciones: <small>página <?= $pagina ?></small></h2>
                 <div class="section-btns">
                     <a href="#" class="btn-order">
                         <i class="fa-solid fa-sort"></i>
@@ -86,9 +86,10 @@
                 </div>
             </header>
 
-            <hr>
-
             <?php foreach($publicaciones as $p): ?>
+
+                <hr class="hr-feed">
+
                 <?php $fecha = new DateTime($p['fecha_creacion']); ?>
 
                 <!-- ARTÍCULO DE TIPO VOTACIÓN -->
@@ -219,7 +220,7 @@
                             <header class="article-body-title">
                                 <h3>
                                     <i class="fa-solid fa-bullhorn"></i>
-                                    ANUNCIO
+                                    AVISO
                                 </h3>
                                 <h4> <?= $p['titulo'] ?> </h4>
                             </header>

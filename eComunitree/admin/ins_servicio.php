@@ -13,6 +13,7 @@
         die();
     }
 
+    // INSERTAR SERVICIO
     if (isset($_POST["nombre"])) {
         $nombre = htmlspecialchars($_POST["nombre"]);
         $activo = intval($_POST['activo']);

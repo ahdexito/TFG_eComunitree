@@ -2,59 +2,54 @@
 
 section.feed article {
     background: linear-gradient(
-        $color-dark 0,
-        $color-dark-transparent 300px,
-        $color-dark-transparent
-    );
+        to bottom, 
+        $color-dark-transparent 0,
+        $color-dark-transparent 70px,
+        $color-primary-transparent 150px,
+        $color-primary-transparent 100%) ;
     padding: 20px;
-    margin-bottom: 50px;
-    border: 5px solid $color-light;
-    box-shadow: $color-dark 5px 5px;
-    border-radius: 60px;
+    border-radius: 50px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-
-    &.advert-card { --article-color: #{$color-primary}; }
-    &.incidence-card { --article-color: #{$color-accent-light}; }
-    &.vote-card { --article-color: #{$color-accent}; }
+    margin-bottom: 50px;
 
     // =========================================================
     // ARTICLE HEADER
     // =========================================================
     header.article-header {
+        border-radius: 55px;
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        gap: 20px;
-        text-shadow: darken($color-dark, $amount: 10) 3px 3px 0;
+        flex-wrap: wrap;
 
         // ARTICLE HEADER USER
         .article-header-user {
             @include respond-to(small) { font-size: 1.2em; }
+            color: $color-dark;
             font-size: 1.5em;
             margin-right: 30px;
             border-radius: 50px;
             display: flex;
-            flex-wrap: wrap;
             gap: 20px;
 
             img {
+                @include respond-to(small) { width: 70px; }
                 width: 90px;
-                border: 3px solid $color-light;
+                border: 5px solid $color-dark;
                 border-radius: 100px;
-                box-shadow: #000 0 0 20px 5px;
             }
 
             .user-info {
                 display: flex;
                 flex-direction: column;
-                color: lighten($color-dark, $amount: 40);
+                color: $color-light;
 
                 strong {
                     font-size: 1.2em;
                     font-weight: bold;
-                    color: $color-light;
+                    color: $color-accent-light
                 }
             }
         }
@@ -70,20 +65,19 @@ section.feed article {
             align-items: flex-end;
             gap: 5px;
             text-align: end;
-            text-wrap: nowrap;
             font-size: 1.2em;
             margin-top: 8px;
             margin-right: 10px;
             margin-left: auto;
 
             strong { 
-                color: $color-light; 
+                color: $color-accent-light; 
                 gap: 10px;
             }
 
             p { 
                 font-weight: bold;
-                color: lighten($color-dark, $amount: 40);
+                color: $color-light;
                 text-wrap: nowrap;
             }
 
@@ -95,35 +89,32 @@ section.feed article {
     // ARTICLE BODY
     // =========================================================
     section.article-body {
-        padding: 30px;
+        border-radius: 30px;
         color: $color-light;
         display: flex;
-        gap: 30px;
         flex-direction: column;
-        background-color: var(--article-color);
-        border: 5px solid $color-light;
-        box-shadow: $color-dark 5px 5px;
-        border-radius: 40px;
-        color: $color-light;
+        gap: 30px;
 
         // ARTICLE BODY TITLE
         header.article-body-title {
-            @include respond-to(small) { font-size: 0.7em; }
-            
             display: flex;
             flex-direction: column;
             gap: 10px;
+            background-color: $color-dark;
+            padding: 20px;
+            border-radius: 20px;
+            color: $color-accent-light;
 
             h3 { 
-                font-family: $titulo;
-                font-size: 2.2em; 
-                text-shadow: $color-dark 3px 3px 0;
+                font-size: 1.5em; 
+                color: $color-light;
+                font-family: $subtitulo;
             }
 
             h4 { 
                 width: 100%;
                 font-size: 2em; 
-                text-shadow: $color-dark 3px 3px 0;
+                color: lighten($color-accent, $amount: 10);
             }
 
             p { font-size: 1.5em ; }
@@ -131,15 +122,11 @@ section.feed article {
 
         // ARTICLE BODY CONTENT
         div.article-body-content {
-            @include respond-to(small) { font-size: 0.7em; }
-
             display: block;
             overflow: hidden;
             background-color: $color-light;
             color: $color-dark;
-            border-radius: 40px;
-            border: 5px solid $color-dark;
-            box-shadow: $color-dark 5px 5px;
+            border-radius: 30px;
 
             img {
                 @include respond-to(small) {
@@ -161,7 +148,6 @@ section.feed article {
                 font-size: 1.5em; 
                 font-weight: bold;
                 margin: 30px;
-
                 i { 
                     font-size: 1.6em; 
                 }
@@ -173,49 +159,38 @@ section.feed article {
     // ARTICLE FORM FOOTER
     // =========================================================
     .article-footer {
-        @include respond-to(small) { font-size: 1.2em; }
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: left;
         gap: 5px;
         color: $color-light;
-        text-shadow: $color-dark 3px 3px 0;
         font-size: 1.5em;
+        background-color: $color-dark;
         padding: 20px;
         border-radius: 40px;
         margin-top: 10px;
 
-        strong, p {
-            width: 100%;
-            font-family: $titulo;
-        }
+        strong, p {width: 100%;}
         
+        p { color: $color-accent-light }
+
         hr {
             border: 2px solid $color-light;
-            border-radius: 10px;
-            box-shadow: $color-dark 3px 3px 0;
             width: 100%;
             margin: 15px;
         }
 
         // VOTE BUTTONS
         .vote-btns {
+            border-radius: 20px;
             width: 100%;
-            padding: 20px 40px;
+            margin: 20px 0;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
             gap: 20px;
-            background-color: $color-dark-transparent;
-            mask-image: linear-gradient(
-                to right,
-                transparent 0%,
-                black 20px,
-                black calc(100% - 20px),
-                transparent 100%
-            );
 
             .vote-option {
                 cursor: pointer;
@@ -229,15 +204,13 @@ section.feed article {
                 }
 
                 span {
-                    @include respond-to(small) { font-size: 0.8em; }
                     display: inline-block;
-                    background-color: $color-primary;
+                    background-color: $color-accent;
                     padding: 15px 30px;
+                    border: 3px solid $color-dark;
                     border-radius: 50px;
-                    border: 3px solid $color-light;
-                    box-shadow: $color-dark 6px 6px 0;
                     color: $color-light;
-                    font-size: 1em;
+                    font-size: 1.2em;
                     font-weight: bold;
                     transition: all 0.1s linear;
                     text-wrap: nowrap;
@@ -245,64 +218,43 @@ section.feed article {
                 }
 
                 &:hover span {
-                    background-color: darken($color-primary, $amount: 10);
+                    background-color: $color-accent-light;
+                    color: $color-dark;
                     transform: scale(0.95);
-                    box-shadow: $color-dark 4px 4px 0;
                 }
 
                 &:active span {
-                    background-color: darken($color-primary, $amount: 20);
+                    background-color: $color-light;
                     transform: scale(0.85);
-                    box-shadow: none;
                 }
 
                 input[type="radio"]:checked + span {
-                    background-color: $color-accent-light;
+                    background-color: darken($color-accent, $amount: 10);
                     color: $color-light;
                     border: 3px solid $color-light;
                     transform: scale(0.95);
                     cursor: default;
-                    box-shadow: $color-dark 4px 4px 0;
                 }
             }
         }
 
         button.vote-confirm {
-            width: 100%;
-            max-width: 300px;
+            background-color: $color-light;
+            width: 300px;
             padding: 20px;
-            border: 3px solid $color-light;
+            border: 3px solid $color-dark;
             border-radius: 10px;
-            color: $color-light;
-            box-shadow: $color-dark 3px 3px;
-            font-size: 1em;
+            color: $color-dark;
+            font-size: 1.5em;
             font-weight: bold;
-            transition: all 0.2s ease;
-            background: linear-gradient(
-                to right,
-                $color-dark 0%,
-                $color-accent-transparent 50%,
-                $color-primary 51%,
-                $color-accent-light 100%
-            );
-            background-size: 210% 100%;
-            background-position: left center;
+            transition: all 0.1s linear;
 
             &:hover {
-                background-position: right center;
                 cursor: pointer;
-                background-color: $color-dark;
-                color: $color-light;
-                border: 3px solid $color-light;
-                transform: scale(1.1);
-                box-shadow: $color-dark 5px 5px;
-                text-shadow: $color-dark 3px 3px;
+                background-color: $color-accent-light;
+                color: $color-dark;
+                transform: scale(0.95);
             }
-        }
-
-        .voted-msg {
-            color: $color-dark;
-            text-shadow: none;
         }
     }
 }

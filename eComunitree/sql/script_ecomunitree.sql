@@ -52,7 +52,6 @@ CREATE TABLE incidencias (
     id_tipo_incidencia INT NOT NULL,
     subtitulo VARCHAR(255) NOT NULL,
     estado ENUM('pendiente', 'en_proceso', 'resuelta') DEFAULT 'pendiente',
-    prioridad ENUM('baja', 'media', 'alta') DEFAULT 'media',
     FOREIGN KEY (id_publicacion) REFERENCES publicaciones(id_publicacion) ON DELETE CASCADE,
     FOREIGN KEY (id_tipo_incidencia) REFERENCES tipos_incidencia(id_tipo_incidencia)
 );
@@ -325,22 +324,22 @@ INSERT INTO avisos (id_publicacion) VALUES (LAST_INSERT_ID());
 -- INCIDENCIAS (REPORTADAS POR VECINOS)
 -- ------------------------------------
 INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (3, 'incidencia', 'Ascensor ruidoso', 'El ascensor hace un ruido metálico al pasar por la segunda planta.', '2026-02-14 09:00:00');
-INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 5, 'Ascensor bloque A', 'en_proceso', 'media');
+INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 5, 'Ascensor bloque A', 'en_proceso');
 
 INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (4, 'incidencia', 'Mando garaje no abre', 'La puerta principal del garaje no responde al mando a distancia.', '2026-02-14 15:20:00');
-INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 8, 'Acceso vehículos', 'pendiente', 'alta');
+INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 8, 'Acceso vehículos', 'pendiente');
 
 INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (3, 'incidencia', 'Gotera en trasteros', 'Hay una filtración de agua en el pasillo de los trasteros inferiores.', '2026-02-15 10:10:00');
-INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 4, 'Zona sótano', 'resuelta', 'alta');
+INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 4, 'Zona sótano', 'resuelta');
 
 INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (4, 'incidencia', 'Luz fundida sótano -2', 'No hay iluminación en la rampa de bajada al segundo sótano.', '2026-02-15 22:00:00');
-INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 6, 'Garaje -2', 'pendiente', 'baja');
+INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 6, 'Garaje -2', 'pendiente');
 
 INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (3, 'incidencia', 'Puerta portal no cierra', 'El muelle de la puerta principal está flojo y la puerta se queda abierta.', '2026-02-16 08:45:00');
-INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 7, 'Entrada Principal', 'en_proceso', 'alta');
+INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 7, 'Entrada Principal', 'en_proceso');
 
 INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (4, 'incidencia', 'Graffiti en fachada', 'Han pintado una firma en el muro lateral del edificio.', '2026-02-16 12:30:00');
-INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 1, 'Muro Exterior', 'pendiente', 'baja');
+INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 1, 'Muro Exterior', 'pendiente');
 
 -- ------------------------------------
 -- VOTACIONES (DECISIONES COMUNITARIAS)
