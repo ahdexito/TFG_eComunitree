@@ -241,38 +241,51 @@ section.services-body article .article-body ul li a {
   align-items: center;
   justify-content: center;
   margin-bottom: 50px;
-  gap: 20px;
+  gap: 10px;
 }
 .pager a, .pager span {
   text-decoration: none;
-  width: 50px;
-  height: 50px;
-  background-color: #d9d9ce;
-  border: 3px solid #152015;
+  width: 40px;
+  height: 40px;
+  border: 3px solid;
   border-radius: 30px;
-  color: #152015;
-  font-size: 1.5em;
+  font-size: 1.3em;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.2s ease;
 }
-.pager a:active, .pager span:active {
+.pager a:hover {
+  transform: scale(1.2);
+}
+.pager .activo {
+  background-color: #d9d9ce;
+  border-color: #152015;
+  color: #152015;
+  width: 50px;
+  height: 50px;
+  font-size: 2em;
+}
+.pager .limite {
   background-color: #152015;
-  border-color: #6d833a;
+  border-color: #d9d9ce;
   color: #d9d9ce;
 }
-.pager a.activo {
-  background-color: #152015;
-  border-color: #6d833a;
-  color: #d9d9ce;
-}
-.pager span {
-  background-color: rgb(150.1724137931, 150.1724137931, 119.8275862069);
+.pager a.limite:hover {
+  background-color: rgb(41.2075471698, 62.7924528302, 41.2075471698);
 }
 .pager .pag-arrow {
   background-color: #6d833a;
+  border-color: #d9d9ce;
   color: #d9d9ce;
   text-shadow: #152015 3px 3px;
+}
+.pager a.pag-arrow:hover {
+  background-color: rgb(138.4126984127, 166.3492063492, 73.6507936508);
+}
+.pager .disabled {
+  background-color: rgb(123.3448275862, 123.3448275862, 95.6551724138);
+  text-shadow: #152015 2px 2px;
 }
 
 body {

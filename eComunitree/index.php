@@ -3,7 +3,7 @@
     include("db/db.inc");
 
     if (!isset($_SESSION["rol"])) {
-        header("location:login.php");
+        header("location:login.php?usu=1");
         die();
     }
 ?>
@@ -204,7 +204,7 @@
                 </li>
                 <li>
                     <a href="servicios.php">
-                        <i class="fa-solid fa-phone-volume"></i>
+                        <i class="fa-solid fa-briefcase"></i>
                         Servicios
                     </a>
                 </li>

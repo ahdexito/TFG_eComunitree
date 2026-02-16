@@ -189,7 +189,6 @@ aside.main-aside ul li:hover > p {
 }
 
 main {
-  flex: 1;
   padding: 20px;
 }
 main .panel-control {

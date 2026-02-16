@@ -2,12 +2,12 @@
     session_start();
     
     if (!isset($_SESSION["rol"])) {
-        header("location:../index.php");
+        header("location:../index.php?usu=1");
         die();
     }
 
     elseif ($_SESSION["rol"] == 'vecino') {
-        header("location:../index.php");
+        header("location:../index.php?usu=1");
         die();
     } 
 ?>
@@ -18,12 +18,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eComunitree | Panel Control</title>
-    <link rel="stylesheet" href="../css/index/index.css">
+    <link rel="stylesheet" href="../css/panel_control/panel_control.css">
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="body-header">
-        <a href="../login.php" class="btn-index">
+        <a href="../index.php" class="btn-index">
             <img src="../img/logo-transparencia.png" alt="logotipo">
             <h1>eComunitree</h1>
         </a>
@@ -47,13 +47,14 @@
             <hr>
 
             <article>
-                <a href="#">PUBLICACIONES</a>
+                <a href="gestion_publicaciones.php" class="boton"><i class="fa-solid fa-comments"></i> PUBLICACIONES</a>
 
-                <a href="gestion_servicios.php">SERVICIOS</a>
+                <a href="gestion_servicios.php" class="boton"><i class="fa-solid fa-briefcase"></i> SERVICIOS</a>
 
-                <a href="#">DOCUMENTACIÓN</a>
-
-                <a href="#">USUARIOS</a>
+                <a href="gestion_documentacion.php" class="boton"><i class="fa-regular fa-file-lines"></i> DOCUMENTACIÓN</a>
+            <?php if ($_SESSION["rol"] === 'admin'): ?>
+                <a href="gestion_usuarios.php" class="boton"><i class="fa-solid fa-users"></i> USUARIOS</a>
+            <?php endif; ?>
             </article>
         </section>
 
@@ -78,7 +79,7 @@
                 </li>
                 <li>
                     <a href="../servicios.php">
-                        <i class="fa-solid fa-phone-volume"></i>
+                        <i class="fa-solid fa-briefcase"></i>
                         Servicios
                     </a>
                 </li>

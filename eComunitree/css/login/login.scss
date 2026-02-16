@@ -185,5 +185,16 @@ html {
                 button { @include button; }
             }
         }
+
+        .error {
+            background-color: rgba(158, 18, 18, 0.726);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.3em;
+            transition: opacity 2s ease-in;
+        }
     }
 }

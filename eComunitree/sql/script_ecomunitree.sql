@@ -15,7 +15,7 @@ CREATE TABLE usuarios (
     password VARCHAR(255) NOT NULL,
     rol ENUM('vecino', 'presidente', 'admin') NOT NULL,
     telefono VARCHAR(20),
-    vivienda VARCHAR(20),
+    vivienda VARCHAR(20) NOT NULL,
     foto VARCHAR(255) DEFAULT 'default.jpg',
     activo BOOLEAN DEFAULT TRUE,
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP

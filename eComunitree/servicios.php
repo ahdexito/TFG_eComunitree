@@ -46,7 +46,7 @@
 </head>
 <body>
 <header class="body-header">
-        <a href="login.php" class="btn-index">
+        <a href="index.php" class="btn-index">
             <img src="img/logo-transparencia.png" alt="logotipo">
             <h1>eComunitree</h1>
         </a>
@@ -106,35 +106,43 @@
             </section>
 
             <div class="pager">
+                <!-- FLECHA IZQUIERDA -->
                 <?php if ($pagina > 1): ?>
-                    <a class="pag-arrow" href="?pag=<?= $pagina - 1 ?><?= $url_f ?>" class="icono-flecha">
-                        <i class="fa-solid fa-angle-left"></i>
-                    </a>
+                    <a class="pag-arrow" href="?pag=<?= $pagina - 1 ?>"><i class="fa-solid fa-angle-left"></i></a>
+                <?php else: ?>
+                    <span class="pag-arrow disabled"><i class="fa-solid fa-angle-left"></i></span>
+                <?php endif; ?>
+                
+                <!-- PÁGINA LÍMITE IZQUIERDA -->
+                <?php if ($pagina == 1): ?>
+                    <span class="limite disabled">1</span>
+                <?php else: ?>
+                    <a href="?pag=1" class="limite">1</a>
                 <?php endif; ?>
 
-                <?php if ($inicio > 1): ?>
-                    <a href="?pag=1<?= $url_f ?>" class="pagina-limite">1</a>
-                    <?php if ($inicio > 2): ?><span>...</span><?php endif; ?>
+                <!-- PÁGINA ACTUAL -->
+                <span class="activo">
+                    <?= $pagina ?>
+                </span>
+
+                <!-- PÁGINA LÍMITE DERECHA -->
+                <?php if ($total_paginas > 1): ?>
+                    <?php if ($pagina == $total_paginas): ?>
+                        <span class="limite disabled"><?= $total_paginas ?></span>
+                    <?php else: ?>
+                        <a href="?pag=<?= $total_paginas ?>" class="limite"><?= $total_paginas ?></a>
+                    <?php endif; ?>
+                <?php else: ?>
+                    <span class="limite disabled">1</span>
                 <?php endif; ?>
 
-                <?php for ($i = $inicio; $i <= $fin; $i++): ?>
-                    <a href="?pag=<?= $i ?><?= $url_f ?>" class="<?= $i == $pagina ? 'activo' : '' ?>">
-                        <?= $i ?>
-                    </a>
-                <?php endfor; ?>
-
-                <?php if ($fin < $total_paginas): ?>
-                    <?php if ($fin < $total_paginas - 1): ?><span>...</span><?php endif; ?>
-                    <a href="?pag=<?= $total_paginas ?><?= $url_f ?>" class="pagina-limite"><?= $total_paginas ?></a>
-                <?php endif; ?>
-
+                <!-- FLECHA DERECHA -->
                 <?php if ($pagina < $total_paginas): ?>
-                    <a class="pag-arrow" href="?pag=<?= $pagina + 1 ?><?= $url_f ?>" class="icono-flecha">
-                        <i class="fa-solid fa-angle-right"></i>
-                    </a>
+                    <a class="pag-arrow" href="?pag=<?= $pagina + 1 ?>"><i class="fa-solid fa-angle-right"></i></a>
+                <?php else: ?>
+                    <span class="pag-arrow disabled"><i class="fa-solid fa-angle-right"></i></span>
                 <?php endif; ?>
             </div>
-
         </div>
 
         <input type="checkbox" id="menu-toggle" class="menu-checkbox">
@@ -158,7 +166,7 @@
                 </li>
                 <li>
                     <a href="servicios.php">
-                        <i class="fa-solid fa-phone-volume"></i>
+                        <i class="fa-solid fa-briefcase"></i>
                         Servicios
                     </a>
                 </li>

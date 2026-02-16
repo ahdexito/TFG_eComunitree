@@ -3,13 +3,8 @@
     
     include("../db/db.inc");
 
-    if (!isset($_SESSION["rol"])) {
-        header("location:../login.php");
-        die();
-    }
-    
-    elseif ($_SESSION["rol"] == 'vecino') {
-        header("location:../login.php");
+    if (!isset($_SESSION["rol"]) || $_SESSION["rol"] == 'vecino') {
+        header("location:../login.php?usu=1");
         die();
     }
 
@@ -19,38 +14,43 @@
     }
 
     $id_servicio = intval($_GET['edit']);
-    $sql = "SELECT * FROM servicios WHERE id_servicio = $id_servicio";
-    $res = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($res) === 0) {
+    if (isset($_POST['nombre'])) {
+        $activo = intval($_POST['activo']);
+        $nombre = $_POST['nombre'];
+        $descripcion = $_POST['descripcion'];
+        $telefono = $_POST['telefono'];
+        $email = $_POST['email'];
+        $enlace = $_POST['enlace'];
+
+        $sql_update = "UPDATE servicios SET nombre = ?, descripcion = ?, telefono = ?, email = ?, enlace = ?, activo = ? WHERE id_servicio = ?";
+        
+        $stmt = $conn->prepare($sql_update);
+        $stmt->bind_param("sssssii", $nombre, $descripcion, $telefono, $email, $enlace, $activo, $id_servicio);
+
+        if ($stmt->execute()) {
+            header("location:gestion_servicios.php?upt=0");
+        } else {
+            header("location:gestion_servicios.php?upt=1");
+        }
+        
+        $stmt->close();
+        die();
+    }
+
+    $sql_check = "SELECT * FROM servicios WHERE id_servicio = ?";
+    $stmt_check = $conn->prepare($sql_check);
+    $stmt_check->bind_param("i", $id_servicio);
+    $stmt_check->execute();
+    $res = $stmt_check->get_result();
+
+    if ($res->num_rows === 0) {
         header("location:gestion_servicios.php");
         die();
     }
 
-    $servicio = mysqli_fetch_assoc($res);
-
-    if (isset($_POST['nombre'])) {
-        $activo = intval($_POST['activo']);
-        $nombre = htmlspecialchars($_POST['nombre']);
-        $descripcion = htmlspecialchars($_POST['descripcion']);
-        $telefono = htmlspecialchars($_POST['telefono']);
-        $email = htmlspecialchars($_POST['email']);
-        $enlace = htmlspecialchars($_POST['enlace']);
-
-        $sql_update = 
-            "UPDATE servicios SET 
-            nombre = '$nombre', descripcion = '$descripcion', telefono = '$telefono', 
-            email = '$email', enlace = '$enlace', activo = '$activo'
-            WHERE id_servicio = '$id_servicio'";
-
-        if(mysqli_query($conn, $sql_update)) {
-            header("location:gestion_servicios.php?upt=0"); // actualizado correctamente
-        } 
-        else {
-            header("location:gestion_servicios.php?upt=1"); // error al actualizar
-        }
-        die();
-    }
+    $servicio = $res->fetch_assoc();
+    $stmt_check->close();
 ?>
 
 <!DOCTYPE html>
@@ -126,6 +126,52 @@
                 <button type="submit" class="guardar"><i class="fa-solid fa-floppy-disk"></i> Actualizar Servicio</button>
             </form>
         </section>
+
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+        <label for="menu-toggle" class="menu-button"><i class="fa-solid fa-bars"></i></label>
+
+        <aside class="main-aside">
+            <h3>Navegación</h3>
+            <hr>
+            <ul>
+                <li>
+                    <a href="../index.php">
+                        <i class="fa-solid fa-house"></i>
+                        Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-plus"></i>
+                        Nueva incidencia
+                    </a>
+                </li>
+                <li>
+                    <a href="../servicios.php">
+                        <i class="fa-solid fa-briefcase"></i>
+                        Servicios
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        Calendario
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-regular fa-file-lines"></i>
+                        Documentación
+                    </a>
+                </li>
+                <li>
+                    <a href="panel_control.php">
+                        <i class="fa-solid fa-gear"></i>
+                        Panel de control
+                    </a>
+                </li>
+            </ul>
+        </aside>
     </main>
 </body>
 </html>

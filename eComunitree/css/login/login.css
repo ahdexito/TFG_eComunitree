@@ -192,4 +192,14 @@ html body main .registrarse button:hover {
   color: rgb(12.7111111111, 20.2888888889, 12.7111111111);
   box-shadow: rgb(12.7111111111, 20.2888888889, 12.7111111111) 4px 5px;
   transform: scale(0.98);
+}
+html body .error {
+  background-color: rgba(158, 18, 18, 0.726);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.3em;
+  transition: opacity 2s ease-in;
 }/*# sourceMappingURL=login.css.map */
