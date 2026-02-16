@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Imprima&family=Playwrite+NZ+Basic:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Imprima&family=Playwrite+NZ+Basic:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Imprima&family=Playwrite+NZ+Basic:wght@100..400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Imprima&family=Playwrite+NZ+Basic:wght@100..400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Imprima&family=Playwrite+NZ+Basic:wght@100..400&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -195,7 +197,7 @@ section.feed article section.article-body div.article-body-content p {
 section.feed article section.article-body div.article-body-content p i {
   font-size: 1.6em;
 }
-section.feed article footer.article-footer {
+section.feed article .article-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -208,18 +210,18 @@ section.feed article footer.article-footer {
   border-radius: 40px;
   margin-top: 10px;
 }
-section.feed article footer.article-footer strong, section.feed article footer.article-footer p {
+section.feed article .article-footer strong, section.feed article .article-footer p {
   width: 100%;
 }
-section.feed article footer.article-footer p {
+section.feed article .article-footer p {
   color: #afce8d;
 }
-section.feed article footer.article-footer hr {
+section.feed article .article-footer hr {
   border: 2px solid #d9d9ce;
   width: 100%;
   margin: 15px;
 }
-section.feed article footer.article-footer .vote-btns {
+section.feed article .article-footer .vote-btns {
   border-radius: 20px;
   width: 100%;
   margin: 20px 0;
@@ -229,25 +231,46 @@ section.feed article footer.article-footer .vote-btns {
   justify-content: center;
   gap: 20px;
 }
-section.feed article footer.article-footer .vote-btns button {
+section.feed article .article-footer .vote-btns .vote-option {
+  cursor: pointer;
+  position: relative;
+}
+section.feed article .article-footer .vote-btns .vote-option input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+section.feed article .article-footer .vote-btns .vote-option span {
+  display: inline-block;
   background-color: #6d833a;
-  padding: 30px;
+  padding: 15px 30px;
   border: 3px solid #152015;
   border-radius: 50px;
   color: #d9d9ce;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: bold;
   transition: all 0.1s linear;
   text-wrap: nowrap;
+  text-align: center;
 }
-section.feed article footer.article-footer .vote-btns button:hover {
-  cursor: pointer;
+section.feed article .article-footer .vote-btns .vote-option:hover span {
   background-color: #afce8d;
   color: #152015;
-  border: 3px solid #152015;
   transform: scale(0.95);
 }
-section.feed article footer.article-footer button.vote-confirm {
+section.feed article .article-footer .vote-btns .vote-option:active span {
+  background-color: #d9d9ce;
+  transform: scale(0.85);
+}
+section.feed article .article-footer .vote-btns .vote-option input[type=radio]:checked + span {
+  background-color: rgb(79.5873015873, 95.6507936508, 42.3492063492);
+  color: #d9d9ce;
+  border: 3px solid #d9d9ce;
+  transform: scale(0.95);
+  cursor: default;
+}
+section.feed article .article-footer button.vote-confirm {
   background-color: #d9d9ce;
   width: 300px;
   padding: 20px;
@@ -258,7 +281,7 @@ section.feed article footer.article-footer button.vote-confirm {
   font-weight: bold;
   transition: all 0.1s linear;
 }
-section.feed article footer.article-footer button.vote-confirm:hover {
+section.feed article .article-footer button.vote-confirm:hover {
   cursor: pointer;
   background-color: #afce8d;
   color: #152015;
@@ -396,6 +419,60 @@ aside.main-aside ul li:hover > a, aside.main-aside ul li:hover > p {
 }
 aside.main-aside ul li:hover > p {
   margin-bottom: 5px;
+}
+
+.pager {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  gap: 10px;
+}
+.pager a, .pager span {
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  border: 3px solid;
+  border-radius: 30px;
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.pager a:hover {
+  transform: scale(1.2);
+}
+.pager .activo {
+  background-color: #d9d9ce;
+  border-color: #152015;
+  color: #152015;
+  width: 50px;
+  height: 50px;
+  font-size: 2em;
+}
+.pager .limite {
+  background-color: #152015;
+  border-color: #d9d9ce;
+  color: #d9d9ce;
+}
+.pager a.limite:hover {
+  background-color: rgb(41.2075471698, 62.7924528302, 41.2075471698);
+}
+.pager .pag-arrow {
+  background-color: #6d833a;
+  border-color: #d9d9ce;
+  color: #d9d9ce;
+  text-shadow: #152015 3px 3px;
+}
+.pager a.pag-arrow:hover {
+  background-color: rgb(138.4126984127, 166.3492063492, 73.6507936508);
+}
+.pager .disabled {
+  background-color: rgb(123.3448275862, 123.3448275862, 95.6551724138);
+  text-shadow: #152015 2px 2px;
+  border-color: #152015;
 }
 
 body {

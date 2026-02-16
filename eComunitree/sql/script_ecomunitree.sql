@@ -28,11 +28,10 @@ CREATE TABLE publicaciones (
     id_publicacion INT AUTO_INCREMENT PRIMARY KEY,
     id_usuario INT NOT NULL,
     tipo ENUM('aviso', 'incidencia', 'votacion') NOT NULL,
-    titulo VARCHAR(150),
-    contenido TEXT,
+    titulo VARCHAR(150) NOT NULL,
+    contenido TEXT NOT NULL,
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
-        ON DELETE CASCADE
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE
 );
 
 -- -----------------------------------------
@@ -53,9 +52,8 @@ CREATE TABLE incidencias (
     id_tipo_incidencia INT NOT NULL,
     subtitulo VARCHAR(255) NOT NULL,
     estado ENUM('pendiente', 'en_proceso', 'resuelta') DEFAULT 'pendiente',
-    proridad ENUM('baja', 'media', 'alta') DEFAULT 'media',
-    FOREIGN KEY (id_publicacion) REFERENCES publicaciones(id_publicacion)
-        ON DELETE CASCADE,
+    prioridad ENUM('baja', 'media', 'alta') DEFAULT 'media',
+    FOREIGN KEY (id_publicacion) REFERENCES publicaciones(id_publicacion) ON DELETE CASCADE,
     FOREIGN KEY (id_tipo_incidencia) REFERENCES tipos_incidencia(id_tipo_incidencia)
 );
 
@@ -64,8 +62,7 @@ CREATE TABLE incidencias (
 -- -----------------------------------------
 CREATE TABLE avisos (
     id_publicacion INT PRIMARY KEY,
-    FOREIGN KEY (id_publicacion) REFERENCES publicaciones(id_publicacion)
-        ON DELETE CASCADE
+    FOREIGN KEY (id_publicacion) REFERENCES publicaciones(id_publicacion) ON DELETE CASCADE
 );
 
 -- -----------------------------------------
@@ -74,8 +71,7 @@ CREATE TABLE avisos (
 CREATE TABLE votaciones (
     id_publicacion INT PRIMARY KEY,
     fecha_cierre DATE NOT NULL,
-    FOREIGN KEY (id_publicacion) REFERENCES publicaciones(id_publicacion)
-        ON DELETE CASCADE
+    FOREIGN KEY (id_publicacion) REFERENCES publicaciones(id_publicacion) ON DELETE CASCADE
 );
 
 -- -----------------------------------------
@@ -85,8 +81,7 @@ CREATE TABLE opciones_votacion (
     id_opcion INT AUTO_INCREMENT PRIMARY KEY,
     id_publicacion INT NOT NULL,
     texto VARCHAR(150) NOT NULL,
-    FOREIGN KEY (id_publicacion) REFERENCES votaciones(id_publicacion)
-        ON DELETE CASCADE
+    FOREIGN KEY (id_publicacion) REFERENCES votaciones(id_publicacion) ON DELETE CASCADE
 );
 
 -- -----------------------------------------
@@ -94,13 +89,13 @@ CREATE TABLE opciones_votacion (
 -- -----------------------------------------
 CREATE TABLE votos (
     id_usuario INT NOT NULL,
+    id_publicacion INT NOT NULL,
     id_opcion INT NOT NULL,
     fecha_voto TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id_usuario, id_opcion),
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
-        ON DELETE CASCADE,
-    FOREIGN KEY (id_opcion) REFERENCES opciones_votacion(id_opcion)
-        ON DELETE CASCADE
+    PRIMARY KEY (id_usuario, id_publicacion),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (id_publicacion) REFERENCES votaciones(id_publicacion) ON DELETE CASCADE,
+    FOREIGN KEY (id_opcion) REFERENCES opciones_votacion(id_opcion) ON DELETE CASCADE
 );
 
 -- -----------------------------------------
@@ -300,3 +295,70 @@ INSERT INTO usuarios
 ('Araceli', 'Madariaga', 'araceli@mirador.es',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111018', 'Bajo A', 'default.jpg', TRUE); 
+
+
+-- ------------------------------------
+-- AVISOS (ADMINISTRACIÓN Y JUNTA)
+-- ------------------------------------
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (1, 'aviso', 'Reunión Ordinaria Marzo', 'Se convoca a todos los vecinos el día 15 de marzo para la junta anual.', '2026-02-01 10:30:00');
+INSERT INTO avisos (id_publicacion) VALUES (LAST_INSERT_ID());
+
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (2, 'aviso', 'Lectura de contadores', 'El técnico pasará el viernes de 09:00 a 14:00. Por favor, faciliten el acceso.', '2026-02-05 09:15:00');
+INSERT INTO avisos (id_publicacion) VALUES (LAST_INSERT_ID());
+
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (1, 'aviso', 'Uso de la piscina', 'Recordamos que la temporada de piscina finaliza este fin de semana.', '2026-02-08 18:20:00');
+INSERT INTO avisos (id_publicacion) VALUES (LAST_INSERT_ID());
+
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (2, 'aviso', 'Limpieza de conductos', 'Se realizará una limpieza de los conductos de ventilación el próximo martes.', '2026-02-10 12:00:00');
+INSERT INTO avisos (id_publicacion) VALUES (LAST_INSERT_ID());
+
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (1, 'aviso', 'Nueva normativa de ruidos', 'Se ruega respetar las horas de descanso de 22:00 a 08:00.', '2026-02-11 20:45:00');
+INSERT INTO avisos (id_publicacion) VALUES (LAST_INSERT_ID());
+
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (1, 'aviso', 'Fumigación de jardín', 'El jueves se procederá a fumigar las zonas verdes. Mantengan ventanas cerradas.', '2026-02-12 08:00:00');
+INSERT INTO avisos (id_publicacion) VALUES (LAST_INSERT_ID());
+
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (2, 'aviso', 'Reparación de portero automático', 'La empresa técnica vendrá el lunes a revisar los telefonillos que fallan.', '2026-02-13 11:30:00');
+INSERT INTO avisos (id_publicacion) VALUES (LAST_INSERT_ID());
+
+-- ------------------------------------
+-- INCIDENCIAS (REPORTADAS POR VECINOS)
+-- ------------------------------------
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (3, 'incidencia', 'Ascensor ruidoso', 'El ascensor hace un ruido metálico al pasar por la segunda planta.', '2026-02-14 09:00:00');
+INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 5, 'Ascensor bloque A', 'en_proceso', 'media');
+
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (4, 'incidencia', 'Mando garaje no abre', 'La puerta principal del garaje no responde al mando a distancia.', '2026-02-14 15:20:00');
+INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 8, 'Acceso vehículos', 'pendiente', 'alta');
+
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (3, 'incidencia', 'Gotera en trasteros', 'Hay una filtración de agua en el pasillo de los trasteros inferiores.', '2026-02-15 10:10:00');
+INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 4, 'Zona sótano', 'resuelta', 'alta');
+
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (4, 'incidencia', 'Luz fundida sótano -2', 'No hay iluminación en la rampa de bajada al segundo sótano.', '2026-02-15 22:00:00');
+INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 6, 'Garaje -2', 'pendiente', 'baja');
+
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (3, 'incidencia', 'Puerta portal no cierra', 'El muelle de la puerta principal está flojo y la puerta se queda abierta.', '2026-02-16 08:45:00');
+INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 7, 'Entrada Principal', 'en_proceso', 'alta');
+
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (4, 'incidencia', 'Graffiti en fachada', 'Han pintado una firma en el muro lateral del edificio.', '2026-02-16 12:30:00');
+INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 1, 'Muro Exterior', 'pendiente', 'baja');
+
+-- ------------------------------------
+-- VOTACIONES (DECISIONES COMUNITARIAS)
+-- ------------------------------------
+-- Votación 1: Videovigilancia
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (1, 'votacion', 'Instalación de Videovigilancia', '¿Desea instalar cámaras de seguridad en el portal y garaje?', '2026-02-10 17:00:00');
+SET @v1 = LAST_INSERT_ID();
+INSERT INTO votaciones (id_publicacion, fecha_cierre) VALUES (@v1, '2026-06-01');
+INSERT INTO opciones_votacion (id_publicacion, texto) VALUES (@v1, 'Sí, en ambas zonas'), (@v1, 'Solo en garaje'), (@v1, 'No instalar');
+
+-- Votación 2: Conserjería
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (1, 'votacion', 'Horario Conserje', 'Propuesta para ampliar el horario del conserje a los sábados por la mañana.', '2026-02-12 10:00:00');
+SET @v2 = LAST_INSERT_ID();
+INSERT INTO votaciones (id_publicacion, fecha_cierre) VALUES (@v2, '2026-05-15');
+INSERT INTO opciones_votacion (id_publicacion, texto) VALUES (@v2, 'A favor del cambio'), (@v2, 'Mantener horario actual');
+
+-- Votación 3: Pintura
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (2, 'votacion', 'Color zonas comunes', '¿De qué color pintamos los pasillos de las plantas?', '2026-02-15 13:00:00');
+SET @v3 = LAST_INSERT_ID();
+INSERT INTO votaciones (id_publicacion, fecha_cierre) VALUES (@v3, '2026-04-20');
+INSERT INTO opciones_votacion (id_publicacion, texto) VALUES (@v3, 'Blanco Hueso'), (@v3, 'Azul Suave'), (@v3, 'Gris Claro');

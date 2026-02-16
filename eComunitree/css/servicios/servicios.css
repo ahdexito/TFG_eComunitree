@@ -286,6 +286,7 @@ section.services-body article .article-body ul li a {
 .pager .disabled {
   background-color: rgb(123.3448275862, 123.3448275862, 95.6551724138);
   text-shadow: #152015 2px 2px;
+  border-color: #152015;
 }
 
 body {

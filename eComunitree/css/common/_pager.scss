@@ -52,5 +52,6 @@
     .disabled { 
         background-color: darken($color-light, $amount: 40);
         text-shadow: $color-dark 2px 2px;
+        border-color: $color-dark;
     }
 }

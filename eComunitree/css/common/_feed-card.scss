@@ -1,3 +1,5 @@
+@import 'variables';
+
 section.feed article {
     background: linear-gradient(
         to bottom, 
@@ -154,9 +156,9 @@ section.feed article {
     }
 
     // =========================================================
-    // ARTICLE FOOTER
+    // ARTICLE FORM FOOTER
     // =========================================================
-    footer.article-footer {
+    .article-footer {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -190,23 +192,48 @@ section.feed article {
             justify-content: center;
             gap: 20px;
 
-            button {
-                background-color: $color-accent;
-                padding: 30px;
-                border: 3px solid $color-dark;
-                border-radius: 50px;
-                color: $color-light;
-                font-size: 1.5em;
-                font-weight: bold;
-                transition: all 0.1s linear;
-                text-wrap: nowrap;
+            .vote-option {
+                cursor: pointer;
+                position: relative;
 
-                &:hover {
-                    cursor: pointer;
+                input[type="radio"] {
+                    position: absolute;
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                }
+
+                span {
+                    display: inline-block;
+                    background-color: $color-accent;
+                    padding: 15px 30px;
+                    border: 3px solid $color-dark;
+                    border-radius: 50px;
+                    color: $color-light;
+                    font-size: 1.2em;
+                    font-weight: bold;
+                    transition: all 0.1s linear;
+                    text-wrap: nowrap;
+                    text-align: center;
+                }
+
+                &:hover span {
                     background-color: $color-accent-light;
                     color: $color-dark;
-                    border: 3px solid $color-dark;
                     transform: scale(0.95);
+                }
+
+                &:active span {
+                    background-color: $color-light;
+                    transform: scale(0.85);
+                }
+
+                input[type="radio"]:checked + span {
+                    background-color: darken($color-accent, $amount: 10);
+                    color: $color-light;
+                    border: 3px solid $color-light;
+                    transform: scale(0.95);
+                    cursor: default;
                 }
             }
         }
