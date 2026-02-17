@@ -125,14 +125,18 @@
                 <?php if ($p['tipo'] === 'votacion'): ?>
 
                     <?php 
-                        // Query para obtener las opciones de votación
-                        $opciones = [];
-
                         $id_votacion = $p['id_publicacion'];
-                        $res_opciones = $conn->query(
-                            "SELECT * FROM opciones_votacion 
-                            WHERE id_publicacion = $id_votacion"
-                        );
+
+                        // OBTENER CONTEO DE VOTACIONES
+                        $sql_opciones = 
+                            "SELECT ov.*, COUNT(v.id_usuario) AS total_votos
+                            FROM opciones_votacion ov
+                            LEFT JOIN votos v ON ov.id_opcion = v.id_opcion
+                            WHERE ov.id_publicacion = $id_votacion
+                            GROUP BY ov.id_opcion";
+
+
+                        $res_opciones = $conn->query($sql_opciones);
                         $opciones = $res_opciones->fetch_all(MYSQLI_ASSOC);
 
                         // Calcular tiempo restante de cierre
@@ -201,9 +205,17 @@
                             
                             <div class="vote-btns">
                                 <?php foreach($opciones as $opc): ?>
-                                    <label class="vote-option">
-                                        <input type="radio" name="id_opcion" value="<?= $opc['id_opcion'] ?>" required>
-                                        <span><?= $opc['texto'] ?></span>
+                                    <label class="vote-option <?= ($voto_usuario == $opc['id_opcion']) ? 'selected-voto' : '' ?>">
+                                        <input type="radio" name="id_opcion" value="<?= $opc['id_opcion'] ?>" 
+                                            required <?= ($ya_votado || $diferencia->invert) ? 'disabled' : '' ?>
+                                            <?= ($voto_usuario == $opc['id_opcion']) ? 'checked' : '' ?>>
+                                        
+                                        <span>
+                                            <?= $opc['texto'] ?> 
+                                            <small class="vote-count">
+                                                <div class="vote-number"><?= $opc['total_votos'] ?> <i class="fa-solid fa-user-check"></i></div>
+                                            </small>
+                                        </span>
                                     </label>
                                 <?php endforeach; ?>
                             </div>

@@ -277,7 +277,7 @@ section.feed article .article-footer .vote-btns .vote-option input[type=radio] {
 section.feed article .article-footer .vote-btns .vote-option span {
   display: inline-block;
   background-color: #c4315d;
-  padding: 15px 30px;
+  padding: 15px 10px;
   border-radius: 50px;
   border: 3px solid #f5f5ff;
   box-shadow: #163161 6px 6px 0;
@@ -305,6 +305,17 @@ section.feed article .article-footer .vote-btns .vote-option input[type=radio]:c
   transform: scale(0.95);
   cursor: default;
   box-shadow: #163161 4px 4px 0;
+}
+section.feed article .article-footer .vote-btns .vote-option .vote-number {
+  display: inline;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #f5f5ff;
+  padding: 10px;
+  border-radius: 50px;
+  color: #163161;
+  text-shadow: none;
+  margin-left: 10px;
 }
 section.feed article .article-footer button.vote-confirm {
   width: 100%;
@@ -557,6 +568,58 @@ aside.main-aside ul li:hover > p {
   text-shadow: none;
 }
 
+.btn-filter {
+  width: 100%;
+  max-width: 250px;
+  color: #163161;
+  background-color: #f5f5ff;
+  padding: 15px;
+  border: 3px solid #163161;
+  box-shadow: #163161 2px 2px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  text-decoration: none;
+  text-align: end;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.btn-filter:hover {
+  transform: scale(1.05);
+  color: #f5f5ff;
+  text-shadow: #163161 1px 2px;
+  background-color: #e46e20;
+  box-shadow: #163161 3px 3px;
+}
+
+.filter-container {
+  position: relative;
+}
+
+.filter-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  border-radius: 5px;
+}
+
+.filter-menu a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+.filter-menu a:hover {
+  background: #f0f0f0;
+}
+
 body {
   border-radius: 20px;
   padding: 20px;
@@ -605,53 +668,6 @@ body main section.feed .section-header .section-btns {
   font-size: 1em;
   margin-top: 30px;
   margin-left: auto;
-}
-body main section.feed .section-header .section-btns .btn-filter {
-  width: 100%;
-  max-width: 250px;
-  color: #163161;
-  background-color: #f5f5ff;
-  padding: 15px;
-  border: 3px solid #163161;
-  box-shadow: #163161 2px 2px;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  text-decoration: none;
-  text-align: end;
-  font-weight: bold;
-  transition: all 0.2s ease;
-}
-body main section.feed .section-header .section-btns .btn-filter:hover {
-  transform: scale(1.05);
-  color: #f5f5ff;
-  text-shadow: #163161 1px 2px;
-  background-color: #e46e20;
-  box-shadow: #163161 3px 3px;
-}
-body main section.feed .section-header .section-btns .filter-container {
-  position: relative;
-}
-body main section.feed .section-header .section-btns .filter-menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: white;
-  border: 1px solid #ccc;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-  border-radius: 5px;
-}
-body main section.feed .section-header .section-btns .filter-menu a {
-  display: block;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: #333;
-}
-body main section.feed .section-header .section-btns .filter-menu a:hover {
-  background: #f0f0f0;
 }
 body main .hr-feed {
   width: 100%;
