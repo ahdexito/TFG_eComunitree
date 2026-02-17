@@ -65,7 +65,8 @@ main {
 
                     .area-texto {
                         @include input-base;
-                        height: 57px;
+                        min-height: 150px;
+                        max-height: 300px;
                     }
 
                     .imagen {

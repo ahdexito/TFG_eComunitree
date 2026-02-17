@@ -209,13 +209,7 @@ section.feed article {
             justify-content: center;
             gap: 20px;
             background-color: $color-dark-transparent;
-            mask-image: linear-gradient(
-                to right,
-                transparent 0%,
-                black 20px,
-                black calc(100% - 20px),
-                transparent 100%
-            );
+            border-radius: 20px;
 
             .vote-option {
                 cursor: pointer;
@@ -300,9 +294,14 @@ section.feed article {
             }
         }
 
-        .voted-msg {
-            color: $color-dark;
-            text-shadow: none;
+        .voted-msg { color: $color-light; }
+
+        .estado {
+            background-color: $color-dark-transparent;
+            padding: 20px;
+            width: 100%;
+            border-radius: 20px;
         }
     }
 }
+

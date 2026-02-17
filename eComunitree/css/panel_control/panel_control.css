@@ -218,6 +218,7 @@ aside.main-aside ul li:hover > a, aside.main-aside ul li:hover > p {
   background-color: #c4315d;
   color: #f5f5ff;
   text-shadow: #163161 3px 3px;
+  box-shadow: #163161 6px 6px 0;
 }
 aside.main-aside ul li:hover > p {
   margin-bottom: 5px;

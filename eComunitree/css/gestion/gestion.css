@@ -220,6 +220,7 @@ aside.main-aside ul li:hover > a, aside.main-aside ul li:hover > p {
   background-color: #c4315d;
   color: #f5f5ff;
   text-shadow: #163161 3px 3px;
+  box-shadow: #163161 6px 6px 0;
 }
 aside.main-aside ul li:hover > p {
   margin-bottom: 5px;
@@ -317,17 +318,17 @@ section.services-body article .article-body ul li a {
   transform: scale(1.2);
 }
 .pager .activo {
-  background-color: rgb(40.8571428571, 91, 180.1428571429);
-  border-color: #f5f5ff;
-  color: #f5f5ff;
+  background-color: #f5f5ff;
+  color: #163161;
+  border-color: #163161;
   width: 50px;
   height: 50px;
   font-size: 2em;
 }
 .pager .limite {
-  background-color: #f5f5ff;
-  color: #163161;
-  border-color: #163161;
+  background-color: rgb(40.8571428571, 91, 180.1428571429);
+  border-color: #f5f5ff;
+  color: #f5f5ff;
 }
 .pager .pag-arrow {
   background-color: rgb(40.8571428571, 91, 180.1428571429);

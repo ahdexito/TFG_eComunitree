@@ -24,18 +24,18 @@
     a:hover { transform: scale(1.2); }
 
     .activo {
-        background-color: lighten($color-dark, $amount: 20);
-        border-color: $color-light;
-        color: $color-light;
+        background-color: $color-light;
+        color:  $color-dark;
+        border-color: $color-dark;
         width: 50px;
         height: 50px;
         font-size: 2em;
     }
 
     .limite { 
-        background-color: $color-light;
-        color:  $color-dark;
-        border-color: $color-dark;
+        background-color: lighten($color-dark, $amount: 20);
+        border-color: $color-light;
+        color: $color-light;
     }
 
     .pag-arrow {

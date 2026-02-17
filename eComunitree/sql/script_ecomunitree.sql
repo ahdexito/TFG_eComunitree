@@ -50,8 +50,8 @@ CREATE TABLE tipos_incidencia (
 CREATE TABLE incidencias (
     id_publicacion INT PRIMARY KEY,
     id_tipo_incidencia INT NOT NULL,
-    subtitulo VARCHAR(255) NOT NULL,
-    estado ENUM('pendiente', 'en_proceso', 'resuelta') DEFAULT 'pendiente',
+    estado ENUM('pendiente', 'en_proceso', 'resuelta', 'rechazada') DEFAULT 'pendiente',
+    foto VARCHAR(255) DEFAULT 'default.jpg',
     FOREIGN KEY (id_publicacion) REFERENCES publicaciones(id_publicacion) ON DELETE CASCADE,
     FOREIGN KEY (id_tipo_incidencia) REFERENCES tipos_incidencia(id_tipo_incidencia)
 );
@@ -323,23 +323,23 @@ INSERT INTO avisos (id_publicacion) VALUES (LAST_INSERT_ID());
 -- ------------------------------------
 -- INCIDENCIAS (REPORTADAS POR VECINOS)
 -- ------------------------------------
-INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (3, 'incidencia', 'Ascensor ruidoso', 'El ascensor hace un ruido metálico al pasar por la segunda planta.', '2026-02-14 09:00:00');
-INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 5, 'Ascensor bloque A', 'en_proceso');
+-- Incidencia 1
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) 
+VALUES (3, 'incidencia', 'Ascensor bloque A: ruidoso', 'El ascensor hace un ruido metálico al pasar por la segunda planta.', '2026-02-14 09:00:00');
+INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, estado) 
+VALUES (LAST_INSERT_ID(), 5, 'en_proceso');
 
-INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (4, 'incidencia', 'Mando garaje no abre', 'La puerta principal del garaje no responde al mando a distancia.', '2026-02-14 15:20:00');
-INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 8, 'Acceso vehículos', 'pendiente');
+-- Incidencia 2
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) 
+VALUES (4, 'incidencia', 'Mando garaje no abre', 'La puerta principal del garaje no responde al mando a distancia.', '2026-02-14 15:20:00');
+INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, estado) 
+VALUES (LAST_INSERT_ID(), 8, 'pendiente');
 
-INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (3, 'incidencia', 'Gotera en trasteros', 'Hay una filtración de agua en el pasillo de los trasteros inferiores.', '2026-02-15 10:10:00');
-INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 4, 'Zona sótano', 'resuelta');
-
-INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (4, 'incidencia', 'Luz fundida sótano -2', 'No hay iluminación en la rampa de bajada al segundo sótano.', '2026-02-15 22:00:00');
-INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 6, 'Garaje -2', 'pendiente');
-
-INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (3, 'incidencia', 'Puerta portal no cierra', 'El muelle de la puerta principal está flojo y la puerta se queda abierta.', '2026-02-16 08:45:00');
-INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 7, 'Entrada Principal', 'en_proceso');
-
-INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) VALUES (4, 'incidencia', 'Graffiti en fachada', 'Han pintado una firma en el muro lateral del edificio.', '2026-02-16 12:30:00');
-INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, subtitulo, estado, prioridad) VALUES (LAST_INSERT_ID(), 1, 'Muro Exterior', 'pendiente');
+-- Incidencia 3
+INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido, fecha_creacion) 
+VALUES (3, 'incidencia', 'Gotera en trasteros', 'Hay una filtración de agua en el pasillo de los trasteros inferiores.', '2026-02-15 10:10:00');
+INSERT INTO incidencias (id_publicacion, id_tipo_incidencia, estado) 
+VALUES (LAST_INSERT_ID(), 4, 'resuelta');
 
 -- ------------------------------------
 -- VOTACIONES (DECISIONES COMUNITARIAS)

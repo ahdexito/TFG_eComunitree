@@ -218,6 +218,7 @@ aside.main-aside ul li:hover > a, aside.main-aside ul li:hover > p {
   background-color: #c4315d;
   color: #f5f5ff;
   text-shadow: #163161 3px 3px;
+  box-shadow: #163161 6px 6px 0;
 }
 aside.main-aside ul li:hover > p {
   margin-bottom: 5px;
@@ -300,7 +301,8 @@ main .panel-control form .form .casilla .area-texto {
   border-radius: 15px;
   font-size: 1.2em;
   background-color: #f5f5ff;
-  height: 57px;
+  min-height: 150px;
+  max-height: 300px;
 }
 main .panel-control form .form .casilla .imagen {
   padding: 15px;

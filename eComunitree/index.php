@@ -7,17 +7,28 @@
         header("location:login.php");
         die();
     }
+
+    // LÓGICA DE FILTRADO
+    $filtro_tipo = isset($_GET['tipo']) ? $_GET['tipo'] : 'todos';
+    $where_sql = "";
+    $params_url = "";
+
+    if ($filtro_tipo !== 'todos') {
+        // Validamos para evitar inyecciones (solo permitimos estos 3 tipos)
+        if (in_array($filtro_tipo, ['aviso', 'incidencia', 'votacion'])) {
+            $where_sql = " WHERE p.tipo = '$filtro_tipo' ";
+            $params_url = "&tipo=$filtro_tipo"; // Para arrastrar el filtro en los enlaces
+        }
+    }
     
     // PAGINADOR
-    $num_lineas = 8;
+    $num_lineas = 5;
     $pagina = isset($_GET['pag']) ? max(1, intval($_GET['pag'])) : 1;
     $offset = ($pagina - 1) * $num_lineas;
 
     // TOTAL DE REGISTROS
-    $total_resultado = $conn -> query(
-        "SELECT COUNT(*) AS total FROM publicaciones"
-    );
-    $total_filas = $total_resultado -> fetch_assoc()['total'];
+    $total_resultado = $conn->query("SELECT COUNT(*) AS total FROM publicaciones p $where_sql");
+    $total_filas = $total_resultado->fetch_assoc()['total'];
     $total_paginas = ceil($total_filas / $num_lineas);
 
     // RENDERIZADO DEL PAGINADOR
@@ -27,10 +38,10 @@
     $fin = min($total_paginas, $pagina + $rango);
 
     // OBTENER PUBLICACIONES
-    $resultado = $conn->query(
+    $sql_main =
         "SELECT p.*, 
             u.nombre AS autor_nombre, u.rol AS autor_rol, u.foto AS autor_foto,
-            i.subtitulo, i.estado, i.prioridad,
+            i.estado, i.foto,
             ti.nombre AS tipo_incidencia_nombre,
             v.fecha_cierre
         FROM publicaciones p
@@ -38,9 +49,11 @@
         LEFT JOIN incidencias i ON p.id_publicacion = i.id_publicacion
         LEFT JOIN tipos_incidencia ti ON i.id_tipo_incidencia = ti.id_tipo_incidencia
         LEFT JOIN votaciones v ON p.id_publicacion = v.id_publicacion
+        $where_sql
         ORDER BY fecha_creacion DESC
-        LIMIT $num_lineas OFFSET $offset"
-    );
+        LIMIT $num_lineas OFFSET $offset";
+    
+    $resultado = $conn->query($sql_main);
     $publicaciones = $resultado->fetch_all(MYSQLI_ASSOC);
 ?>
 
@@ -54,7 +67,7 @@
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="body-header">
+    <header class="body-header" id="inicio">
         <a href="index.php" class="btn-index">
             <img src="img/logo-transparencia.png" alt="logotipo">
             <h1>eComunitree</h1>
@@ -70,19 +83,35 @@
         </div>
     </header>
 
+    <?php if (isset($_GET['ins'])): ?>
+        <div class="alerta <?php echo ($_GET['ins'] === 'ok') ? 'exito' : 'error'; ?>">
+            <?php 
+                if ($_GET['ins'] === 'ok') {
+                    echo '<i class="fa-solid fa-circle-check"></i> Incidencia publicada correctamente.';
+                } else {
+                    echo '<i class="fa-solid fa-circle-exclamation"></i> Hubo un error al publicar. Inténtalo de nuevo.';
+                }
+            ?>
+        </div>
+    <?php endif; ?>
+
     <main>
         <section class="feed">
             <header class="section-header">
                 <h2>Últimas Publicaciones: <small>página <?= $pagina ?></small></h2>
                 <div class="section-btns">
-                    <a href="#" class="btn-order">
-                        <i class="fa-solid fa-sort"></i>
-                        <p>ORDENAR</p>
-                    </a>
-                    <a href="#" class="btn-filter">
-                        <i class="fa-solid fa-filter"></i>
-                        <p>FILTRAR</p>
-                    </a>
+                    <div class="filter-container">
+                        <a href="#" class="btn-filter" onclick="toggleFiltros(event)">
+                            <i class="fa-solid fa-filter"></i>
+                            <p>FILTRAR: <?= strtoupper($filtro_tipo) ?></p>
+                        </a>
+                        <div id="filter-menu" class="filter-menu" style="display: none;">
+                            <a href="index.php?tipo=todos">Todos</a>
+                            <a href="index.php?tipo=aviso">Avisos</a>
+                            <a href="index.php?tipo=incidencia">Incidencias</a>
+                            <a href="index.php?tipo=votacion">Votaciones</a>
+                        </div>
+                    </div>
                 </div>
             </header>
 
@@ -154,46 +183,46 @@
                                     <?= $p['contenido'] ?>
                                 </p>
                             </div>
-
-                            <form class="article-footer" method="POST" action="votar.php">
-                                <input type="hidden" name="id_publicacion" value="<?= $p['id_publicacion'] ?>">
-
-                                <strong>
-                                    <i class="fa-solid fa-triangle-exclamation"></i>
-                                    TU VOTO CUENTA
-                                </strong>
-                                <p>
-                                    <i class="fa-solid fa-hourglass-half"></i>
-                                    Expira en: <time> <?= $dias_restantes ?> </time>
-                                </p>
-
-                                <hr>
-                                
-                                <div class="vote-btns">
-                                    <?php foreach($opciones as $opc): ?>
-                                        <label class="vote-option">
-                                            <input type="radio" name="id_opcion" value="<?= $opc['id_opcion'] ?>" required>
-                                            <span><?= $opc['texto'] ?></span>
-                                        </label>
-                                    <?php endforeach; ?>
-                                </div>
-
-                                <hr>
-
-                                <?php if (!$diferencia->invert): ?>
-                                    <?php if ($ya_votado): ?>
-                                        <div class="voted-msg">
-                                            <i class="fa-solid fa-circle-check"></i>
-                                            Ya has participado en esta votación.
-                                        </div>
-                                    <?php else: ?>
-                                        <button type="submit" class="vote-confirm">CONFIRMAR VOTO</button>
-                                    <?php endif; ?>
-                                <?php else: ?>
-                                    <button class="vote-confirm disabled" disabled>VOTACIÓN CERRADA</button>
-                                <?php endif; ?>
-                            </form>
                         </section>
+
+                        <form class="article-footer" method="POST" action="votar.php">
+                            <input type="hidden" name="id_publicacion" value="<?= $p['id_publicacion'] ?>">
+
+                            <strong>
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                TU VOTO CUENTA
+                            </strong>
+                            <p>
+                                <i class="fa-solid fa-hourglass-half"></i>
+                                Expira en: <time> <?= $dias_restantes ?> </time>
+                            </p>
+
+                            <hr>
+                            
+                            <div class="vote-btns">
+                                <?php foreach($opciones as $opc): ?>
+                                    <label class="vote-option">
+                                        <input type="radio" name="id_opcion" value="<?= $opc['id_opcion'] ?>" required>
+                                        <span><?= $opc['texto'] ?></span>
+                                    </label>
+                                <?php endforeach; ?>
+                            </div>
+
+                            <hr>
+
+                            <?php if (!$diferencia->invert): ?>
+                                <?php if ($ya_votado): ?>
+                                    <div class="voted-msg">
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        Ya has participado en esta votación.
+                                    </div>
+                                <?php else: ?>
+                                    <button type="submit" class="vote-confirm">CONFIRMAR VOTO</button>
+                                <?php endif; ?>
+                            <?php else: ?>
+                                <button class="vote-confirm disabled" disabled>VOTACIÓN CERRADA</button>
+                            <?php endif; ?>
+                        </form>
                     </article>
                 <?php endif; ?>
 
@@ -264,58 +293,71 @@
                             </header>
 
                             <div class="article-body-content">
-                                <img src="img_incidencias/pintura-desconchada.jpg" alt="">
+                                <?php if ($p['foto'] !== 'default.jpg'): ?>
+                                    <img src="img_incidencias/<?= $p['foto'] ?>" alt="Imagen de la incidencia">
+                                <?php endif; ?>
                                 <p>
                                     <i class="fa-regular fa-message"></i>
                                     <?= $p['contenido'] ?>
                                 </p>
                             </div>
                         </section>
+                        
+                        <footer class="article-footer">
+                            <div class="estado">
+                                <strong><i class="fa-solid fa-person-digging"></i> ESTADO: </strong>
+                                <?php
+                                    $mensaje_estado = match ($p['estado']) {
+                                        'pendiente' => '<small style="color:khaki">PENDIENTE <i class="fa-solid fa-circle-pause"></i></small>',
+                                        'en_proceso' => '<small style="color:deepskyblue">EN PROCESO <i class="fa-solid fa-clock"></i></small>',
+                                        'resuelta' => '<small style="color:lightgreen">RESUELTA <i class="fa-solid fa-circle-check"></i></small>',
+                                        'rechazada' => '<small style="color:tomato">RECHAZADA <i class="fa-solid fa-circle-xmark"></i></small>',
+                                    };
+
+                                    echo $mensaje_estado;
+                                ?>
+                            </div>
+                        </footer>
                     </article>
                 <?php endif; ?>
 
             <?php endforeach; ?>    
 
             <div class="pager">
-                <!-- FLECHA IZQUIERDA -->
                 <?php if ($pagina > 1): ?>
-                    <a class="pag-arrow" href="?pag=<?= $pagina - 1 ?>"><i class="fa-solid fa-angle-left"></i></a>
+                    <a class="pag-arrow" href="?pag=<?= $pagina - 1 ?><?= $params_url ?>"><i class="fa-solid fa-angle-left"></i></a>
                 <?php else: ?>
                     <span class="pag-arrow disabled"><i class="fa-solid fa-angle-left"></i></span>
                 <?php endif; ?>
                 
-                <!-- PÁGINA LÍMITE IZQUIERDA -->
                 <?php if ($pagina == 1): ?>
                     <span class="limite disabled">1</span>
                 <?php else: ?>
-                    <a href="?pag=1" class="limite">1</a>
+                    <a href="?pag=1<?= $params_url ?>" class="limite">1</a>
                 <?php endif; ?>
 
-                <!-- PÁGINA ACTUAL -->
                 <span class="activo">
                     <?= $pagina ?>
                 </span>
 
-                <!-- PÁGINA LÍMITE DERECHA -->
                 <?php if ($total_paginas > 1): ?>
                     <?php if ($pagina == $total_paginas): ?>
                         <span class="limite disabled"><?= $total_paginas ?></span>
                     <?php else: ?>
-                        <a href="?pag=<?= $total_paginas ?>" class="limite"><?= $total_paginas ?></a>
+                        <a href="?pag=<?= $total_paginas ?><?= $params_url ?>" class="limite"><?= $total_paginas ?></a>
                     <?php endif; ?>
                 <?php else: ?>
                     <span class="limite disabled">1</span>
                 <?php endif; ?>
 
-                <!-- FLECHA DERECHA -->
                 <?php if ($pagina < $total_paginas): ?>
-                    <a class="pag-arrow" href="?pag=<?= $pagina + 1 ?>"><i class="fa-solid fa-angle-right"></i></a>
+                    <a class="pag-arrow" href="?pag=<?= $pagina + 1 ?><?= $params_url ?>"><i class="fa-solid fa-angle-right"></i></a>
                 <?php else: ?>
                     <span class="pag-arrow disabled"><i class="fa-solid fa-angle-right"></i></span>
                 <?php endif; ?>
             </div>
             
-            <a href="index.php" class="btn-up">
+            <a href="#inicio" class="btn-up">
                 <i class="fa-solid fa-angles-up"></i>
             </a>
         </section>
@@ -334,7 +376,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="crear_incidencia.php">
                         <i class="fa-solid fa-plus"></i>
                         Nueva incidencia
                     </a>
@@ -368,5 +410,8 @@
             </ul>
         </aside>
     </main>
+    <footer>
+        <script src="javascript/toggle-filtros.js"></script>
+    </footer>
 </body>
 </html>

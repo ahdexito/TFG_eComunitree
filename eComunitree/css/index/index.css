@@ -257,8 +257,7 @@ section.feed article .article-footer .vote-btns {
   justify-content: center;
   gap: 20px;
   background-color: rgba(16, 36, 71, 0.5568627451);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20px, black calc(100% - 20px), transparent 100%);
-          mask-image: linear-gradient(to right, transparent 0%, black 20px, black calc(100% - 20px), transparent 100%);
+  border-radius: 20px;
 }
 section.feed article .article-footer .vote-btns .vote-option {
   cursor: pointer;
@@ -333,8 +332,13 @@ section.feed article .article-footer button.vote-confirm:hover {
   text-shadow: #163161 3px 3px;
 }
 section.feed article .article-footer .voted-msg {
-  color: #163161;
-  text-shadow: none;
+  color: #f5f5ff;
+}
+section.feed article .article-footer .estado {
+  background-color: rgba(16, 36, 71, 0.5568627451);
+  padding: 20px;
+  width: 100%;
+  border-radius: 20px;
 }
 
 @keyframes animarFondo {
@@ -499,6 +503,7 @@ aside.main-aside ul li:hover > a, aside.main-aside ul li:hover > p {
   background-color: #c4315d;
   color: #f5f5ff;
   text-shadow: #163161 3px 3px;
+  box-shadow: #163161 6px 6px 0;
 }
 aside.main-aside ul li:hover > p {
   margin-bottom: 5px;
@@ -528,17 +533,17 @@ aside.main-aside ul li:hover > p {
   transform: scale(1.2);
 }
 .pager .activo {
-  background-color: rgb(40.8571428571, 91, 180.1428571429);
-  border-color: #f5f5ff;
-  color: #f5f5ff;
+  background-color: #f5f5ff;
+  color: #163161;
+  border-color: #163161;
   width: 50px;
   height: 50px;
   font-size: 2em;
 }
 .pager .limite {
-  background-color: #f5f5ff;
-  color: #163161;
-  border-color: #163161;
+  background-color: rgb(40.8571428571, 91, 180.1428571429);
+  border-color: #f5f5ff;
+  color: #f5f5ff;
 }
 .pager .pag-arrow {
   background-color: rgb(40.8571428571, 91, 180.1428571429);
@@ -597,34 +602,56 @@ body main section.feed .section-header .section-btns {
   justify-content: end;
   flex-wrap: wrap;
   gap: 10px;
-  font-size: 0.8em;
+  font-size: 1em;
   margin-top: 30px;
   margin-left: auto;
 }
-body main section.feed .section-header .section-btns .btn-filter, body main section.feed .section-header .section-btns .btn-order {
-  width: 120px;
+body main section.feed .section-header .section-btns .btn-filter {
+  width: 100%;
+  max-width: 250px;
   color: #163161;
   background-color: #f5f5ff;
-  padding: 10px;
+  padding: 15px;
   border: 3px solid #163161;
   box-shadow: #163161 2px 2px;
   border-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
   text-decoration: none;
+  text-align: end;
   font-weight: bold;
   transition: all 0.2s ease;
 }
-body main section.feed .section-header .section-btns .btn-filter:hover, body main section.feed .section-header .section-btns .btn-order:hover {
+body main section.feed .section-header .section-btns .btn-filter:hover {
   transform: scale(1.05);
   color: #f5f5ff;
   text-shadow: #163161 1px 2px;
   background-color: #e46e20;
   box-shadow: #163161 3px 3px;
 }
-body main section.feed .section-header .section-btns .btn-order:hover {
-  background-color: #c4315d;
+body main section.feed .section-header .section-btns .filter-container {
+  position: relative;
+}
+body main section.feed .section-header .section-btns .filter-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  border-radius: 5px;
+}
+body main section.feed .section-header .section-btns .filter-menu a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+}
+body main section.feed .section-header .section-btns .filter-menu a:hover {
+  background: #f0f0f0;
 }
 body main .hr-feed {
   width: 100%;

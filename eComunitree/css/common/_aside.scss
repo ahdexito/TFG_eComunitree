@@ -70,6 +70,7 @@ aside.main-aside {
                 background-color: $color-primary;
                 color: $color-light;
                 text-shadow: $color-dark 3px 3px;
+                box-shadow: $color-dark 6px 6px 0;
             }
 
             &:hover > p { margin-bottom: 5px; }
