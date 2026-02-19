@@ -5,6 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -20,6 +21,12 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
+}
+
+img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+       user-select: none;
 }
 
 .menu-checkbox {
@@ -437,6 +444,24 @@ section.services-body article .article-body ul li a {
 .filter-menu a:hover:last-child {
   background-color: #e46e20;
   border-radius: 0 0 16px 16px;
+}
+
+nav ul {
+  width: 100%;
+  margin: 10px 0;
+  list-style-type: none;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  color: #f5f5ff;
+  text-shadow: #163161 2px 2px;
+  background: linear-gradient(to right, rgba(110, 40, 143, 0.9098039216) 0%, rgba(255, 255, 255, 0.3843137255) 30%, rgba(255, 255, 255, 0.3843137255) 70%, rgba(110, 40, 143, 0.9098039216) 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+nav ul li a {
+  color: #f5f5ff;
 }
 
 body {

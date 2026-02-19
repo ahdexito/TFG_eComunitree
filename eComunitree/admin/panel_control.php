@@ -38,6 +38,16 @@
         </div>
     </header>
 
+    <nav>
+        <ul>
+            <li>NAVEGACIÓN</li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li><a href="../index.php">Inicio</a></li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li>Panel Control</li>
+        </ul>
+    </nav>
+
     <main>
         <section class="feed">
             <header class="feed-header">

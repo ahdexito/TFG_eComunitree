@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +18,12 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
+}
+
+img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+       user-select: none;
 }
 
 .menu-checkbox {
@@ -240,10 +247,31 @@ header.body-header .user a img:hover {
   margin-bottom: 5px;
 }
 
-main {
+nav ul {
+  width: 100%;
+  margin: 10px 0;
+  list-style-type: none;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  color: #f5f5ff;
+  text-shadow: #163161 2px 2px;
+  background: linear-gradient(to right, rgba(110, 40, 143, 0.9098039216) 0%, rgba(255, 255, 255, 0.3843137255) 30%, rgba(255, 255, 255, 0.3843137255) 70%, rgba(110, 40, 143, 0.9098039216) 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+nav ul li a {
+  color: #f5f5ff;
+}
+
+body {
   padding: 20px;
 }
-main .panel-control {
+body main {
+  padding: 20px;
+}
+body main .panel-control {
   width: 100%;
   margin: auto;
   padding: 20px;
@@ -253,19 +281,19 @@ main .panel-control {
   display: flex;
   flex-direction: column;
 }
-main .panel-control form {
+body main .panel-control form {
   margin-top: 20px;
   padding: 20px;
   background-color: rgb(155.2, 38.8, 73.6408163265);
   border-radius: 10px;
 }
-main .panel-control form .form {
+body main .panel-control form .form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
-main .panel-control form .form .casilla {
+body main .panel-control form .form .casilla {
   width: 100%;
   min-width: 300px;
   max-width: 400px;
@@ -280,10 +308,10 @@ main .panel-control form .form .casilla {
   background-color: rgb(134.8, 33.7, 63.9612244898);
   color: #f5f5ff;
 }
-main .panel-control form .form .casilla label, main .panel-control form .form .casilla p {
+body main .panel-control form .form .casilla label, body main .panel-control form .form .casilla p {
   margin: 10px 20px;
 }
-main .panel-control form .form .casilla input:not(.checkbox, .imagen) {
+body main .panel-control form .form .casilla input:not(.checkbox, .imagen) {
   width: 100%;
   min-width: 300px;
   max-width: 400px;
@@ -293,7 +321,7 @@ main .panel-control form .form .casilla input:not(.checkbox, .imagen) {
   font-size: 1.2em;
   background-color: #f5f5ff;
 }
-main .panel-control form .form .casilla .seleccion {
+body main .panel-control form .form .casilla .seleccion {
   width: 100%;
   min-width: 300px;
   max-width: 400px;
@@ -308,7 +336,7 @@ main .panel-control form .form .casilla .seleccion {
           appearance: none;
   cursor: pointer;
 }
-main .panel-control form .form .casilla .area-texto {
+body main .panel-control form .form .casilla .area-texto {
   width: 100%;
   min-width: 300px;
   max-width: 400px;
@@ -320,7 +348,7 @@ main .panel-control form .form .casilla .area-texto {
   min-height: 150px;
   max-height: 300px;
 }
-main .panel-control form .form .casilla .imagen {
+body main .panel-control form .form .casilla .imagen {
   padding: 15px;
   width: 100%;
   height: 100%;
@@ -330,14 +358,14 @@ main .panel-control form .form .casilla .imagen {
   font-size: 0.7em;
   cursor: pointer;
 }
-main .panel-control form .form .casilla .imagen::file-selector-button {
+body main .panel-control form .form .casilla .imagen::file-selector-button {
   cursor: pointer;
   font-size: 1.7em;
   border: 0;
   background-color: #f5f5ff;
   font-family: "Jura";
 }
-main .panel-control form .form .checkbox-background {
+body main .panel-control form .form .checkbox-background {
   width: 100%;
   min-width: 300px;
   max-width: 400px;
@@ -353,17 +381,17 @@ main .panel-control form .form .checkbox-background {
   align-items: center;
   justify-content: space-between;
 }
-main .panel-control form .form .checkbox-background .checkbox {
+body main .panel-control form .form .checkbox-background .checkbox {
   min-width: 0;
   max-width: none;
   width: 30px;
   height: 30px;
   cursor: pointer;
 }
-main .panel-control form .form .checkbox-background .checkbox-info {
+body main .panel-control form .form .checkbox-background .checkbox-info {
   color: #000;
 }
-main .panel-control form .guardar {
+body main .panel-control form .guardar {
   width: 100%;
   min-width: 300px;
   max-width: 400px;
@@ -382,7 +410,7 @@ main .panel-control form .guardar {
   font-size: 2em;
   transition: 0.2s ease;
 }
-main .panel-control form .guardar:hover {
+body main .panel-control form .guardar:hover {
   background-color: #8456ce;
   color: #f5f5ff;
   box-shadow: rgb(114.4, 28.6, 54.2816326531) 5px 5px 10px;

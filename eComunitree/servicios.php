@@ -61,6 +61,16 @@
         </div>
     </header>
 
+    <nav>
+        <ul>
+            <li>NAVEGACIÓN</li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li><a href="index.php">Inicio</a></li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li>Servicios</li>
+        </ul>
+    </nav>
+
     <main>
         <div class="services">
             <header class="services-header">

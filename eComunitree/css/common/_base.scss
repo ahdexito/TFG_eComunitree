@@ -18,6 +18,8 @@ html {
     min-height: 100vh;
 }
 
+img { @include no-subrayable; }
+
 .menu-checkbox { display: none; }
 
 // Fuerda del aside

@@ -98,6 +98,16 @@
         </div>
     </header>
 
+    <nav>
+        <ul>
+            <li>NAVEGACIÓN</li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li><a href="index.php">Inicio</a></li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li>Crear Incidencia</li>
+        </ul>
+    </nav>
+
     <main>
         <section class="panel-control">
             <div class="section-header">

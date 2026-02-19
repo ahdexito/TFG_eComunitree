@@ -3,6 +3,7 @@
 @import '../common/mixins';
 @import '../common/header';
 @import '../common/aside';
+@import '../common/nav';
 
 // =========================================================
 // BODY
@@ -13,7 +14,6 @@ body {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 30px;
 
     // =========================================================
     // MAIN

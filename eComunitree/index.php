@@ -95,6 +95,14 @@
         </div>
     <?php endif; ?>
 
+    <nav>
+        <ul>
+            <li>NAVEGACIÓN</li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li>Inicio</li>
+        </ul>
+    </nav>
+
     <main>
         <div class="feed">
             <header class="section-header">

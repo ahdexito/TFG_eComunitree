@@ -94,6 +94,18 @@
         </div>
     </header>
 
+    <nav>
+        <ul>
+            <li>NAVEGACIÓN</li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li><a href="../index.php">Inicio</a></li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li><a href="panel_control.php">Panel Control</a></li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li>Gestión Publicaciones</li>
+        </ul>
+    </nav>
+
     <?php
         // ALERTAS DE CREACIÓN DE PUBLICACIÓN
         if (isset($_GET["publi"])) {
@@ -138,6 +150,7 @@
                         <a href="gestion_publicaciones.php?tipo=votacion">Votaciones</a>
                     </div>
                 </div>
+                <?php endif; ?>
             </div>
 
             <hr>
@@ -242,7 +255,6 @@
                     </a>
                 <?php endif; ?>
             </div>
-            <?php endif; ?>
         </section>
 
         <input type="checkbox" id="menu-toggle" class="menu-checkbox">

@@ -79,6 +79,20 @@
             </a>
         </div>
     </header>
+
+    <nav>
+        <ul>
+            <li>NAVEGACIÓN</li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li><a href="../index.php">Inicio</a></li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li><a href="panel_control.php">Panel Control</a></li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li><a href="gestion_usuarios.php">Gestión Usuarios</a></li>
+            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li>Editar Usuario</li>
+        </ul>
+    </nav>
     
     <main>
         <?php
