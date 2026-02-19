@@ -5,7 +5,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'SN Pro';
+    font-family: $parrafo;
+    font-weight: bold;
 }
 
 html {
@@ -15,7 +16,6 @@ html {
     background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 100vh;
-    padding: 20px;
 }
 
 .menu-checkbox { display: none; }
@@ -56,5 +56,24 @@ html {
     & ~ .menu-button {
         top: 80px;
         right: 30px;
+    }
+}
+
+// Botón subir a inicio
+.btn-up {
+    margin: 50px auto 70px;
+    padding: 12px;
+    border: 5px solid $color-light;
+    border-radius: 50px;
+    background-color: $color-dark;
+    color: $color-light;
+    font-size: 2em;
+    transition: all 0.2s ease;
+
+    &:hover {
+        transform: scale(1.2);
+        color: $color-dark;
+        background-color: $color-light;
+        border-color: $color-dark;
     }
 }

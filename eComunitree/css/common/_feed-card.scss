@@ -1,6 +1,6 @@
 @import 'variables';
 
-section.feed article {
+.feed-body article {
     background: linear-gradient(
         $color-dark 0,
         $color-dark-transparent 300px,
@@ -115,7 +115,7 @@ section.feed article {
             gap: 10px;
 
             h3 { 
-                font-family: $titulo;
+                font-family: $subtitulo;
                 font-size: 2.2em; 
                 text-shadow: $color-dark 3px 3px 0;
             }
@@ -188,7 +188,7 @@ section.feed article {
 
         strong, p {
             width: 100%;
-            font-family: $titulo;
+            font-family: $subtitulo;
         }
         
         hr {
@@ -210,6 +210,8 @@ section.feed article {
             gap: 20px;
             background-color: $color-dark-transparent;
             border-radius: 20px;
+
+            @include no-subrayable;
 
             .vote-option {
                 cursor: pointer;
@@ -280,6 +282,7 @@ section.feed article {
             border-radius: 10px;
             color: $color-light;
             box-shadow: $color-dark 3px 3px;
+            font-family: $subtitulo;
             font-size: 1em;
             font-weight: bold;
             transition: all 0.2s ease;

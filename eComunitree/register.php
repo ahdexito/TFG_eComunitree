@@ -75,13 +75,13 @@
     <h2>Gestiona tu comunidad de forma fácil y digital.</h2>
 
     <?php if (!empty($error_msg)): ?>
-        <div class='error msg-timer' style="background: #ff000021; border-left: 5px solid red; padding: 10px; width: 80%; max-width: 400px; margin: 10px auto;">
+        <div class='error msg-timer'">
             <i class='fa-solid fa-triangle-exclamation'></i> <?php echo $error_msg; ?>
         </div>
     <?php endif; ?>
 
     <?php if (!empty($success_msg)): ?>
-        <div class='success msg-timer' style="background: #00ff0021; border-left: 5px solid green; padding: 10px; width: 80%; max-width: 400px; margin: 10px auto;">
+        <div class='success msg-timer'">
             <i class='fa-solid fa-circle-check'></i> <?php echo $success_msg; ?>
         </div>
     <?php endif; ?>

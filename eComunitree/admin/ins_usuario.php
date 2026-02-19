@@ -139,6 +139,49 @@
                 <button type="submit" class="guardar"><i class="fa-solid fa-floppy-disk"></i> Guardar Usuario</button>
             </form>
         </section>
+
+        <aside class="main-aside">
+            <h3>Navegación</h3>
+            <hr>
+            <ul>
+                <li>
+                    <a href="../index.php">
+                        <i class="fa-solid fa-house"></i>
+                        Inicio
+                    </a>
+                </li>
+                <li>
+                    <a href="../crear_incidencia.php">
+                        <i class="fa-solid fa-plus"></i>
+                        Nueva incidencia
+                    </a>
+                </li>
+                <li>
+                    <a href="../servicios.php">
+                        <i class="fa-solid fa-briefcase"></i>
+                        Servicios
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        Calendario
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-regular fa-file-lines"></i>
+                        Documentación
+                    </a>
+                </li>
+                <li>
+                    <a href="panel_control.php">
+                        <i class="fa-solid fa-gear"></i>
+                        Panel de control
+                    </a>
+                </li>
+            </ul>
+        </aside>
     </main>
 </body>
 </html>

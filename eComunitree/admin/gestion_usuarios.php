@@ -169,41 +169,45 @@
             </div>
             
             <div class="pager">
-                <!-- FLECHA IZQUIERDA -->
-                <?php if ($pagina > 1): ?>
-                    <a class="pag-arrow" href="?pag=<?= $pagina - 1 ?>"><i class="fa-solid fa-angle-left"></i></a>
-                <?php else: ?>
-                    <span class="pag-arrow disabled"><i class="fa-solid fa-angle-left"></i></span>
-                <?php endif; ?>
+                <?php 
+                // Configuración: cuántas páginas mostrar alrededor de la actual
+                $rango = 1; 
                 
-                <!-- PÁGINA LÍMITE IZQUIERDA -->
-                <?php if ($pagina == 1): ?>
-                    <span class="limite disabled">1</span>
-                <?php else: ?>
-                    <a href="?pag=1" class="limite">1</a>
+                // Botón Anterior
+                if ($pagina > 1): ?>
+                    <a class="pag-arrow" href="?pag=<?= $pagina - 1 ?>" title="Anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </a>
                 <?php endif; ?>
 
-                <!-- PÁGINA ACTUAL -->
-                <span class="activo">
-                    <?= $pagina ?>
-                </span>
+                <?php
+                // Mostrar siempre la primera página si estamos lejos de ella
+                if ($pagina > ($rango + 1)) {
+                    echo '<a href="?pag=1" class="num-link">1</a>';
+                    if ($pagina > ($rango + 2)) echo '<span class="dots">...</span>';
+                }
 
-                <!-- PÁGINA LÍMITE DERECHA -->
-                <?php if ($total_paginas > 1): ?>
-                    <?php if ($pagina == $total_paginas): ?>
-                        <span class="limite disabled"><?= $total_paginas ?></span>
+                // Bucle para generar los números alrededor de la página actual
+                for ($i = max(1, $pagina - $rango); $i <= min($total_paginas, $pagina + $rango); $i++): 
+                    if ($i == $pagina): ?>
+                        <span class="num-link activo"><?= $i ?></span>
                     <?php else: ?>
-                        <a href="?pag=<?= $total_paginas ?>" class="limite"><?= $total_paginas ?></a>
-                    <?php endif; ?>
-                <?php else: ?>
-                    <span class="limite disabled">1</span>
-                <?php endif; ?>
+                        <a href="?pag=<?= $i ?>" class="num-link"><?= $i ?></a>
+                    <?php endif; 
+                endfor;
 
-                <!-- FLECHA DERECHA -->
-                <?php if ($pagina < $total_paginas): ?>
-                    <a class="pag-arrow" href="?pag=<?= $pagina + 1 ?>"><i class="fa-solid fa-angle-right"></i></a>
-                <?php else: ?>
-                    <span class="pag-arrow disabled"><i class="fa-solid fa-angle-right"></i></span>
+                // Mostrar siempre la última página si estamos lejos de ella
+                if ($pagina < ($total_paginas - $rango)) {
+                    if ($pagina < ($total_paginas - $rango - 1)) echo '<span class="dots">...</span>';
+                    echo '<a href="?pag=' . $total_paginas . '" class="num-link">' . $total_paginas . '</a>';
+                }
+                ?>
+
+                <?php // Botón Siguiente
+                if ($pagina < $total_paginas): ?>
+                    <a class="pag-arrow" href="?pag=<?= $pagina + 1 ?>" title="Siguiente">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
                 <?php endif; ?>
             </div>
         </section>
@@ -220,30 +224,38 @@
                 <a href="../index.php">
                     <i class="fa-solid fa-house"></i>
                     Inicio
-                </a></li>
+                </a>
+            </li>
             <li>
-                <a href="#">
-                <i class="fa-solid fa-plus"></i>
-                Nueva incidencia
-                </a></li>
+                <a href="../crear_incidencia.php">
+                    <i class="fa-solid fa-plus"></i>
+                    Nueva incidencia
+                </a>
+            </li>
             <li>
                 <a href="../servicios.php">
-                <i class="fa-solid fa-briefcase"></i>
-                Servicios
-            </a></li>
+                    <i class="fa-solid fa-briefcase"></i>
+                    Servicios
+                </a>
+            </li>
             <li>
                 <a href="#">
-                <i class="fa-solid fa-calendar-days"></i>
-                Calendario
-            </a></li>
-            <li><a href="#">
-                <i class="fa-regular fa-file-lines"></i>
-                Documentación
-            </a></li>
-            <li><a href="panel_control.php">
-                <i class="fa-solid fa-gear"></i>
-                Panel de control
-            </a></li>
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Calendario
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-regular fa-file-lines"></i>
+                    Documentación
+                </a>
+            </li>
+            <li>
+                <a href="panel_control.php">
+                    <i class="fa-solid fa-gear"></i>
+                    Panel de control
+                </a>
+            </li>
         </ul>
     </aside>
 </body>

@@ -46,7 +46,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Google Sans Code';
+    font-family: 'SN Pro';
 }
 
 // =========================================================
@@ -280,5 +280,19 @@ html {
                 }
             }
         }
+
+        .error, .success {
+            border: 3px solid $color-light;
+            border-radius: 50px;
+            color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.3em;
+            transition: opacity 2s ease-in;
+        }
+        
+        .error { background-color: rgba(182, 11, 11, 0.822); }
+        .success { background-color: rgba(33, 92, 218, 0.822); }
     }
 }

@@ -123,40 +123,45 @@
     <main>
         <section class="panel-control">
             <div class="section-header">
-                <i class="fa-solid fa-shop icono-header"></i>
-                <h2>Gestión de Publicaciones</h2>
+                <h2><i class="fa-solid fa-shop icono-header"></i> Gestión de Publicaciones</h2>
+
+                <?php if ($_SESSION['rol'] === 'admin'): ?>
+                <div class="filter-container">
+                    <div class="btn-filter" onclick="toggleFiltros(event)">
+                        <i class="fa-solid fa-filter"></i>
+                        <p>FILTRAR: <?= strtoupper($filtro_tipo) ?></p>
+                    </div>
+                    <div id="filter-menu" class="filter-menu" style="display: none;">
+                        <a href="gestion_publicaciones.php?tipo=todos">Todos</a>
+                        <a href="gestion_publicaciones.php?tipo=aviso">Avisos</a>
+                        <a href="gestion_publicaciones.php?tipo=incidencia">Incidencias</a>
+                        <a href="gestion_publicaciones.php?tipo=votacion">Votaciones</a>
+                    </div>
+                </div>
             </div>
 
             <hr>
-
-            <a href="ins_aviso.php" class="boton-insertar">
-                <i class="fa-regular fa-square-plus"></i>
-                Crear Aviso
-            </a>
-
-            <a href="ins_votacion.php" class="boton-insertar">
-                <i class="fa-regular fa-square-plus"></i>
-                Crear Votación
-            </a>
-
-            <a href="gestion_incidencias.php" class="boton-insertar">
-                <i class="fa-regular fa-square-plus"></i>
-                Actualizar Incidencia
-            </a>
-
-            <?php if ($_SESSION['rol'] === 'admin'): ?>
-            <div class="filter-container">
-                <a href="#" class="btn-filter" onclick="toggleFiltros(event)">
-                    <i class="fa-solid fa-filter"></i>
-                    <p>FILTRAR: <?= strtoupper($filtro_tipo) ?></p>
-                </a>
-                <div id="filter-menu" class="filter-menu" style="display: none;">
-                    <a href="gestion_publicaciones.php?tipo=todos">Todos</a>
-                    <a href="gestion_publicaciones.php?tipo=aviso">Avisos</a>
-                    <a href="gestion_publicaciones.php?tipo=incidencia">Incidencias</a>
-                    <a href="gestion_publicaciones.php?tipo=votacion">Votaciones</a>
-                </div>
-            </div>
+            
+            <ul class="acciones">
+                <li>
+                    <a href="ins_aviso.php" class="boton-insertar">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        CREAR AVISO
+                    </a>
+                </li>
+                <li>
+                    <a href="ins_votacion.php" class="boton-insertar">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        CREAR VOTACIÓN
+                    </a>
+                </li>
+                <li>
+                    <a href="gestion_incidencias.php" class="boton-insertar">
+                        <i class="fa-solid fa-rotate"></i>
+                        ACTUALIZAR INCIDENCIA
+                    </a>
+                </li>
+            </ul>
 
             <div class="caja-overflow">
                 <table>
@@ -196,41 +201,45 @@
             </div>
 
             <div class="pager">
-                <!-- FLECHA IZQUIERDA -->
-                <?php if ($pagina > 1): ?>
-                    <a class="pag-arrow" href="?pag=<?= $pagina - 1 ?><?= $params_url ?>"><i class="fa-solid fa-angle-left"></i></a>
-                <?php else: ?>
-                    <span class="pag-arrow disabled"><i class="fa-solid fa-angle-left"></i></span>
-                <?php endif; ?>
+            <?php 
+                // Configuración: cuántas páginas mostrar alrededor de la actual
+                $rango = 2; 
                 
-                <!-- EXTREMO IZQUIERDO -->
-                <?php if ($pagina == 1): ?>
-                    <span class="limite disabled">1</span>
-                <?php else: ?>
-                    <a href="?pag=1<?= $params_url ?>" class="limite">1</a>
+                // Botón Anterior
+                if ($pagina > 1): ?>
+                    <a class="pag-arrow" href="?pag=<?= $pagina - 1 ?><?= $params_url ?>" title="Anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </a>
                 <?php endif; ?>
 
-                <!-- PÁGINA ACTUAL -->
-                <span class="activo">
-                    <?= $pagina ?>
-                </span>
+                <?php
+                // Mostrar siempre la primera página si no estamos cerca de ella
+                if ($pagina > ($rango + 1)) {
+                    echo '<a href="?pag=1' . $params_url . '" class="num-link">1</a>';
+                    if ($pagina > ($rango + 2)) echo '<span class="dots">...</span>';
+                }
 
-                <!-- EXTREMO DERECHO -->
-                <?php if ($total_paginas > 1): ?>
-                    <?php if ($pagina == $total_paginas): ?>
-                        <span class="limite disabled"><?= $total_paginas ?></span>
+                // Bucle para páginas centrales
+                for ($i = max(1, $pagina - $rango); $i <= min($total_paginas, $pagina + $rango); $i++): 
+                    if ($i == $pagina): ?>
+                        <span class="num-link activo"><?= $i ?></span>
                     <?php else: ?>
-                        <a href="?pag=<?= $total_paginas ?><?= $params_url ?>" class="limite"><?= $total_paginas ?></a>
-                    <?php endif; ?>
-                <?php else: ?>
-                    <span class="limite disabled">1</span>
-                <?php endif; ?>
+                        <a href="?pag=<?= $i ?><?= $params_url ?>" class="num-link"><?= $i ?></a>
+                    <?php endif; 
+                endfor;
 
-                <!-- FLECHA DERECHA -->
-                <?php if ($pagina < $total_paginas): ?>
-                    <a class="pag-arrow" href="?pag=<?= $pagina + 1 ?><?= $params_url ?>"><i class="fa-solid fa-angle-right"></i></a>
-                <?php else: ?>
-                    <span class="pag-arrow disabled"><i class="fa-solid fa-angle-right"></i></span>
+                // Mostrar siempre la última página si no estamos cerca de ella
+                if ($pagina < ($total_paginas - $rango)) {
+                    if ($pagina < ($total_paginas - $rango - 1)) echo '<span class="dots">...</span>';
+                    echo '<a href="?pag=' . $total_paginas . $params_url . '" class="num-link">' . $total_paginas . '</a>';
+                }
+                ?>
+
+                <?php // Botón Siguiente
+                if ($pagina < $total_paginas): ?>
+                    <a class="pag-arrow" href="?pag=<?= $pagina + 1 ?><?= $params_url ?>" title="Siguiente">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
                 <?php endif; ?>
             </div>
             <?php endif; ?>
@@ -274,6 +283,7 @@
             </ul>
         </aside>
     </main>
+
     <footer>
         <script src="../javascript/toggle-filtros.js"></script>
     </footer>

@@ -1,6 +1,6 @@
 @import 'variables';
 
-aside.main-aside {  
+.main-aside {  
     width: 360px;
     max-width: 80%;
     padding: 100px 30px;
@@ -25,7 +25,7 @@ aside.main-aside {
         color: $color-light;
         text-shadow: $color-dark 3px 3px 0;
         font-size: 1.8em;
-        font-family: $titulo;
+        font-family: $subtitulo;
         margin-bottom: 10px;
     }
 

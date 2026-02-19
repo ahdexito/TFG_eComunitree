@@ -28,7 +28,7 @@ body {
         // =========================================================
         // SECTION / FEED
         // =========================================================
-        section.feed {
+        .feed {
             width: 100%;
             max-width: 1200px;
             background: linear-gradient(
@@ -60,7 +60,7 @@ body {
                 padding-bottom: 20px;
 
                 h2 { 
-                    font-family: $titulo;
+                    font-family: $subtitulo;
                     flex: 1;
                     color: $color-light; 
                     font-size: 2.5em;
@@ -68,44 +68,15 @@ body {
                     text-shadow: $color-dark 3px 3px 0;
                     width: 100%;
                 }
-
-                // SECTION HEADER BUTTONS
-                .section-btns {
-                    display: flex;
-                    justify-content: end;
-                    flex-wrap: wrap;
-                    gap: 10px;
-                    font-size: 1em;
-                    margin-top: 30px;
-                    margin-left: auto;
-                }
             }
         }
 
-        .hr-feed {
+        .hr-section {
             width: 100%;
             border: 3px solid $color-light;
             border-radius: 10px;
             margin-bottom: 50px;
             box-shadow: $color-dark 3px 3px 0;
-        }
-
-        .btn-up {
-            margin: 50px auto 70px;
-            padding: 12px;
-            border: 5px solid $color-light;
-            border-radius: 50px;
-            background-color: $color-dark;
-            color: $color-light;
-            font-size: 2em;
-            transition: all 0.2s ease;
-
-            &:hover {
-                transform: scale(1.2);
-                color: $color-dark;
-                background-color: $color-light;
-                border-color: $color-dark;
-            }
         }
     }
 }

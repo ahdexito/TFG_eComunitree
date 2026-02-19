@@ -1,13 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "SN Pro";
+  font-family: "Comic Neue";
+  font-weight: bold;
 }
 
 html {
@@ -17,7 +19,6 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
-  padding: 20px;
 }
 
 .menu-checkbox {
@@ -55,6 +56,23 @@ html {
 .menu-checkbox:checked ~ .menu-button {
   top: 80px;
   right: 30px;
+}
+
+.btn-up {
+  margin: 50px auto 70px;
+  padding: 12px;
+  border: 5px solid #f5f5ff;
+  border-radius: 50px;
+  background-color: #163161;
+  color: #f5f5ff;
+  font-size: 2em;
+  transition: all 0.2s ease;
+}
+.btn-up:hover {
+  transform: scale(1.2);
+  color: #163161;
+  background-color: #f5f5ff;
+  border-color: #163161;
 }
 
 @keyframes animarFondo {
@@ -101,9 +119,8 @@ header.body-header a.btn-index:hover {
   animation: animarFondo 0.7s linear infinite;
 }
 header.body-header a.btn-index img {
-  padding: 10px;
   width: 90px;
-  margin: 10px;
+  padding: 10px;
 }
 @media (max-width: 950px) {
   header.body-header a.btn-index h1 {
@@ -113,7 +130,7 @@ header.body-header a.btn-index img {
 header.body-header a.btn-index h1 {
   color: #f5f5ff;
   font-size: 3em;
-  font-family: "Fascinate";
+  font-family: "Fuzzy Bubbles";
   margin-right: 30px;
 }
 header.body-header .user {
@@ -158,7 +175,7 @@ header.body-header .user a img:hover {
   box-shadow: #000 0 0 15px 6px;
 }
 
-aside.main-aside {
+.main-aside {
   width: 360px;
   max-width: 80%;
   padding: 100px 30px;
@@ -172,29 +189,29 @@ aside.main-aside {
   box-shadow: #163161 0 0 30px 10px;
   background: linear-gradient(to bottom, #163161, #8456ce, #8456ce, #163161);
 }
-aside.main-aside h3 {
+.main-aside h3 {
   color: #f5f5ff;
   text-shadow: #163161 3px 3px 0;
   font-size: 1.8em;
-  font-family: "Fascinate";
+  font-family: "SN Pro";
   margin-bottom: 10px;
 }
-aside.main-aside hr {
+.main-aside hr {
   border: 2px solid #f5f5ff;
   box-shadow: #163161 3px 3px 0;
   border-radius: 10px;
   margin-bottom: 20px;
 }
-aside.main-aside ul {
+.main-aside ul {
   list-style-type: none;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-aside.main-aside ul li {
+.main-aside ul li {
   position: relative;
 }
-aside.main-aside ul li a, aside.main-aside ul li p {
+.main-aside ul li a, .main-aside ul li p {
   background-color: #f5f5ff;
   color: #163161;
   font-size: 1.5em;
@@ -211,17 +228,17 @@ aside.main-aside ul li a, aside.main-aside ul li p {
   border-radius: 10px;
   transition: all 0.2s ease;
 }
-aside.main-aside ul li p {
+.main-aside ul li p {
   cursor: default;
 }
-aside.main-aside ul li:hover > a, aside.main-aside ul li:hover > p {
+.main-aside ul li:hover > a, .main-aside ul li:hover > p {
   transform: scale(1.05);
   background-color: #c4315d;
   color: #f5f5ff;
   text-shadow: #163161 3px 3px;
   box-shadow: #163161 6px 6px 0;
 }
-aside.main-aside ul li:hover > p {
+.main-aside ul li:hover > p {
   margin-bottom: 5px;
 }
 
@@ -293,6 +310,57 @@ section.services-body article .article-body ul li a {
   border-radius: 10px;
 }
 
+.pager {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.pager .num-link, .pager .pag-arrow, .pager .dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 5px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 3px solid #163161;
+  background-color: white;
+  color: #163161;
+}
+.pager a.num-link:hover, .pager a.pag-arrow:hover {
+  background-color: rgb(185.7142857143, 205, 239.2857142857);
+  border-color: #163161;
+  transform: scale(1.2);
+}
+.pager .activo {
+  background-color: #163161;
+  color: #f5f5ff;
+  border-color: #163161;
+  cursor: default;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.pager .dots {
+  border: none;
+  background: transparent;
+  cursor: default;
+}
+.pager .pag-arrow {
+  background-color: #f5f5ff;
+  border-color: #163161;
+}
+.pager .pag-arrow i {
+  font-size: 0.9em;
+}
+@media (max-width: 600px) {
+  .pager .num-link:not(.activo) {
+    display: none;
+  }
+}
+
 body {
   border-radius: 20px;
   padding: 20px;
@@ -316,60 +384,32 @@ body main .services {
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
           mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
 }
-@media (max-width: 950px) {
-  body main .services .services-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
 body main .services .services-header {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
   gap: 10px;
-}
-@media (max-width: 950px) {
-  body main .services .services-header h2 {
-    order: 1;
-  }
+  padding-bottom: 20px;
 }
 body main .services .services-header h2 {
-  font-family: "Fascinate";
+  font-family: "SN Pro";
   flex: 1;
   color: #f5f5ff;
   font-size: 2.5em;
   margin-right: 30px;
   text-shadow: #163161 3px 3px 0;
-}
-@media (max-width: 950px) {
-  body main .services .services-header input {
-    width: 100%;
-    order: 3;
-    margin-top: 10px;
-    margin-bottom: 50px;
-  }
+  width: 100%;
 }
 body main .services .services-header input {
   background-color: #f5f5ff;
   padding: 10px;
   border: 3px solid #163161;
   border-radius: 20px;
-  width: 40%;
-  font-size: 1em;
-}
-@media (max-width: 950px) {
-  body main .services .services-header hr {
-    order: 2;
-    margin-bottom: 0;
-  }
-}
-body main .services .services-header hr {
   width: 100%;
-  border: 3px solid #f5f5ff;
-  border-radius: 10px;
-  margin-bottom: 60px;
-  box-shadow: #163161 3px 3px 0;
+  max-width: 500px;
+  font-size: 1em;
+  margin-left: auto;
 }
 body main .services .services-body {
   display: flex;
@@ -378,19 +418,10 @@ body main .services .services-body {
   gap: 40px;
   padding-bottom: 40px;
 }
-body main .btn-up {
-  margin: 50px auto 70px;
-  padding: 12px;
-  border: 5px solid #f5f5ff;
-  border-radius: 50px;
-  background-color: #163161;
-  color: #f5f5ff;
-  font-size: 2em;
-  transition: all 0.2s ease;
-}
-body main .btn-up:hover {
-  transform: scale(1.2);
-  color: #163161;
-  background-color: #f5f5ff;
-  border-color: #163161;
+body main .hr-section {
+  width: 100%;
+  border: 3px solid #f5f5ff;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  box-shadow: #163161 3px 3px 0;
 }/*# sourceMappingURL=servicios.css.map */

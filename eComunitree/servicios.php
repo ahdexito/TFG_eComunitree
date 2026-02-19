@@ -45,7 +45,7 @@
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<header class="body-header">
+<header class="body-header" id="inicio">
         <a href="index.php" class="btn-index">
             <img src="img/logo-transparencia.png" alt="logotipo">
             <h1>eComunitree</h1>
@@ -64,12 +64,13 @@
     <main>
         <div class="services">
             <header class="services-header">
-                <h2>Servicios: <small>Página <?= $pagina ?></small></h2>
+                <h2>Servicios: <small>página <?= $pagina ?></small></h2>
                 <input type="search" placeholder="Buscar...">
             </header>
-            <hr>
 
             <section class="services-body">
+
+            <hr class="hr-section">
 
             <?php foreach ($servicios as $s): ?>
                 <article>
@@ -103,46 +104,55 @@
                     </section>
                 </article>
             <?php endforeach; ?>
+
             </section>
 
             <div class="pager">
-                <!-- FLECHA IZQUIERDA -->
-                <?php if ($pagina > 1): ?>
-                    <a class="pag-arrow" href="?pag=<?= $pagina - 1 ?>"><i class="fa-solid fa-angle-left"></i></a>
-                <?php else: ?>
-                    <span class="pag-arrow disabled"><i class="fa-solid fa-angle-left"></i></span>
-                <?php endif; ?>
+                <?php 
+                // Configuración: cuántas páginas mostrar alrededor de la actual
+                $rango = 1; 
                 
-                <!-- PÁGINA LÍMITE IZQUIERDA -->
-                <?php if ($pagina == 1): ?>
-                    <span class="limite disabled">1</span>
-                <?php else: ?>
-                    <a href="?pag=1" class="limite">1</a>
+                // Botón Anterior
+                if ($pagina > 1): ?>
+                    <a class="pag-arrow" href="?pag=<?= $pagina - 1 ?>" title="Anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </a>
                 <?php endif; ?>
 
-                <!-- PÁGINA ACTUAL -->
-                <span class="activo">
-                    <?= $pagina ?>
-                </span>
+                <?php
+                // Mostrar siempre la primera página si estamos lejos de ella
+                if ($pagina > ($rango + 1)) {
+                    echo '<a href="?pag=1" class="num-link">1</a>';
+                    if ($pagina > ($rango + 2)) echo '<span class="dots">...</span>';
+                }
 
-                <!-- PÁGINA LÍMITE DERECHA -->
-                <?php if ($total_paginas > 1): ?>
-                    <?php if ($pagina == $total_paginas): ?>
-                        <span class="limite disabled"><?= $total_paginas ?></span>
+                // Bucle para generar los números alrededor de la página actual
+                for ($i = max(1, $pagina - $rango); $i <= min($total_paginas, $pagina + $rango); $i++): 
+                    if ($i == $pagina): ?>
+                        <span class="num-link activo"><?= $i ?></span>
                     <?php else: ?>
-                        <a href="?pag=<?= $total_paginas ?>" class="limite"><?= $total_paginas ?></a>
-                    <?php endif; ?>
-                <?php else: ?>
-                    <span class="limite disabled">1</span>
-                <?php endif; ?>
+                        <a href="?pag=<?= $i ?>" class="num-link"><?= $i ?></a>
+                    <?php endif; 
+                endfor;
 
-                <!-- FLECHA DERECHA -->
-                <?php if ($pagina < $total_paginas): ?>
-                    <a class="pag-arrow" href="?pag=<?= $pagina + 1 ?>"><i class="fa-solid fa-angle-right"></i></a>
-                <?php else: ?>
-                    <span class="pag-arrow disabled"><i class="fa-solid fa-angle-right"></i></span>
+                // Mostrar siempre la última página si estamos lejos de ella
+                if ($pagina < ($total_paginas - $rango)) {
+                    if ($pagina < ($total_paginas - $rango - 1)) echo '<span class="dots">...</span>';
+                    echo '<a href="?pag=' . $total_paginas . '" class="num-link">' . $total_paginas . '</a>';
+                }
+                ?>
+
+                <?php // Botón Siguiente
+                if ($pagina < $total_paginas): ?>
+                    <a class="pag-arrow" href="?pag=<?= $pagina + 1 ?>" title="Siguiente">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </a>
                 <?php endif; ?>
             </div>
+
+            <a href="#inicio" class="btn-up">
+                <i class="fa-solid fa-angles-up"></i>
+            </a>
         </div>
 
         <input type="checkbox" id="menu-toggle" class="menu-checkbox">

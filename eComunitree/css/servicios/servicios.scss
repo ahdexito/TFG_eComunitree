@@ -4,6 +4,7 @@
 @import '../common/header';
 @import '../common/aside';
 @import '../common/service-card';
+@import '../common/pager';
 
 // =========================================================
 // BODY
@@ -50,51 +51,32 @@ body {
 
             // SERVICES HEADER
             .services-header {
-                @include respond-to(small_medium) { 
-                    flex-direction: column; 
-                    align-items: flex-start;
-                }
                 display: flex;
                 flex-wrap: wrap;
                 align-items: flex-end;
                 justify-content: space-between;
                 gap: 10px;
+                padding-bottom: 20px;
 
                 h2 { 
-                    @include respond-to(small_medium) { order: 1; }
-                    font-family: $titulo;
+                    font-family: $subtitulo;
                     flex: 1;
                     color: $color-light; 
                     font-size: 2.5em;
                     margin-right: 30px;
                     text-shadow: $color-dark 3px 3px 0;
+                    width: 100%;
                 }
 
                 input {
-                    @include respond-to(small_medium) { 
-                        width: 100%; 
-                        order: 3; 
-                        margin-top: 10px;
-                        margin-bottom: 50px;
-                    }
                     background-color: $color-light;
                     padding: 10px;
                     border: 3px solid $color-dark;
                     border-radius: 20px;
-                    width: 40%;
-                    font-size: 1em;
-                }
-
-                hr {
-                    @include respond-to(small_medium) { 
-                        order: 2; 
-                        margin-bottom: 0;
-                    }
                     width: 100%;
-                    border: 3px solid $color-light;
-                    border-radius: 10px;
-                    margin-bottom: 60px;
-                    box-shadow: $color-dark 3px 3px 0;
+                    max-width: 500px;
+                    font-size: 1em;
+                    margin-left: auto;
                 }
             }
 
@@ -107,23 +89,13 @@ body {
                 padding-bottom: 40px;
             }
         }
-
-        .btn-up {
-            margin: 50px auto 70px;
-            padding: 12px;
-            border: 5px solid $color-light;
-            border-radius: 50px;
-            background-color: $color-dark;
-            color: $color-light;
-            font-size: 2em;
-            transition: all 0.2s ease;
-
-            &:hover {
-                transform: scale(1.2);
-                color: $color-dark;
-                background-color: $color-light;
-                border-color: $color-dark;
-            }
+        
+        .hr-section {
+            width: 100%;
+            border: 3px solid $color-light;
+            border-radius: 10px;
+            margin-bottom: 50px;
+            box-shadow: $color-dark 3px 3px 0;
         }
     }
 }

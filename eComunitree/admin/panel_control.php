@@ -72,7 +72,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="../crear_incidencia.php">
                         <i class="fa-solid fa-plus"></i>
                         Nueva incidencia
                     </a>

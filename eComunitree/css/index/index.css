@@ -1,14 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "SN Pro";
+  font-family: "Comic Neue";
+  font-weight: bold;
 }
 
 html {
@@ -18,7 +20,6 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
-  padding: 20px;
 }
 
 .menu-checkbox {
@@ -58,7 +59,24 @@ html {
   right: 30px;
 }
 
-section.feed article {
+.btn-up {
+  margin: 50px auto 70px;
+  padding: 12px;
+  border: 5px solid #f5f5ff;
+  border-radius: 50px;
+  background-color: #163161;
+  color: #f5f5ff;
+  font-size: 2em;
+  transition: all 0.2s ease;
+}
+.btn-up:hover {
+  transform: scale(1.2);
+  color: #163161;
+  background-color: #f5f5ff;
+  border-color: #163161;
+}
+
+.feed-body article {
   background: linear-gradient(#163161 0, rgba(16, 36, 71, 0.5568627451) 300px, rgba(16, 36, 71, 0.5568627451));
   padding: 20px;
   margin-bottom: 50px;
@@ -69,16 +87,16 @@ section.feed article {
   flex-direction: column;
   gap: 20px;
 }
-section.feed article.advert-card {
+.feed-body article.advert-card {
   --article-color: #c4315d;
 }
-section.feed article.incidence-card {
+.feed-body article.incidence-card {
   --article-color: #e46e20;
 }
-section.feed article.vote-card {
+.feed-body article.vote-card {
   --article-color: #8456ce;
 }
-section.feed article header.article-header {
+.feed-body article header.article-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -86,11 +104,11 @@ section.feed article header.article-header {
   text-shadow: rgb(12.5714285714, 28, 55.4285714286) 3px 3px 0;
 }
 @media (max-width: 600px) {
-  section.feed article header.article-header .article-header-user {
+  .feed-body article header.article-header .article-header-user {
     font-size: 1.2em;
   }
 }
-section.feed article header.article-header .article-header-user {
+.feed-body article header.article-header .article-header-user {
   font-size: 1.5em;
   margin-right: 30px;
   border-radius: 50px;
@@ -98,29 +116,29 @@ section.feed article header.article-header .article-header-user {
   flex-wrap: wrap;
   gap: 20px;
 }
-section.feed article header.article-header .article-header-user img {
+.feed-body article header.article-header .article-header-user img {
   width: 90px;
   border: 3px solid #f5f5ff;
   border-radius: 100px;
   box-shadow: #000 0 0 20px 5px;
 }
-section.feed article header.article-header .article-header-user .user-info {
+.feed-body article header.article-header .article-header-user .user-info {
   display: flex;
   flex-direction: column;
   color: rgb(102.5714285714, 145, 220.4285714286);
 }
-section.feed article header.article-header .article-header-user .user-info strong {
+.feed-body article header.article-header .article-header-user .user-info strong {
   font-size: 1.2em;
   font-weight: bold;
   color: #f5f5ff;
 }
 @media (max-width: 600px) {
-  section.feed article header.article-header .article-header-date {
+  .feed-body article header.article-header .article-header-date {
     font-size: 1em;
     margin-top: 4px;
   }
 }
-section.feed article header.article-header .article-header-date {
+.feed-body article header.article-header .article-header-date {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -132,19 +150,19 @@ section.feed article header.article-header .article-header-date {
   margin-right: 10px;
   margin-left: auto;
 }
-section.feed article header.article-header .article-header-date strong {
+.feed-body article header.article-header .article-header-date strong {
   color: #f5f5ff;
   gap: 10px;
 }
-section.feed article header.article-header .article-header-date p {
+.feed-body article header.article-header .article-header-date p {
   font-weight: bold;
   color: rgb(102.5714285714, 145, 220.4285714286);
   text-wrap: nowrap;
 }
-section.feed article header.article-header .article-header-date i {
+.feed-body article header.article-header .article-header-date i {
   margin-left: 10px;
 }
-section.feed article section.article-body {
+.feed-body article section.article-body {
   padding: 30px;
   color: #f5f5ff;
   display: flex;
@@ -157,34 +175,34 @@ section.feed article section.article-body {
   color: #f5f5ff;
 }
 @media (max-width: 600px) {
-  section.feed article section.article-body header.article-body-title {
+  .feed-body article section.article-body header.article-body-title {
     font-size: 0.7em;
   }
 }
-section.feed article section.article-body header.article-body-title {
+.feed-body article section.article-body header.article-body-title {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-section.feed article section.article-body header.article-body-title h3 {
-  font-family: "Fascinate";
+.feed-body article section.article-body header.article-body-title h3 {
+  font-family: "SN Pro";
   font-size: 2.2em;
   text-shadow: #163161 3px 3px 0;
 }
-section.feed article section.article-body header.article-body-title h4 {
+.feed-body article section.article-body header.article-body-title h4 {
   width: 100%;
   font-size: 2em;
   text-shadow: #163161 3px 3px 0;
 }
-section.feed article section.article-body header.article-body-title p {
+.feed-body article section.article-body header.article-body-title p {
   font-size: 1.5em;
 }
 @media (max-width: 600px) {
-  section.feed article section.article-body div.article-body-content {
+  .feed-body article section.article-body div.article-body-content {
     font-size: 0.7em;
   }
 }
-section.feed article section.article-body div.article-body-content {
+.feed-body article section.article-body div.article-body-content {
   display: block;
   overflow: hidden;
   background-color: #f5f5ff;
@@ -194,13 +212,13 @@ section.feed article section.article-body div.article-body-content {
   box-shadow: #163161 5px 5px;
 }
 @media (max-width: 600px) {
-  section.feed article section.article-body div.article-body-content img {
+  .feed-body article section.article-body div.article-body-content img {
     float: none;
     display: block;
     margin: 30px auto 30px;
   }
 }
-section.feed article section.article-body div.article-body-content img {
+.feed-body article section.article-body div.article-body-content img {
   float: left;
   width: 200px;
   height: 200px;
@@ -211,20 +229,20 @@ section.feed article section.article-body div.article-body-content img {
   border-radius: 20px;
   margin: 30px;
 }
-section.feed article section.article-body div.article-body-content p {
+.feed-body article section.article-body div.article-body-content p {
   font-size: 1.5em;
   font-weight: bold;
   margin: 30px;
 }
-section.feed article section.article-body div.article-body-content p i {
+.feed-body article section.article-body div.article-body-content p i {
   font-size: 1.6em;
 }
 @media (max-width: 600px) {
-  section.feed article .article-footer {
+  .feed-body article .article-footer {
     font-size: 1.2em;
   }
 }
-section.feed article .article-footer {
+.feed-body article .article-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -237,18 +255,18 @@ section.feed article .article-footer {
   border-radius: 40px;
   margin-top: 10px;
 }
-section.feed article .article-footer strong, section.feed article .article-footer p {
+.feed-body article .article-footer strong, .feed-body article .article-footer p {
   width: 100%;
-  font-family: "Fascinate";
+  font-family: "SN Pro";
 }
-section.feed article .article-footer hr {
+.feed-body article .article-footer hr {
   border: 2px solid #f5f5ff;
   border-radius: 10px;
   box-shadow: #163161 3px 3px 0;
   width: 100%;
   margin: 15px;
 }
-section.feed article .article-footer .vote-btns {
+.feed-body article .article-footer .vote-btns {
   width: 100%;
   padding: 20px 40px;
   display: flex;
@@ -258,23 +276,26 @@ section.feed article .article-footer .vote-btns {
   gap: 20px;
   background-color: rgba(16, 36, 71, 0.5568627451);
   border-radius: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+       user-select: none;
 }
-section.feed article .article-footer .vote-btns .vote-option {
+.feed-body article .article-footer .vote-btns .vote-option {
   cursor: pointer;
   position: relative;
 }
-section.feed article .article-footer .vote-btns .vote-option input[type=radio] {
+.feed-body article .article-footer .vote-btns .vote-option input[type=radio] {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
 }
 @media (max-width: 600px) {
-  section.feed article .article-footer .vote-btns .vote-option span {
+  .feed-body article .article-footer .vote-btns .vote-option span {
     font-size: 0.8em;
   }
 }
-section.feed article .article-footer .vote-btns .vote-option span {
+.feed-body article .article-footer .vote-btns .vote-option span {
   display: inline-block;
   background-color: #c4315d;
   padding: 15px 10px;
@@ -288,17 +309,17 @@ section.feed article .article-footer .vote-btns .vote-option span {
   text-wrap: nowrap;
   text-align: center;
 }
-section.feed article .article-footer .vote-btns .vote-option:hover span {
+.feed-body article .article-footer .vote-btns .vote-option:hover span {
   background-color: rgb(155.2, 38.8, 73.6408163265);
   transform: scale(0.95);
   box-shadow: #163161 4px 4px 0;
 }
-section.feed article .article-footer .vote-btns .vote-option:active span {
+.feed-body article .article-footer .vote-btns .vote-option:active span {
   background-color: rgb(114.4, 28.6, 54.2816326531);
   transform: scale(0.85);
   box-shadow: none;
 }
-section.feed article .article-footer .vote-btns .vote-option input[type=radio]:checked + span {
+.feed-body article .article-footer .vote-btns .vote-option input[type=radio]:checked + span {
   background-color: #e46e20;
   color: #f5f5ff;
   border: 3px solid #f5f5ff;
@@ -306,7 +327,7 @@ section.feed article .article-footer .vote-btns .vote-option input[type=radio]:c
   cursor: default;
   box-shadow: #163161 4px 4px 0;
 }
-section.feed article .article-footer .vote-btns .vote-option .vote-number {
+.feed-body article .article-footer .vote-btns .vote-option .vote-number {
   display: inline;
   width: -moz-fit-content;
   width: fit-content;
@@ -317,7 +338,7 @@ section.feed article .article-footer .vote-btns .vote-option .vote-number {
   text-shadow: none;
   margin-left: 10px;
 }
-section.feed article .article-footer button.vote-confirm {
+.feed-body article .article-footer button.vote-confirm {
   width: 100%;
   max-width: 300px;
   padding: 20px;
@@ -325,6 +346,7 @@ section.feed article .article-footer button.vote-confirm {
   border-radius: 10px;
   color: #f5f5ff;
   box-shadow: #163161 3px 3px;
+  font-family: "SN Pro";
   font-size: 1em;
   font-weight: bold;
   transition: all 0.2s ease;
@@ -332,7 +354,7 @@ section.feed article .article-footer button.vote-confirm {
   background-size: 210% 100%;
   background-position: left center;
 }
-section.feed article .article-footer button.vote-confirm:hover {
+.feed-body article .article-footer button.vote-confirm:hover {
   background-position: right center;
   cursor: pointer;
   background-color: #163161;
@@ -342,10 +364,10 @@ section.feed article .article-footer button.vote-confirm:hover {
   box-shadow: #163161 5px 5px;
   text-shadow: #163161 3px 3px;
 }
-section.feed article .article-footer .voted-msg {
+.feed-body article .article-footer .voted-msg {
   color: #f5f5ff;
 }
-section.feed article .article-footer .estado {
+.feed-body article .article-footer .estado {
   background-color: rgba(16, 36, 71, 0.5568627451);
   padding: 20px;
   width: 100%;
@@ -396,9 +418,8 @@ header.body-header a.btn-index:hover {
   animation: animarFondo 0.7s linear infinite;
 }
 header.body-header a.btn-index img {
-  padding: 10px;
   width: 90px;
-  margin: 10px;
+  padding: 10px;
 }
 @media (max-width: 950px) {
   header.body-header a.btn-index h1 {
@@ -408,7 +429,7 @@ header.body-header a.btn-index img {
 header.body-header a.btn-index h1 {
   color: #f5f5ff;
   font-size: 3em;
-  font-family: "Fascinate";
+  font-family: "Fuzzy Bubbles";
   margin-right: 30px;
 }
 header.body-header .user {
@@ -453,7 +474,7 @@ header.body-header .user a img:hover {
   box-shadow: #000 0 0 15px 6px;
 }
 
-aside.main-aside {
+.main-aside {
   width: 360px;
   max-width: 80%;
   padding: 100px 30px;
@@ -467,29 +488,29 @@ aside.main-aside {
   box-shadow: #163161 0 0 30px 10px;
   background: linear-gradient(to bottom, #163161, #8456ce, #8456ce, #163161);
 }
-aside.main-aside h3 {
+.main-aside h3 {
   color: #f5f5ff;
   text-shadow: #163161 3px 3px 0;
   font-size: 1.8em;
-  font-family: "Fascinate";
+  font-family: "SN Pro";
   margin-bottom: 10px;
 }
-aside.main-aside hr {
+.main-aside hr {
   border: 2px solid #f5f5ff;
   box-shadow: #163161 3px 3px 0;
   border-radius: 10px;
   margin-bottom: 20px;
 }
-aside.main-aside ul {
+.main-aside ul {
   list-style-type: none;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-aside.main-aside ul li {
+.main-aside ul li {
   position: relative;
 }
-aside.main-aside ul li a, aside.main-aside ul li p {
+.main-aside ul li a, .main-aside ul li p {
   background-color: #f5f5ff;
   color: #163161;
   font-size: 1.5em;
@@ -506,71 +527,73 @@ aside.main-aside ul li a, aside.main-aside ul li p {
   border-radius: 10px;
   transition: all 0.2s ease;
 }
-aside.main-aside ul li p {
+.main-aside ul li p {
   cursor: default;
 }
-aside.main-aside ul li:hover > a, aside.main-aside ul li:hover > p {
+.main-aside ul li:hover > a, .main-aside ul li:hover > p {
   transform: scale(1.05);
   background-color: #c4315d;
   color: #f5f5ff;
   text-shadow: #163161 3px 3px;
   box-shadow: #163161 6px 6px 0;
 }
-aside.main-aside ul li:hover > p {
+.main-aside ul li:hover > p {
   margin-bottom: 5px;
 }
 
 .pager {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.pager .num-link, .pager .pag-arrow, .pager .dots {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 50px;
-  gap: 10px;
-}
-.pager a, .pager span {
-  text-decoration: none;
-  width: 40px;
+  min-width: 40px;
   height: 40px;
-  border: 3px solid;
+  padding: 0 5px;
+  text-decoration: none;
   border-radius: 30px;
-  font-size: 1.3em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 3px solid #163161;
+  background-color: white;
+  color: #163161;
 }
-.pager a:hover {
+.pager a.num-link:hover, .pager a.pag-arrow:hover {
+  background-color: rgb(185.7142857143, 205, 239.2857142857);
+  border-color: #163161;
   transform: scale(1.2);
 }
 .pager .activo {
-  background-color: #f5f5ff;
-  color: #163161;
-  border-color: #163161;
-  width: 50px;
-  height: 50px;
-  font-size: 2em;
-}
-.pager .limite {
-  background-color: rgb(40.8571428571, 91, 180.1428571429);
-  border-color: #f5f5ff;
-  color: #f5f5ff;
-}
-.pager .pag-arrow {
-  background-color: rgb(40.8571428571, 91, 180.1428571429);
-  border-color: #f5f5ff;
-  color: #f5f5ff;
-}
-.pager .disabled {
   background-color: #163161;
   color: #f5f5ff;
-  border-color: #f5f5ff;
-  text-shadow: none;
+  border-color: #163161;
+  cursor: default;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.pager .dots {
+  border: none;
+  background: transparent;
+  cursor: default;
+}
+.pager .pag-arrow {
+  background-color: #f5f5ff;
+  border-color: #163161;
+}
+.pager .pag-arrow i {
+  font-size: 0.9em;
+}
+@media (max-width: 600px) {
+  .pager .num-link:not(.activo) {
+    display: none;
+  }
 }
 
 .btn-filter {
-  width: 100%;
-  max-width: 250px;
+  width: 200px;
   color: #163161;
   background-color: #f5f5ff;
   padding: 15px;
@@ -581,43 +604,69 @@ aside.main-aside ul li:hover > p {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  cursor: pointer;
   text-decoration: none;
   text-align: end;
   font-weight: bold;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.2s ease, background-color 0.2s ease;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+       user-select: none;
 }
-.btn-filter:hover {
+.btn-filter:hover, .btn-filter.active {
   transform: scale(1.05);
   color: #f5f5ff;
   text-shadow: #163161 1px 2px;
   background-color: #e46e20;
   box-shadow: #163161 3px 3px;
 }
+.btn-filter.active {
+  border-radius: 30px 30px 0 0;
+}
 
 .filter-container {
+  margin-left: auto;
   position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .filter-menu {
+  display: none;
+  width: 210px;
   position: absolute;
   top: 100%;
-  right: 0;
-  background: white;
-  border: 1px solid #ccc;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  right: -5px;
+  background: #f5f5ff;
+  border: 3px solid #163161;
+  box-shadow: #163161 3px 3px 0;
   z-index: 100;
-  border-radius: 5px;
+  border-radius: 0 0 20px 20px;
 }
 
 .filter-menu a {
   display: block;
   padding: 10px 20px;
   text-decoration: none;
-  color: #333;
+  color: #163161;
 }
 
 .filter-menu a:hover {
-  background: #f0f0f0;
+  color: #f5f5ff;
+  text-shadow: #163161 2px 2px;
+}
+.filter-menu a:hover:first-child {
+  background-color: #3d73d3;
+}
+.filter-menu a:hover:nth-child(2) {
+  background-color: #8456ce;
+}
+.filter-menu a:hover:nth-child(3) {
+  background-color: #c4315d;
+}
+.filter-menu a:hover:last-child {
+  background-color: #e46e20;
+  border-radius: 0 0 16px 16px;
 }
 
 body {
@@ -632,7 +681,7 @@ body main {
   align-items: flex-start;
   justify-content: center;
 }
-body main section.feed {
+body main .feed {
   width: 100%;
   max-width: 1200px;
   background: linear-gradient(to bottom, rgba(110, 40, 143, 0.9098039216), rgba(255, 255, 255, 0.3843137255) 300px, rgba(255, 255, 255, 0.3843137255) calc(100% - 300px), rgba(110, 40, 143, 0.9098039216));
@@ -643,7 +692,7 @@ body main section.feed {
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
           mask-image: linear-gradient(to bottom, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
 }
-body main section.feed .section-header {
+body main .feed .section-header {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
@@ -651,8 +700,8 @@ body main section.feed .section-header {
   gap: 10px;
   padding-bottom: 20px;
 }
-body main section.feed .section-header h2 {
-  font-family: "Fascinate";
+body main .feed .section-header h2 {
+  font-family: "SN Pro";
   flex: 1;
   color: #f5f5ff;
   font-size: 2.5em;
@@ -660,35 +709,10 @@ body main section.feed .section-header h2 {
   text-shadow: #163161 3px 3px 0;
   width: 100%;
 }
-body main section.feed .section-header .section-btns {
-  display: flex;
-  justify-content: end;
-  flex-wrap: wrap;
-  gap: 10px;
-  font-size: 1em;
-  margin-top: 30px;
-  margin-left: auto;
-}
-body main .hr-feed {
+body main .hr-section {
   width: 100%;
   border: 3px solid #f5f5ff;
   border-radius: 10px;
   margin-bottom: 50px;
   box-shadow: #163161 3px 3px 0;
-}
-body main .btn-up {
-  margin: 50px auto 70px;
-  padding: 12px;
-  border: 5px solid #f5f5ff;
-  border-radius: 50px;
-  background-color: #163161;
-  color: #f5f5ff;
-  font-size: 2em;
-  transition: all 0.2s ease;
-}
-body main .btn-up:hover {
-  transform: scale(1.2);
-  color: #163161;
-  background-color: #f5f5ff;
-  border-color: #163161;
 }/*# sourceMappingURL=index.css.map */

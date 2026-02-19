@@ -1,53 +1,58 @@
 @import 'variables';
+@import 'mixins';
 
 .pager {
-    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
-    gap: 10px;
+    align-items: center;
+    gap: 8px;
 
-    a, span {
-        text-decoration: none;
-        width: 40px;
-        height: 40px;
-        border: 3px solid;
-        border-radius: 30px;
-        font-size: 1.3em;
+    .num-link, .pag-arrow, .dots {
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.2s ease;
+        min-width: 40px;
+        height: 40px;
+        padding: 0 5px;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 3px solid $color-dark;
+        background-color: white;
+        color: $color-dark;
     }
 
-    a:hover { transform: scale(1.2); }
+    a.num-link:hover, a.pag-arrow:hover {
+        background-color: lighten($color-dark, 60%);
+        border-color: $color-dark;
+        transform: scale(1.2);
+    }
 
     .activo {
-        background-color: $color-light;
-        color:  $color-dark;
+        background-color: $color-dark;
+        color: $color-light;
         border-color: $color-dark;
-        width: 50px;
-        height: 50px;
-        font-size: 2em;
+        cursor: default;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    .limite { 
-        background-color: lighten($color-dark, $amount: 20);
-        border-color: $color-light;
-        color: $color-light;
+    .dots {
+        border: none;
+        background: transparent;
+        cursor: default;
     }
 
     .pag-arrow {
-        background-color: lighten($color-dark, $amount: 20);
-        border-color: $color-light;
-        color: $color-light;
+        background-color: $color-light;
+        border-color: $color-dark;
+        
+        i { font-size: 0.9em; }
     }
 
-    .disabled { 
-        background-color: $color-dark;
-        color: $color-light;
-        border-color: $color-light;
-        text-shadow: none;
+    @include respond-to(small) {
+        .num-link:not(.activo) {
+            display: none;
+        }
     }
 }

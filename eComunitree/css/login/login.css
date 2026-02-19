@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Google Sans Code";
+  font-family: "SN Pro";
 }
 
 html {
@@ -51,7 +51,7 @@ html body header h1 {
   font-size: 3.5em;
   color: #f5f5ff;
   text-shadow: #163161 5px 5px 0px;
-  font-family: "Fascinate";
+  font-family: "Fuzzy Bubbles";
 }
 html body h2 {
   font-size: 1.5em;
@@ -84,7 +84,7 @@ html body main h3 {
   color: #f5f5ff;
   text-shadow: #163161 3px 3px 0;
   font-size: 2em;
-  font-family: "Fascinate";
+  font-family: "Fuzzy Bubbles";
 }
 html body main form {
   flex: 1;
@@ -313,4 +313,20 @@ html body main .registrarse button:hover {
 }
 html body main .registrarse button:hover {
   background-color: #c4315d;
+}
+html body .error, html body .success {
+  border: 3px solid #f5f5ff;
+  border-radius: 50px;
+  color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.3em;
+  transition: opacity 2s ease-in;
+}
+html body .error {
+  background-color: rgba(182, 11, 11, 0.822);
+}
+html body .success {
+  background-color: rgba(33, 92, 218, 0.822);
 }/*# sourceMappingURL=login.css.map */

@@ -106,30 +106,38 @@
                     <a href="../index.php">
                         <i class="fa-solid fa-house"></i>
                         Inicio
-                    </a></li>
+                    </a>
+                </li>
                 <li>
-                    <a href="#">
-                    <i class="fa-solid fa-plus"></i>
-                    Nueva incidencia
-                    </a></li>
+                    <a href="../crear_incidencia.php">
+                        <i class="fa-solid fa-plus"></i>
+                        Nueva incidencia
+                    </a>
+                </li>
                 <li>
                     <a href="../servicios.php">
-                    <i class="fa-solid fa-briefcase"></i>
-                    Servicios
-                </a></li>
+                        <i class="fa-solid fa-briefcase"></i>
+                        Servicios
+                    </a>
+                </li>
                 <li>
                     <a href="#">
-                    <i class="fa-solid fa-calendar-days"></i>
-                    Calendario
-                </a></li>
-                <li><a href="#">
-                    <i class="fa-regular fa-file-lines"></i>
-                    Documentación
-                </a></li>
-                <li><a href="panel_control.php">
-                    <i class="fa-solid fa-gear"></i>
-                    Panel de control
-                </a></li>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        Calendario
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-regular fa-file-lines"></i>
+                        Documentación
+                    </a>
+                </li>
+                <li>
+                    <a href="panel_control.php">
+                        <i class="fa-solid fa-gear"></i>
+                        Panel de control
+                    </a>
+                </li>
             </ul>
         </aside>
     </main>
