@@ -29,6 +29,7 @@ section.services-body article {
             margin-bottom: 5px;
             color: $color-light;
             text-shadow: $color-dark 3px 3px;
+            font-family: $subtitulo;
         }
 
         p { 
@@ -57,8 +58,15 @@ section.services-body article {
                 border: 3px solid $color-dark;
                 box-shadow: $color-dark 3px 3px;
 
-                u { color: $color-primary; }
+                u { 
+                    color: $color-primary; 
+                    font-size: 1.2em;
+                }
 
+                p { 
+                    font-family: $subtitulo; 
+                    display: inline;
+                }
 
                 a {
                     color: #2ecc71;

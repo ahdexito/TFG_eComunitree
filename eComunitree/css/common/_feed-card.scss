@@ -1,15 +1,11 @@
 @import 'variables';
 
 .feed-body article {
-    background: linear-gradient(
-        $color-dark 0,
-        $color-dark-transparent 300px,
-        $color-dark-transparent
-    );
+    background-color: $color-light-transparent;
     padding: 20px;
     margin-bottom: 50px;
     border: 5px solid $color-light;
-    box-shadow: $color-dark 5px 5px;
+    box-shadow: $color-darken 5px 5px;
     border-radius: 60px;
     display: flex;
     flex-direction: column;
@@ -27,7 +23,7 @@
         align-items: flex-start;
         justify-content: space-between;
         gap: 20px;
-        text-shadow: darken($color-dark, $amount: 10) 3px 3px 0;
+        text-shadow: $color-dark 2px 2px;
 
         // ARTICLE HEADER USER
         .article-header-user {
@@ -77,11 +73,13 @@
             margin-left: auto;
 
             strong { 
+                font-family: $subtitulo;
                 color: $color-light; 
                 gap: 10px;
             }
 
             p { 
+                font-family: $subtitulo;
                 font-weight: bold;
                 color: lighten($color-dark, $amount: 40);
                 text-wrap: nowrap;
@@ -186,10 +184,9 @@
         border-radius: 40px;
         margin-top: 10px;
 
-        strong, p {
-            width: 100%;
-            font-family: $subtitulo;
-        }
+        strong, p { width: 100%; }
+
+        time { font-family: $subtitulo; }
         
         hr {
             border: 2px solid $color-light;
@@ -243,7 +240,7 @@
                 &:hover span {
                     background-color: darken($color-primary, $amount: 10);
                     transform: scale(0.95);
-                    box-shadow: $color-dark 4px 4px 0;
+                    box-shadow: $color-darken 4px 4px 0;
                 }
 
                 &:active span {
@@ -267,6 +264,7 @@
                     background-color: $color-light;
                     padding: 10px;
                     border-radius: 50px;
+                    font-family: $subtitulo;
                     color: $color-dark;
                     text-shadow: none;
                     margin-left: 10px;
@@ -315,6 +313,8 @@
             padding: 20px;
             width: 100%;
             border-radius: 20px;
+            
+            strong, small { font-family: $subtitulo; }
         }
     }
 }

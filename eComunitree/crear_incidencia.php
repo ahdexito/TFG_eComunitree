@@ -166,11 +166,40 @@
                         Inicio
                     </a>
                 </li>
-                <li>
-                    <a href="crear_incidencia.php">
-                        <i class="fa-solid fa-plus"></i>
-                        Nueva incidencia
-                    </a>
+                <li class="has-dropdown">
+                    <p>
+                        <i class="fa-solid fa-comments"></i>
+                        Publicaciones
+                    </p>
+                    <ul class="submenu">
+                        <li>
+                            <a href="crear_incidencia.php">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                Crear Incidencia
+                            </a>
+                        </li>
+
+                        <?php if ($_SESSION["rol"] !== 'vecino'): ?>
+                        <li>
+                            <a href="admin/ins_aviso.php">
+                                <i class="fa-solid fa-bullhorn"></i>
+                                Crear Aviso
+                            </a>
+                        </li>
+                        <li>
+                            <a href="admin/ins_votacion.php">
+                                <i class="fa-solid fa-envelope"></i>
+                                Crear Votación
+                            </a>
+                        </li>
+                        <li>
+                            <a href="admin/gestion_incidencias.php">
+                                <i class="fa-solid fa-person-digging"></i>
+                                Resolver Incidencia
+                            </a>
+                        </li>
+                        <?php endif; ?>
+                    </ul>
                 </li>
                 <li>
                     <a href="servicios.php">
@@ -194,7 +223,7 @@
                     <li>
                         <a href="admin/panel_control.php">
                             <i class="fa-solid fa-gear"></i>
-                            Panel de control
+                            Panel de Control
                         </a>
                     </li>
                 <?php endif; ?>

@@ -5,8 +5,8 @@
     color: $color-dark;
     background-color: $color-light;
     padding: 15px;
-    border: 3px solid $color-dark;
-    box-shadow: $color-dark 2px 2px;
+    border: 3px solid $color-darken;
+    box-shadow: $color-darken 2px 2px;
     border-radius: 50px;
     display: flex;
     align-items: center;
@@ -16,20 +16,20 @@
     text-decoration: none;
     text-align: end;
     font-weight: bold;
-    transition: 
-        transform 0.2s ease, 
-        color 0.2s ease, 
-        text-shadow 0.2s ease, 
-        background-color 0.2s ease;
+    transition: all 0.2s ease;
 
     @include no-subrayable;
+
+    p { font-family: $subtitulo; }
+
+    i { font-size: 1.5em; }
 
     &:hover, &.active {
         transform: scale(1.05);
         color: $color-light;
-        text-shadow: $color-dark 1px 2px;
+        text-shadow: $color-darken 1px 2px;
         background-color: $color-accent-light;
-        box-shadow: $color-dark 3px 3px;
+        box-shadow: $color-darken 5px 5px;
     }
 
     &.active { 

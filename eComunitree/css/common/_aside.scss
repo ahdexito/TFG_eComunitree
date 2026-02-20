@@ -40,10 +40,15 @@
         list-style-type: none;
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
 
         li {
             position: relative;
+
+            &:nth-child(4n + 1) { --item-color: #{$color-primary}; }
+            &:nth-child(4n + 2) { --item-color: #{$color-accent-light}; }
+            &:nth-child(4n + 3) { --item-color: #{$color-accent}; }
+            &:nth-child(4n + 4) { --item-color: #{lighten($color-dark, 30%)}; }
 
             a, p {
                 background-color: $color-light;
@@ -67,13 +72,66 @@
 
             &:hover > a, &:hover > p {
                 transform: scale(1.05);
-                background-color: $color-primary;
+                background-color: var(--item-color);
                 color: $color-light;
                 text-shadow: $color-dark 3px 3px;
                 box-shadow: $color-dark 6px 6px 0;
             }
 
             &:hover > p { margin-bottom: 5px; }
+
+            &.has-dropdown {
+                .submenu {
+                    background-color: $color-dark-transparent;
+                    border: 3px solid $color-dark;
+                    border-top: none;
+                    box-shadow: $color-dark 3px 3px 0;
+                    display: flex; 
+                    flex-direction: column;
+                    gap: 10px;
+                    max-height: 0;
+                    opacity: 0;
+                    visibility: hidden;
+                    overflow: hidden;
+                    padding: 0 10px;
+                    margin: 0 10px;
+                    border-radius: 0 0 10px 10px;
+                    transition: all 0.4s ease;
+    
+                    li {
+                        &:nth-child(4n + 1) { --item-color: #{$color-primary}; }
+                        &:nth-child(4n + 2) { --item-color: #{$color-accent-light}; }
+                        &:nth-child(4n + 3) { --item-color: #{$color-accent}; }
+                        &:nth-child(4n + 4) { --item-color: #{lighten($color-dark, 30%)}; }
+    
+                        a { 
+                            background-color: $color-light;
+                            border-color: $color-dark;
+                            color: $color-dark;
+                            text-shadow: none;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            font-size: 1.2em; 
+    
+                            &:hover {
+                                color: $color-light;
+                                text-shadow: $color-dark 2px 2px;
+                                transform: scale(1.05);
+                                box-shadow: $color-dark 5px 5px;
+                                background-color: var(--item-color);
+                            }
+                        }
+                    }
+                }
+    
+                &:hover .submenu { 
+                    max-height: 500px;
+                    opacity: 1;
+                    visibility: visible;
+                    padding: 10px;
+                }
+            }
         }
     }
 }

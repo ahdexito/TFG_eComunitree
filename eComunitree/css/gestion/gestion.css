@@ -1,21 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Comic Neue";
+  font-family: "Indie Flower";
   font-weight: bold;
 }
 
 html {
-  background: url(../../img/fondo.jpg);
+  background: url(../../img/fondo6.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -38,8 +38,8 @@ img {
   position: fixed;
   top: 180px;
   right: 20px;
-  border: 3px solid #163161;
-  z-index: 101;
+  border: 3px solid #0c1d3a;
+  z-index: 250;
   background-color: #f5f5ff;
   color: #163161;
   font-size: 2em;
@@ -47,14 +47,14 @@ img {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: #163161 3px 3px 0;
+  box-shadow: #0c1d3a 3px 3px 0;
 }
 .menu-button:hover {
   transform: scale(1.1);
   background-color: #8456ce;
   color: #f5f5ff;
-  box-shadow: #163161 5px 5px 0;
-  text-shadow: #163161 4px 4px;
+  box-shadow: #0c1d3a 5px 5px 0;
+  text-shadow: #0c1d3a 4px 4px;
 }
 
 .menu-checkbox:checked ~ aside.main-aside {
@@ -68,12 +68,13 @@ img {
 
 .btn-up {
   margin: 50px auto 70px;
-  padding: 12px;
+  padding: 12px 13px;
   border: 5px solid #f5f5ff;
   border-radius: 50px;
   background-color: #163161;
   color: #f5f5ff;
-  font-size: 2em;
+  font-size: 1.5em;
+  font-family: "SN Pro";
   transition: all 0.2s ease;
 }
 .btn-up:hover {
@@ -92,15 +93,14 @@ img {
   }
 }
 header.body-header {
-  box-shadow: rgba(16, 36, 71, 0.5568627451) 0 0 10px 5px;
   border-radius: 100px;
   padding: 10px 10px;
   padding-right: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  text-shadow: #163161 3px 3px 0;
-  background-color: rgba(255, 255, 255, 0.3843137255);
+  text-shadow: #0c1d3a 3px 3px 0;
+  background-color: rgba(22, 49, 97, 0.8431372549);
 }
 header.body-header a.btn-index {
   display: flex;
@@ -109,7 +109,7 @@ header.body-header a.btn-index {
   text-decoration: none;
   transition: all 0.2s ease;
   border: 3px solid #f5f5ff;
-  box-shadow: #163161 3px 3px;
+  box-shadow: #0c1d3a 3px 3px;
   border-radius: 100px;
   background: linear-gradient(160deg, rgba(110, 40, 143, 0.9098039216), rgba(182, 30, 76, 0.7254901961), rgba(255, 125, 38, 0.7450980392), rgba(110, 40, 143, 0.9098039216), rgba(182, 30, 76, 0.7254901961), rgba(255, 125, 38, 0.7450980392));
   background-size: 370% 100%;
@@ -128,7 +128,7 @@ header.body-header a.btn-index:hover {
 }
 header.body-header a.btn-index img {
   width: 90px;
-  padding: 10px;
+  padding: 16px 13px 10px;
 }
 @media (max-width: 950px) {
   header.body-header a.btn-index h1 {
@@ -154,8 +154,9 @@ header.body-header .user {
 }
 header.body-header .user p {
   text-align: end;
+  font-family: "SN Pro";
   font-size: 1.3em;
-  text-shadow: #163161 2px 2px 0px;
+  text-shadow: #0c1d3a 2px 2px 0px;
   font-weight: bold;
 }
 header.body-header .user a {
@@ -214,10 +215,22 @@ header.body-header .user a img:hover {
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 .main-aside ul li {
   position: relative;
+}
+.main-aside ul li:nth-child(4n+1) {
+  --item-color: #c4315d;
+}
+.main-aside ul li:nth-child(4n+2) {
+  --item-color: #e46e20;
+}
+.main-aside ul li:nth-child(4n+3) {
+  --item-color: #8456ce;
+}
+.main-aside ul li:nth-child(4n+4) {
+  --item-color: #3d73d3;
 }
 .main-aside ul li a, .main-aside ul li p {
   background-color: #f5f5ff;
@@ -241,7 +254,7 @@ header.body-header .user a img:hover {
 }
 .main-aside ul li:hover > a, .main-aside ul li:hover > p {
   transform: scale(1.05);
-  background-color: #c4315d;
+  background-color: var(--item-color);
   color: #f5f5ff;
   text-shadow: #163161 3px 3px;
   box-shadow: #163161 6px 6px 0;
@@ -249,10 +262,62 @@ header.body-header .user a img:hover {
 .main-aside ul li:hover > p {
   margin-bottom: 5px;
 }
+.main-aside ul li.has-dropdown .submenu {
+  background-color: rgba(22, 49, 97, 0.8431372549);
+  border: 3px solid #163161;
+  border-top: none;
+  box-shadow: #163161 3px 3px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  padding: 0 10px;
+  margin: 0 10px;
+  border-radius: 0 0 10px 10px;
+  transition: all 0.4s ease;
+}
+.main-aside ul li.has-dropdown .submenu li:nth-child(4n+1) {
+  --item-color: #c4315d;
+}
+.main-aside ul li.has-dropdown .submenu li:nth-child(4n+2) {
+  --item-color: #e46e20;
+}
+.main-aside ul li.has-dropdown .submenu li:nth-child(4n+3) {
+  --item-color: #8456ce;
+}
+.main-aside ul li.has-dropdown .submenu li:nth-child(4n+4) {
+  --item-color: #3d73d3;
+}
+.main-aside ul li.has-dropdown .submenu li a {
+  background-color: #f5f5ff;
+  border-color: #163161;
+  color: #163161;
+  text-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2em;
+}
+.main-aside ul li.has-dropdown .submenu li a:hover {
+  color: #f5f5ff;
+  text-shadow: #163161 2px 2px;
+  transform: scale(1.05);
+  box-shadow: #163161 5px 5px;
+  background-color: var(--item-color);
+}
+.main-aside ul li.has-dropdown:hover .submenu {
+  max-height: 500px;
+  opacity: 1;
+  visibility: visible;
+  padding: 10px;
+}
 
 section.services-body article {
   width: 380px;
-  background: linear-gradient(#163161, rgba(16, 36, 71, 0.5568627451));
+  background: linear-gradient(#163161, rgba(22, 49, 97, 0.8431372549));
   padding: 10px;
   border: 3px solid #f5f5ff;
   box-shadow: #163161 5px 5px;
@@ -283,6 +348,7 @@ section.services-body article .article-header h3 {
   margin-bottom: 5px;
   color: #f5f5ff;
   text-shadow: #163161 3px 3px;
+  font-family: "SN Pro";
 }
 section.services-body article .article-header p {
   font-style: italic;
@@ -310,6 +376,11 @@ section.services-body article .article-body ul li {
 }
 section.services-body article .article-body ul li u {
   color: #c4315d;
+  font-size: 1.2em;
+}
+section.services-body article .article-body ul li p {
+  font-family: "SN Pro";
+  display: inline;
 }
 section.services-body article .article-body ul li a {
   color: #2ecc71;
@@ -334,6 +405,7 @@ section.services-body article .article-body ul li a {
   text-decoration: none;
   border-radius: 30px;
   font-weight: 600;
+  font-family: "SN Pro";
   transition: all 0.3s ease;
   border: 3px solid #163161;
   background-color: white;
@@ -374,8 +446,8 @@ section.services-body article .article-body ul li a {
   color: #163161;
   background-color: #f5f5ff;
   padding: 15px;
-  border: 3px solid #163161;
-  box-shadow: #163161 2px 2px;
+  border: 3px solid #0c1d3a;
+  box-shadow: #0c1d3a 2px 2px;
   border-radius: 50px;
   display: flex;
   align-items: center;
@@ -385,17 +457,23 @@ section.services-body article .article-body ul li a {
   text-decoration: none;
   text-align: end;
   font-weight: bold;
-  transition: transform 0.2s ease, color 0.2s ease, text-shadow 0.2s ease, background-color 0.2s ease;
+  transition: all 0.2s ease;
   -webkit-user-select: none;
   -moz-user-select: none;
        user-select: none;
 }
+.btn-filter p {
+  font-family: "SN Pro";
+}
+.btn-filter i {
+  font-size: 1.5em;
+}
 .btn-filter:hover, .btn-filter.active {
   transform: scale(1.05);
   color: #f5f5ff;
-  text-shadow: #163161 1px 2px;
+  text-shadow: #0c1d3a 1px 2px;
   background-color: #e46e20;
-  box-shadow: #163161 3px 3px;
+  box-shadow: #0c1d3a 5px 5px;
 }
 .btn-filter.active {
   border-radius: 30px 30px 0 0;
@@ -446,6 +524,11 @@ section.services-body article .article-body ul li a {
   border-radius: 0 0 16px 16px;
 }
 
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
 nav ul {
   width: 100%;
   margin: 10px 0;
@@ -455,13 +538,17 @@ nav ul {
   justify-content: center;
   gap: 5px;
   color: #f5f5ff;
-  text-shadow: #163161 2px 2px;
-  background: linear-gradient(to right, rgba(110, 40, 143, 0.9098039216) 0%, rgba(255, 255, 255, 0.3843137255) 30%, rgba(255, 255, 255, 0.3843137255) 70%, rgba(110, 40, 143, 0.9098039216) 100%);
+  text-shadow: #0c1d3a 2px 2px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.3843137255) 0%, rgba(22, 49, 97, 0.8431372549) 30%, rgba(22, 49, 97, 0.8431372549) 70%, rgba(255, 255, 255, 0.3843137255) 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
           mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
+nav ul li {
+  font-family: "SN Pro";
+}
 nav ul li a {
   color: #f5f5ff;
+  font-family: "SN Pro";
 }
 
 body {
