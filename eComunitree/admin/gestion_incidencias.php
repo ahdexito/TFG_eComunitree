@@ -296,7 +296,7 @@
     </main>
 
     <footer>
-        <script src="../javascript/toggle-filtros.js"></script>
+        <script type="module" src="../js/main.js"></script>
     </footer>
 </body>
 </html>

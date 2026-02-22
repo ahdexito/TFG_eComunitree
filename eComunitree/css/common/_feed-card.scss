@@ -5,7 +5,7 @@
     padding: 20px;
     margin-bottom: 50px;
     border: 5px solid $color-light;
-    box-shadow: $color-darken 5px 5px;
+    box-shadow: $color-dark 5px 5px;
     border-radius: 60px;
     display: flex;
     flex-direction: column;
@@ -240,7 +240,7 @@
                 &:hover span {
                     background-color: darken($color-primary, $amount: 10);
                     transform: scale(0.95);
-                    box-shadow: $color-darken 4px 4px 0;
+                    box-shadow: $color-dark 4px 4px 0;
                 }
 
                 &:active span {

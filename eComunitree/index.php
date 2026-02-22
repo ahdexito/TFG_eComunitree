@@ -108,7 +108,7 @@
             <header class="section-header">
                 <h2>Últimas Publicaciones: <small>página <?= $pagina ?></small></h2>
                 <div class="filter-container">
-                    <div class="btn-filter" onclick="toggleFiltros(event)">
+                    <div class="btn-filter" id="btn-filter">
                         <i class="fa-solid fa-filter"></i>
                         <p>FILTRAR: <br> <?= strtoupper($filtro_tipo) ?></p>
                     </div>
@@ -470,7 +470,7 @@
         </aside>
     </main>
     <footer>
-        <script src="javascript/toggle-filtros.js"></script>
+        <script type="module" src="./js/main.js"></script>
     </footer>
 </body>
 </html>

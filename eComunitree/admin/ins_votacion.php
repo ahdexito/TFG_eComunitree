@@ -127,7 +127,7 @@
                             <input type="text" name="opciones[]" placeholder="Opción 1" required style="margin-bottom: 10px;">
                             <input type="text" name="opciones[]" placeholder="Opción 2" required style="margin-bottom: 10px;">
                         </div>
-                        <button type="button" onclick="agregarOpcion()" class="btn-filter" style="width: fit-content; padding: 5px 15px;">
+                        <button type="button" id="btn-agregar-opcion" class="btn-filter" style="width: fit-content; padding: 5px 15px;">
                             <i class="fa-solid fa-plus"></i> Añadir opción
                         </button>
                     </div>
@@ -217,6 +217,6 @@
         </aside>
     </main>
 
-    <script src="../javascript/agregar-opcion-voto.js"></script>
+    <script type="module" src="../js/main.js"></script>
 </body>
 </html>

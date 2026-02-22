@@ -229,77 +229,77 @@
     <label for="menu-toggle" class="menu-button"><i class="fa-solid fa-bars"></i></label>
 
     <aside class="main-aside">
-            <h3>Navegación</h3>
-            <hr>
-            <ul>
-                <li>
-                    <a href="../index.php">
-                        <i class="fa-solid fa-house"></i>
-                        Inicio
-                    </a>
-                </li>
-                <li class="has-dropdown">
-                    <p>
-                        <i class="fa-solid fa-comments"></i>
-                        Publicaciones
-                    </p>
-                    <ul class="submenu">
-                        <li>
-                            <a href="../crear_incidencia.php">
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                Crear Incidencia
-                            </a>
-                        </li>
-
-                        <?php if ($_SESSION["rol"] !== 'vecino'): ?>
-                        <li>
-                            <a href="ins_aviso.php">
-                                <i class="fa-solid fa-bullhorn"></i>
-                                Crear Aviso
-                            </a>
-                        </li>
-                        <li>
-                            <a href="ins_votacion.php">
-                                <i class="fa-solid fa-envelope"></i>
-                                Crear Votación
-                            </a>
-                        </li>
-                        <li>
-                            <a href="gestion_incidencias.php">
-                                <i class="fa-solid fa-person-digging"></i>
-                                Resolver Incidencia
-                            </a>
-                        </li>
-                        <?php endif; ?>
-                    </ul>
-                </li>
-                <li>
-                    <a href="../servicios.php">
-                        <i class="fa-solid fa-briefcase"></i>
-                        Servicios
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-calendar-days"></i>
-                        Calendario
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-regular fa-file-lines"></i>
-                        Documentación
-                    </a>
-                </li>
-                <?php if ($_SESSION["rol"] !== "vecino"): ?>
+        <h3>Navegación</h3>
+        <hr>
+        <ul>
+            <li>
+                <a href="../index.php">
+                    <i class="fa-solid fa-house"></i>
+                    Inicio
+                </a>
+            </li>
+            <li class="has-dropdown">
+                <p>
+                    <i class="fa-solid fa-comments"></i>
+                    Publicaciones
+                </p>
+                <ul class="submenu">
                     <li>
-                        <a href="panel_control.php">
-                            <i class="fa-solid fa-gear"></i>
-                            Panel de Control
+                        <a href="../crear_incidencia.php">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            Crear Incidencia
                         </a>
                     </li>
-                <?php endif; ?>
-            </ul>
-        </aside>
+
+                    <?php if ($_SESSION["rol"] !== 'vecino'): ?>
+                    <li>
+                        <a href="ins_aviso.php">
+                            <i class="fa-solid fa-bullhorn"></i>
+                            Crear Aviso
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ins_votacion.php">
+                            <i class="fa-solid fa-envelope"></i>
+                            Crear Votación
+                        </a>
+                    </li>
+                    <li>
+                        <a href="gestion_incidencias.php">
+                            <i class="fa-solid fa-person-digging"></i>
+                            Resolver Incidencia
+                        </a>
+                    </li>
+                    <?php endif; ?>
+                </ul>
+            </li>
+            <li>
+                <a href="../servicios.php">
+                    <i class="fa-solid fa-briefcase"></i>
+                    Servicios
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Calendario
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-regular fa-file-lines"></i>
+                    Documentación
+                </a>
+            </li>
+            <?php if ($_SESSION["rol"] !== "vecino"): ?>
+                <li>
+                    <a href="panel_control.php">
+                        <i class="fa-solid fa-gear"></i>
+                        Panel de Control
+                    </a>
+                </li>
+            <?php endif; ?>
+        </ul>
+    </aside>
 </body>
 </html>

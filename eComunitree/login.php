@@ -117,7 +117,7 @@
         </section>
     </main>
     <footer>
-        <script src="javascript/msg-timer.js"></script>
+        <script type="module" src="./js/main.js"></script>
     </footer>
 </body>
 </html>

@@ -139,7 +139,7 @@
 
                 <?php if ($_SESSION['rol'] === 'admin'): ?>
                 <div class="filter-container">
-                    <div class="btn-filter" onclick="toggleFiltros(event)">
+                    <div class="btn-filter" id="btn-filter">
                         <i class="fa-solid fa-filter"></i>
                         <p>FILTRAR: <?= strtoupper($filtro_tipo) ?></p>
                     </div>
@@ -336,7 +336,7 @@
     </main>
 
     <footer>
-        <script src="../javascript/toggle-filtros.js"></script>
+        <script type="module" src="../js/main.js"></script>
     </footer>
 </body>
 </html>
