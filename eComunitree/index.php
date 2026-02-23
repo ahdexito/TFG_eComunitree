@@ -40,7 +40,7 @@
     // OBTENER PUBLICACIONES
     $sql_main =
         "SELECT p.*, 
-            u.nombre AS autor_nombre, u.rol AS autor_rol, u.foto AS autor_foto,
+            u.nombre AS autor_nombre, u.rol AS autor_rol, u.foto AS autor_foto, u.vivienda AS autor_vivienda,
             i.estado, i.foto,
             ti.nombre AS tipo_incidencia_nombre,
             v.fecha_cierre
@@ -170,13 +170,14 @@
                                 <img src="img_user/<?= $p['autor_foto'] ?>" alt="Foto de <?= $p['autor_nombre'] ?>">
                                 <div class="user-info">
                                     <strong> <?= $p['autor_nombre'] ?> </strong>
+                                    <p> <?= $p['autor_vivienda'] ?> </p>
                                     <p> <?= ucfirst($p['autor_rol']) ?> </p>
                                 </div>
                             </div>
 
                             <div class="article-header-date">
                                 <strong> <?= $fecha->format('H:i') ?> <i class="fa-regular fa-clock"></i></strong>
-                                <p> <?= $fecha->format('d/m/Y') ?> <i class="fa-solid fa-calendar-days"></i></p>
+                                <p> <?= $fecha->format('d/m') ?> <i class="fa-solid fa-calendar-days"></i></p>
                             </div>
                         </header>
 
@@ -256,12 +257,13 @@
                                 <div class="user-info">
                                     <strong> <?= $p['autor_nombre'] ?> </strong>
                                     <p> <?= ucfirst($p['autor_rol']) ?> </p>
+                                    <p> <?= $p['autor_vivienda'] ?> </p>
                                 </div>
                             </div>
 
                             <div class="article-header-date">
                                 <strong> <?= $fecha->format('H:i') ?> <i class="fa-regular fa-clock"></i></strong>
-                                <p> <?= $fecha->format('d/m/Y') ?> <i class="fa-solid fa-calendar-days"></i></p>
+                                <p> <?= $fecha->format('d/m') ?> <i class="fa-solid fa-calendar-days"></i></p>
                             </div>
                         </header>  
                         
@@ -293,13 +295,14 @@
                                 <img src="img_user/<?= $p['autor_foto'] ?>" alt="Foto de <?= $p['autor_nombre'] ?>">
                                 <div class="user-info">
                                     <strong> <?= $p['autor_nombre'] ?> </strong>
+                                    <p> <?= $p['autor_vivienda'] ?> </p>
                                     <p> <?= ucfirst($p['autor_rol']) ?> </p>
                                 </div>
                             </div>
 
                             <div class="article-header-date">
                                 <strong> <?= $fecha->format('H:i') ?> <i class="fa-regular fa-clock"></i></strong>
-                                <p> <?= $fecha->format('d/m/Y') ?> <i class="fa-solid fa-calendar-days"></i></p>
+                                <p> <?= $fecha->format('d/m') ?> <i class="fa-solid fa-calendar-days"></i></p>
                             </div>
                         </header>
 

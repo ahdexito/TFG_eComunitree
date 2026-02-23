@@ -7,6 +7,9 @@
     box-sizing: border-box;
     font-family: $parrafo;
     font-weight: bold;
+    font-size: 0.99em;
+
+    @include respond-to(small) { font-size: 0.95em; }
 }
 
 html {
@@ -16,13 +19,14 @@ html {
     background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 100vh;
+    padding: 20px;
 }
 
 img { @include no-subrayable; }
 
 .menu-checkbox { display: none; }
 
-// Fuerda del aside
+// Fuera del aside
 .menu-button {
     display: flex;
     position: fixed;

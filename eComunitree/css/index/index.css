@@ -12,6 +12,12 @@
   box-sizing: border-box;
   font-family: "Indie Flower";
   font-weight: bold;
+  font-size: 0.99em;
+}
+@media (max-width: 600px) {
+  * {
+    font-size: 0.95em;
+  }
 }
 
 html {
@@ -21,6 +27,7 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
+  padding: 20px;
 }
 
 img {
@@ -85,12 +92,12 @@ img {
 }
 
 .feed-body article {
-  background-color: rgba(255, 255, 255, 0.3843137255);
+  background-color: #375a97;
   padding: 20px;
   margin-bottom: 50px;
   border: 5px solid #f5f5ff;
   box-shadow: #11264b 5px 5px;
-  border-radius: 60px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -110,14 +117,17 @@ img {
   justify-content: space-between;
   gap: 20px;
   text-shadow: #11264b 2px 2px;
+  background-color: rgb(26.4239130435, 59.0652173913, 116.5760869565);
+  border-radius: 10px;
+  padding: 15px;
 }
 @media (max-width: 600px) {
   .feed-body article header.article-header .article-header-user {
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 }
 .feed-body article header.article-header .article-header-user {
-  font-size: 1.5em;
+  font-size: 1.3em;
   margin-right: 30px;
   border-radius: 50px;
   display: flex;
@@ -130,21 +140,22 @@ img {
   border-radius: 100px;
   box-shadow: #000 0 0 20px 5px;
 }
+@media (max-width: 600px) {
+  .feed-body article header.article-header .article-header-user img {
+    width: 60px;
+  }
+}
 .feed-body article header.article-header .article-header-user .user-info {
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   color: rgb(80.5434782609, 129.3913043478, 215.4565217391);
+  font-size: 0.9em;
 }
 .feed-body article header.article-header .article-header-user .user-info strong {
   font-size: 1.2em;
   font-weight: bold;
   color: #f5f5ff;
-}
-@media (max-width: 600px) {
-  .feed-body article header.article-header .article-header-date {
-    font-size: 1em;
-    margin-top: 4px;
-  }
 }
 .feed-body article header.article-header .article-header-date {
   display: flex;
@@ -153,10 +164,8 @@ img {
   gap: 5px;
   text-align: end;
   text-wrap: nowrap;
-  font-size: 1.2em;
-  margin-top: 8px;
-  margin-right: 10px;
   margin-left: auto;
+  font-size: 0.9em;
 }
 .feed-body article header.article-header .article-header-date strong {
   font-family: "SN Pro";
@@ -170,10 +179,10 @@ img {
   text-wrap: nowrap;
 }
 .feed-body article header.article-header .article-header-date i {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .feed-body article section.article-body {
-  padding: 30px;
+  padding: 20px;
   color: #f5f5ff;
   display: flex;
   gap: 30px;
@@ -261,7 +270,6 @@ img {
   color: #f5f5ff;
   text-shadow: #11264b 3px 3px 0;
   font-size: 1.5em;
-  padding: 20px;
   border-radius: 40px;
   margin-top: 10px;
 }
@@ -286,8 +294,8 @@ img {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  background-color: rgba(41, 65, 104, 0.5803921569);
-  border-radius: 20px;
+  background-color: rgb(26.4239130435, 59.0652173913, 116.5760869565);
+  border-radius: 10px;
   -webkit-user-select: none;
   -moz-user-select: none;
        user-select: none;
@@ -381,10 +389,10 @@ img {
   color: #f5f5ff;
 }
 .feed-body article .article-footer .estado {
-  background-color: rgba(41, 65, 104, 0.5803921569);
+  background-color: rgb(26.4239130435, 59.0652173913, 116.5760869565);
   padding: 20px;
   width: 100%;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 .feed-body article .article-footer .estado strong, .feed-body article .article-footer .estado small {
   font-family: "SN Pro";
@@ -771,7 +779,7 @@ nav ul {
   gap: 5px;
   color: #f5f5ff;
   text-shadow: #11264b 2px 2px;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.3843137255) 0%, rgba(41, 65, 104, 0.5803921569) 30%, rgba(41, 65, 104, 0.5803921569) 70%, rgba(255, 255, 255, 0.3843137255) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.5568627451) 0%, rgba(41, 65, 104, 0.5803921569) 30%, rgba(41, 65, 104, 0.5803921569) 70%, rgba(255, 255, 255, 0.5568627451) 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
           mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
@@ -784,8 +792,6 @@ nav ul li a {
 }
 
 body {
-  border-radius: 20px;
-  padding: 20px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -797,7 +803,7 @@ body main {
 }
 body main .feed {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
   background-color: rgba(41, 65, 104, 0.5803921569);
   flex: 1;
   display: flex;

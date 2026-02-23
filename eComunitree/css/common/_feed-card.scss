@@ -1,12 +1,12 @@
 @import 'variables';
 
 .feed-body article {
-    background-color: $color-light-transparent;
+    background-color: $color-card;
     padding: 20px;
     margin-bottom: 50px;
     border: 5px solid $color-light;
     box-shadow: $color-dark 5px 5px;
-    border-radius: 60px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -24,11 +24,14 @@
         justify-content: space-between;
         gap: 20px;
         text-shadow: $color-dark 2px 2px;
+        background-color: lighten($color-dark, $amount: 10);
+        border-radius: 10px;
+        padding: 15px;
 
         // ARTICLE HEADER USER
         .article-header-user {
-            @include respond-to(small) { font-size: 1.2em; }
-            font-size: 1.5em;
+            @include respond-to(small) { font-size: 1.1em; }
+            font-size: 1.3em;
             margin-right: 30px;
             border-radius: 50px;
             display: flex;
@@ -40,12 +43,16 @@
                 border: 3px solid $color-light;
                 border-radius: 100px;
                 box-shadow: #000 0 0 20px 5px;
+
+                @include respond-to(small) { width: 60px; }
             }
 
             .user-info {
                 display: flex;
+                justify-content: space-between;
                 flex-direction: column;
                 color: lighten($color-dark, $amount: 40);
+                font-size: 0.9em;
 
                 strong {
                     font-size: 1.2em;
@@ -57,20 +64,14 @@
 
         // ARTICLE HEADER DATE
         .article-header-date {
-            @include respond-to(small) { 
-                font-size: 1em; 
-                margin-top: 4px;
-            }
             display: flex;
             flex-direction: column;
             align-items: flex-end;
             gap: 5px;
             text-align: end;
             text-wrap: nowrap;
-            font-size: 1.2em;
-            margin-top: 8px;
-            margin-right: 10px;
             margin-left: auto;
+            font-size: 0.9em;
 
             strong { 
                 font-family: $subtitulo;
@@ -85,7 +86,7 @@
                 text-wrap: nowrap;
             }
 
-            i { margin-left: 10px; }
+            i { margin-left: 5px; }
         }
     }
 
@@ -93,7 +94,7 @@
     // ARTICLE BODY
     // =========================================================
     section.article-body {
-        padding: 30px;
+        padding: 20px;
         color: $color-light;
         display: flex;
         gap: 30px;
@@ -180,7 +181,6 @@
         color: $color-light;
         text-shadow: $color-dark 3px 3px 0;
         font-size: 1.5em;
-        padding: 20px;
         border-radius: 40px;
         margin-top: 10px;
 
@@ -205,8 +205,8 @@
             align-items: center;
             justify-content: center;
             gap: 20px;
-            background-color: $color-dark-transparent;
-            border-radius: 20px;
+            background-color: lighten($color-dark, $amount: 10);
+            border-radius: 10px;
 
             @include no-subrayable;
 
@@ -309,10 +309,10 @@
         .voted-msg { color: $color-light; }
 
         .estado {
-            background-color: $color-dark-transparent;
+            background-color: lighten($color-dark, $amount: 10);
             padding: 20px;
             width: 100%;
-            border-radius: 20px;
+            border-radius: 10px;
             
             strong, small { font-family: $subtitulo; }
         }

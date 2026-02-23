@@ -9,6 +9,12 @@
   box-sizing: border-box;
   font-family: "Indie Flower";
   font-weight: bold;
+  font-size: 0.99em;
+}
+@media (max-width: 600px) {
+  * {
+    font-size: 0.95em;
+  }
 }
 
 html {
@@ -18,6 +24,7 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
+  padding: 20px;
 }
 
 img {
@@ -327,7 +334,7 @@ nav ul {
   gap: 5px;
   color: #f5f5ff;
   text-shadow: #11264b 2px 2px;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.3843137255) 0%, rgba(41, 65, 104, 0.5803921569) 30%, rgba(41, 65, 104, 0.5803921569) 70%, rgba(255, 255, 255, 0.3843137255) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.5568627451) 0%, rgba(41, 65, 104, 0.5803921569) 30%, rgba(41, 65, 104, 0.5803921569) 70%, rgba(255, 255, 255, 0.5568627451) 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
           mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
@@ -359,7 +366,7 @@ body main section.feed {
   max-width: 1500px;
   border-radius: 10px;
   padding: 60px 20px;
-  background-color: rgba(255, 255, 255, 0.3843137255);
+  background-color: rgba(255, 255, 255, 0.5568627451);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%);
           mask-image: linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%);
 }

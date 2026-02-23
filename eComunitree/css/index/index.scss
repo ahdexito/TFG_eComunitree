@@ -12,8 +12,6 @@
 // BODY
 // =========================================================
 body {
-    border-radius: 20px;
-    padding: 20px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -31,7 +29,7 @@ body {
         // =========================================================
         .feed {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1000px;
             background-color: $color-dark-transparent;
             flex: 1;
             display: flex;
