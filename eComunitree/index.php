@@ -117,7 +117,6 @@
                         <a href="index.php?tipo=votacion">Votaciones</a>
                         <a href="index.php?tipo=aviso">Avisos</a>
                         <a href="index.php?tipo=incidencia">Incidencias</a>
-                        
                     </div>
                 </div>
             </header>
@@ -170,8 +169,8 @@
                                 <img src="img_user/<?= $p['autor_foto'] ?>" alt="Foto de <?= $p['autor_nombre'] ?>">
                                 <div class="user-info">
                                     <strong> <?= $p['autor_nombre'] ?> </strong>
-                                    <p> <?= $p['autor_vivienda'] ?> </p>
                                     <p> <?= ucfirst($p['autor_rol']) ?> </p>
+                                    <p> <?= $p['autor_vivienda'] ?> </p>
                                 </div>
                             </div>
 
@@ -184,16 +183,15 @@
                         <section class="article-body">
                             <header class="article-body-title">
                                 <h3>
-                                    <i class="fa-solid fa-envelope"></i>
-                                    VOTACIÓN
+                                    <i class="fa-solid fa-envelope"></i>VOTACIÓN
                                 </h3>
-                                <h4> <?= $p['titulo'] ?> </h4>
+                                
                             </header>
 
                             <div class="article-body-content">
+                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?> </h4>
                                 <p>
-                                    <i class="fa-regular fa-message"></i>
-                                    <?= $p['contenido'] ?>
+                                    <?= '<i class="fa-solid fa-quote-left"></i>' . $p['contenido'] . '<i class="fa-solid fa-quote-right"></i>' ?>
                                 </p>
                             </div>
                         </section>
@@ -202,12 +200,10 @@
                             <input type="hidden" name="id_publicacion" value="<?= $p['id_publicacion'] ?>">
 
                             <strong>
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                TU VOTO CUENTA
+                                <i class="fa-solid fa-triangle-exclamation"></i>TU VOTO CUENTA
                             </strong>
                             <p>
-                                <i class="fa-solid fa-hourglass-half"></i>
-                                Expira en: <time> <?= $dias_restantes ?> </time>
+                                <i class="fa-solid fa-hourglass-half"></i>Expira en: <time> <?= $dias_restantes ?> </time>
                             </p>
 
                             <hr>
@@ -270,16 +266,14 @@
                         <section class="article-body">
                             <header class="article-body-title">
                                 <h3>
-                                    <i class="fa-solid fa-bullhorn"></i>
-                                    AVISO
+                                    <i class="fa-solid fa-bullhorn"></i>AVISO
                                 </h3>
-                                <h4> <?= $p['titulo'] ?> </h4>
                             </header>
 
                             <div class="article-body-content">
+                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?> </h4>
                                 <p>
-                                    <i class="fa-regular fa-message"></i>
-                                    <?= $p['contenido'] ?>
+                                    <?= '<i class="fa-solid fa-quote-left"></i>' . $p['contenido'] . '<i class="fa-solid fa-quote-right"></i>' ?>
                                 </p>
                             </div>
                         </section>
@@ -295,8 +289,8 @@
                                 <img src="img_user/<?= $p['autor_foto'] ?>" alt="Foto de <?= $p['autor_nombre'] ?>">
                                 <div class="user-info">
                                     <strong> <?= $p['autor_nombre'] ?> </strong>
-                                    <p> <?= $p['autor_vivienda'] ?> </p>
                                     <p> <?= ucfirst($p['autor_rol']) ?> </p>
+                                    <p> <?= $p['autor_vivienda'] ?> </p>
                                 </div>
                             </div>
 
@@ -309,19 +303,17 @@
                         <section class="article-body">
                             <header class="article-body-title">
                                 <h3>
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                    INCIDENCIA: <?= $p['tipo_incidencia_nombre'] ?>
+                                    <i class="fa-solid fa-triangle-exclamation"></i>INCIDENCIA: <?= $p['tipo_incidencia_nombre'] ?>
                                 </h3>
-                                <h4> <?= $p['titulo'] ?> </h4>
                             </header>
 
                             <div class="article-body-content">
+                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?> </h4>
                                 <?php if ($p['foto'] !== 'default.jpg'): ?>
                                     <img src="img_incidencias/<?= $p['foto'] ?>" alt="Imagen de la incidencia">
                                 <?php endif; ?>
                                 <p>
-                                    <i class="fa-regular fa-message"></i>
-                                    <?= $p['contenido'] ?>
+                                    <?= '<i class="fa-solid fa-quote-left"></i>' . $p['contenido'] . '<i class="fa-solid fa-quote-right"></i>' ?>
                                 </p>
                             </div>
                         </section>

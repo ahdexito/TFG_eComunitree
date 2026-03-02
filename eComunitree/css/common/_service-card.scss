@@ -1,11 +1,9 @@
 @import 'variables';
 
 section.services-body article {
-    width: 380px;
-    background: linear-gradient(
-        $color-dark,
-        $color-dark-transparent
-    );
+    width: 350px;
+    background-color: $color-card;
+    margin: auto;
     padding: 10px;
     border: 3px solid $color-light;
     box-shadow: $color-dark 5px 5px;
@@ -13,10 +11,11 @@ section.services-body article {
     display: flex;
     flex-direction: column;
 
-    &:nth-child(4n + 1) { .article-header { background-color: $color-primary; }}
-    &:nth-child(4n + 2) { .article-header { background-color: $color-accent-light; }}
-    &:nth-child(4n + 3) { .article-header { background-color: $color-accent; }}
-    &:nth-child(4n + 4) { .article-header { background-color: lighten($color-dark, $amount: 30); }}
+    @include respond-to(small) { width: 100%; }
+
+    &:nth-child(3n + 1) { .article-header { background-color: $color-primary; }}
+    &:nth-child(3n + 2) { .article-header { background-color: $color-accent-light; }}
+    &:nth-child(3n + 3) { .article-header { background-color: $color-accent; }}
 
     .article-header {
         padding: 15px;
@@ -29,7 +28,6 @@ section.services-body article {
             margin-bottom: 5px;
             color: $color-light;
             text-shadow: $color-dark 3px 3px;
-            font-family: $subtitulo;
         }
 
         p { 
@@ -63,10 +61,7 @@ section.services-body article {
                     font-size: 1.2em;
                 }
 
-                p { 
-                    font-family: $subtitulo; 
-                    display: inline;
-                }
+                p { display: inline; }
 
                 a {
                     color: #2ecc71;

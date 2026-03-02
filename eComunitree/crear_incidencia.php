@@ -111,11 +111,11 @@
     <main>
         <section class="panel-control">
             <div class="section-header">
-                <i class="fa-regular fa-square-plus icono-header"></i>
-                <h2>Crear Incidencia</h2>
+                
+                <h2><i class="fa-regular fa-square-plus icono-header"></i> Crear Incidencia</h2>
             </div>
 
-            <hr>
+            <hr class="hr-section">
 
             <form method="POST" enctype="multipart/form-data">
                 <div class="form">

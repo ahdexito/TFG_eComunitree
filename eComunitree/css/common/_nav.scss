@@ -30,13 +30,6 @@ nav {
             transparent 100%
         );
 
-        li {
-            font-family: $subtitulo;
-
-            a { 
-                color: $color-light; 
-                font-family: $subtitulo;
-            }
-        } 
+        li a { color: $color-light; }
     }
 }

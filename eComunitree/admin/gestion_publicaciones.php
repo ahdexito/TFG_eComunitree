@@ -157,19 +157,19 @@
             
             <ul class="acciones">
                 <li>
-                    <a href="ins_aviso.php" class="boton-insertar">
+                    <a href="ins_aviso.php" class="btn-tool">
                         <i class="fa-solid fa-circle-plus"></i>
                         CREAR AVISO
                     </a>
                 </li>
                 <li>
-                    <a href="ins_votacion.php" class="boton-insertar">
+                    <a href="ins_votacion.php" class="btn-tool">
                         <i class="fa-solid fa-circle-plus"></i>
                         CREAR VOTACIÓN
                     </a>
                 </li>
                 <li>
-                    <a href="gestion_incidencias.php" class="boton-insertar">
+                    <a href="gestion_incidencias.php" class="btn-tool">
                         <i class="fa-solid fa-rotate"></i>
                         ACTUALIZAR INCIDENCIA
                     </a>
@@ -194,12 +194,12 @@
                         <tr>
                             <td>
                                 <a href="edit_publicacion.php?edit=<?= $p['id_publicacion'] ?>">
-                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    <i class="fa-regular fa-pen-to-square icon-edit"></i>
                                 </a>
 
                                 <a href="?eliminar=<?= $p['id_publicacion'] ?>" 
                                 onclick="return confirm('¿Eliminar publicación?');">
-                                    <i class="fa-regular fa-trash-can"></i>
+                                    <i class="fa-regular fa-trash-can icon-del"></i>
                                 </a>
                             </td>
                             <td>#<?= $p['id_publicacion'] ?></td>

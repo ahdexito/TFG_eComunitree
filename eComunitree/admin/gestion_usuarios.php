@@ -154,11 +154,11 @@
                         <tr>
                             <td>
                                 <a href="edit_usuario.php?edit=<?= $u['id_usuario'] ?>">
-                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    <i class="fa-regular fa-pen-to-square icon-edit"></i>
                                 </a>
                                 <a href="?eliminar=<?= $u['id_usuario'] ?>" 
                                 onclick="return confirm('¿Eliminar usuario?');">
-                                    <i class="fa-regular fa-trash-can"></i>
+                                    <i class="fa-regular fa-trash-can icon-del"></i>
                                 </a>
                             </td>
                             <td>

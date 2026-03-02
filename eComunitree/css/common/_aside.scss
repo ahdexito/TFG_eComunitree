@@ -10,14 +10,14 @@
     right: -400px;
     z-index: 300;
     transition: all 0.4s ease;
-    border-left: 2px solid $color-light;
-    box-shadow: $color-dark 0 0 30px 10px;
+    border-left: 5px solid $color-dark;
+    box-shadow: $color-shadow 0 0 30px 10px;
     
     background: linear-gradient(
         to bottom,
         $color-dark,
-        $color-accent,
-        $color-accent,
+        $color-card,
+        $color-card,
         $color-dark
     );
 
@@ -25,7 +25,6 @@
         color: $color-light;
         text-shadow: $color-dark 3px 3px 0;
         font-size: 1.8em;
-        font-family: $subtitulo;
         margin-bottom: 10px;
     }
 
@@ -45,16 +44,16 @@
         li {
             position: relative;
 
-            &:nth-child(4n + 1) { --item-color: #{$color-primary}; }
-            &:nth-child(4n + 2) { --item-color: #{$color-accent-light}; }
-            &:nth-child(4n + 3) { --item-color: #{$color-accent}; }
-            &:nth-child(4n + 4) { --item-color: #{lighten($color-dark, 30%)}; }
+            &:nth-child(3n + 1) { --item-color: #{$color-primary}; }
+            &:nth-child(3n + 2) { --item-color: #{$color-accent-light}; }
+            &:nth-child(3n + 3) { --item-color: #{$color-accent}; }
 
             a, p {
                 background-color: $color-light;
                 color: $color-dark;
                 font-size: 1.5em;
                 font-weight: bold;
+                font-family: $parrafo;
                 text-decoration: none;
                 text-wrap: nowrap;
                 display: flex;
@@ -99,10 +98,9 @@
                     transition: all 0.4s ease;
     
                     li {
-                        &:nth-child(4n + 1) { --item-color: #{$color-primary}; }
-                        &:nth-child(4n + 2) { --item-color: #{$color-accent-light}; }
-                        &:nth-child(4n + 3) { --item-color: #{$color-accent}; }
-                        &:nth-child(4n + 4) { --item-color: #{lighten($color-dark, 30%)}; }
+                        &:nth-child(3n + 1) { --item-color: #{$color-primary}; }
+                        &:nth-child(3n + 2) { --item-color: #{$color-accent-light}; }
+                        &:nth-child(3n + 3) { --item-color: #{$color-accent}; }
     
                         a { 
                             background-color: $color-light;

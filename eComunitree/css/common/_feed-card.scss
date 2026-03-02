@@ -5,7 +5,7 @@
     padding: 20px;
     margin-bottom: 50px;
     border: 5px solid $color-light;
-    box-shadow: $color-dark 5px 5px;
+    box-shadow: $color-shadow 5px 5px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -23,8 +23,12 @@
         align-items: flex-start;
         justify-content: space-between;
         gap: 20px;
-        text-shadow: $color-dark 2px 2px;
-        background-color: lighten($color-dark, $amount: 10);
+        text-shadow: $color-shadow 2px 2px;
+        background: linear-gradient(
+            to right,
+            $color-dark,
+            lighten($color-dark, $amount: 10)
+        );
         border-radius: 10px;
         padding: 15px;
 
@@ -42,7 +46,7 @@
                 width: 90px;
                 border: 3px solid $color-light;
                 border-radius: 100px;
-                box-shadow: #000 0 0 20px 5px;
+                box-shadow: $color-shadow 0 0 20px 5px;
 
                 @include respond-to(small) { width: 60px; }
             }
@@ -50,14 +54,20 @@
             .user-info {
                 display: flex;
                 justify-content: space-between;
+                justify-content: center;
                 flex-direction: column;
-                color: lighten($color-dark, $amount: 40);
                 font-size: 0.9em;
 
                 strong {
                     font-size: 1.2em;
                     font-weight: bold;
                     color: $color-light;
+                    margin-bottom: 5px;
+                }
+
+                p { 
+                    color: lighten($color-dark, $amount: 50); 
+                    font-style: italic;
                 }
             }
         }
@@ -74,15 +84,13 @@
             font-size: 0.9em;
 
             strong { 
-                font-family: $subtitulo;
                 color: $color-light; 
                 gap: 10px;
             }
 
             p { 
-                font-family: $subtitulo;
                 font-weight: bold;
-                color: lighten($color-dark, $amount: 40);
+                color: lighten($color-dark, $amount: 50);
                 text-wrap: nowrap;
             }
 
@@ -97,32 +105,33 @@
         padding: 20px;
         color: $color-light;
         display: flex;
-        gap: 30px;
+        gap: 20px;
         flex-direction: column;
         background-color: var(--article-color);
-        border: 5px solid $color-light;
-        box-shadow: $color-dark 5px 5px;
-        border-radius: 40px;
+        border: 3px solid $color-light;
+        box-shadow: $color-shadow 5px 5px;
+        border-radius: 10px;
         color: $color-light;
+
+        @include respond-to(small) { padding: 10px }
 
         // ARTICLE BODY TITLE
         header.article-body-title {
-            @include respond-to(small) { font-size: 0.7em; }
-            
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 20px;
+            text-shadow: $color-shadow 3px 3px;
 
-            h3 { 
-                font-family: $subtitulo;
-                font-size: 2.2em; 
-                text-shadow: $color-dark 3px 3px 0;
+            @include respond-to(small) { 
+                font-size: 0.7em; 
+                text-shadow: $color-shadow 2px 2px;
             }
 
-            h4 { 
-                width: 100%;
-                font-size: 2em; 
-                text-shadow: $color-dark 3px 3px 0;
+            h3 { 
+                font-size: 2.2em; 
+                text-decoration: underline;
+
+                i { margin-right: 10px; }
             }
 
             p { font-size: 1.5em ; }
@@ -130,15 +139,32 @@
 
         // ARTICLE BODY CONTENT
         div.article-body-content {
-            @include respond-to(small) { font-size: 0.7em; }
-
             display: block;
             overflow: hidden;
             background-color: $color-light;
             color: $color-dark;
-            border-radius: 40px;
             border: 5px solid $color-dark;
-            box-shadow: $color-dark 5px 5px;
+            border-radius: 20px;
+
+            @include respond-to(small) { 
+                font-size: 0.7em; 
+                border: 3px solid $color-dark;
+            }
+
+            h4 { 
+                width: fit-content;
+                color: $color-light;
+                text-shadow: $color-shadow 3px 3px;
+                font-size: 1.5em; 
+                padding: 10px 15px;
+                margin: 10px;
+                border-radius: 10px;
+                background: linear-gradient(
+                    to right,
+                    $color-dark,
+                    lighten($color-dark, $amount: 10)
+                );
+            }
 
             img {
                 @include respond-to(small) {
@@ -160,9 +186,16 @@
                 font-size: 1.5em; 
                 font-weight: bold;
                 margin: 30px;
+                font-family: $parrafo;
+
+                @include respond-to(small) { margin: 15px; }
 
                 i { 
-                    font-size: 1.6em; 
+                    font-size: 0.9em; 
+                    transform: translateY(-5px); 
+
+                    &:first-child { transform: rotate(-15deg); }
+                    &:last-child { transform: rotate(15deg); }
                 }
             }
         }
@@ -172,26 +205,34 @@
     // ARTICLE FORM FOOTER
     // =========================================================
     .article-footer {
-        @include respond-to(small) { font-size: 1.2em; }
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: left;
         gap: 5px;
         color: $color-light;
-        text-shadow: $color-dark 3px 3px 0;
+        text-shadow: $color-shadow 3px 3px;
         font-size: 1.5em;
         border-radius: 40px;
         margin-top: 10px;
-
-        strong, p { width: 100%; }
-
-        time { font-family: $subtitulo; }
         
+        @include respond-to(small) { 
+            font-size: 1.2em; 
+            text-shadow: $color-shadow 2px 2px;
+        }
+
+        strong, p { 
+            width: 100%; 
+
+            i { margin-right: 10px; }
+        }
+        
+        strong { text-decoration: underline; }
+
         hr {
             border: 2px solid $color-light;
             border-radius: 10px;
-            box-shadow: $color-dark 3px 3px 0;
+            box-shadow: $color-shadow 3px 3px 0;
             width: 100%;
             margin: 15px;
         }
@@ -205,8 +246,12 @@
             align-items: center;
             justify-content: center;
             gap: 20px;
-            background-color: lighten($color-dark, $amount: 10);
             border-radius: 10px;
+            background: linear-gradient(
+                to right,
+                $color-dark,
+                lighten($color-dark, $amount: 10)
+            );
 
             @include no-subrayable;
 
@@ -228,7 +273,7 @@
                     padding: 15px 10px;
                     border-radius: 50px;
                     border: 3px solid $color-light;
-                    box-shadow: $color-dark 6px 6px 0;
+                    box-shadow: $color-shadow 6px 6px 0;
                     color: $color-light;
                     font-size: 1em;
                     font-weight: bold;
@@ -240,7 +285,7 @@
                 &:hover span {
                     background-color: darken($color-primary, $amount: 10);
                     transform: scale(0.95);
-                    box-shadow: $color-dark 4px 4px 0;
+                    box-shadow: $color-shadow 4px 4px 0;
                 }
 
                 &:active span {
@@ -255,7 +300,7 @@
                     border: 3px solid $color-light;
                     transform: scale(0.95);
                     cursor: default;
-                    box-shadow: $color-dark 4px 4px 0;
+                    box-shadow: $color-shadow 4px 4px 0;
                 }
 
                 .vote-number {
@@ -264,7 +309,6 @@
                     background-color: $color-light;
                     padding: 10px;
                     border-radius: 50px;
-                    font-family: $subtitulo;
                     color: $color-dark;
                     text-shadow: none;
                     margin-left: 10px;
@@ -279,8 +323,7 @@
             border: 3px solid $color-light;
             border-radius: 10px;
             color: $color-light;
-            box-shadow: $color-dark 3px 3px;
-            font-family: $subtitulo;
+            box-shadow: $color-shadow 3px 3px;
             font-size: 1em;
             font-weight: bold;
             transition: all 0.2s ease;
@@ -301,20 +344,28 @@
                 color: $color-light;
                 border: 3px solid $color-light;
                 transform: scale(1.1);
-                box-shadow: $color-dark 5px 5px;
-                text-shadow: $color-dark 3px 3px;
+                box-shadow: $color-shadow 5px 5px;
+                text-shadow: $color-shadow 3px 3px;
             }
         }
 
-        .voted-msg { color: $color-light; }
+        .voted-msg { 
+            color: $color-light; 
+            font-style: italic;
+        }
 
         .estado {
-            background-color: lighten($color-dark, $amount: 10);
+            background: linear-gradient(
+                to right,
+                $color-dark,
+                lighten($color-dark, $amount: 10)
+            );
             padding: 20px;
             width: 100%;
             border-radius: 10px;
-            
-            strong, small { font-family: $subtitulo; }
+            text-decoration: none;
+
+            strong { text-decoration: none; }
         }
     }
 }

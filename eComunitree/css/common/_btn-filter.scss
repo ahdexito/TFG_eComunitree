@@ -1,10 +1,10 @@
 @import '../common/variables';
 
 .btn-filter {
-    width: 200px;
+    width: 150px;
     color: $color-dark;
     background-color: $color-light;
-    padding: 15px;
+    padding: 10px 15px;
     border: 3px solid $color-dark;
     box-shadow: $color-dark 2px 2px;
     border-radius: 50px;
@@ -20,7 +20,7 @@
 
     @include no-subrayable;
 
-    p { font-family: $subtitulo; }
+    @include respond-to(small) { width: 120px; }
 
     i { font-size: 1.5em; }
 

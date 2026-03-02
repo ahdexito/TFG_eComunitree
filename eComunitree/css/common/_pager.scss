@@ -17,7 +17,6 @@
         text-decoration: none;
         border-radius: 30px;
         font-weight: 600;
-        font-family: $subtitulo;
         transition: all 0.3s ease;
         border: 3px solid $color-dark;
         background-color: white;
@@ -25,15 +24,16 @@
     }
 
     a.num-link:hover, a.pag-arrow:hover {
-        background-color: lighten($color-dark, 60%);
-        border-color: $color-dark;
-        transform: scale(1.2);
+        color: $color-light;
+        background-color: $color-dark;
+        border-color: $color-light;
+        transform: scale(1.1);
     }
 
     .activo {
         background-color: $color-dark;
         color: $color-light;
-        border-color: $color-dark;
+        border-color: $color-light;
         cursor: default;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }

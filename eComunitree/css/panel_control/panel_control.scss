@@ -10,7 +10,6 @@
 // =========================================================
 body {
     border-radius: 20px;
-    padding: 20px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -33,34 +32,35 @@ body {
             width: 100%;
             max-width: 1500px;
             border-radius: 10px;
-            padding: 60px 20px;
-            background-color: $color-light-transparent;
+            padding: 100px 20px 100px;
+            background-color: $color-dark-transparent;
             mask-image: linear-gradient(
                 to bottom,
                 transparent 0%,
-                black 2%,
-                black 98%,
+                black 100px,
+                black calc(100% - 100px),
                 transparent 100%
             );
 
             // SECTION HEADER
             .section-header {
                 display: flex;
+                flex-wrap: wrap;
                 align-items: flex-end;
                 justify-content: space-between;
-                gap: 30px;
+                gap: 10px;
+                padding-bottom: 20px;
 
                 h2 { 
-                    color: $color-dark; 
-                    font-size: 2em;
-                    font-family: $titulo;
+                    flex: 1;
+                    color: $color-light; 
+                    font-size: 2.5em;
+                    margin-right: 30px;
+                    text-shadow: $color-dark 3px 3px 0;
+                    width: 100%;
                 }
-            }
 
-            hr {
-                border: 3px solid $color-dark;
-                border-radius: 10px;
-                margin: 10px 0 30px;
+                small { font-style: italic; }
             }
 
             article {
@@ -76,20 +76,19 @@ body {
                     height: 300px;
                     background-color: var(--item-color);
                     color: $color-light;
-                    text-shadow: $color-dark 4px 4px;
-                    border: 3px solid $color-dark;
+                    text-shadow: $color-shadow 4px 4px;
+                    border: 3px solid $color-light;
                     border-radius: 20px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
                     gap: 20px;
-                    font-family: $subtitulo;
                     font-size: 1.8em;
                     font-weight: bold;
                     text-decoration: none;
                     cursor: pointer;
-                    box-shadow: $color-dark 5px 5px 0;
+                    box-shadow: $color-shadow 5px 5px 0;
                     transition: 0.2s ease;
 
                     &:nth-child(4n + 1) { --item-color: #{$color-primary}; }
@@ -101,7 +100,7 @@ body {
                         color: $color-light;
                         font-size: 2em;
                         transform: scale(1.05);
-                        box-shadow: $color-dark 10px 10px 0;
+                        box-shadow: $color-shadow 10px 10px 0;
                     }
 
                     i { font-size: 3em; }

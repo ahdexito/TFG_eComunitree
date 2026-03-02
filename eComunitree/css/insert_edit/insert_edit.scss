@@ -17,25 +17,50 @@
 }
 
 body {
-    padding: 20px;
-
     main {
-        padding: 20px;
-
         .panel-control {
             width: 100%;
             margin: auto;
-            padding: 20px;
-            background-color: $color-primary;
+            padding: 100px 20px 100px;
+            mask-image: linear-gradient(
+                to bottom,
+                transparent 0%,
+                black 100px,
+                black calc(100% - 100px),
+                transparent 100%
+            );
+            background-color: $color-dark-transparent;
             border-radius: 5px;
-            box-shadow: 0 0 15px 5px #000;
             display: flex;
             flex-direction: column;
 
+            // SECTION HEADER
+            .section-header {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: flex-end;
+                justify-content: space-between;
+                gap: 10px;
+                padding-bottom: 20px;
+
+                h2 { 
+                    flex: 1;
+                    color: $color-light; 
+                    font-size: 2.5em;
+                    margin-right: 30px;
+                    text-shadow: $color-dark 3px 3px 0;
+                    width: 100%;
+                }
+            }
+
             form {
+                max-width: 880px;
+                margin: auto;
                 margin-top: 20px;
                 padding: 20px;
-                background-color: darken($color-primary, 10%);
+                background-color: $color-card;
+                border: 3px solid $color-light;
+                box-shadow: $color-dark 5px 5px 0;
                 border-radius: 10px;
 
                 .form {
@@ -49,7 +74,9 @@ body {
                         padding: 0;
                         display: flex;
                         flex-direction: column;
-                        background-color: darken($color-primary, 15%);
+                        background-color: $color-dark;
+                        border: 5px solid $color-dark;
+                        border-radius: 20px;
                         color: $color-light;
 
                         label, p { 
@@ -118,20 +145,24 @@ body {
 
                 .guardar {
                     @include input-base;
-                    max-width: none;
+                    width: 100%;
                     display: block;
                     margin: 50px auto 0;
                     cursor: pointer;
                     background-color: $color-light;
-                    color: darken($color-primary, 10%);
+                    color: $color-dark;
+                    border: 3px solid $color-dark;
+                    box-shadow: $color-dark 3px 3px;
                     font-weight: bold;
                     font-size: 2em;
-                    transition: 0.2s ease;
+                    transition: all 0.2s ease;
 
                     &:hover {
-                        background-color: $color-accent;
+                        scale: 1.02;
                         color: $color-light;
-                        box-shadow: darken($color-primary, 20%) 5px 5px 10px;
+                        text-shadow: $color-dark 3px 3px;
+                        background-color: $color-accent-light;
+                        box-shadow: $color-dark 6px 6px;
                     }
                 }
             }

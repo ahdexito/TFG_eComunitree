@@ -10,7 +10,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Indie Flower";
+  font-family: "SN Pro";
   font-weight: bold;
   font-size: 0.99em;
 }
@@ -91,12 +91,20 @@ img {
   border-color: #11264b;
 }
 
+.hr-section {
+  width: 100%;
+  border: 3px solid #f5f5ff;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  box-shadow: #11264b 3px 3px 0;
+}
+
 .feed-body article {
-  background-color: #375a97;
+  background-color: #4b6ca7;
   padding: 20px;
   margin-bottom: 50px;
   border: 5px solid #f5f5ff;
-  box-shadow: #11264b 5px 5px;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -116,8 +124,8 @@ img {
   align-items: flex-start;
   justify-content: space-between;
   gap: 20px;
-  text-shadow: #11264b 2px 2px;
-  background-color: rgb(26.4239130435, 59.0652173913, 116.5760869565);
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
+  background: linear-gradient(to right, #11264b, rgb(26.4239130435, 59.0652173913, 116.5760869565));
   border-radius: 10px;
   padding: 15px;
 }
@@ -138,7 +146,7 @@ img {
   width: 90px;
   border: 3px solid #f5f5ff;
   border-radius: 100px;
-  box-shadow: #000 0 0 20px 5px;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 0 0 20px 5px;
 }
 @media (max-width: 600px) {
   .feed-body article header.article-header .article-header-user img {
@@ -148,14 +156,19 @@ img {
 .feed-body article header.article-header .article-header-user .user-info {
   display: flex;
   justify-content: space-between;
+  justify-content: center;
   flex-direction: column;
-  color: rgb(80.5434782609, 129.3913043478, 215.4565217391);
   font-size: 0.9em;
 }
 .feed-body article header.article-header .article-header-user .user-info strong {
   font-size: 1.2em;
   font-weight: bold;
   color: #f5f5ff;
+  margin-bottom: 5px;
+}
+.feed-body article header.article-header .article-header-user .user-info p {
+  color: rgb(122.1195652174, 159.3260869565, 224.8804347826);
+  font-style: italic;
 }
 .feed-body article header.article-header .article-header-date {
   display: flex;
@@ -168,14 +181,12 @@ img {
   font-size: 0.9em;
 }
 .feed-body article header.article-header .article-header-date strong {
-  font-family: "SN Pro";
   color: #f5f5ff;
   gap: 10px;
 }
 .feed-body article header.article-header .article-header-date p {
-  font-family: "SN Pro";
   font-weight: bold;
-  color: rgb(80.5434782609, 129.3913043478, 215.4565217391);
+  color: rgb(122.1195652174, 159.3260869565, 224.8804347826);
   text-wrap: nowrap;
 }
 .feed-body article header.article-header .article-header-date i {
@@ -185,50 +196,65 @@ img {
   padding: 20px;
   color: #f5f5ff;
   display: flex;
-  gap: 30px;
+  gap: 20px;
   flex-direction: column;
   background-color: var(--article-color);
-  border: 5px solid #f5f5ff;
-  box-shadow: #11264b 5px 5px;
-  border-radius: 40px;
+  border: 3px solid #f5f5ff;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px;
+  border-radius: 10px;
   color: #f5f5ff;
 }
 @media (max-width: 600px) {
-  .feed-body article section.article-body header.article-body-title {
-    font-size: 0.7em;
+  .feed-body article section.article-body {
+    padding: 10px;
   }
 }
 .feed-body article section.article-body header.article-body-title {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
+}
+@media (max-width: 600px) {
+  .feed-body article section.article-body header.article-body-title {
+    font-size: 0.7em;
+    text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
+  }
 }
 .feed-body article section.article-body header.article-body-title h3 {
-  font-family: "SN Pro";
   font-size: 2.2em;
-  text-shadow: #11264b 3px 3px 0;
+  text-decoration: underline;
 }
-.feed-body article section.article-body header.article-body-title h4 {
-  width: 100%;
-  font-size: 2em;
-  text-shadow: #11264b 3px 3px 0;
+.feed-body article section.article-body header.article-body-title h3 i {
+  margin-right: 10px;
 }
 .feed-body article section.article-body header.article-body-title p {
   font-size: 1.5em;
-}
-@media (max-width: 600px) {
-  .feed-body article section.article-body div.article-body-content {
-    font-size: 0.7em;
-  }
 }
 .feed-body article section.article-body div.article-body-content {
   display: block;
   overflow: hidden;
   background-color: #f5f5ff;
   color: #11264b;
-  border-radius: 40px;
   border: 5px solid #11264b;
-  box-shadow: #11264b 5px 5px;
+  border-radius: 20px;
+}
+@media (max-width: 600px) {
+  .feed-body article section.article-body div.article-body-content {
+    font-size: 0.7em;
+    border: 3px solid #11264b;
+  }
+}
+.feed-body article section.article-body div.article-body-content h4 {
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #f5f5ff;
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
+  font-size: 1.5em;
+  padding: 10px 15px;
+  margin: 10px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #11264b, rgb(26.4239130435, 59.0652173913, 116.5760869565));
 }
 @media (max-width: 600px) {
   .feed-body article section.article-body div.article-body-content img {
@@ -252,14 +278,22 @@ img {
   font-size: 1.5em;
   font-weight: bold;
   margin: 30px;
-}
-.feed-body article section.article-body div.article-body-content p i {
-  font-size: 1.6em;
+  font-family: "Indie Flower";
 }
 @media (max-width: 600px) {
-  .feed-body article .article-footer {
-    font-size: 1.2em;
+  .feed-body article section.article-body div.article-body-content p {
+    margin: 15px;
   }
+}
+.feed-body article section.article-body div.article-body-content p i {
+  font-size: 0.9em;
+  transform: translateY(-5px);
+}
+.feed-body article section.article-body div.article-body-content p i:first-child {
+  transform: rotate(-15deg);
+}
+.feed-body article section.article-body div.article-body-content p i:last-child {
+  transform: rotate(15deg);
 }
 .feed-body article .article-footer {
   display: flex;
@@ -268,21 +302,30 @@ img {
   text-align: left;
   gap: 5px;
   color: #f5f5ff;
-  text-shadow: #11264b 3px 3px 0;
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
   font-size: 1.5em;
   border-radius: 40px;
   margin-top: 10px;
 }
+@media (max-width: 600px) {
+  .feed-body article .article-footer {
+    font-size: 1.2em;
+    text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
+  }
+}
 .feed-body article .article-footer strong, .feed-body article .article-footer p {
   width: 100%;
 }
-.feed-body article .article-footer time {
-  font-family: "SN Pro";
+.feed-body article .article-footer strong i, .feed-body article .article-footer p i {
+  margin-right: 10px;
+}
+.feed-body article .article-footer strong {
+  text-decoration: underline;
 }
 .feed-body article .article-footer hr {
   border: 2px solid #f5f5ff;
   border-radius: 10px;
-  box-shadow: #11264b 3px 3px 0;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
   width: 100%;
   margin: 15px;
 }
@@ -294,8 +337,8 @@ img {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  background-color: rgb(26.4239130435, 59.0652173913, 116.5760869565);
   border-radius: 10px;
+  background: linear-gradient(to right, #11264b, rgb(26.4239130435, 59.0652173913, 116.5760869565));
   -webkit-user-select: none;
   -moz-user-select: none;
        user-select: none;
@@ -321,7 +364,7 @@ img {
   padding: 15px 10px;
   border-radius: 50px;
   border: 3px solid #f5f5ff;
-  box-shadow: #11264b 6px 6px 0;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 6px 6px 0;
   color: #f5f5ff;
   font-size: 1em;
   font-weight: bold;
@@ -332,7 +375,7 @@ img {
 .feed-body article .article-footer .vote-btns .vote-option:hover span {
   background-color: rgb(155.2, 38.8, 73.6408163265);
   transform: scale(0.95);
-  box-shadow: #11264b 4px 4px 0;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 4px 4px 0;
 }
 .feed-body article .article-footer .vote-btns .vote-option:active span {
   background-color: rgb(114.4, 28.6, 54.2816326531);
@@ -345,7 +388,7 @@ img {
   border: 3px solid #f5f5ff;
   transform: scale(0.95);
   cursor: default;
-  box-shadow: #11264b 4px 4px 0;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 4px 4px 0;
 }
 .feed-body article .article-footer .vote-btns .vote-option .vote-number {
   display: inline;
@@ -354,7 +397,6 @@ img {
   background-color: #f5f5ff;
   padding: 10px;
   border-radius: 50px;
-  font-family: "SN Pro";
   color: #11264b;
   text-shadow: none;
   margin-left: 10px;
@@ -366,8 +408,7 @@ img {
   border: 3px solid #f5f5ff;
   border-radius: 10px;
   color: #f5f5ff;
-  box-shadow: #11264b 3px 3px;
-  font-family: "SN Pro";
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
   font-size: 1em;
   font-weight: bold;
   transition: all 0.2s ease;
@@ -382,20 +423,22 @@ img {
   color: #f5f5ff;
   border: 3px solid #f5f5ff;
   transform: scale(1.1);
-  box-shadow: #11264b 5px 5px;
-  text-shadow: #11264b 3px 3px;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px;
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
 }
 .feed-body article .article-footer .voted-msg {
   color: #f5f5ff;
+  font-style: italic;
 }
 .feed-body article .article-footer .estado {
-  background-color: rgb(26.4239130435, 59.0652173913, 116.5760869565);
+  background: linear-gradient(to right, #11264b, rgb(26.4239130435, 59.0652173913, 116.5760869565));
   padding: 20px;
   width: 100%;
   border-radius: 10px;
+  text-decoration: none;
 }
-.feed-body article .article-footer .estado strong, .feed-body article .article-footer .estado small {
-  font-family: "SN Pro";
+.feed-body article .article-footer .estado strong {
+  text-decoration: none;
 }
 
 @keyframes animarFondo {
@@ -413,7 +456,7 @@ header.body-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  text-shadow: #11264b 3px 3px 0;
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
   background-color: rgba(41, 65, 104, 0.5803921569);
 }
 header.body-header a.btn-index {
@@ -423,7 +466,7 @@ header.body-header a.btn-index {
   text-decoration: none;
   transition: all 0.2s ease;
   border: 3px solid #f5f5ff;
-  box-shadow: #11264b 3px 3px;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
   border-radius: 100px;
   background: linear-gradient(160deg, rgba(110, 40, 143, 0.9098039216), rgba(182, 30, 76, 0.7254901961), rgba(255, 125, 38, 0.7450980392), rgba(110, 40, 143, 0.9098039216), rgba(182, 30, 76, 0.7254901961), rgba(255, 125, 38, 0.7450980392));
   background-size: 370% 100%;
@@ -437,7 +480,7 @@ header.body-header a.btn-index {
 }
 header.body-header a.btn-index:hover {
   transform: scale(1.05);
-  box-shadow: #11264b 5px 5px;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px;
   animation: animarFondo 0.7s linear infinite;
 }
 header.body-header a.btn-index img {
@@ -468,9 +511,8 @@ header.body-header .user {
 }
 header.body-header .user p {
   text-align: end;
-  font-family: "SN Pro";
   font-size: 1.3em;
-  text-shadow: #11264b 2px 2px 0px;
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px 0px;
   font-weight: bold;
 }
 header.body-header .user a {
@@ -508,15 +550,14 @@ header.body-header .user a img:hover {
   right: -400px;
   z-index: 300;
   transition: all 0.4s ease;
-  border-left: 2px solid #f5f5ff;
-  box-shadow: #11264b 0 0 30px 10px;
-  background: linear-gradient(to bottom, #11264b, #8456ce, #8456ce, #11264b);
+  border-left: 5px solid #11264b;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 0 0 30px 10px;
+  background: linear-gradient(to bottom, #11264b, #4b6ca7, #4b6ca7, #11264b);
 }
 .main-aside h3 {
   color: #f5f5ff;
   text-shadow: #11264b 3px 3px 0;
   font-size: 1.8em;
-  font-family: "SN Pro";
   margin-bottom: 10px;
 }
 .main-aside hr {
@@ -534,23 +575,21 @@ header.body-header .user a img:hover {
 .main-aside ul li {
   position: relative;
 }
-.main-aside ul li:nth-child(4n+1) {
+.main-aside ul li:nth-child(3n+1) {
   --item-color: #c4315d;
 }
-.main-aside ul li:nth-child(4n+2) {
+.main-aside ul li:nth-child(3n+2) {
   --item-color: #e46e20;
 }
-.main-aside ul li:nth-child(4n+3) {
+.main-aside ul li:nth-child(3n+3) {
   --item-color: #8456ce;
-}
-.main-aside ul li:nth-child(4n+4) {
-  --item-color: rgb(45.2717391304, 101.1956521739, 199.7282608696);
 }
 .main-aside ul li a, .main-aside ul li p {
   background-color: #f5f5ff;
   color: #11264b;
   font-size: 1.5em;
   font-weight: bold;
+  font-family: "Indie Flower";
   text-decoration: none;
   text-wrap: nowrap;
   display: flex;
@@ -593,17 +632,14 @@ header.body-header .user a img:hover {
   border-radius: 0 0 10px 10px;
   transition: all 0.4s ease;
 }
-.main-aside ul li.has-dropdown .submenu li:nth-child(4n+1) {
+.main-aside ul li.has-dropdown .submenu li:nth-child(3n+1) {
   --item-color: #c4315d;
 }
-.main-aside ul li.has-dropdown .submenu li:nth-child(4n+2) {
+.main-aside ul li.has-dropdown .submenu li:nth-child(3n+2) {
   --item-color: #e46e20;
 }
-.main-aside ul li.has-dropdown .submenu li:nth-child(4n+3) {
+.main-aside ul li.has-dropdown .submenu li:nth-child(3n+3) {
   --item-color: #8456ce;
-}
-.main-aside ul li.has-dropdown .submenu li:nth-child(4n+4) {
-  --item-color: rgb(45.2717391304, 101.1956521739, 199.7282608696);
 }
 .main-aside ul li.has-dropdown .submenu li a {
   background-color: #f5f5ff;
@@ -645,21 +681,21 @@ header.body-header .user a img:hover {
   text-decoration: none;
   border-radius: 30px;
   font-weight: 600;
-  font-family: "SN Pro";
   transition: all 0.3s ease;
   border: 3px solid #11264b;
   background-color: white;
   color: #11264b;
 }
 .pager a.num-link:hover, .pager a.pag-arrow:hover {
-  background-color: rgb(163.6956521739, 189.2608695652, 234.3043478261);
-  border-color: #11264b;
-  transform: scale(1.2);
+  color: #f5f5ff;
+  background-color: #11264b;
+  border-color: #f5f5ff;
+  transform: scale(1.1);
 }
 .pager .activo {
   background-color: #11264b;
   color: #f5f5ff;
-  border-color: #11264b;
+  border-color: #f5f5ff;
   cursor: default;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -682,10 +718,10 @@ header.body-header .user a img:hover {
 }
 
 .btn-filter {
-  width: 200px;
+  width: 150px;
   color: #11264b;
   background-color: #f5f5ff;
-  padding: 15px;
+  padding: 10px 15px;
   border: 3px solid #11264b;
   box-shadow: #11264b 2px 2px;
   border-radius: 50px;
@@ -702,8 +738,10 @@ header.body-header .user a img:hover {
   -moz-user-select: none;
        user-select: none;
 }
-.btn-filter p {
-  font-family: "SN Pro";
+@media (max-width: 600px) {
+  .btn-filter {
+    width: 120px;
+  }
 }
 .btn-filter i {
   font-size: 1.5em;
@@ -783,12 +821,8 @@ nav ul {
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
           mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
-nav ul li {
-  font-family: "SN Pro";
-}
 nav ul li a {
   color: #f5f5ff;
-  font-family: "SN Pro";
 }
 
 body {
@@ -821,7 +855,6 @@ body main .feed .section-header {
   padding-bottom: 20px;
 }
 body main .feed .section-header h2 {
-  font-family: "SN Pro";
   flex: 1;
   color: #f5f5ff;
   font-size: 2.5em;
@@ -829,10 +862,6 @@ body main .feed .section-header h2 {
   text-shadow: #11264b 3px 3px 0;
   width: 100%;
 }
-body main .hr-section {
-  width: 100%;
-  border: 3px solid #f5f5ff;
-  border-radius: 10px;
-  margin-bottom: 50px;
-  box-shadow: #11264b 3px 3px 0;
+body main .feed .section-header small {
+  font-style: italic;
 }/*# sourceMappingURL=index.css.map */

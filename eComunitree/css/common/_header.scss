@@ -16,7 +16,7 @@ header.body-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    text-shadow: $color-dark 3px 3px 0;
+    text-shadow: $color-shadow 3px 3px 0;
     background-color: $color-dark-transparent;
     
     a.btn-index {
@@ -26,7 +26,7 @@ header.body-header {
         text-decoration: none;
         transition: all 0.2s ease;
         border: 3px solid $color-light;
-        box-shadow: $color-dark 3px 3px;
+        box-shadow: $color-shadow 3px 3px;
         border-radius: 100px;
         background: linear-gradient(
             160deg,
@@ -47,7 +47,7 @@ header.body-header {
 
         &:hover { 
             transform: scale(1.05); 
-            box-shadow: $color-dark 5px 5px;
+            box-shadow: $color-shadow 5px 5px;
             animation: animarFondo 0.7s linear infinite;
         }
 
@@ -76,9 +76,8 @@ header.body-header {
             @include respond-to(small) { display: none; }
 
             text-align: end;
-            font-family: $subtitulo;
             font-size: 1.3em;
-            text-shadow: $color-dark 2px 2px 0px;
+            text-shadow: $color-shadow 2px 2px 0px;
             font-weight: bold;
         }
 

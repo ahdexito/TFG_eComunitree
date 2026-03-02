@@ -7,7 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Indie Flower";
+  font-family: "SN Pro";
   font-weight: bold;
   font-size: 0.99em;
 }
@@ -88,6 +88,14 @@ img {
   border-color: #11264b;
 }
 
+.hr-section {
+  width: 100%;
+  border: 3px solid #f5f5ff;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  box-shadow: #11264b 3px 3px 0;
+}
+
 @keyframes animarFondo {
   from {
     background-position: 0% 50%;
@@ -103,7 +111,7 @@ header.body-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  text-shadow: #11264b 3px 3px 0;
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
   background-color: rgba(41, 65, 104, 0.5803921569);
 }
 header.body-header a.btn-index {
@@ -113,7 +121,7 @@ header.body-header a.btn-index {
   text-decoration: none;
   transition: all 0.2s ease;
   border: 3px solid #f5f5ff;
-  box-shadow: #11264b 3px 3px;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
   border-radius: 100px;
   background: linear-gradient(160deg, rgba(110, 40, 143, 0.9098039216), rgba(182, 30, 76, 0.7254901961), rgba(255, 125, 38, 0.7450980392), rgba(110, 40, 143, 0.9098039216), rgba(182, 30, 76, 0.7254901961), rgba(255, 125, 38, 0.7450980392));
   background-size: 370% 100%;
@@ -127,7 +135,7 @@ header.body-header a.btn-index {
 }
 header.body-header a.btn-index:hover {
   transform: scale(1.05);
-  box-shadow: #11264b 5px 5px;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px;
   animation: animarFondo 0.7s linear infinite;
 }
 header.body-header a.btn-index img {
@@ -158,9 +166,8 @@ header.body-header .user {
 }
 header.body-header .user p {
   text-align: end;
-  font-family: "SN Pro";
   font-size: 1.3em;
-  text-shadow: #11264b 2px 2px 0px;
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px 0px;
   font-weight: bold;
 }
 header.body-header .user a {
@@ -198,15 +205,14 @@ header.body-header .user a img:hover {
   right: -400px;
   z-index: 300;
   transition: all 0.4s ease;
-  border-left: 2px solid #f5f5ff;
-  box-shadow: #11264b 0 0 30px 10px;
-  background: linear-gradient(to bottom, #11264b, #8456ce, #8456ce, #11264b);
+  border-left: 5px solid #11264b;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 0 0 30px 10px;
+  background: linear-gradient(to bottom, #11264b, #4b6ca7, #4b6ca7, #11264b);
 }
 .main-aside h3 {
   color: #f5f5ff;
   text-shadow: #11264b 3px 3px 0;
   font-size: 1.8em;
-  font-family: "SN Pro";
   margin-bottom: 10px;
 }
 .main-aside hr {
@@ -224,23 +230,21 @@ header.body-header .user a img:hover {
 .main-aside ul li {
   position: relative;
 }
-.main-aside ul li:nth-child(4n+1) {
+.main-aside ul li:nth-child(3n+1) {
   --item-color: #c4315d;
 }
-.main-aside ul li:nth-child(4n+2) {
+.main-aside ul li:nth-child(3n+2) {
   --item-color: #e46e20;
 }
-.main-aside ul li:nth-child(4n+3) {
+.main-aside ul li:nth-child(3n+3) {
   --item-color: #8456ce;
-}
-.main-aside ul li:nth-child(4n+4) {
-  --item-color: rgb(45.2717391304, 101.1956521739, 199.7282608696);
 }
 .main-aside ul li a, .main-aside ul li p {
   background-color: #f5f5ff;
   color: #11264b;
   font-size: 1.5em;
   font-weight: bold;
+  font-family: "Indie Flower";
   text-decoration: none;
   text-wrap: nowrap;
   display: flex;
@@ -283,17 +287,14 @@ header.body-header .user a img:hover {
   border-radius: 0 0 10px 10px;
   transition: all 0.4s ease;
 }
-.main-aside ul li.has-dropdown .submenu li:nth-child(4n+1) {
+.main-aside ul li.has-dropdown .submenu li:nth-child(3n+1) {
   --item-color: #c4315d;
 }
-.main-aside ul li.has-dropdown .submenu li:nth-child(4n+2) {
+.main-aside ul li.has-dropdown .submenu li:nth-child(3n+2) {
   --item-color: #e46e20;
 }
-.main-aside ul li.has-dropdown .submenu li:nth-child(4n+3) {
+.main-aside ul li.has-dropdown .submenu li:nth-child(3n+3) {
   --item-color: #8456ce;
-}
-.main-aside ul li.has-dropdown .submenu li:nth-child(4n+4) {
-  --item-color: rgb(45.2717391304, 101.1956521739, 199.7282608696);
 }
 .main-aside ul li.has-dropdown .submenu li a {
   background-color: #f5f5ff;
@@ -338,34 +339,45 @@ nav ul {
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
           mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
-nav ul li {
-  font-family: "SN Pro";
-}
 nav ul li a {
   color: #f5f5ff;
-  font-family: "SN Pro";
 }
 
-body {
-  padding: 20px;
-}
-body main {
-  padding: 20px;
-}
 body main .panel-control {
   width: 100%;
   margin: auto;
-  padding: 20px;
-  background-color: #c4315d;
+  padding: 100px 20px 100px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100px, black calc(100% - 100px), transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, black 100px, black calc(100% - 100px), transparent 100%);
+  background-color: rgba(41, 65, 104, 0.5803921569);
   border-radius: 5px;
-  box-shadow: 0 0 15px 5px #000;
   display: flex;
   flex-direction: column;
 }
+body main .panel-control .section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+body main .panel-control .section-header h2 {
+  flex: 1;
+  color: #f5f5ff;
+  font-size: 2.5em;
+  margin-right: 30px;
+  text-shadow: #11264b 3px 3px 0;
+  width: 100%;
+}
 body main .panel-control form {
+  max-width: 880px;
+  margin: auto;
   margin-top: 20px;
   padding: 20px;
-  background-color: rgb(155.2, 38.8, 73.6408163265);
+  background-color: #4b6ca7;
+  border: 3px solid #f5f5ff;
+  box-shadow: #11264b 5px 5px 0;
   border-radius: 10px;
 }
 body main .panel-control form .form {
@@ -386,7 +398,9 @@ body main .panel-control form .form .casilla {
   padding: 0;
   display: flex;
   flex-direction: column;
-  background-color: rgb(134.8, 33.7, 63.9612244898);
+  background-color: #11264b;
+  border: 5px solid #11264b;
+  border-radius: 20px;
   color: #f5f5ff;
 }
 body main .panel-control form .form .casilla label, body main .panel-control form .form .casilla p {
@@ -481,18 +495,22 @@ body main .panel-control form .guardar {
   border-radius: 15px;
   font-size: 1.2em;
   background-color: #f5f5ff;
-  max-width: none;
+  width: 100%;
   display: block;
   margin: 50px auto 0;
   cursor: pointer;
   background-color: #f5f5ff;
-  color: rgb(155.2, 38.8, 73.6408163265);
+  color: #11264b;
+  border: 3px solid #11264b;
+  box-shadow: #11264b 3px 3px;
   font-weight: bold;
   font-size: 2em;
-  transition: 0.2s ease;
+  transition: all 0.2s ease;
 }
 body main .panel-control form .guardar:hover {
-  background-color: #8456ce;
+  scale: 1.02;
   color: #f5f5ff;
-  box-shadow: rgb(114.4, 28.6, 54.2816326531) 5px 5px 10px;
+  text-shadow: #11264b 3px 3px;
+  background-color: #e46e20;
+  box-shadow: #11264b 6px 6px;
 }/*# sourceMappingURL=insert_edit.css.map */

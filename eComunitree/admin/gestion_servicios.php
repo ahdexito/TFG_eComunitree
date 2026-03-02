@@ -120,16 +120,20 @@
     <main>
         <section class="panel-control">
             <div class="section-header">
-                <i class="fa-solid fa-shop icono-header"></i>
-                <h2>Gestión de Servicios</h2>
+                <h2><i class="fa-solid fa-shop icono-header"></i> Gestión de Servicios</h2>
             </div>
 
             <hr>
 
-            <a href="ins_servicio.php" class="boton-insertar">
-                <i class="fa-regular fa-square-plus"></i>
-                Añadir Servicio
-            </a>
+            <ul class="acciones">
+                <li>
+                    <a href="ins_servicio.php" class="btn-tool">
+                        <i class="fa-regular fa-square-plus"></i>
+                        AÑADIR SERVICIO
+                    </a>
+                </li>
+            </ul>
+            
 
             <div class="caja-overflow">
                 <table>
@@ -151,12 +155,12 @@
                         <tr>
                             <td>
                                 <a href="edit_servicio.php?edit=<?= $s['id_servicio'] ?>">
-                                    <i class="fa-regular fa-pen-to-square"></i>
+                                    <i class="fa-regular fa-pen-to-square icon-edit"></i>
                                 </a>
 
                                 <a href="?eliminar=<?= $s['id_servicio'] ?>" 
                                 onclick="return confirm('¿Eliminar servicio?');">
-                                    <i class="fa-regular fa-trash-can"></i>
+                                    <i class="fa-regular fa-trash-can icon-del"></i>
                                 </a>
                             </td>
                             <td>#<?= $s['id_servicio'] ?></td>

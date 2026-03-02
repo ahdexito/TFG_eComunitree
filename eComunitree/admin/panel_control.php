@@ -50,11 +50,11 @@
 
     <main>
         <section class="feed">
-            <header class="feed-header">
+            <header class="section-header">
                 <h2>Panel de control</h2>
             </header>
 
-            <hr>
+            <hr class="hr-section">
 
             <article>
                 <a href="gestion_publicaciones.php" class="boton"><i class="fa-solid fa-comments"></i> PUBLICACIONES</a>

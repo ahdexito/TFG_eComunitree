@@ -13,7 +13,6 @@
 // =========================================================
 body {
     border-radius: 20px;
-    padding: 20px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -35,13 +34,13 @@ body {
             width: 100%;
             max-width: 1500px;
             border-radius: 10px;
-            padding: 60px 20px;
-            background-color: $color-light-transparent;
+            padding: 100px 20px 100px;
+            background-color: $color-dark-transparent;
             mask-image: linear-gradient(
                 to bottom,
                 transparent 0%,
-                black 2%,
-                black 98%,
+                black 100px,
+                black calc(100% - 100px),
                 transparent 100%
             );
 
@@ -55,7 +54,6 @@ body {
                 padding-bottom: 20px;
 
                 h2 { 
-                    font-family: $subtitulo;
                     flex: 1;
                     color: $color-light; 
                     font-size: 2.5em;
@@ -85,29 +83,6 @@ body {
                 li {
                     flex: 1 1 200px;
                     display: flex;
-
-                    a {
-                        width: 100%;
-                        color: $color-dark;
-                        background-color: $color-light;
-                        padding: 15px;
-                        border: 3px solid $color-dark;
-                        box-shadow: $color-dark 2px 2px;
-                        border-radius: 50px;
-                        transition: all 0.2s ease;
-                        text-wrap: nowrap;
-                        text-decoration: none;
-
-                        &:hover {
-                            transform: scale(1.05);
-                            color: $color-light;
-                            text-shadow: $color-dark 1px 2px;
-                            background-color: $color-accent-light;
-                            box-shadow: $color-dark 3px 3px;
-                        }
-
-                        i { margin-right: 10px; }
-                    }
                 }
             }
 
@@ -115,46 +90,41 @@ body {
                 margin: 30px 0;
                 overflow-x: auto;
                 border: 3px solid $color-light;
+                box-shadow: $color-dark 5px 5px 0;
 
                 table {
                     width: 100%;
                     border-collapse: collapse;
-                    background-color: $color-light;
                     text-align: center;
 
                     thead {
                         height: 80px;
-                        background-color: #131313;
+                        background-color: darken($color-dark, $amount: 5);
                         color: $color-light;
                     }
 
                     tbody {
                         tr:nth-child(odd) {
-                            background-color: #acacac;
-                            color: #000;
+                            background-color: lighten($color-dark, $amount: 70);
+                            color: $color-dark;
 
-                            i { 
-                                color: #000; 
-                                transition: all 0.2s ease; 
-                                &:hover { 
-                                    text-shadow: $color-light 3px 3px 0px; 
-                                    transform: scale(1.3);
-                                }
-                            }
+                            i { color: $color-dark; }
                         }
 
                         tr:nth-child(even) {
-                            background-color: #464646;
+                            background-color: lighten($color-dark, $amount: 5);
                             color: $color-light;
 
-                            i { 
-                                color: $color-light;
-                                transition: all 0.2s ease; 
-                                &:hover { 
-                                    text-shadow: #000 3px 3px 0px; 
-                                    transform: scale(1.3);
-                                }
+                            i { color: $color-light; }
+                        }
+
+                        tr td:first-child a {
+                            i {
+                                transition: all 0.2s ease;
+                                &:hover { transform: scale(1.3); }
                             }
+                            .icon-edit { &:hover { color: #ff6600; } }
+                            .icon-del { &:hover { color: #ff004c; } }
                         }
                     }
 
@@ -162,7 +132,6 @@ body {
                         padding: 10px;
                         font-family: 'Inter', sans-serif;
                         white-space: nowrap;
-                        border: 1px solid #000;
 
                         a {
                             text-decoration: none;
@@ -183,6 +152,31 @@ body {
                         word-break: break-word;
                     }
                 }
+            }
+
+            .btn-tool {
+                width: 100%;
+                max-width: 400px;
+                margin: auto;
+                color: $color-dark;
+                background-color: $color-light;
+                padding: 15px;
+                border: 3px solid $color-dark;
+                box-shadow: $color-dark 2px 2px;
+                border-radius: 50px;
+                transition: all 0.2s ease;
+                text-wrap: nowrap;
+                text-decoration: none;
+
+                &:hover {
+                    transform: scale(1.05);
+                    color: $color-light;
+                    text-shadow: $color-dark 1px 2px;
+                    background-color: $color-accent-light;
+                    box-shadow: $color-dark 3px 3px;
+                }
+
+                i { margin-right: 10px; }
             }
         }
     }
