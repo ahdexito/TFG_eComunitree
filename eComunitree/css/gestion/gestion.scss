@@ -105,14 +105,14 @@ body {
 
                     tbody {
                         tr:nth-child(odd) {
-                            background-color: lighten($color-dark, $amount: 70);
+                            background-color: lighten($color-dark, $amount: 60);
                             color: $color-dark;
 
                             i { color: $color-dark; }
                         }
 
                         tr:nth-child(even) {
-                            background-color: lighten($color-dark, $amount: 5);
+                            background-color: lighten($color-dark, $amount: 45);
                             color: $color-light;
 
                             i { color: $color-light; }

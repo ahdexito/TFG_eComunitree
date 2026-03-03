@@ -1,15 +1,13 @@
 @import 'variables';
 
 .feed-body article {
-    background-color: $color-card;
+    background-color: $color-dark;
     padding: 20px;
     margin-bottom: 50px;
-    border: 5px solid $color-light;
-    box-shadow: $color-shadow 5px 5px;
-    border-radius: 20px;
+    border: 5px solid var(--article-color);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
 
     &.advert-card { --article-color: #{$color-primary}; }
     &.incidence-card { --article-color: #{$color-accent-light}; }
@@ -23,78 +21,57 @@
         align-items: flex-start;
         justify-content: space-between;
         gap: 20px;
-        text-shadow: $color-shadow 2px 2px;
-        background: linear-gradient(
-            to right,
-            $color-dark,
-            lighten($color-dark, $amount: 10)
-        );
         border-radius: 10px;
-        padding: 15px;
+
+        // ARTICLE HEADER TITLE
+        h3 { 
+            width: 100%;
+            background-color: var(--article-color);
+            padding: 10px;
+            border-radius: 10px;
+            color: $color-light;
+            text-shadow: $color-dark 3px 3px;
+            font-size: 2.2em; 
+
+            i { margin-right: 10px; }
+        }
 
         // ARTICLE HEADER USER
         .article-header-user {
-            @include respond-to(small) { font-size: 1.1em; }
-            font-size: 1.3em;
-            margin-right: 30px;
-            border-radius: 50px;
+            padding: 5px 5px 0px 15px;
+            font-size: 1.2em;
+            border-radius: 10px 10px 0 0;
             display: flex;
-            flex-wrap: wrap;
             gap: 20px;
+            background-color: $color-light;
+
+            @include respond-to(small) { font-size: 1.1em; }
 
             img {
-                width: 90px;
-                border: 3px solid $color-light;
+                width: 70px;
                 border-radius: 100px;
-                box-shadow: $color-shadow 0 0 20px 5px;
 
-                @include respond-to(small) { width: 60px; }
+                @include respond-to(small) { 
+                    width: 60px; 
+                    border-width: 2px;
+                }
             }
 
             .user-info {
                 display: flex;
-                justify-content: space-between;
-                justify-content: center;
+                justify-content: flex-end;
                 flex-direction: column;
                 font-size: 0.9em;
+                color: $color-dark;
 
                 strong {
                     font-size: 1.2em;
                     font-weight: bold;
-                    color: $color-light;
                     margin-bottom: 5px;
                 }
 
-                p { 
-                    color: lighten($color-dark, $amount: 50); 
-                    font-style: italic;
-                }
+                p { font-style: italic; }
             }
-        }
-
-        // ARTICLE HEADER DATE
-        .article-header-date {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 5px;
-            text-align: end;
-            text-wrap: nowrap;
-            margin-left: auto;
-            font-size: 0.9em;
-
-            strong { 
-                color: $color-light; 
-                gap: 10px;
-            }
-
-            p { 
-                font-weight: bold;
-                color: lighten($color-dark, $amount: 50);
-                text-wrap: nowrap;
-            }
-
-            i { margin-left: 5px; }
         }
     }
 
@@ -103,68 +80,44 @@
     // =========================================================
     section.article-body {
         padding: 20px;
-        color: $color-light;
         display: flex;
-        gap: 20px;
         flex-direction: column;
-        background-color: var(--article-color);
-        border: 3px solid $color-light;
-        box-shadow: $color-shadow 5px 5px;
-        border-radius: 10px;
-        color: $color-light;
+        background-color: $color-light;
+        border-radius: 10px 0 10px 10px;
+        color: $color-dark;
 
-        @include respond-to(small) { padding: 10px }
+        @include respond-to(small) { padding: 10px; }
 
         // ARTICLE BODY TITLE
         header.article-body-title {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            text-shadow: $color-shadow 3px 3px;
+            width: fit-content;
+            color: $color-light;
+            font-size: 1.5em; 
+            padding: 10px 15px;
+            border-radius: 10px;
+            background: linear-gradient(
+                to right,
+                $color-dark,
+                lighten($color-dark, $amount: 10)
+            );
+            font-weight: bold;
 
-            @include respond-to(small) { 
-                font-size: 0.7em; 
-                text-shadow: $color-shadow 2px 2px;
-            }
-
-            h3 { 
-                font-size: 2.2em; 
-                text-decoration: underline;
-
-                i { margin-right: 10px; }
-            }
-
-            p { font-size: 1.5em ; }
+            @include respond-to(small) { font-size: 0.7em; }
         }
 
         // ARTICLE BODY CONTENT
         div.article-body-content {
             display: block;
             overflow: hidden;
-            background-color: $color-light;
-            color: $color-dark;
-            border: 5px solid $color-dark;
-            border-radius: 20px;
+            font-size: 1.7em;
+            background-color: $color-card;
+            color: $color-light;
+            text-shadow: $color-dark 3px 3px;
+            box-shadow: $color-dark 0 0 10px 5px;
+            margin: 20px 0;
+            border-radius: 10px;
 
-            @include respond-to(small) { 
-                font-size: 0.7em; 
-                border: 3px solid $color-dark;
-            }
-
-            h4 { 
-                width: fit-content;
-                color: $color-light;
-                text-shadow: $color-shadow 3px 3px;
-                font-size: 1.5em; 
-                padding: 10px 15px;
-                margin: 10px;
-                border-radius: 10px;
-                background: linear-gradient(
-                    to right,
-                    $color-dark,
-                    lighten($color-dark, $amount: 10)
-                );
-            }
+            @include respond-to(small) { font-size: 1.3em; }
 
             img {
                 @include respond-to(small) {
@@ -183,9 +136,9 @@
             }
 
             p { 
+                margin: 30px;
                 font-size: 1.5em; 
                 font-weight: bold;
-                margin: 30px;
                 font-family: $parrafo;
 
                 @include respond-to(small) { margin: 15px; }
@@ -198,6 +151,23 @@
                     &:last-child { transform: rotate(15deg); }
                 }
             }
+        }
+
+        // ARTICLE BODY DATE
+        .article-header-date {
+            display: flex;
+            gap: 10px;
+            text-align: end;
+            text-wrap: nowrap;
+            margin-left: auto;
+            font-size: 0.9em;
+
+            p { 
+                font-weight: bold;
+                text-wrap: nowrap;
+            }
+
+            i { margin-right: 5px; }
         }
     }
 
@@ -214,7 +184,7 @@
         text-shadow: $color-shadow 3px 3px;
         font-size: 1.5em;
         border-radius: 40px;
-        margin-top: 10px;
+        margin-top: 20px;
         
         @include respond-to(small) { 
             font-size: 1.2em; 
@@ -222,20 +192,10 @@
         }
 
         strong, p { 
-            width: 100%; 
-
             i { margin-right: 10px; }
         }
         
         strong { text-decoration: underline; }
-
-        hr {
-            border: 2px solid $color-light;
-            border-radius: 10px;
-            box-shadow: $color-shadow 3px 3px 0;
-            width: 100%;
-            margin: 15px;
-        }
 
         // VOTE BUTTONS
         .vote-btns {
@@ -247,11 +207,6 @@
             justify-content: center;
             gap: 20px;
             border-radius: 10px;
-            background: linear-gradient(
-                to right,
-                $color-dark,
-                lighten($color-dark, $amount: 10)
-            );
 
             @include no-subrayable;
 
@@ -269,7 +224,7 @@
                 span {
                     @include respond-to(small) { font-size: 0.8em; }
                     display: inline-block;
-                    background-color: $color-primary;
+                    background-color: $color-accent;
                     padding: 15px 10px;
                     border-radius: 50px;
                     border: 3px solid $color-light;
@@ -283,13 +238,13 @@
                 }
 
                 &:hover span {
-                    background-color: darken($color-primary, $amount: 10);
+                    background-color: darken($color-accent, $amount: 10);
                     transform: scale(0.95);
                     box-shadow: $color-shadow 4px 4px 0;
                 }
 
                 &:active span {
-                    background-color: darken($color-primary, $amount: 20);
+                    background-color: darken($color-accent, $amount: 20);
                     transform: scale(0.85);
                     box-shadow: none;
                 }
@@ -355,14 +310,6 @@
         }
 
         .estado {
-            background: linear-gradient(
-                to right,
-                $color-dark,
-                lighten($color-dark, $amount: 10)
-            );
-            padding: 20px;
-            width: 100%;
-            border-radius: 10px;
             text-decoration: none;
 
             strong { text-decoration: none; }

@@ -1,17 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "SN Pro";
-  font-weight: bold;
+  font-family: "Kumbh Sans";
   font-size: 0.99em;
 }
 @media (max-width: 600px) {
@@ -81,7 +80,7 @@ img {
   background-color: #11264b;
   color: #f5f5ff;
   font-size: 1.5em;
-  font-family: "SN Pro";
+  font-family: "Kumbh Sans";
   transition: all 0.2s ease;
 }
 .btn-up:hover {
@@ -99,42 +98,24 @@ img {
   box-shadow: #11264b 3px 3px 0;
 }
 
-@keyframes animarFondo {
-  from {
-    background-position: 0% 50%;
-  }
-  to {
-    background-position: 100% 50%;
-  }
-}
 header.body-header {
-  border-radius: 100px;
+  border-radius: 10px;
   padding: 10px 10px;
   padding-right: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
   background-color: rgba(41, 65, 104, 0.5803921569);
 }
 header.body-header a.btn-index {
+  background-color: #11264b;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   transition: all 0.2s ease;
   border: 3px solid #f5f5ff;
-  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
   border-radius: 100px;
-  background: linear-gradient(160deg, rgba(110, 40, 143, 0.9098039216), rgba(182, 30, 76, 0.7254901961), rgba(255, 125, 38, 0.7450980392), rgba(110, 40, 143, 0.9098039216), rgba(182, 30, 76, 0.7254901961), rgba(255, 125, 38, 0.7450980392));
-  background-size: 370% 100%;
-  background-position: 250% 50%;
-  animation: animarFondo 3s linear infinite;
-}
-@media (max-width: 950px) {
-  header.body-header a.btn-index {
-    background-size: 650% 100%;
-  }
 }
 header.body-header a.btn-index:hover {
   transform: scale(1.05);
@@ -157,40 +138,42 @@ header.body-header a.btn-index h1 {
   margin-right: 30px;
 }
 header.body-header .user {
+  background-color: #11264b;
+  padding-left: 30px;
+  border: 3px solid #f5f5ff;
+  border-radius: 100px;
   display: flex;
   align-items: center;
   gap: 20px;
   color: #f5f5ff;
 }
+header.body-header .user .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 @media (max-width: 600px) {
-  header.body-header .user p {
+  header.body-header .user .user-info {
     display: none;
   }
 }
-header.body-header .user p {
-  text-align: end;
+header.body-header .user .user-info strong {
   font-size: 1.3em;
-  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px 0px;
-  font-weight: bold;
+  margin-bottom: 5px;
 }
 header.body-header .user a {
+  width: 80px;
+  height: 80px;
   text-decoration: none;
   transition: all 0.1s ease;
 }
 header.body-header .user a:hover {
-  transform: scale(1.1);
-}
-header.body-header .user a i {
-  color: #f5f5ff;
-  font-size: 3em;
+  transform: scale(1.05);
 }
 header.body-header .user a img {
-  margin-top: 3px;
-  margin-right: 5px;
-  width: 90px;
+  width: 100%;
   border: 3px solid #f5f5ff;
   border-radius: 100px;
-  box-shadow: #000 0 0 20px 5px;
   transition: transform 0.2s ease;
 }
 header.body-header .user a img:hover {
@@ -210,7 +193,7 @@ header.body-header .user a img:hover {
   transition: all 0.4s ease;
   border-left: 5px solid #11264b;
   box-shadow: rgba(0, 0, 0, 0.6431372549) 0 0 30px 10px;
-  background: linear-gradient(to bottom, #11264b, #4b6ca7, #4b6ca7, #11264b);
+  background: linear-gradient(to bottom, #11264b, #5c81c0, #5c81c0, #11264b);
 }
 .main-aside h3 {
   color: #f5f5ff;
@@ -325,7 +308,7 @@ header.body-header .user a img:hover {
 
 section.services-body article {
   width: 350px;
-  background-color: #4b6ca7;
+  background-color: #5c81c0;
   margin: auto;
   padding: 10px;
   border: 3px solid #f5f5ff;
@@ -451,12 +434,12 @@ section.services-body article .article-body ul li a {
 }
 
 .btn-filter {
-  width: 150px;
+  width: 200px;
   color: #11264b;
   background-color: #f5f5ff;
   padding: 10px 15px;
   border: 3px solid #11264b;
-  box-shadow: #11264b 2px 2px;
+  box-shadow: #11264b 2px 2px 0;
   border-radius: 50px;
   display: flex;
   align-items: center;
@@ -464,6 +447,7 @@ section.services-body article .article-body ul li a {
   gap: 20px;
   cursor: pointer;
   text-decoration: none;
+  text-wrap: nowrap;
   text-align: end;
   font-weight: bold;
   transition: all 0.2s ease;
@@ -505,9 +489,15 @@ section.services-body article .article-body ul li a {
   right: -5px;
   background: #f5f5ff;
   border: 3px solid #11264b;
-  box-shadow: #11264b 3px 3px 0;
+  box-shadow: #11264b 5px 5px 0;
   z-index: 100;
   border-radius: 0 0 20px 20px;
+}
+@media (max-width: 600px) {
+  .filter-menu {
+    width: 126px;
+    right: -3px;
+  }
 }
 
 .filter-menu a {
@@ -632,14 +622,14 @@ body main .panel-control .caja-overflow table thead {
   color: #f5f5ff;
 }
 body main .panel-control .caja-overflow table tbody tr:nth-child(odd) {
-  background-color: rgb(205.2717391304, 219.1956521739, 243.7282608696);
+  background-color: rgb(163.6956521739, 189.2608695652, 234.3043478261);
   color: #11264b;
 }
 body main .panel-control .caja-overflow table tbody tr:nth-child(odd) i {
   color: #11264b;
 }
 body main .panel-control .caja-overflow table tbody tr:nth-child(even) {
-  background-color: rgb(21.7119565217, 48.5326086957, 95.7880434783);
+  background-color: rgb(101.3315217391, 144.3586956522, 220.1684782609);
   color: #f5f5ff;
 }
 body main .panel-control .caja-overflow table tbody tr:nth-child(even) i {

@@ -6,7 +6,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: $subtitulo;
-    font-weight: bold;
     font-size: 0.99em;
 
     @include respond-to(small) { font-size: 0.95em; }

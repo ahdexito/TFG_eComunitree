@@ -1,12 +1,12 @@
 @import '../common/variables';
 
 .btn-filter {
-    width: 150px;
+    width: 200px;
     color: $color-dark;
     background-color: $color-light;
     padding: 10px 15px;
     border: 3px solid $color-dark;
-    box-shadow: $color-dark 2px 2px;
+    box-shadow: $color-dark 2px 2px 0;
     border-radius: 50px;
     display: flex;
     align-items: center;
@@ -14,6 +14,7 @@
     gap: 20px;
     cursor: pointer;
     text-decoration: none;
+    text-wrap: nowrap;
     text-align: end;
     font-weight: bold;
     transition: all 0.2s ease;
@@ -51,9 +52,14 @@
     right: -5px;
     background: $color-light;
     border: 3px solid $color-dark;
-    box-shadow: $color-dark 3px 3px 0;
+    box-shadow: $color-dark 5px 5px 0;
     z-index: 100;
     border-radius: 0 0 20px 20px;
+
+    @include respond-to(small) { 
+        width: 126px; 
+        right: -3px;
+    }
 }
 
 .filter-menu a {

@@ -73,9 +73,10 @@
             <h1>eComunitree</h1>
         </a>
         <div class="user">
-            <div class="user-name">
-                <p><?= $_SESSION["nombre"] ?> (<?= $_SESSION["vivienda"] ?>)</p>
-                <p><?= ucfirst($_SESSION["rol"]) ?></p>
+            <div class="user-info">
+                <strong><?= $_SESSION["nombre"] ?></strong>
+                <i><?= $_SESSION["vivienda"] ?></i>
+                <i><?= ucfirst($_SESSION["rol"]) ?></i>
             </div>
             <a href="desconectar.php" title="Cerrar sesión">
                 <img src="img_user/<?= $_SESSION["foto"]; ?>" alt="Perfil de <?= $_SESSION['nombre']; ?>">
@@ -110,7 +111,7 @@
                 <div class="filter-container">
                     <div class="btn-filter" id="btn-filter">
                         <i class="fa-solid fa-filter"></i>
-                        <p>FILTRAR: <br> <?= strtoupper($filtro_tipo) ?></p>
+                        <p>FILTRO: <br> <?= strtoupper($filtro_tipo) ?></p>
                     </div>
                     <div id="filter-menu" class="filter-menu">
                         <a href="index.php?tipo=todos">Todos</a>
@@ -165,34 +166,30 @@
 
                     <article class="vote-card">
                         <header class="article-header">
+                            <h3><i class="fa-solid fa-envelope"></i>VOTACIÓN</h3>
+
                             <div class="article-header-user">
-                                <img src="img_user/<?= $p['autor_foto'] ?>" alt="Foto de <?= $p['autor_nombre'] ?>">
                                 <div class="user-info">
                                     <strong> <?= $p['autor_nombre'] ?> </strong>
                                     <p> <?= ucfirst($p['autor_rol']) ?> </p>
                                     <p> <?= $p['autor_vivienda'] ?> </p>
                                 </div>
-                            </div>
-
-                            <div class="article-header-date">
-                                <strong> <?= $fecha->format('H:i') ?> <i class="fa-regular fa-clock"></i></strong>
-                                <p> <?= $fecha->format('d/m') ?> <i class="fa-solid fa-calendar-days"></i></p>
+                                <img src="img_user/<?= $p['autor_foto'] ?>" alt="Foto de <?= $p['autor_nombre'] ?>">
                             </div>
                         </header>
 
                         <section class="article-body">
                             <header class="article-body-title">
-                                <h3>
-                                    <i class="fa-solid fa-envelope"></i>VOTACIÓN
-                                </h3>
-                                
+                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?> </h4>
                             </header>
 
                             <div class="article-body-content">
-                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?> </h4>
-                                <p>
-                                    <?= '<i class="fa-solid fa-quote-left"></i>' . $p['contenido'] . '<i class="fa-solid fa-quote-right"></i>' ?>
-                                </p>
+                                <p><?= '<i class="fa-solid fa-quote-left"></i>' . $p['contenido'] . '<i class="fa-solid fa-quote-right"></i>' ?></p>
+                            </div>
+
+                            <div class="article-header-date">
+                                <p><i class="fa-regular fa-clock"></i><?= $fecha->format('H:i') ?></p>
+                                <p><i class="fa-solid fa-calendar-days"></i><?= $fecha->format('d/m') ?></p>
                             </div>
                         </section>
 
@@ -205,8 +202,6 @@
                             <p>
                                 <i class="fa-solid fa-hourglass-half"></i>Expira en: <time> <?= $dias_restantes ?> </time>
                             </p>
-
-                            <hr>
                             
                             <div class="vote-btns">
                                 <?php foreach($opciones as $opc): ?>
@@ -225,7 +220,6 @@
                                 <?php endforeach; ?>
                             </div>
 
-                            <hr>
 
                             <?php if (!$diferencia->invert): ?>
                                 <?php if ($ya_votado): ?>
@@ -248,33 +242,31 @@
                 <?php if ($p['tipo'] === 'aviso'): ?>
                     <article class="advert-card">
                         <header class="article-header">
-                            <div class="article-header-user">
-                                <img src="img_user/<?= $p['autor_foto'] ?>" alt="Foto de <?= $p['autor_nombre'] ?>">
+                            <h3><i class="fa-solid fa-bullhorn"></i>AVISO</h3>
+                            
+                            <div class="article-header-user">                                
                                 <div class="user-info">
                                     <strong> <?= $p['autor_nombre'] ?> </strong>
                                     <p> <?= ucfirst($p['autor_rol']) ?> </p>
                                     <p> <?= $p['autor_vivienda'] ?> </p>
                                 </div>
-                            </div>
 
-                            <div class="article-header-date">
-                                <strong> <?= $fecha->format('H:i') ?> <i class="fa-regular fa-clock"></i></strong>
-                                <p> <?= $fecha->format('d/m') ?> <i class="fa-solid fa-calendar-days"></i></p>
+                                <img src="img_user/<?= $p['autor_foto'] ?>" alt="Foto de <?= $p['autor_nombre'] ?>">
                             </div>
                         </header>  
                         
                         <section class="article-body">
                             <header class="article-body-title">
-                                <h3>
-                                    <i class="fa-solid fa-bullhorn"></i>AVISO
-                                </h3>
+                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?> </h4>
                             </header>
 
                             <div class="article-body-content">
-                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?> </h4>
-                                <p>
-                                    <?= '<i class="fa-solid fa-quote-left"></i>' . $p['contenido'] . '<i class="fa-solid fa-quote-right"></i>' ?>
-                                </p>
+                                <p><?= '<i class="fa-solid fa-quote-left"></i>' . $p['contenido'] . '<i class="fa-solid fa-quote-right"></i>' ?></p>
+                            </div>
+
+                            <div class="article-header-date">
+                                <p><i class="fa-regular fa-clock"></i><?= $fecha->format('H:i') ?></p>
+                                <p><i class="fa-solid fa-calendar-days"></i><?= $fecha->format('d/m') ?></p>
                             </div>
                         </section>
                     </article>
@@ -285,36 +277,35 @@
                 <?php if ($p['tipo'] === 'incidencia'): ?>
                     <article class="incidence-card">
                         <header class="article-header">
+                            <h3><i class="fa-solid fa-triangle-exclamation"></i>INCIDENCIA</h3>
+
                             <div class="article-header-user">
-                                <img src="img_user/<?= $p['autor_foto'] ?>" alt="Foto de <?= $p['autor_nombre'] ?>">
                                 <div class="user-info">
                                     <strong> <?= $p['autor_nombre'] ?> </strong>
                                     <p> <?= ucfirst($p['autor_rol']) ?> </p>
                                     <p> <?= $p['autor_vivienda'] ?> </p>
                                 </div>
-                            </div>
 
-                            <div class="article-header-date">
-                                <strong> <?= $fecha->format('H:i') ?> <i class="fa-regular fa-clock"></i></strong>
-                                <p> <?= $fecha->format('d/m') ?> <i class="fa-solid fa-calendar-days"></i></p>
+                                <img src="img_user/<?= $p['autor_foto'] ?>" alt="Foto de <?= $p['autor_nombre'] ?>">
                             </div>
                         </header>
 
                         <section class="article-body">
                             <header class="article-body-title">
-                                <h3>
-                                    <i class="fa-solid fa-triangle-exclamation"></i>INCIDENCIA: <?= $p['tipo_incidencia_nombre'] ?>
-                                </h3>
+                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['tipo_incidencia_nombre'] ?>: <?= $p['titulo'] ?></h4>
                             </header>
 
                             <div class="article-body-content">
-                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?> </h4>
                                 <?php if ($p['foto'] !== 'default.jpg'): ?>
                                     <img src="img_incidencias/<?= $p['foto'] ?>" alt="Imagen de la incidencia">
                                 <?php endif; ?>
-                                <p>
-                                    <?= '<i class="fa-solid fa-quote-left"></i>' . $p['contenido'] . '<i class="fa-solid fa-quote-right"></i>' ?>
-                                </p>
+                                
+                                <p><?= '<i class="fa-solid fa-quote-left"></i>' . $p['contenido'] . '<i class="fa-solid fa-quote-right"></i>' ?></p>
+                            </div>
+
+                            <div class="article-header-date">
+                                <p><i class="fa-regular fa-clock"></i><?= $fecha->format('H:i') ?></p>
+                                <p><i class="fa-solid fa-calendar-days"></i><?= $fecha->format('d/m') ?></p>
                             </div>
                         </section>
                         

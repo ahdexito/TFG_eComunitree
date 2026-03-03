@@ -1,49 +1,23 @@
 @import 'variables';
 
-@keyframes animarFondo {
-    from {
-        background-position: 0% 50%;
-    }
-    to {
-        background-position: 100% 50%;
-    }
-}
-
 header.body-header {
-    border-radius: 100px;
+    border-radius: 10px;
     padding: 10px 10px;
     padding-right: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    text-shadow: $color-shadow 3px 3px 0;
     background-color: $color-dark-transparent;
     
     a.btn-index {
+        background-color: $color-dark;
         display: flex;
         align-items: center;
         justify-content: center;
         text-decoration: none;
         transition: all 0.2s ease;
         border: 3px solid $color-light;
-        box-shadow: $color-shadow 3px 3px;
         border-radius: 100px;
-        background: linear-gradient(
-            160deg,
-            $color-accent-transparent,
-            $color-primary-transparent,
-            #ff7d26be,
-            $color-accent-transparent,
-            $color-primary-transparent,
-            #ff7d26be
-        );
-        background-size: 370% 100%;
-        background-position: 250% 50%;
-        animation: animarFondo 3s linear infinite;
-
-        @include respond-to(small_medium) {
-            background-size: 650% 100%;
-        }
 
         &:hover { 
             transform: scale(1.05); 
@@ -67,38 +41,40 @@ header.body-header {
     }
 
     .user {
+        background-color: $color-dark;
+        padding-left: 30px;
+        border: 3px solid $color-light;
+        border-radius: 100px;
         display: flex;
         align-items: center;
         gap: 20px;
         color: $color-light;
 
-        p {
+        .user-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
             @include respond-to(small) { display: none; }
 
-            text-align: end;
-            font-size: 1.3em;
-            text-shadow: $color-shadow 2px 2px 0px;
-            font-weight: bold;
+            strong { 
+                font-size: 1.3em; 
+                margin-bottom: 5px;
+            }
         }
 
         a {
+            width: 80px;
+            height: 80px;
             text-decoration: none;
             transition: all 0.1s ease;
 
-            &:hover { transform: scale(1.1); }
-
-            i { 
-                color: $color-light;
-                font-size: 3em; 
-            }
+            &:hover { transform: scale(1.05); }
 
             img {
-                margin-top: 3px;
-                margin-right: 5px;
-                width: 90px;
+                width: 100%;
                 border: 3px solid $color-light;
                 border-radius: 100px;
-                box-shadow: #000 0 0 20px 5px;
                 transition: transform 0.2s ease;
 
                 &:hover { 
