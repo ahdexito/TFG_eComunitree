@@ -84,9 +84,10 @@
             <h1>eComunitree</h1>
         </a>
         <div class="user">
-            <div class="user-name">
-                <p><?= $_SESSION["nombre"] ?> (<?= $_SESSION["vivienda"] ?>)</p>
-                <p><?= ucfirst($_SESSION["rol"]) ?></p>
+            <div class="user-info">
+                <strong><?= $_SESSION["nombre"] ?></strong>
+                <i><?= $_SESSION["vivienda"] ?></i>
+                <i><?= ucfirst($_SESSION["rol"]) ?></i>
             </div>
             <a href="desconectar_admin.php" title="Cerrar sesión">
                 <img src="../img_user/<?= $_SESSION["foto"]; ?>" alt="Perfil de <?= $_SESSION['nombre']; ?>">
@@ -204,7 +205,14 @@
                             </td>
                             <td>#<?= $p['id_publicacion'] ?></td>
                             <td> <?= htmlspecialchars($p['autor']) ?> </td>
-                            <td> <?= htmlspecialchars($p['tipo']) ?> </td>
+                            <?php
+                                $tipo = htmlspecialchars($p['tipo']);
+                                echo match ($tipo) {
+                                    'incidencia' => "<td class='incidencia'><p>Incidencia</p></td>",
+                                    'aviso' => "<td class='aviso'><p>Aviso</p></td>",
+                                    'votacion' => "<td class='votacion'><p>Votación</p></td>",
+                                };
+                            ?>
                             <td> <?= htmlspecialchars($p['titulo']) ?> </td>
                             <td> <?= htmlspecialchars($p['fecha_creacion']) ?> </td>                            
                         </tr>

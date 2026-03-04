@@ -96,6 +96,7 @@ body {
                     width: 100%;
                     border-collapse: collapse;
                     text-align: center;
+                    font-weight: bold;
 
                     thead {
                         height: 80px;
@@ -151,6 +152,26 @@ body {
                         white-space: pre-line;
                         word-break: break-word;
                     }
+
+                    .incidencia { --tipo-publicacion: #{$color-accent-light}; }
+                    .aviso { --tipo-publicacion: #{$color-primary}; }
+                    .votacion { --tipo-publicacion: #{$color-accent}; }
+
+                    .incidencia, .aviso, .votacion {
+
+                        p {
+                            margin: auto;
+                            width: 100px;
+                            background-color: var(--tipo-publicacion);
+                            border: 2px solid $color-dark;
+                            border-radius: 20px;
+                            padding: 5px 10px;
+                            color: $color-light;
+                            text-shadow: $color-shadow 2px 2px;
+
+                            @include respond-to(small) { width: 75px; }
+                        }
+                    }
                 }
             }
 
@@ -167,6 +188,7 @@ body {
                 transition: all 0.2s ease;
                 text-wrap: nowrap;
                 text-decoration: none;
+                font-weight: bold;
 
                 &:hover {
                     transform: scale(1.05);

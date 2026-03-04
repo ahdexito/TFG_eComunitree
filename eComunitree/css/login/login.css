@@ -28,9 +28,9 @@ html body {
   gap: 10px;
 }
 html body header {
-  background: linear-gradient(160deg, rgba(41, 65, 104, 0.5803921569), rgba(182, 30, 76, 0.7254901961), rgba(182, 30, 76, 0.7254901961), rgba(41, 65, 104, 0.5803921569));
+  background: linear-gradient(160deg, rgba(41, 65, 104, 0.5803921569), rgba(196, 64, 81, 0.7254901961), rgba(196, 64, 81, 0.7254901961), rgba(41, 65, 104, 0.5803921569));
   border: 3px solid #f5f5ff;
-  box-shadow: #11264b 4px 4px;
+  box-shadow: #162d53 4px 4px;
   border-radius: 15px;
   padding: 20px;
   display: flex;
@@ -50,7 +50,7 @@ html body header img {
 html body header h1 {
   font-size: 3.5em;
   color: #f5f5ff;
-  text-shadow: #11264b 5px 5px 0px;
+  text-shadow: #162d53 5px 5px 0px;
   font-family: "Fuzzy Bubbles";
 }
 html body h2 {
@@ -58,12 +58,12 @@ html body h2 {
   margin: 20px;
   text-align: center;
   color: #f5f5ff;
-  text-shadow: #11264b 3px 3px;
+  text-shadow: #162d53 3px 3px;
 }
 html body main {
-  background: linear-gradient(to bottom, rgba(41, 65, 104, 0.5803921569), rgba(110, 40, 143, 0.9098039216), rgba(110, 40, 143, 0.9098039216), rgba(41, 65, 104, 0.5803921569));
+  background: linear-gradient(to bottom, rgba(41, 65, 104, 0.5803921569), rgba(151, 94, 184, 0.9098039216), rgba(151, 94, 184, 0.9098039216), rgba(41, 65, 104, 0.5803921569));
   border: 3px solid #f5f5ff;
-  box-shadow: #11264b 4px 4px;
+  box-shadow: #162d53 4px 4px;
   border-radius: 15px;
   padding: 20px;
   display: flex;
@@ -82,7 +82,7 @@ html body main {
 }
 html body main h3 {
   color: #f5f5ff;
-  text-shadow: #11264b 3px 3px 0;
+  text-shadow: #162d53 3px 3px 0;
   font-size: 2em;
   font-family: "Fuzzy Bubbles";
 }
@@ -101,9 +101,9 @@ html body main form input {
   border: none;
   border-radius: 25px;
   font-size: 1.1em;
-  border: 3px solid #11264b;
-  color: #11264b;
-  box-shadow: #11264b 3px 3px;
+  border: 3px solid #162d53;
+  color: #162d53;
+  box-shadow: #162d53 3px 3px;
 }
 html body main form .recuerdame {
   display: flex;
@@ -128,23 +128,23 @@ html body main form div.register-footer a {
   border: none;
   border-radius: 25px;
   font-size: 1.1em;
-  border: 3px solid #11264b;
-  color: #11264b;
-  box-shadow: #11264b 3px 3px;
+  border: 3px solid #162d53;
+  color: #162d53;
+  box-shadow: #162d53 3px 3px;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
   background-color: #f5f5ff;
-  border: 3px solid #11264b;
-  color: #11264b;
-  box-shadow: #11264b 3px 3px;
+  border: 3px solid #162d53;
+  color: #162d53;
+  box-shadow: #162d53 3px 3px;
   transition: all 0.2s ease;
 }
 html body main form div.register-footer a:hover {
-  background-color: #e46e20;
+  background-color: #c96625;
   color: #f5f5ff;
-  text-shadow: #11264b 2px 2px;
-  box-shadow: #11264b 5px 5px;
+  text-shadow: #162d53 2px 2px;
+  box-shadow: #162d53 5px 5px;
   transform: scale(0.98);
 }
 html body main form div.register-footer a {
@@ -153,7 +153,7 @@ html body main form div.register-footer a {
   padding: 15px 15px;
 }
 html body main form div.register-footer a:hover {
-  background-color: #c4315d;
+  background-color: #c44051;
 }
 html body main form button {
   width: 100%;
@@ -161,23 +161,23 @@ html body main form button {
   border: none;
   border-radius: 25px;
   font-size: 1.1em;
-  border: 3px solid #11264b;
-  color: #11264b;
-  box-shadow: #11264b 3px 3px;
+  border: 3px solid #162d53;
+  color: #162d53;
+  box-shadow: #162d53 3px 3px;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
   background-color: #f5f5ff;
-  border: 3px solid #11264b;
-  color: #11264b;
-  box-shadow: #11264b 3px 3px;
+  border: 3px solid #162d53;
+  color: #162d53;
+  box-shadow: #162d53 3px 3px;
   transition: all 0.2s ease;
 }
 html body main form button:hover {
-  background-color: #e46e20;
+  background-color: #c96625;
   color: #f5f5ff;
-  text-shadow: #11264b 2px 2px;
-  box-shadow: #11264b 5px 5px;
+  text-shadow: #162d53 2px 2px;
+  box-shadow: #162d53 5px 5px;
   transform: scale(0.98);
 }
 html body main form .form-group {
@@ -187,13 +187,13 @@ html body main form .form-group {
 html body main form .form-group label {
   margin: 0 20px 5px;
   color: #f5f5ff;
-  text-shadow: #11264b 2px 2px;
+  text-shadow: #162d53 2px 2px;
   text-align: left;
 }
 html body main form .form-group-genero p {
   margin: 0 20px 5px;
   color: #f5f5ff;
-  text-shadow: #11264b 2px 2px;
+  text-shadow: #162d53 2px 2px;
   text-align: left;
   flex-basis: 100%;
 }
@@ -210,13 +210,13 @@ html body main form .form-group-genero .btns-genero .form-genero {
   justify-content: center;
 }
 html body main form .form-group-genero .btns-genero .form-genero:nth-of-type(1) {
-  --btn-color: rgb(45.2717391304, 101.1956521739, 199.7282608696);
+  --btn-color: rgb(55.8, 111, 202.2);
 }
 html body main form .form-group-genero .btns-genero .form-genero:nth-of-type(2) {
-  --btn-color: #8456ce;
+  --btn-color: #975eb8;
 }
 html body main form .form-group-genero .btns-genero .form-genero:nth-of-type(3) {
-  --btn-color: #c4315d;
+  --btn-color: #c44051;
 }
 html body main form .form-group-genero .btns-genero .form-genero input[type=radio] {
   box-shadow: none;
@@ -231,23 +231,23 @@ html body main form .form-group-genero .btns-genero .form-genero label {
   border: none;
   border-radius: 25px;
   font-size: 1.1em;
-  border: 3px solid #11264b;
-  color: #11264b;
-  box-shadow: #11264b 3px 3px;
+  border: 3px solid #162d53;
+  color: #162d53;
+  box-shadow: #162d53 3px 3px;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
   background-color: #f5f5ff;
-  border: 3px solid #11264b;
-  color: #11264b;
-  box-shadow: #11264b 3px 3px;
+  border: 3px solid #162d53;
+  color: #162d53;
+  box-shadow: #162d53 3px 3px;
   transition: all 0.2s ease;
 }
 html body main form .form-group-genero .btns-genero .form-genero label:hover {
-  background-color: #e46e20;
+  background-color: #c96625;
   color: #f5f5ff;
-  text-shadow: #11264b 2px 2px;
-  box-shadow: #11264b 5px 5px;
+  text-shadow: #162d53 2px 2px;
+  box-shadow: #162d53 5px 5px;
   transform: scale(0.98);
 }
 html body main form .form-group-genero .btns-genero .form-genero label {
@@ -257,17 +257,17 @@ html body main form .form-group-genero .btns-genero .form-genero label:hover {
   background-color: var(--btn-color);
 }
 html body main form .form-group-genero .btns-genero .form-genero label:active {
-  background-color: #e46e20;
+  background-color: #c96625;
 }
 html body main form .form-group-genero .btns-genero .form-genero input[type=radio]:checked + label {
-  background-color: #e46e20;
+  background-color: #c96625;
   color: #f5f5ff;
-  text-shadow: #11264b 2px 2px;
+  text-shadow: #162d53 2px 2px;
 }
 html body main hr {
   border: 2px solid #f5f5ff;
   border-radius: 10px;
-  box-shadow: #11264b 3px 3px;
+  box-shadow: #162d53 3px 3px;
 }
 html body main .registrarse {
   flex: 1;
@@ -292,27 +292,27 @@ html body main .registrarse button {
   border: none;
   border-radius: 25px;
   font-size: 1.1em;
-  border: 3px solid #11264b;
-  color: #11264b;
-  box-shadow: #11264b 3px 3px;
+  border: 3px solid #162d53;
+  color: #162d53;
+  box-shadow: #162d53 3px 3px;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
   background-color: #f5f5ff;
-  border: 3px solid #11264b;
-  color: #11264b;
-  box-shadow: #11264b 3px 3px;
+  border: 3px solid #162d53;
+  color: #162d53;
+  box-shadow: #162d53 3px 3px;
   transition: all 0.2s ease;
 }
 html body main .registrarse button:hover {
-  background-color: #e46e20;
+  background-color: #c96625;
   color: #f5f5ff;
-  text-shadow: #11264b 2px 2px;
-  box-shadow: #11264b 5px 5px;
+  text-shadow: #162d53 2px 2px;
+  box-shadow: #162d53 5px 5px;
   transform: scale(0.98);
 }
 html body main .registrarse button:hover {
-  background-color: #c4315d;
+  background-color: #c44051;
 }
 html body .error, html body .success {
   border: 3px solid #f5f5ff;

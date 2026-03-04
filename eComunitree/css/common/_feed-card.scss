@@ -5,9 +5,14 @@
     padding: 20px;
     margin-bottom: 50px;
     border: 5px solid var(--article-color);
-    border-radius: 10px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
+
+    @include respond-to(small) { 
+        padding: 10px; 
+        border-width: 3px;
+    }
 
     &.advert-card { --article-color: #{$color-primary}; }
     &.incidence-card { --article-color: #{$color-accent-light}; }
@@ -18,41 +23,56 @@
     // =========================================================
     header.article-header {
         display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 20px;
+        flex-wrap: wrap;
         border-radius: 10px;
 
         // ARTICLE HEADER TITLE
         h3 { 
-            width: 100%;
+            flex: 1 1 auto;
             background-color: var(--article-color);
             padding: 10px;
-            border-radius: 10px;
+            border-bottom: 20px solid $color-dark;
+            border-radius: 10px 0 0 0;
             color: $color-light;
-            text-shadow: $color-dark 3px 3px;
+            text-shadow: $color-shadow 3px 3px;
+            text-wrap: nowrap;
             font-size: 2.2em; 
+
+            @include respond-to(small) { 
+                font-size: 1.5em;
+                border-width: 10px;
+            }
 
             i { margin-right: 10px; }
         }
 
         // ARTICLE HEADER USER
         .article-header-user {
-            padding: 5px 5px 0px 15px;
+            flex: 0 0 auto;
+            margin-left: auto;
+            padding: 5px 5px 5px 15px;
             font-size: 1.2em;
-            border-radius: 10px 10px 0 0;
+            border-left: 20px solid $color-dark;
+            border-radius: 0 10px 0 0;
             display: flex;
-            gap: 20px;
+            gap: 30px;
             background-color: $color-light;
 
-            @include respond-to(small) { font-size: 1.1em; }
+            @include respond-to(small) { 
+                font-size: 0.8em; 
+                gap: 15px;
+                border-width: 10px;
+            }
 
             img {
                 width: 70px;
+                height: 70px;
+                box-shadow: $color-shadow 0 0 5px 0;
                 border-radius: 100px;
 
                 @include respond-to(small) { 
-                    width: 60px; 
+                    width: 40px; 
+                    height: 40px;
                     border-width: 2px;
                 }
             }
@@ -63,6 +83,7 @@
                 flex-direction: column;
                 font-size: 0.9em;
                 color: $color-dark;
+                text-wrap: nowrap;
 
                 strong {
                     font-size: 1.2em;
@@ -83,27 +104,10 @@
         display: flex;
         flex-direction: column;
         background-color: $color-light;
-        border-radius: 10px 0 10px 10px;
+        border-radius: 0 0 10px 10px;
         color: $color-dark;
 
-        @include respond-to(small) { padding: 10px; }
-
-        // ARTICLE BODY TITLE
-        header.article-body-title {
-            width: fit-content;
-            color: $color-light;
-            font-size: 1.5em; 
-            padding: 10px 15px;
-            border-radius: 10px;
-            background: linear-gradient(
-                to right,
-                $color-dark,
-                lighten($color-dark, $amount: 10)
-            );
-            font-weight: bold;
-
-            @include respond-to(small) { font-size: 0.7em; }
-        }
+        @include respond-to(small) { padding: 5px; }
 
         // ARTICLE BODY CONTENT
         div.article-body-content {
@@ -112,12 +116,31 @@
             font-size: 1.7em;
             background-color: $color-card;
             color: $color-light;
-            text-shadow: $color-dark 3px 3px;
-            box-shadow: $color-dark 0 0 10px 5px;
-            margin: 20px 0;
+            margin-bottom: 10px;
             border-radius: 10px;
 
-            @include respond-to(small) { font-size: 1.3em; }
+            @include respond-to(small) { 
+                font-size: 1.3em; 
+                margin-bottom: 5px;
+            }
+
+            // ARTICLE BODY TITLE
+            h4 {
+                width: fit-content;
+                margin: 15px;
+                color: $color-dark;
+                font-size: 1em; 
+                font-weight: bold;
+                padding: 10px 15px;
+                border-radius: 10px;
+                background-color: $color-light;
+
+                @include respond-to(small) { 
+                    font-size: 0.7em; 
+                    margin: 5px;
+                    padding: 5px 10px;
+                }
+            }
 
             img {
                 @include respond-to(small) {
@@ -140,8 +163,13 @@
                 font-size: 1.5em; 
                 font-weight: bold;
                 font-family: $parrafo;
+                text-shadow: $color-shadow 3px 3px;
+                line-height: 1.3em;
 
-                @include respond-to(small) { margin: 15px; }
+                @include respond-to(small) { 
+                    margin: 15px; 
+                    font-size: 1.2em;
+                }
 
                 i { 
                     font-size: 0.9em; 
@@ -161,6 +189,8 @@
             text-wrap: nowrap;
             margin-left: auto;
             font-size: 0.9em;
+
+            @include respond-to(small) { font-size: 0.7em; }
 
             p { 
                 font-weight: bold;

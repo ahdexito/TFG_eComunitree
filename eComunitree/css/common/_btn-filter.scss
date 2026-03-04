@@ -14,14 +14,13 @@
     gap: 20px;
     cursor: pointer;
     text-decoration: none;
-    text-wrap: nowrap;
     text-align: end;
     font-weight: bold;
     transition: all 0.2s ease;
 
     @include no-subrayable;
 
-    @include respond-to(small) { width: 120px; }
+    @include respond-to(small) { width: 140px; }
 
     i { font-size: 1.5em; }
 
@@ -57,8 +56,8 @@
     border-radius: 0 0 20px 20px;
 
     @include respond-to(small) { 
-        width: 126px; 
-        right: -3px;
+        width: 147px; 
+        right: -4px;
     }
 }
 

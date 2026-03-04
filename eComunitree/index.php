@@ -179,11 +179,9 @@
                         </header>
 
                         <section class="article-body">
-                            <header class="article-body-title">
-                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?> </h4>
-                            </header>
-
                             <div class="article-body-content">
+                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?> </h4>
+
                                 <p><?= '<i class="fa-solid fa-quote-left"></i>' . $p['contenido'] . '<i class="fa-solid fa-quote-right"></i>' ?></p>
                             </div>
 
@@ -256,11 +254,9 @@
                         </header>  
                         
                         <section class="article-body">
-                            <header class="article-body-title">
-                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?> </h4>
-                            </header>
-
                             <div class="article-body-content">
+                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?> </h4>
+
                                 <p><?= '<i class="fa-solid fa-quote-left"></i>' . $p['contenido'] . '<i class="fa-solid fa-quote-right"></i>' ?></p>
                             </div>
 
@@ -290,12 +286,10 @@
                             </div>
                         </header>
 
-                        <section class="article-body">
-                            <header class="article-body-title">
-                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['tipo_incidencia_nombre'] ?>: <?= $p['titulo'] ?></h4>
-                            </header>
-
+                        <section class="article-body">                                
                             <div class="article-body-content">
+                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?></h4>
+
                                 <?php if ($p['foto'] !== 'default.jpg'): ?>
                                     <img src="img_incidencias/<?= $p['foto'] ?>" alt="Imagen de la incidencia">
                                 <?php endif; ?>

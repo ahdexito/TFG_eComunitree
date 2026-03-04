@@ -39,8 +39,9 @@
     }
 
     .dots {
-        border: none;
-        background: transparent;
+        border: 3px solid $color-dark;
+        background: #43526e;
+        color: $color-light;
         cursor: default;
     }
 

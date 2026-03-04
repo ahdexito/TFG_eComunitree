@@ -21,7 +21,7 @@ header.body-header {
 
         &:hover { 
             transform: scale(1.05); 
-            box-shadow: $color-shadow 5px 5px;
+            box-shadow: #000 0 0 10px 2px;
             animation: animarFondo 0.7s linear infinite;
         }
 
@@ -44,6 +44,7 @@ header.body-header {
         background-color: $color-dark;
         padding-left: 30px;
         border: 3px solid $color-light;
+        border-right: none;
         border-radius: 100px;
         display: flex;
         align-items: center;
@@ -76,10 +77,11 @@ header.body-header {
                 border: 3px solid $color-light;
                 border-radius: 100px;
                 transition: transform 0.2s ease;
+                box-shadow: $color-shadow -5px 0 5px 0;
 
                 &:hover { 
                     transform: scale(1.05);
-                    box-shadow: #000 0 0 15px 6px;
+                    box-shadow: #000 0 0 10px 2px;
                 }
             }
         }

@@ -51,9 +51,10 @@
             <h1>eComunitree</h1>
         </a>
         <div class="user">
-            <div class="user-name">
-                <p><?= $_SESSION["nombre"] ?> (<?= $_SESSION["vivienda"] ?>)</p>
-                <p><?= ucfirst($_SESSION["rol"]) ?></p>
+            <div class="user-info">
+                <strong><?= $_SESSION["nombre"] ?></strong>
+                <i><?= $_SESSION["vivienda"] ?></i>
+                <i><?= ucfirst($_SESSION["rol"]) ?></i>
             </div>
             <a href="desconectar.php" title="Cerrar sesión">
                 <img src="img_user/<?= $_SESSION["foto"]; ?>" alt="Perfil de <?= $_SESSION['nombre']; ?>">
