@@ -1,13 +1,18 @@
 @import 'variables';
 
 header.body-header {
-    border-radius: 10px;
     padding: 10px 10px;
     padding-right: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: $color-dark-transparent;
+    background: linear-gradient(
+        to right,
+        $color-light-transparent 0%,
+        $color-dark-transparent 30%,
+        $color-dark-transparent 70%,
+        $color-light-transparent 100%
+    );
     
     a.btn-index {
         background-color: $color-dark;

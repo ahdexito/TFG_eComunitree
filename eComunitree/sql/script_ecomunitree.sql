@@ -214,86 +214,86 @@ INSERT INTO usuarios
 (nombre, apellidos, email, password, rol, telefono, vivienda, foto, activo) VALUES
 
 -- JUNTA DIRECTIVA --
-('Antonio', 'Recio', 'antonio@pescaderia.es',
+('Antonio', 'Recio', 'antrec@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'presidente', '600111002', '1ºC', 'antonio.jpg', TRUE),
 
-('Coque', 'Calatrava', 'coque@mirador.es',
+('Coque', 'Calatrava', 'coqcal@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'admin', '600111005', 'Caravana', 'coque.jpg', TRUE),
 
 -- VECINOS --
-('Enrique', 'Pastor', 'enrique@mirador.es',
+('Enrique', 'Pastor', 'enrpas@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111001', '2ºB', 'enrique.jpg', TRUE),
 
-('Amador', 'Rivas', 'amador@mirador.es',
+('Amador', 'Rivas', 'amariv@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111003', 'Bajo A', 'default.jpg', TRUE),
 
-('Maite', 'Figueroa', 'maite@mirador.es',
+('Maite', 'Figueroa', 'maifig@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111004', '2ºA', 'default.jpg', TRUE),
 
-('Judith', 'Becker', 'judith@mirador.es',
+('Judith', 'Becker', 'judbec@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111006', 'Ático A', 'default.jpg', TRUE),
 
-('Javi', 'Maroto', 'javi@mirador.es',
+('Javi', 'Maroto', 'javmar@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111007', 'Bajo B', 'default.jpg', TRUE),
 
-('Lola', 'Trujillo', 'lola@mirador.es',
+('Lola', 'Trujillo', 'loltru@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111008', 'Bajo B', 'default.jpg', TRUE),
 
-('Vicente', 'Maroto', 'vicente@mirador.es',
+('Vicente', 'Maroto', 'vicmar@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111009', '2ºB', 'default.jpg', TRUE),
 
-('Fermín', 'Trujillo', 'fermin@mirador.es',
+('Fermín', 'Trujillo', 'fertru@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111010', 'Bajo B', 'default.jpg', TRUE),
 
-('Nines', 'Chacón', 'nines@mirador.es',
+('Nines', 'Chacón', 'nincha@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111011', '1ºA', 'default.jpg', TRUE),
 
-('Raquel', 'Villanueva', 'raquel@mirador.es',
+('Raquel', 'Villanueva', 'raqvil@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111012', '1ºA', 'default.jpg', TRUE),
 
-('Estela', 'Reynolds', 'estela@mirador.es',
+('Estela', 'Reynolds', 'estrey@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111013', 'Bajo B', 'default.jpg', TRUE),
 
-('Rebeca', 'Ortiz', 'rebeca@mirador.es',
+('Rebeca', 'Ortiz', 'rebort@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111014', 'Ático A', 'default.jpg', TRUE),
 
-('Bruno', 'Quiroga', 'bruno@mirador.es',
+('Bruno', 'Quiroga', 'bruqui@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111015', '1ºB', 'default.jpg', TRUE),
 
-('Yoli', 'Morcillo', 'yoli@mirador.es',
+('Yoli', 'Morcillo', 'yolmor@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111016', '2ºB', 'default.jpg', TRUE),
 
-('Izaskun', 'Sagastume', 'izaskun@mirador.es',
+('Izaskun', 'Sagastume', 'izasag@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111017', 'Bajo A', 'izaskun.jpg', TRUE),
 
-('Leo', 'Castañeda', 'leo@mirador.es',
+('Leo', 'Castañeda', 'leocas@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111019', '1ºB', 'default.jpg', TRUE),
 
-('Berta', 'Escobar', 'berta@mirador.es',
+('Berta', 'Escobar', 'beresc@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
 'vecino', '600111020', '1ºC', 'default.jpg', TRUE),
 
-('Araceli', 'Madariaga', 'araceli@mirador.es',
+('Araceli', 'Madariaga', 'aramad@ecomunitree.com',
 '$2y$10$KYSgjEXRQgY/AnoqR0zAzes35VHCEpbal5J4TIjb2YRcjdkecmo3y',
-'vecino', '600111018', 'Bajo A', 'default.jpg', TRUE); 
+'vecino', '600111018', 'Bajo A', 'default.jpg', TRUE);
 
 
 -- ------------------------------------

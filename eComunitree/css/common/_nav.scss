@@ -7,7 +7,7 @@ nav {
 
     ul {
         width: 100%;
-        margin: 10px 0;
+        border-bottom: 3px solid $color-light;
         list-style-type: none;
         padding: 10px;
         display: flex;
@@ -21,13 +21,6 @@ nav {
             $color-dark-transparent 30%,
             $color-dark-transparent 70%,
             $color-light-transparent 100%
-        );
-        mask-image: linear-gradient(
-            to right,
-            transparent 0%,
-            black 5%,
-            black 95%,
-            transparent 100%
         );
 
         li a { color: $color-light; }

@@ -25,7 +25,6 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
-  padding: 20px;
 }
 
 img {
@@ -98,13 +97,12 @@ img {
 }
 
 header.body-header {
-  border-radius: 10px;
   padding: 10px 10px;
   padding-right: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(41, 65, 104, 0.5803921569);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.5568627451) 0%, rgba(41, 65, 104, 0.5803921569) 30%, rgba(41, 65, 104, 0.5803921569) 70%, rgba(255, 255, 255, 0.5568627451) 100%);
 }
 header.body-header a.btn-index {
   background-color: #162d53;
@@ -439,7 +437,7 @@ nav {
 }
 nav ul {
   width: 100%;
-  margin: 10px 0;
+  border-bottom: 3px solid #f5f5ff;
   list-style-type: none;
   padding: 10px;
   display: flex;
@@ -448,8 +446,6 @@ nav ul {
   color: #f5f5ff;
   text-shadow: #162d53 2px 2px;
   background: linear-gradient(to right, rgba(255, 255, 255, 0.5568627451) 0%, rgba(41, 65, 104, 0.5803921569) 30%, rgba(41, 65, 104, 0.5803921569) 70%, rgba(255, 255, 255, 0.5568627451) 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-          mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 nav ul li a {
   color: #f5f5ff;
