@@ -11,10 +11,12 @@ nav {
         list-style-type: none;
         padding: 10px;
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         gap: 5px;
         color: $color-light;
-        text-shadow: $color-dark 2px 2px;
+        text-shadow: $color-shadow 2px 2px;
+        text-wrap: nowrap;
         background: linear-gradient(
             to right,
             $color-light-transparent 0%,

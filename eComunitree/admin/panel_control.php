@@ -19,6 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eComunitree | Panel Control</title>
     <link rel="stylesheet" href="../css/panel_control/panel_control.css">
+    <link rel="icon" href="../img/logo-favicon.png" type="image/png">
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -41,8 +42,7 @@
 
     <nav>
         <ul>
-            <li>NAVEGACIÓN</li>
-            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li><i class="fa-solid fa-house"></i></li>
             <li><a href="../index.php">Inicio</a></li>
             <li><i class="fa-solid fa-angle-right"></i></li>
             <li>Panel Control</li>
@@ -76,12 +76,6 @@
             <h3>Navegación</h3>
             <hr>
             <ul>
-                <li>
-                    <a href="../index.php">
-                        <i class="fa-solid fa-house"></i>
-                        Inicio
-                    </a>
-                </li>
                 <li class="has-dropdown">
                     <p>
                         <i class="fa-solid fa-comments"></i>

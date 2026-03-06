@@ -45,6 +45,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insertar Servicio</title>
     <link rel="stylesheet" href="../css/insert_edit/insert_edit.css">
+    <link rel="icon" href="../img/logo-favicon.png" type="image/png">
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -67,8 +68,7 @@
 
     <nav>
         <ul>
-            <li>NAVEGACIÓN</li>
-            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li><i class="fa-solid fa-house"></i></li>
             <li><a href="../index.php">Inicio</a></li>
             <li><i class="fa-solid fa-angle-right"></i></li>
             <li><a href="panel_control.php">Panel Control</a></li>
@@ -82,8 +82,7 @@
     <main>
         <section class="panel-control">
             <div class="section-header">
-                <i class="fa-regular fa-square-plus icono-header"></i>
-                <h2>Insertar Servicio</h2>
+                <h2><i class="fa-regular fa-square-plus icono-header"></i> Insertar Servicio</h2>
             </div>
 
             <hr>
@@ -135,12 +134,6 @@
             <h3>Navegación</h3>
             <hr>
             <ul>
-                <li>
-                    <a href="../index.php">
-                        <i class="fa-solid fa-house"></i>
-                        Inicio
-                    </a>
-                </li>
                 <li class="has-dropdown">
                     <p>
                         <i class="fa-solid fa-comments"></i>

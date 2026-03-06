@@ -42,6 +42,7 @@ header.body-header {
             font-size: 3em;
             font-family: $titulo;
             margin-right: 30px;
+            text-shadow: $color-shadow 3px 3px;
         }
     }
 
@@ -55,6 +56,12 @@ header.body-header {
         align-items: center;
         gap: 20px;
         color: $color-light;
+        text-shadow: $color-shadow 2px 2px;
+
+        @include respond-to(small) { 
+            padding: 0; 
+            border: none;
+        }
 
         .user-info {
             display: flex;

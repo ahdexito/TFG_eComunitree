@@ -9,11 +9,11 @@
     }
 
     // LÓGICA DE FILTRADO
-    $filtro_tipo = isset($_GET['tipo']) ? $_GET['tipo'] : 'todos';
+    $filtro_tipo = isset($_GET['tipo']) ? $_GET['tipo'] : 'todas';
     $where_sql = "";
     $params_url = "";
 
-    if ($filtro_tipo !== 'todos') {
+    if ($filtro_tipo !== 'todas') {
         // Validamos para evitar inyecciones (solo permitimos estos 3 tipos)
         if (in_array($filtro_tipo, ['aviso', 'incidencia', 'votacion'])) {
             $where_sql = " WHERE p.tipo = '$filtro_tipo' ";
@@ -64,6 +64,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eComunitree | Index</title>
     <link rel="stylesheet" href="css/index/index.css">
+    <link rel="icon" href="img/logo-favicon.png" type="image/png">
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -98,8 +99,7 @@
 
     <nav>
         <ul>
-            <li>NAVEGACIÓN</li>
-            <li><i class="fa-solid fa-angle-right"></i></li>
+            <li><i class="fa-solid fa-house"></i></li>
             <li>Inicio</li>
         </ul>
     </nav>
@@ -114,7 +114,7 @@
                         <p>FILTRO: <br> <?= strtoupper($filtro_tipo) ?></p>
                     </div>
                     <div id="filter-menu" class="filter-menu">
-                        <a href="index.php?tipo=todos">Todos</a>
+                        <a href="index.php?tipo=todas">Todas las Publicaciones</a>
                         <a href="index.php?tipo=votacion">Votaciones</a>
                         <a href="index.php?tipo=aviso">Avisos</a>
                         <a href="index.php?tipo=incidencia">Incidencias</a>
@@ -379,12 +379,6 @@
             <h3>Navegación</h3>
             <hr>
             <ul>
-                <li>
-                    <a href="index.php">
-                        <i class="fa-solid fa-house"></i>
-                        Inicio
-                    </a>
-                </li>
                 <li class="has-dropdown">
                     <p>
                         <i class="fa-solid fa-comments"></i>

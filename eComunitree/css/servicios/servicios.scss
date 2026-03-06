@@ -62,7 +62,10 @@ body {
                     text-wrap: nowrap;
                 }
 
-                small { font-style: italic }
+                small { 
+                    font-style: italic;
+                    font-weight: lighter;
+                }
 
                 input {
                     background-color: $color-light;

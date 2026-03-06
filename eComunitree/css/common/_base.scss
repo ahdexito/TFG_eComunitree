@@ -12,7 +12,7 @@
 }
 
 html {
-    background: url(../../img/fondo6.jpg);
+    background: url(../../img/fondo.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -39,14 +39,13 @@ img { @include no-subrayable; }
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: $color-dark 3px 3px 0;
 
     &:hover {
         transform: scale(1.1);
         background-color: $color-accent;
         color: $color-light;
-        box-shadow: $color-dark 5px 5px 0;
-        text-shadow: $color-dark 4px 4px;
+        box-shadow: $color-shadow 3px 3px 0;
+        text-shadow: $color-shadow 4px 4px;
     }
 }
 

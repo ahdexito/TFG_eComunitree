@@ -58,7 +58,10 @@ body {
                 margin: auto;
                 margin-top: 20px;
                 padding: 20px;
-                background-color: $color-card;
+                background: radial-gradient(
+                    $color-card,
+                    lighten($color-dark, $amount: 10)
+                );
                 border: 3px solid $color-light;
                 box-shadow: $color-dark 5px 5px 0;
                 border-radius: 10px;

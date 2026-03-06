@@ -6,7 +6,6 @@
     background-color: $color-light;
     padding: 10px 15px;
     border: 3px solid $color-dark;
-    box-shadow: $color-dark 2px 2px 0;
     border-radius: 50px;
     display: flex;
     align-items: center;
@@ -27,9 +26,9 @@
     &:hover, &.active {
         transform: scale(1.05);
         color: $color-light;
-        text-shadow: $color-dark 1px 2px;
+        text-shadow: $color-shadow 1px 2px;
         background-color: $color-accent-light;
-        box-shadow: $color-dark 5px 5px;
+        box-shadow: $color-shadow 3px 3px;
     }
 
     &.active { 

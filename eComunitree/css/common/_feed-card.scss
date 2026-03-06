@@ -23,24 +23,28 @@
     // =========================================================
     header.article-header {
         display: flex;
+        gap: 20px;
         flex-wrap: wrap;
         border-radius: 10px;
+
+        @include respond-to(small) { gap: 10px; }
 
         // ARTICLE HEADER TITLE
         h3 { 
             flex: 1 1 auto;
             background-color: var(--article-color);
             padding: 10px;
-            border-bottom: 20px solid $color-dark;
+            box-shadow: $color-shadow 5px 5px 0;
             border-radius: 10px 0 0 0;
             color: $color-light;
             text-shadow: $color-shadow 3px 3px;
             text-wrap: nowrap;
             font-size: 2.2em; 
+            margin-bottom: 20px;
 
             @include respond-to(small) { 
                 font-size: 1.5em;
-                border-width: 10px;
+                margin-bottom: 10px;
             }
 
             i { margin-right: 10px; }
@@ -52,16 +56,15 @@
             margin-left: auto;
             padding: 5px 5px 5px 15px;
             font-size: 1.2em;
-            border-left: 20px solid $color-dark;
             border-radius: 0 10px 0 0;
             display: flex;
             gap: 30px;
             background-color: $color-light;
+            box-shadow: $color-shadow 5px 5px 0;
 
             @include respond-to(small) { 
                 font-size: 0.8em; 
                 gap: 15px;
-                border-width: 10px;
             }
 
             img {
@@ -106,6 +109,7 @@
         background-color: $color-light;
         border-radius: 0 0 10px 10px;
         color: $color-dark;
+        box-shadow: $color-shadow 5px 5px 0;
 
         @include respond-to(small) { padding: 5px; }
 
@@ -114,6 +118,7 @@
             display: block;
             overflow: hidden;
             font-size: 1.7em;
+            border: 3px solid $color-dark;
             background-color: $color-card;
             color: $color-light;
             margin-bottom: 10px;
@@ -129,6 +134,7 @@
                 width: fit-content;
                 margin: 15px;
                 color: $color-dark;
+                border: 3px solid $color-dark;
                 font-size: 1em; 
                 font-weight: bold;
                 padding: 10px 15px;
@@ -262,7 +268,7 @@
                     color: $color-light;
                     font-size: 1em;
                     font-weight: bold;
-                    transition: all 0.1s linear;
+                    transition: all 0.05s ease;
                     text-wrap: nowrap;
                     text-align: center;
                 }

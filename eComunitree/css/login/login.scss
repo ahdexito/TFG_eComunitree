@@ -9,7 +9,6 @@
     font-size: 1.1em;
     border: 3px solid $color-dark;
     color: $color-dark;
-    box-shadow: $color-dark 3px 3px;
 }
 
 @mixin button {
@@ -21,14 +20,13 @@
     background-color: $color-light;
     border: 3px solid $color-dark;
     color: $color-dark;
-    box-shadow: $color-dark 3px 3px;
     transition: all 0.2s ease;
     &:hover {
         background-color: $color-accent-light;
         color: $color-light;
-        text-shadow: $color-dark 2px 2px;
-        box-shadow: $color-dark 5px 5px;
-        transform: scale(0.98);
+        text-shadow: $color-shadow 2px 2px;
+        box-shadow: $color-shadow 5px 5px;
+        transform: scale(1.05);
     }
 }
 
@@ -68,7 +66,7 @@ html {
     // BODY
     // =========================================================
     body {
-        background-color: $color-light-transparent;
+        background-color: $color-dark-transparent;
         border-radius: 20px;
         padding: 20px;
         max-width: 1000px;
@@ -80,15 +78,8 @@ html {
         // HEADER
         // =========================================================
         header {
-            background: linear-gradient(
-                160deg,
-                $color-dark-transparent,
-                $color-primary-transparent,
-                $color-primary-transparent,
-                $color-dark-transparent
-            );
+            background-color: $color-dark;
             border: 3px solid $color-light;
-            box-shadow: $color-dark 4px 4px;
             border-radius: 15px;
             padding: 20px;
             display: flex;
@@ -105,7 +96,7 @@ html {
                 @include respond-to(small) { font-size: 3em; }
                 font-size: 3.5em;
                 color: $color-light;
-                text-shadow: $color-dark 5px 5px 0px;
+                text-shadow: $color-shadow 5px 5px 0px;
                 font-family: $titulo;
             }
         }
@@ -115,22 +106,18 @@ html {
             margin: 20px;
             text-align: center;
             color: $color-light;
-            text-shadow: $color-dark 3px 3px;
+            text-shadow: $color-shadow 3px 3px;
         }
     
         // =========================================================
         // MAIN
         // =========================================================
         main {
-            background: linear-gradient(
-                to bottom,
-                $color-dark-transparent,
-                $color-accent-transparent,
-                $color-accent-transparent,
-                $color-dark-transparent
+            background: radial-gradient(
+                $color-card,
+                lighten($color-dark, $amount: 10)
             );
             border: 3px solid $color-light;
-            box-shadow: $color-dark 4px 4px;
             border-radius: 15px;
             padding: 20px;
             display: flex;
@@ -142,7 +129,7 @@ html {
 
             h3 {
                 color: $color-light;
-                text-shadow: $color-dark 3px 3px 0;
+                text-shadow: $color-shadow 3px 3px 0;
                 font-size: 2em;
                 font-family: $titulo;
             }
@@ -162,6 +149,7 @@ html {
                     align-items: center;
                     gap: 10px;
                     margin-left: 15px;
+                    text-shadow: $color-shadow 2px 2px;
         
                     .check {
                         width: 20px;
@@ -194,7 +182,7 @@ html {
                     label {
                         margin: 0 20px 5px;
                         color: $color-light;
-                        text-shadow: $color-dark 2px 2px;
+                        text-shadow: $color-shadow 2px 2px;
                         text-align: left;
                     }
                 }
@@ -204,7 +192,7 @@ html {
                     p {
                         margin: 0 20px 5px;
                         color: $color-light;
-                        text-shadow: $color-dark 2px 2px;
+                        text-shadow: $color-shadow 2px 2px;
                         text-align: left;
                         flex-basis: 100%;
                     }
@@ -245,7 +233,7 @@ html {
                             input[type="radio"]:checked + label {
                                 background-color: $color-accent-light;
                                 color: $color-light;
-                                text-shadow: $color-dark 2px 2px;
+                                text-shadow: $color-shadow 2px 2px;
                             }
                         }
                     }
@@ -255,7 +243,7 @@ html {
             hr {
                 border: 2px solid $color-light;
                 border-radius: 10px;
-                box-shadow: $color-dark 3px 3px;
+                box-shadow: $color-shadow 3px 3px;
             }
             
             // =========================================================
@@ -271,6 +259,7 @@ html {
                     color: $color-light;
                     font-size: 1.6em;
                     text-align: center;
+                    text-shadow: $color-shadow 3px 3px;
                 }
         
                 button { 
