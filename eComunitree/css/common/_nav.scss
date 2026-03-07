@@ -4,12 +4,13 @@ nav {
     position: sticky;
     top: 0;
     z-index: 200;
+    box-shadow: $color-shadow 0 10px 10px 1px;
 
-    ul {
+    ul.navegacion {
         width: 100%;
         border-bottom: 3px solid $color-light;
         list-style-type: none;
-        padding: 10px;
+        padding: 15px 50px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -17,14 +18,22 @@ nav {
         color: $color-light;
         text-shadow: $color-shadow 2px 2px;
         text-wrap: nowrap;
+        font-size: 1.2em;
         background: linear-gradient(
             to right,
-            $color-light-transparent 0%,
-            $color-dark-transparent 30%,
-            $color-dark-transparent 70%,
-            $color-light-transparent 100%
+            $color-light-transparent,
+            $color-dark-transparent,
+            $color-dark-transparent,
+            $color-light-transparent
         );
 
-        li a { color: $color-light; }
+        li {
+            font-family: $titulo;
+
+            a { 
+                color: $color-light; 
+                font-family: $titulo; 
+            }
+        }
     }
 }

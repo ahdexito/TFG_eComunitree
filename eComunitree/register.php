@@ -12,13 +12,19 @@
         $vivienda = trim($_POST["vivienda"]);
         $email = trim($_POST["email"]);
         $password_input = $_POST["password"];
+        $password_again = $_POST["passagain"];
         $rol_predeterminado = 'vecino';
 
         // VALIDACIÓN DE CAMPOS OBLIGATORIOS
-        if (!empty($nombre) && !empty($vivienda) && !empty($email) && !empty($password_input)) {
+        if (!empty($nombre) && !empty($vivienda) && !empty($email) && !empty($password_input) && !empty($password_again)) {
             
+            // VERIFICAR QUE DOBLE CAMPO PASSWORD COINCIDE
+            if ($password_input !== $password_again) {
+                $error_msg = "Las contraseñas no coinciden.";
+            }
+
             // VALIDAR FORMATO DE EMAIL
-            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            elseif (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 
                 // VERIFICAR SI EMAIL EXISTE
                 $stmt_check = $conn->prepare("SELECT id_usuario FROM usuarios WHERE email = ?");
@@ -41,7 +47,20 @@
                     $stmt_insert->bind_param("ssssss", $nombre, $apellidos, $email, $password_hashed, $rol_predeterminado, $vivienda);
 
                     if ($stmt_insert->execute()) {
-                        $success_msg = "Registro completado con éxito. Ya puedes iniciar sesión.";
+                        $nuevo_id = $conn->insert_id;
+
+                        // Iniciar sesión con los datos del formulario
+                        $_SESSION["id_usuario"] = $nuevo_id;
+                        $_SESSION["nombre"] = $nombre;
+                        $_SESSION["email"] = $email;
+                        $_SESSION["rol"] = $rol_predeterminado;
+                        $_SESSION["vivienda"] = $vivienda;
+                        $_SESSION["foto"] = 'default.jpg';
+
+                        // Redirigir directamente al index
+                        header("Location: index.php");
+                        die();
+
                     } else {
                         $error_msg = "Hubo un error al guardar los datos. Inténtalo de nuevo.";
                     }
@@ -89,18 +108,46 @@
     <main>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
             <h3>Introduce tus datos</h3>
+
             <hr>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
-            <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
-            <input type="text" name="vivienda" id="vivienda" placeholder="Vivienda (Ej: 1ºC)" required>
-            <input type="email" name="email" id="email" placeholder="Correo electrónico" required>
-            <input type="password" name="password" id="password" placeholder="Contraseña" required>
+
+            <div class="casilla">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+            </div>
+            
+            <div class="casilla">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+            </div>
+            
+            <div class="casilla">
+                <label for="vivienda">Vivienda</label>
+                <input type="text" name="vivienda" id="vivienda" placeholder="Vivienda (Ej: 1ºC)" required>
+            </div>
+            
+            <div class="casilla">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" name="email" id="email" placeholder="Correo electrónico" required>
+            </div>
+            
+            <div class="casilla">
+                <label for="password">Contraseña</label>
+                <input type="password" name="password" id="password" class="password" placeholder="Contraseña" required>
+            </div>
+            
+            <div class="casilla">
+                <label for="passagain">Repite Contraseña</label>
+                <input type="password" name="passagain" id="passagain" class="password" placeholder="Repite contraseña" required>
+            </div>
+
             <hr>
+
             <div class="register-footer">
                 <a href="login.php">
                     <i class="fa-solid fa-arrow-left"></i>
                 </a>
-                <button type="submit">Registrarme</button>
+                <button type="submit">Confirmar y entrar</button>
             </div>
         </form>
     </main>

@@ -1,6 +1,9 @@
 <?php
     session_start();
+
     include("../db/db.inc");
+
+    $base = "../";
     
     if (!isset($_SESSION["rol"]) || $_SESSION["rol"] === 'vecino') {
         header("location:../index.php");
@@ -18,7 +21,7 @@
         $conn->begin_transaction();
 
         try {
-            // 1. Insertar en la tabla padre (publicaciones)
+            // Insertar en la tabla padre (publicaciones)
             $sql1 = "INSERT INTO publicaciones (id_usuario, tipo, titulo, contenido) VALUES (?, ?, ?, ?)";
             $stmt1 = $conn->prepare($sql1);
             $stmt1->bind_param("isss", $id_usuario, $tipo_publicacion, $titulo, $contenido);
@@ -26,13 +29,13 @@
 
             $id_pub = $conn->insert_id;
 
-            // 2. Insertar en la tabla votaciones
+            // Insertar en la tabla votaciones
             $sql2 = "INSERT INTO votaciones (id_publicacion, fecha_cierre) VALUES (?, ?)";
             $stmt2 = $conn->prepare($sql2);
             $stmt2->bind_param("is", $id_pub, $fecha_cierre);
             $stmt2->execute();
 
-            // 3. Insertar las opciones de votación
+            // Insertar las opciones de votación
             $sql3 = "INSERT INTO opciones_votacion (id_publicacion, texto) VALUES (?, ?)";
             $stmt3 = $conn->prepare($sql3);
 
@@ -66,25 +69,12 @@
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="body-header">
-        <a href="../index.php" class="btn-index">
-            <img src="../img/logo-transparencia.png" alt="logotipo">
-            <h1>eComunitree</h1>
-        </a>
-        <div class="user">
-            <div class="user-info">
-                <strong><?= $_SESSION["nombre"] ?></strong>
-                <i><?= $_SESSION["vivienda"] ?></i>
-                <i><?= ucfirst($_SESSION["rol"]) ?></i>
-            </div>
-            <a href="desconectar_admin.php" title="Cerrar sesión">
-                <img src="../img_user/<?= $_SESSION["foto"]; ?>" alt="Perfil de <?= $_SESSION['nombre']; ?>">
-            </a>
-        </div>
-    </header>
+    <!-- HEADER -->
+    <?php include("../includes/header.php"); ?>
 
+    <!-- NAV -->
     <nav>
-        <ul>
+        <ul class="navegacion">
             <li><i class="fa-solid fa-house"></i></li>
             <li><a href="../index.php">Inicio</a></li>
             <li><i class="fa-solid fa-angle-right"></i></li>
@@ -94,8 +84,12 @@
             <li><i class="fa-solid fa-angle-right"></i></li>
             <li>Crear Votación</li>
         </ul>
+
+        <!-- ASIDE -->
+        <?php include("../includes/aside.php"); ?>
     </nav>
 
+    <!-- MAIN -->
     <main>
         <section class="panel-control">
             <div class="section-header">
@@ -138,79 +132,10 @@
                 </button>
             </form>
         </section>
-
-        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-        <label for="menu-toggle" class="menu-button"><i class="fa-solid fa-bars"></i></label>
-
-        <aside class="main-aside">
-            <h3>Navegación</h3>
-            <hr>
-            <ul>
-                <li class="has-dropdown">
-                    <p>
-                        <i class="fa-solid fa-comments"></i>
-                        Publicaciones
-                    </p>
-                    <ul class="submenu">
-                        <li>
-                            <a href="../crear_incidencia.php">
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                Crear Incidencia
-                            </a>
-                        </li>
-
-                        <?php if ($_SESSION["rol"] !== 'vecino'): ?>
-                        <li>
-                            <a href="ins_aviso.php">
-                                <i class="fa-solid fa-bullhorn"></i>
-                                Crear Aviso
-                            </a>
-                        </li>
-                        <li>
-                            <a href="ins_votacion.php">
-                                <i class="fa-solid fa-envelope"></i>
-                                Crear Votación
-                            </a>
-                        </li>
-                        <li>
-                            <a href="gestion_incidencias.php">
-                                <i class="fa-solid fa-person-digging"></i>
-                                Resolver Incidencia
-                            </a>
-                        </li>
-                        <?php endif; ?>
-                    </ul>
-                </li>
-                <li>
-                    <a href="../servicios.php">
-                        <i class="fa-solid fa-briefcase"></i>
-                        Servicios
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-calendar-days"></i>
-                        Calendario
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-regular fa-file-lines"></i>
-                        Documentación
-                    </a>
-                </li>
-                <?php if ($_SESSION["rol"] !== "vecino"): ?>
-                    <li>
-                        <a href="panel_control.php">
-                            <i class="fa-solid fa-gear"></i>
-                            Panel de Control
-                        </a>
-                    </li>
-                <?php endif; ?>
-            </ul>
-        </aside>
     </main>
 
-    <script type="module" src="../js/main.js"></script>
+    <footer>
+        <script type="module" src="../js/main.js"></script>
+    </footer>
 </body>
 </html>

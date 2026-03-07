@@ -47,10 +47,19 @@ body {
                     flex: 1;
                     color: $color-light; 
                     font-size: 2.5em;
+                    font-family: $titulo;
                     margin-right: 30px;
                     text-shadow: $color-dark 3px 3px 0;
                     width: 100%;
                 }
+            }
+
+            hr {
+                width: 100%;
+                border: 3px solid $color-light;
+                border-radius: 10px;
+                margin-bottom: 50px;
+                box-shadow: $color-dark 3px 3px 0;
             }
 
             form {
@@ -158,6 +167,7 @@ body {
                     box-shadow: $color-dark 3px 3px;
                     font-weight: bold;
                     font-size: 2em;
+                    font-family: $titulo;
                     transition: all 0.2s ease;
 
                     &:hover {

@@ -30,19 +30,12 @@
         transform: scale(1.1);
     }
 
-    .activo {
+    .activo, .dots {
         background-color: $color-dark;
         color: $color-light;
         border-color: $color-light;
         cursor: default;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .dots {
-        border: 3px solid $color-dark;
-        background: #43526e;
-        color: $color-light;
-        cursor: default;
     }
 
     .pag-arrow {

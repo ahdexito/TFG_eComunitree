@@ -3,6 +3,8 @@
 
     include("db/db.inc");
 
+    $base = "./";
+
     if (!isset($_SESSION["rol"])) {
         header("location:login.php");
         die();
@@ -68,23 +70,6 @@
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="body-header" id="inicio">
-        <a href="index.php" class="btn-index">
-            <img src="img/logo-transparencia.png" alt="logotipo">
-            <h1>eComunitree</h1>
-        </a>
-        <div class="user">
-            <div class="user-info">
-                <strong><?= $_SESSION["nombre"] ?></strong>
-                <i><?= $_SESSION["vivienda"] ?></i>
-                <i><?= ucfirst($_SESSION["rol"]) ?></i>
-            </div>
-            <a href="desconectar.php" title="Cerrar sesión">
-                <img src="img_user/<?= $_SESSION["foto"]; ?>" alt="Perfil de <?= $_SESSION['nombre']; ?>">
-            </a>
-        </div>
-    </header>
-
     <?php if (isset($_GET['ins'])): ?>
         <div class="alerta <?php echo ($_GET['ins'] === 'ok') ? 'exito' : 'error'; ?>">
             <?php 
@@ -97,13 +82,21 @@
         </div>
     <?php endif; ?>
 
+    <!-- HEADER -->
+    <?php include("includes/header.php"); ?>
+
+    <!-- NAV -->
     <nav>
-        <ul>
+        <ul class="navegacion">
             <li><i class="fa-solid fa-house"></i></li>
             <li>Inicio</li>
         </ul>
+
+        <!-- ASIDE -->
+        <?php include("includes/aside.php"); ?>
     </nav>
 
+    <!-- MAIN -->
     <main>
         <div class="feed">
             <header class="section-header">
@@ -324,125 +317,10 @@
             <?php endforeach; ?>   
             </section> 
 
-            <div class="pager">
-            <?php 
-                // Configuración: cuántas páginas mostrar alrededor de la actual
-                $rango = 2; 
-                
-                // Botón Anterior
-                if ($pagina > 1): ?>
-                    <a class="pag-arrow" href="?pag=<?= $pagina - 1 ?><?= $params_url ?>" title="Anterior">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </a>
-                <?php endif; ?>
-
-                <?php
-                // Mostrar siempre la primera página si no estamos cerca de ella
-                if ($pagina > ($rango + 1)) {
-                    echo '<a href="?pag=1' . $params_url . '" class="num-link">1</a>';
-                    if ($pagina > ($rango + 2)) echo '<span class="dots">...</span>';
-                }
-
-                // Bucle para páginas centrales
-                for ($i = max(1, $pagina - $rango); $i <= min($total_paginas, $pagina + $rango); $i++): 
-                    if ($i == $pagina): ?>
-                        <span class="num-link activo"><?= $i ?></span>
-                    <?php else: ?>
-                        <a href="?pag=<?= $i ?><?= $params_url ?>" class="num-link"><?= $i ?></a>
-                    <?php endif; 
-                endfor;
-
-                // Mostrar siempre la última página si no estamos cerca de ella
-                if ($pagina < ($total_paginas - $rango)) {
-                    if ($pagina < ($total_paginas - $rango - 1)) echo '<span class="dots">...</span>';
-                    echo '<a href="?pag=' . $total_paginas . $params_url . '" class="num-link">' . $total_paginas . '</a>';
-                }
-                ?>
-
-                <?php // Botón Siguiente
-                if ($pagina < $total_paginas): ?>
-                    <a class="pag-arrow" href="?pag=<?= $pagina + 1 ?><?= $params_url ?>" title="Siguiente">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                <?php endif; ?>
-            </div>
-
-            <a href="#inicio" class="btn-up">
-                <i class="fa-solid fa-angles-up"></i>
-            </a>
-        </div>
-
-        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-        <label for="menu-toggle" class="menu-button"><i class="fa-solid fa-bars"></i></label>
-
-        <aside class="main-aside">
-            <h3>Navegación</h3>
-            <hr>
-            <ul>
-                <li class="has-dropdown">
-                    <p>
-                        <i class="fa-solid fa-comments"></i>
-                        Publicaciones
-                    </p>
-                    <ul class="submenu">
-                        <li>
-                            <a href="crear_incidencia.php">
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-                                Crear Incidencia
-                            </a>
-                        </li>
-
-                        <?php if ($_SESSION["rol"] !== 'vecino'): ?>
-                        <li>
-                            <a href="admin/ins_aviso.php">
-                                <i class="fa-solid fa-bullhorn"></i>
-                                Crear Aviso
-                            </a>
-                        </li>
-                        <li>
-                            <a href="admin/ins_votacion.php">
-                                <i class="fa-solid fa-envelope"></i>
-                                Crear Votación
-                            </a>
-                        </li>
-                        <li>
-                            <a href="admin/gestion_incidencias.php">
-                                <i class="fa-solid fa-person-digging"></i>
-                                Resolver Incidencia
-                            </a>
-                        </li>
-                        <?php endif; ?>
-                    </ul>
-                </li>
-                <li>
-                    <a href="servicios.php">
-                        <i class="fa-solid fa-briefcase"></i>
-                        Servicios
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-calendar-days"></i>
-                        Calendario
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-regular fa-file-lines"></i>
-                        Documentación
-                    </a>
-                </li>
-                <?php if ($_SESSION["rol"] !== "vecino"): ?>
-                    <li>
-                        <a href="admin/panel_control.php">
-                            <i class="fa-solid fa-gear"></i>
-                            Panel de Control
-                        </a>
-                    </li>
-                <?php endif; ?>
-            </ul>
-        </aside>
+            <!-- PAGINADOR -->
+            <?php include("includes/pager.php"); ?>
     </main>
+
     <footer>
         <script type="module" src="./js/main.js"></script>
     </footer>

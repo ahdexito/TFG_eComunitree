@@ -40,6 +40,7 @@
             text-shadow: $color-shadow 3px 3px;
             text-wrap: nowrap;
             font-size: 2.2em; 
+            font-family: $titulo;
             margin-bottom: 20px;
 
             @include respond-to(small) { 
@@ -91,6 +92,7 @@
                 strong {
                     font-size: 1.2em;
                     font-weight: bold;
+                    font-family: $titulo;
                     margin-bottom: 5px;
                 }
 
@@ -137,6 +139,7 @@
                 border: 3px solid $color-dark;
                 font-size: 1em; 
                 font-weight: bold;
+                font-family: $titulo;
                 padding: 10px 15px;
                 border-radius: 10px;
                 background-color: $color-light;
@@ -168,7 +171,6 @@
                 margin: 30px;
                 font-size: 1.5em; 
                 font-weight: bold;
-                font-family: $parrafo;
                 text-shadow: $color-shadow 3px 3px;
                 line-height: 1.3em;
 
@@ -178,7 +180,7 @@
                 }
 
                 i { 
-                    font-size: 0.9em; 
+                    font-size: 0.7em; 
                     transform: translateY(-5px); 
 
                     &:first-child { transform: rotate(-15deg); }
@@ -200,6 +202,7 @@
 
             p { 
                 font-weight: bold;
+                font-family: $titulo;
                 text-wrap: nowrap;
             }
 
@@ -231,7 +234,10 @@
             i { margin-right: 10px; }
         }
         
-        strong { text-decoration: underline; }
+        strong { 
+            text-decoration: underline;
+            font-family: $titulo;
+        }
 
         // VOTE BUTTONS
         .vote-btns {
@@ -317,6 +323,7 @@
             box-shadow: $color-shadow 3px 3px;
             font-size: 1em;
             font-weight: bold;
+            font-family: $titulo;
             transition: all 0.2s ease;
             background: linear-gradient(
                 to right,

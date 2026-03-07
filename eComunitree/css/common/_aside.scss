@@ -25,6 +25,7 @@
         color: $color-light;
         text-shadow: $color-shadow 3px 3px 0;
         font-size: 1.8em;
+        font-family: $titulo;
         margin-bottom: 10px;
     }
 
@@ -51,22 +52,22 @@
             a, p {
                 background-color: $color-light;
                 color: $color-dark;
-                font-size: 1.5em;
+                font-size: 1.3em;
                 font-weight: bold;
-                font-family: $parrafo;
+                font-family: $titulo;
                 text-decoration: none;
                 text-wrap: nowrap;
                 display: flex;
+                flex-flow: row-reverse;
                 align-items: center;
                 justify-content: space-between;
-                gap: 30px;
                 padding: 10px;
                 border: 3px solid $color-dark;
                 border-radius: 10px;
                 transition: all 0.2s ease;
             }
 
-            p { cursor: default; }
+            p { cursor: pointer; }
 
             &:hover > a, &:hover > p {
                 transform: scale(1.05);
@@ -74,9 +75,9 @@
                 color: $color-light;
                 text-shadow: $color-shadow 3px 3px;
                 box-shadow: $color-shadow 5px 5px 0;
-            }
 
-            &:hover > p { margin-bottom: 5px; }
+                @include no-subrayable;
+            }
 
             &.has-dropdown {
                 .submenu {
@@ -108,7 +109,7 @@
                             display: flex;
                             align-items: center;
                             justify-content: space-between;
-                            font-size: 1.2em; 
+                            font-size: 1em; 
     
                             &:hover {
                                 color: $color-light;
@@ -121,11 +122,22 @@
                     }
                 }
     
-                &:hover .submenu { 
-                    max-height: 500px;
-                    opacity: 1;
-                    visibility: visible;
-                    padding: 10px;
+                &.is-active {
+                    > p { 
+                        transform: scale(1.05);
+                        background-color: var(--item-color);
+                        color: $color-light;
+                        text-shadow: $color-shadow 3px 3px;
+                        box-shadow: $color-shadow 5px 5px 0;
+                        margin-bottom: 5px;
+                    }
+
+                    .submenu { 
+                        max-height: 500px;
+                        opacity: 1;
+                        visibility: visible;
+                        padding: 10px;
+                    }
                 }
             }
         }

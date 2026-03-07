@@ -40,6 +40,17 @@
                         $_SESSION["vivienda"] = $usuario["vivienda"];
                         $_SESSION["foto"] = $usuario["foto"];
 
+                        // LÓGICA DE RECUÉRDAME
+                        if (isset($_POST["check"])) {
+                            // Si el checkbox está marcado, guardar el email por 30 días
+                            setcookie("user_email", $email_input, time() + (86400 * 30), "/");
+                        } else {
+                            // Si no está marcado, borrar la cookie
+                            if (isset($_COOKIE["user_email"])) {
+                                setcookie("user_email", "", time() - 3600, "/");
+                            }
+                        }
+
                         header("location:./index.php");
                         die();
                     } else {
@@ -97,24 +108,35 @@
 
     <main>
         <form method="POST">
-            <h3>¡Hola, vecin@!</h3>
+            <h3>¡Hola, vecino/a!</h3>
+
             <hr>
-            <input type="email" name="email" id="email" placeholder="Correo electrónico">
-            <input type="password" name="password" id="password" placeholder="Contraseña">
+
+            <?php 
+                $email_value = isset($_COOKIE["user_email"]) ? $_COOKIE["user_email"] : ""; 
+                $check_status = isset($_COOKIE["user_email"]) ? "checked" : "";
+            ?>
+
+            <input type="email" name="email" id="email" placeholder="Correo electrónico" value="<?php echo $email_value; ?>">
+
+            <input type="password" name="password" id="password" class="password" placeholder="Contraseña">
+
             <div class="recuerdame">
-                <input type="checkbox" name="check" class="check">
-                <label for="check">recuérdame</label>
+                <input type="checkbox" name="check" class="check" id="check" <?php echo $check_status; ?> >
+                <label for="check">Recuérdame</label>
             </div>
+
             <hr>
+
             <button type="submit">Iniciar sesión</button>
         </form>
         
         <section class="registrarse">
-            <h3>¿Eres nuev@?</h3>
+            <h3>¿Eres nuevo/a?</h3>
             <hr>
             <p>Comunícate, vota, reporta incidencias y mantente al día desde un único lugar.</p>
             <hr>
-            <a href="register.php"><button>Registrarse</button></a>
+            <a href="register.php"><button>Registrarme</button></a>
         </section>
     </main>
     <footer>

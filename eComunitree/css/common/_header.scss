@@ -8,10 +8,10 @@ header.body-header {
     justify-content: space-between;
     background: linear-gradient(
         to right,
-        $color-light-transparent 0%,
-        $color-dark-transparent 30%,
-        $color-dark-transparent 70%,
-        $color-light-transparent 100%
+        $color-light-transparent,
+        $color-dark-transparent,
+        $color-dark-transparent,
+        $color-light-transparent
     );
     
     a.btn-index {
@@ -71,8 +71,9 @@ header.body-header {
             @include respond-to(small) { display: none; }
 
             strong { 
-                font-size: 1.3em; 
+                font-size: 1.2em; 
                 margin-bottom: 5px;
+                font-family: $titulo;
             }
         }
 
