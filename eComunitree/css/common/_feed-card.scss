@@ -1,18 +1,16 @@
 @import 'variables';
 
 .feed-body article {
-    background-color: $color-dark;
+    background: url(../../img/ladrillos.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: 20px;
     margin-bottom: 50px;
-    border: 5px solid var(--article-color);
-    border-radius: 20px;
+    border: 3px solid $color-light;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-
-    @include respond-to(small) { 
-        padding: 10px; 
-        border-width: 3px;
-    }
 
     &.advert-card { --article-color: #{$color-primary}; }
     &.incidence-card { --article-color: #{$color-accent-light}; }
@@ -27,14 +25,13 @@
         flex-wrap: wrap;
         border-radius: 10px;
 
-        @include respond-to(small) { gap: 10px; }
-
         // ARTICLE HEADER TITLE
         h3 { 
             flex: 1 1 auto;
             background-color: var(--article-color);
             padding: 10px;
-            box-shadow: $color-shadow 5px 5px 0;
+            box-shadow: $color-shadow 10px 10px 0;
+            border: 3px solid $color-light;
             border-radius: 10px 0 0 0;
             color: $color-light;
             text-shadow: $color-shadow 3px 3px;
@@ -43,17 +40,20 @@
             font-family: $titulo;
             margin-bottom: 20px;
 
-            @include respond-to(small) { 
-                font-size: 1.5em;
-                margin-bottom: 10px;
-            }
-
             i { margin-right: 10px; }
+
+            @include respond-to(small) {
+                flex: 1 1 100%;
+                border-radius: 10px 10px 0 0;
+                text-wrap: balance;
+                margin-bottom: 0;
+            }
         }
 
         // ARTICLE HEADER USER
         .article-header-user {
             flex: 0 0 auto;
+            align-items: center;
             margin-left: auto;
             padding: 5px 5px 5px 15px;
             font-size: 1.2em;
@@ -61,11 +61,14 @@
             display: flex;
             gap: 30px;
             background-color: $color-light;
-            box-shadow: $color-shadow 5px 5px 0;
+            box-shadow: $color-shadow 10px 10px 0;
 
-            @include respond-to(small) { 
-                font-size: 0.8em; 
-                gap: 15px;
+            @include respond-to(small) {
+                flex: 1 1 100%;
+                margin-left: 0;
+                border-radius: 0;
+                justify-content: space-between;
+                text-wrap: wrap;
             }
 
             img {
@@ -73,19 +76,13 @@
                 height: 70px;
                 box-shadow: $color-shadow 0 0 5px 0;
                 border-radius: 100px;
-
-                @include respond-to(small) { 
-                    width: 40px; 
-                    height: 40px;
-                    border-width: 2px;
-                }
             }
 
             .user-info {
                 display: flex;
                 justify-content: flex-end;
                 flex-direction: column;
-                font-size: 0.9em;
+                font-size: 0.8em;
                 color: $color-dark;
                 text-wrap: nowrap;
 
@@ -93,7 +90,7 @@
                     font-size: 1.2em;
                     font-weight: bold;
                     font-family: $titulo;
-                    margin-bottom: 5px;
+                    margin-bottom: 10px;
                 }
 
                 p { font-style: italic; }
@@ -111,9 +108,7 @@
         background-color: $color-light;
         border-radius: 0 0 10px 10px;
         color: $color-dark;
-        box-shadow: $color-shadow 5px 5px 0;
-
-        @include respond-to(small) { padding: 5px; }
+        box-shadow: $color-shadow 10px 10px 0;
 
         // ARTICLE BODY CONTENT
         div.article-body-content {
@@ -125,11 +120,6 @@
             color: $color-light;
             margin-bottom: 10px;
             border-radius: 10px;
-
-            @include respond-to(small) { 
-                font-size: 1.3em; 
-                margin-bottom: 5px;
-            }
 
             // ARTICLE BODY TITLE
             h4 {
@@ -143,20 +133,9 @@
                 padding: 10px 15px;
                 border-radius: 10px;
                 background-color: $color-light;
-
-                @include respond-to(small) { 
-                    font-size: 0.7em; 
-                    margin: 5px;
-                    padding: 5px 10px;
-                }
             }
 
             img {
-                @include respond-to(small) {
-                    float: none;
-                    display: block;
-                    margin: 30px auto 30px;
-                }
                 float: left;
                 width: 200px;
                 height: 200px;
@@ -174,17 +153,14 @@
                 text-shadow: $color-shadow 3px 3px;
                 line-height: 1.3em;
 
-                @include respond-to(small) { 
-                    margin: 15px; 
-                    font-size: 1.2em;
-                }
-
                 i { 
                     font-size: 0.7em; 
-                    transform: translateY(-5px); 
-
-                    &:first-child { transform: rotate(-15deg); }
-                    &:last-child { transform: rotate(15deg); }
+                    &:first-child { 
+                        transform: translateY(-10px) rotate(-15deg); 
+                    }
+                    &:last-child { 
+                        transform: translateY(-10px) rotate(15deg); 
+                    }
                 }
             }
         }
@@ -197,8 +173,6 @@
             text-wrap: nowrap;
             margin-left: auto;
             font-size: 0.9em;
-
-            @include respond-to(small) { font-size: 0.7em; }
 
             p { 
                 font-weight: bold;
@@ -222,13 +196,12 @@
         color: $color-light;
         text-shadow: $color-shadow 3px 3px;
         font-size: 1.5em;
-        border-radius: 40px;
+        border: 3px solid $color-light;
+        border-radius: 10px;
         margin-top: 20px;
-        
-        @include respond-to(small) { 
-            font-size: 1.2em; 
-            text-shadow: $color-shadow 2px 2px;
-        }
+        padding: 20px;
+        background-color: $color-dark-transparent;
+        box-shadow: $color-shadow 10px 10px 0;
 
         strong, p { 
             i { margin-right: 10px; }
@@ -264,7 +237,6 @@
                 }
 
                 span {
-                    @include respond-to(small) { font-size: 0.8em; }
                     display: inline-block;
                     background-color: $color-accent;
                     padding: 15px 10px;

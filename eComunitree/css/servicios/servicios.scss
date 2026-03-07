@@ -67,16 +67,43 @@ body {
                     font-style: italic;
                     font-weight: lighter;
                 }
-
-                input {
-                    background-color: $color-light;
-                    padding: 10px;
-                    border: 3px solid $color-dark;
-                    border-radius: 20px;
-                    width: 100%;
-                    max-width: 500px;
-                    font-size: 1em;
+                
+                form {
                     margin-left: auto;
+                    width: 300px;
+                    display: flex;
+                    justify-content: flex-end;
+
+                    input {
+                        background-color: $color-light;
+                        padding: 10px;
+                        border: 3px solid $color-dark;
+                        border-right: none;
+                        border-radius: 50px 0 0 50px;
+                        width: 100%;
+                        color: $color-dark;
+                        font-size: 1em;
+
+                        &::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+                        &:focus {
+                            outline: none;
+                            border-color: $color-accent-light;
+
+                            & + button {
+                                border-color: $color-accent-light;
+                            }
+                        }
+                    }
+
+                    button {
+                        padding: 10px;
+                        background-color: $color-light;
+                        border: 3px solid $color-dark;
+                        border-left: none;
+                        border-radius: 0 50px 50px 0;
+                        color: $color-dark;
+                    }
                 }
             }
 

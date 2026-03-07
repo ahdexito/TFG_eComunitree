@@ -21,11 +21,6 @@
   font-family: "SN Pro";
   font-size: 0.99em;
 }
-@media (max-width: 600px) {
-  * {
-    font-size: 0.95em;
-  }
-}
 
 html {
   background: url(../../img/fondo.jpg);
@@ -77,24 +72,6 @@ img {
   right: 370px;
 }
 
-.btn-up {
-  margin: 50px auto 70px;
-  padding: 12px 13px;
-  border: 5px solid #f5f5ff;
-  border-radius: 50px;
-  background-color: #122442;
-  color: #f5f5ff;
-  font-size: 1.5em;
-  font-family: "Croissant One";
-  transition: all 0.2s ease;
-}
-.btn-up:hover {
-  transform: scale(1.2);
-  color: #122442;
-  background-color: #f5f5ff;
-  border-color: #122442;
-}
-
 .hr-section {
   width: 100%;
   border: 3px solid #f5f5ff;
@@ -104,19 +81,16 @@ img {
 }
 
 .feed-body article {
-  background-color: #122442;
+  background: url(../../img/ladrillos.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 20px;
   margin-bottom: 50px;
-  border: 5px solid var(--article-color);
-  border-radius: 20px;
+  border: 3px solid #f5f5ff;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-}
-@media (max-width: 600px) {
-  .feed-body article {
-    padding: 10px;
-    border-width: 3px;
-  }
 }
 .feed-body article.advert-card {
   --article-color: #c44051;
@@ -133,16 +107,12 @@ img {
   flex-wrap: wrap;
   border-radius: 10px;
 }
-@media (max-width: 600px) {
-  .feed-body article header.article-header {
-    gap: 10px;
-  }
-}
 .feed-body article header.article-header h3 {
   flex: 1 1 auto;
   background-color: var(--article-color);
   padding: 10px;
-  box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px 0;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 10px 10px 0;
+  border: 3px solid #f5f5ff;
   border-radius: 10px 0 0 0;
   color: #f5f5ff;
   text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
@@ -151,17 +121,20 @@ img {
   font-family: "Croissant One";
   margin-bottom: 20px;
 }
-@media (max-width: 600px) {
-  .feed-body article header.article-header h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-}
 .feed-body article header.article-header h3 i {
   margin-right: 10px;
 }
+@media (max-width: 600px) {
+  .feed-body article header.article-header h3 {
+    flex: 1 1 100%;
+    border-radius: 10px 10px 0 0;
+    text-wrap: balance;
+    margin-bottom: 0;
+  }
+}
 .feed-body article header.article-header .article-header-user {
   flex: 0 0 auto;
+  align-items: center;
   margin-left: auto;
   padding: 5px 5px 5px 15px;
   font-size: 1.2em;
@@ -169,12 +142,15 @@ img {
   display: flex;
   gap: 30px;
   background-color: #f5f5ff;
-  box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px 0;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 10px 10px 0;
 }
 @media (max-width: 600px) {
   .feed-body article header.article-header .article-header-user {
-    font-size: 0.8em;
-    gap: 15px;
+    flex: 1 1 100%;
+    margin-left: 0;
+    border-radius: 0;
+    justify-content: space-between;
+    text-wrap: wrap;
   }
 }
 .feed-body article header.article-header .article-header-user img {
@@ -183,18 +159,11 @@ img {
   box-shadow: rgba(0, 0, 0, 0.6431372549) 0 0 5px 0;
   border-radius: 100px;
 }
-@media (max-width: 600px) {
-  .feed-body article header.article-header .article-header-user img {
-    width: 40px;
-    height: 40px;
-    border-width: 2px;
-  }
-}
 .feed-body article header.article-header .article-header-user .user-info {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  font-size: 0.9em;
+  font-size: 0.8em;
   color: #122442;
   text-wrap: nowrap;
 }
@@ -202,7 +171,7 @@ img {
   font-size: 1.2em;
   font-weight: bold;
   font-family: "Croissant One";
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 .feed-body article header.article-header .article-header-user .user-info p {
   font-style: italic;
@@ -214,12 +183,7 @@ img {
   background-color: #f5f5ff;
   border-radius: 0 0 10px 10px;
   color: #122442;
-  box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px 0;
-}
-@media (max-width: 600px) {
-  .feed-body article section.article-body {
-    padding: 5px;
-  }
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 10px 10px 0;
 }
 .feed-body article section.article-body div.article-body-content {
   display: block;
@@ -230,12 +194,6 @@ img {
   color: #f5f5ff;
   margin-bottom: 10px;
   border-radius: 10px;
-}
-@media (max-width: 600px) {
-  .feed-body article section.article-body div.article-body-content {
-    font-size: 1.3em;
-    margin-bottom: 5px;
-  }
 }
 .feed-body article section.article-body div.article-body-content h4 {
   width: -moz-fit-content;
@@ -249,20 +207,6 @@ img {
   padding: 10px 15px;
   border-radius: 10px;
   background-color: #f5f5ff;
-}
-@media (max-width: 600px) {
-  .feed-body article section.article-body div.article-body-content h4 {
-    font-size: 0.7em;
-    margin: 5px;
-    padding: 5px 10px;
-  }
-}
-@media (max-width: 600px) {
-  .feed-body article section.article-body div.article-body-content img {
-    float: none;
-    display: block;
-    margin: 30px auto 30px;
-  }
 }
 .feed-body article section.article-body div.article-body-content img {
   float: left;
@@ -282,21 +226,14 @@ img {
   text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
   line-height: 1.3em;
 }
-@media (max-width: 600px) {
-  .feed-body article section.article-body div.article-body-content p {
-    margin: 15px;
-    font-size: 1.2em;
-  }
-}
 .feed-body article section.article-body div.article-body-content p i {
   font-size: 0.7em;
-  transform: translateY(-5px);
 }
 .feed-body article section.article-body div.article-body-content p i:first-child {
-  transform: rotate(-15deg);
+  transform: translateY(-10px) rotate(-15deg);
 }
 .feed-body article section.article-body div.article-body-content p i:last-child {
-  transform: rotate(15deg);
+  transform: translateY(-10px) rotate(15deg);
 }
 .feed-body article section.article-body .article-header-date {
   display: flex;
@@ -305,11 +242,6 @@ img {
   text-wrap: nowrap;
   margin-left: auto;
   font-size: 0.9em;
-}
-@media (max-width: 600px) {
-  .feed-body article section.article-body .article-header-date {
-    font-size: 0.7em;
-  }
 }
 .feed-body article section.article-body .article-header-date p {
   font-weight: bold;
@@ -328,14 +260,12 @@ img {
   color: #f5f5ff;
   text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
   font-size: 1.5em;
-  border-radius: 40px;
+  border: 3px solid #f5f5ff;
+  border-radius: 10px;
   margin-top: 20px;
-}
-@media (max-width: 600px) {
-  .feed-body article .article-footer {
-    font-size: 1.2em;
-    text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
-  }
+  padding: 20px;
+  background-color: rgba(41, 65, 104, 0.7450980392);
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 10px 10px 0;
 }
 .feed-body article .article-footer strong i, .feed-body article .article-footer p i {
   margin-right: 10px;
@@ -366,11 +296,6 @@ img {
   opacity: 0;
   width: 0;
   height: 0;
-}
-@media (max-width: 600px) {
-  .feed-body article .article-footer .vote-btns .vote-option span {
-    font-size: 0.8em;
-  }
 }
 .feed-body article .article-footer .vote-btns .vote-option span {
   display: inline-block;
@@ -458,7 +383,11 @@ header.body-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.5568627451), rgba(41, 65, 104, 0.7450980392), rgba(41, 65, 104, 0.7450980392), rgba(255, 255, 255, 0.5568627451));
+  background: url(../../img/encabezado.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 header.body-header a.btn-index {
   background-color: #122442;
@@ -469,10 +398,12 @@ header.body-header a.btn-index {
   transition: all 0.2s ease;
   border: 3px solid #f5f5ff;
   border-radius: 100px;
+  box-shadow: #000 0 0 10px 2px;
+  z-index: 250;
 }
 header.body-header a.btn-index:hover {
-  transform: scale(1.05);
-  box-shadow: #000 0 0 10px 2px;
+  transform: translate(6px, 3px) scale(1.05);
+  box-shadow: #000 2px 2px 20px 2px;
   animation: animarFondo 0.7s linear infinite;
 }
 header.body-header a.btn-index img {
@@ -502,6 +433,7 @@ header.body-header .user {
   gap: 20px;
   color: #f5f5ff;
   text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
+  box-shadow: #000 0 0 10px 2px;
 }
 @media (max-width: 600px) {
   header.body-header .user {
@@ -557,7 +489,9 @@ header.body-header .user a img:hover {
   transition: all 0.4s ease;
   border-left: 3px solid #f5f5ff;
   box-shadow: rgba(0, 0, 0, 0.6431372549) 0 0 30px 10px;
-  background: linear-gradient(to bottom, #122442, #696fcc, #696fcc, #122442);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom, #122442, rgba(105, 112, 204, 0.7725490196), rgba(105, 112, 204, 0.7725490196), #122442);
 }
 .main-aside h3 {
   color: #f5f5ff;
@@ -819,6 +753,11 @@ nav {
   top: 0;
   z-index: 200;
   box-shadow: rgba(0, 0, 0, 0.6431372549) 0 10px 10px 1px;
+  background: url(../../img/encabezado.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 nav ul.navegacion {
   width: 100%;
@@ -833,7 +772,7 @@ nav ul.navegacion {
   text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
   text-wrap: nowrap;
   font-size: 1.2em;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.5568627451), rgba(41, 65, 104, 0.7450980392), rgba(41, 65, 104, 0.7450980392), rgba(255, 255, 255, 0.5568627451));
+  background: linear-gradient(to top, rgba(5, 13, 37, 0.7803921569) 0, rgba(255, 255, 255, 0) 100%);
 }
 nav ul.navegacion li {
   font-family: "Croissant One";

@@ -5,6 +5,11 @@ nav {
     top: 0;
     z-index: 200;
     box-shadow: $color-shadow 0 10px 10px 1px;
+    background: url(../../img/encabezado.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
     ul.navegacion {
         width: 100%;
@@ -20,13 +25,11 @@ nav {
         text-wrap: nowrap;
         font-size: 1.2em;
         background: linear-gradient(
-            to right,
-            $color-light-transparent,
-            $color-dark-transparent,
-            $color-dark-transparent,
-            $color-light-transparent
+            to top,
+            #050d25c7 0,
+            #ffffff00 100%
         );
-
+        
         li {
             font-family: $titulo;
 

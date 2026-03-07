@@ -62,14 +62,12 @@ html {
     background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 100vh;
-    padding: 50px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 
     body {
         background-color: $color-dark-transparent;
-        border-radius: 20px;
         padding: 20px;
         max-width: 1000px;
         display: flex;
@@ -267,7 +265,7 @@ html {
         // }
 
         .error {
-            background-color: rgba(182, 11, 11, 0.822);
+            background-color: $color-primary;
             border: 3px solid $color-light;
             border-radius: 50px;
             color: #fff;

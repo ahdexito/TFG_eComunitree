@@ -12,12 +12,14 @@
     transition: all 0.4s ease;
     border-left: 3px solid $color-light;
     box-shadow: $color-shadow 0 0 30px 10px;
-    
+    overflow-y: auto;
+    overflow-x: hidden;
+
     background: linear-gradient(
         to bottom,
         $color-dark,
-        $color-card,
-        $color-card,
+        $color-card-transparent,
+        $color-card-transparent,
         $color-dark
     );
 

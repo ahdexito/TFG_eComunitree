@@ -5,22 +5,18 @@ section.services-body article {
     background-color: $color-dark;
     margin: auto;
     padding: 10px;
-    border: 3px solid var(--article-color);
+    border: 3px solid $color-light;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
 
     @include respond-to(small) { width: 100%; }
 
-    &:nth-child(3n + 1) { --article-color: #{$color-primary}; }
-    &:nth-child(3n + 2) { --article-color: #{$color-accent-light}; }
-    &:nth-child(3n + 3) { --article-color: #{$color-accent}; }
-
     .article-header {
         padding: 15px;
         border-radius: 10px;
         border: 3px solid $color-dark;
-        background-color: var(--article-color);
+        background-color: $color-card;
 
         h3 { 
             font-size: 1.5em; 

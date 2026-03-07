@@ -7,8 +7,6 @@
     box-sizing: border-box;
     font-family: $parrafo;
     font-size: 0.99em;
-
-    @include respond-to(small) { font-size: 0.95em; }
 }
 
 html {
@@ -59,25 +57,25 @@ img { @include no-subrayable; }
     & ~ .menu-button { right: 370px; }
 }
 
-// Botón subir a inicio
-.btn-up {
-    margin: 50px auto 70px;
-    padding: 12px 13px;
-    border: 5px solid $color-light;
-    border-radius: 50px;
-    background-color: $color-dark;
-    color: $color-light;
-    font-size: 1.5em;
-    font-family: $titulo;
-    transition: all 0.2s ease;
+// // Botón subir a inicio
+// .btn-up {
+//     margin: 50px auto 70px;
+//     padding: 12px 13px;
+//     border: 5px solid $color-light;
+//     border-radius: 50px;
+//     background-color: $color-dark;
+//     color: $color-light;
+//     font-size: 1.5em;
+//     font-family: $titulo;
+//     transition: all 0.2s ease;
 
-    &:hover {
-        transform: scale(1.2);
-        color: $color-dark;
-        background-color: $color-light;
-        border-color: $color-dark;
-    }
-}
+//     &:hover {
+//         transform: scale(1.2);
+//         color: $color-dark;
+//         background-color: $color-light;
+//         border-color: $color-dark;
+//     }
+// }
 
 .hr-section {
     width: 100%;
