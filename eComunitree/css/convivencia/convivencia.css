@@ -8,10 +8,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Croissant+One&family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Croissant+One&family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Croissant+One&family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&family=Indie+Flower&family=Kumbh+Sans:wght,YOPQ@100..900,300&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Croissant+One&family=Fascinate&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -96,6 +92,40 @@ img {
   border: 3px solid #f5f5ff;
   border-radius: 10px;
   box-shadow: #202b1d 3px 3px 0;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 150;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 0 10px 10px 1px;
+  background: url(../../img/madera.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+nav ul.navegacion {
+  width: 100%;
+  border-bottom: 2px solid #f5f5ff;
+  list-style-type: none;
+  padding: 15px 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  color: #f5f5ff;
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
+  text-wrap: nowrap;
+  font-size: 1.2em;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8431372549) 0, rgba(255, 255, 255, 0) 90%, rgba(255, 255, 255, 0) 100%);
+}
+nav ul.navegacion li {
+  font-family: "Croissant One";
+}
+nav ul.navegacion li a {
+  color: #f5f5ff;
+  font-family: "Croissant One";
 }
 
 header.body-header {
@@ -382,187 +412,27 @@ header.body-header .user.is-active .user-trigger img {
   padding: 10px;
 }
 
-.pager {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-}
-.pager .num-link, .pager .pag-arrow, .pager .dots {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 40px;
-  height: 40px;
-  padding: 0 5px;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: 2px solid #f5f5ff;
-  background-color: #f5f5ff;
-  color: #202b1d;
-  box-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px 0;
-}
-.pager a.num-link:hover, .pager a.pag-arrow:hover {
-  color: #f5f5ff;
-  background-color: #749449;
-  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
-  border-color: #f5f5ff;
-  transform: scale(1.1);
-  box-shadow: rgba(0, 0, 0, 0.6431372549) 4px 4px 0;
-}
-.pager .activo, .pager .dots {
-  background-color: #202b1d;
-  color: #f5f5ff;
-  border-color: #f5f5ff;
-  cursor: default;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6431372549);
-}
-@media (max-width: 600px) {
-  .pager .num-link:not(.activo) {
-    display: none;
-  }
-}
-
-.btn-filter {
-  width: 150px;
-  color: #202b1d;
-  background-color: #f5f5ff;
-  padding: 10px 15px;
-  border: 2px solid #f5f5ff;
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: end;
-  font-weight: bold;
-  font-size: 1.2em;
-  transition: all 0.2s ease;
-  z-index: 120;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-       user-select: none;
-}
-.btn-filter i {
-  font-size: 1.5em;
-}
-.btn-filter:hover, .btn-filter.active {
-  transform: scale(1.05);
-  color: #f5f5ff;
-  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
-  background-color: #749449;
-  box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px 0;
-}
-.btn-filter.active {
-  border-radius: 5px 5px 0 0;
-}
-
-.filter-container {
-  margin-left: auto;
-  position: relative;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.filter-menu {
-  display: none;
-  width: 158px;
-  position: absolute;
-  top: 100%;
-  right: -4px;
-  background: #f5f5ff;
-  z-index: 100;
-  border-radius: 0 0 5px 5px;
-  box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px 0;
-  margin-top: 1px;
-}
-
-.filter-menu a {
-  display: block;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: #202b1d;
-}
-
-.filter-menu a:hover {
-  color: #f5f5ff;
-  text-shadow: #202b1d 2px 2px;
-}
-.filter-menu a:hover:first-child {
-  background-color: #c77a33;
-}
-.filter-menu a:hover:nth-child(2) {
-  background-color: #82913e;
-}
-.filter-menu a:hover:nth-child(3) {
-  background-color: #c29135;
-}
-.filter-menu a:hover:last-child {
-  background-color: #d65454;
-}
-
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 150;
-  box-shadow: rgba(0, 0, 0, 0.6431372549) 0 10px 10px 1px;
-  background: url(../../img/madera.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-nav ul.navegacion {
-  width: 100%;
-  border-bottom: 2px solid #f5f5ff;
-  list-style-type: none;
-  padding: 15px 50px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 5px;
-  color: #f5f5ff;
-  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
-  text-wrap: nowrap;
-  font-size: 1.2em;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8431372549) 0, rgba(255, 255, 255, 0) 90%, rgba(255, 255, 255, 0) 100%);
-}
-nav ul.navegacion li {
-  font-family: "Croissant One";
-}
-nav ul.navegacion li a {
-  color: #f5f5ff;
-  font-family: "Croissant One";
-}
-
 body {
-  border-radius: 20px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
 body main {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-body main .panel-control {
-  flex-direction: column;
   margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
   width: 100%;
-  max-width: 1500px;
-  border-radius: 10px;
-  padding: 100px 0 100px;
+  max-width: 1000px;
   background-color: rgba(92, 116, 63, 0.5058823529);
+  padding: 100px 0 100px;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100px, black calc(100% - 100px), transparent 100%);
           mask-image: linear-gradient(to bottom, transparent 0%, black 100px, black calc(100% - 100px), transparent 100%);
 }
-body main .panel-control .section-header {
+body main .rules-header {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
@@ -570,142 +440,90 @@ body main .panel-control .section-header {
   gap: 10px;
   padding: 0 20px 20px;
 }
-body main .panel-control .section-header h2 {
+body main .rules-header h2 {
   flex: 1;
   color: #f5f5ff;
   font-size: 2.5em;
-  font-family: "Croissant One";
   margin-right: 30px;
-  text-shadow: #202b1d 3px 3px 0;
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
   width: 100%;
+  font-family: "Croissant One";
 }
-body main .panel-control .section-header h2 small {
-  font-style: italic;
-  font-weight: lighter;
-}
-body main .panel-control hr {
-  width: 100%;
+body main .rule-card {
+  max-width: 940px;
+  margin: 0 auto 50px;
+  background: url(../../img/planta.jpg);
+  background-position: center;
+  background-size: cover;
   border: 3px solid #f5f5ff;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  box-shadow: #202b1d 3px 3px 0;
-}
-body main .panel-control .acciones {
-  list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  padding: 0 20px;
-  margin-bottom: 50px;
-}
-body main .panel-control .acciones li {
-  flex: 1 1 200px;
-  display: flex;
-}
-body main .panel-control .caja-overflow {
-  max-width: 1440px;
-  margin: 0 auto 30px;
-  overflow-x: auto;
-  border: 3px solid #f5f5ff;
-  box-shadow: #202b1d 5px 5px 0;
-}
-body main .panel-control .caja-overflow table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: center;
-  font-weight: bold;
-}
-body main .panel-control .caja-overflow table thead {
-  height: 80px;
-  background-color: #2e251a;
-  color: #f5f5ff;
-}
-body main .panel-control .caja-overflow table tbody tr:nth-child(odd) {
-  background-color: #e9ba84;
-  color: #2e251a;
-}
-body main .panel-control .caja-overflow table tbody tr:nth-child(odd) i {
-  color: #2e251a;
-}
-body main .panel-control .caja-overflow table tbody tr:nth-child(even) {
-  background-color: #c77a33;
-  color: #f5f5ff;
-}
-body main .panel-control .caja-overflow table tbody tr:nth-child(even) i {
-  color: #f5f5ff;
-}
-body main .panel-control .caja-overflow table tbody tr td:first-child a i {
-  transition: all 0.2s ease;
-}
-body main .panel-control .caja-overflow table tbody tr td:first-child a i:hover {
-  transform: scale(1.3);
-}
-body main .panel-control .caja-overflow table th, body main .panel-control .caja-overflow table td {
-  padding: 10px;
-  font-family: "Inter", sans-serif;
-  white-space: nowrap;
-}
-body main .panel-control .caja-overflow table th a, body main .panel-control .caja-overflow table td a {
-  text-decoration: none;
-}
-body main .panel-control .caja-overflow table th a i, body main .panel-control .caja-overflow table td a i {
-  font-size: 1.5em;
-}
-body main .panel-control .caja-overflow table th img, body main .panel-control .caja-overflow table td img {
-  width: 150px;
-  border-radius: 10px;
-  box-shadow: #000 0px 0px 15px 3px;
-}
-body main .panel-control .caja-overflow table td.text-area {
-  font-size: 1em;
-  min-width: 25ch;
-  white-space: pre-line;
-  word-break: break-word;
-}
-body main .panel-control .caja-overflow table .incidencia {
-  --tipo-publicacion: #d65454;
-}
-body main .panel-control .caja-overflow table .aviso {
-  --tipo-publicacion: #c29135;
-}
-body main .panel-control .caja-overflow table .votacion {
-  --tipo-publicacion: #82913e;
-}
-body main .panel-control .caja-overflow table .incidencia p, body main .panel-control .caja-overflow table .aviso p, body main .panel-control .caja-overflow table .votacion p {
-  margin: auto;
-  width: 100px;
-  background-color: var(--tipo-publicacion);
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.6431372549) 0 0 10px;
-  border: 2px solid #f5f5ff;
-  padding: 5px 15px;
-  color: #f5f5ff;
-  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
-}
-body main .panel-control .btn-tool {
-  width: 100%;
-  max-width: 400px;
-  margin: auto;
-  color: #202b1d;
-  background-color: #f5f5ff;
   padding: 15px;
-  border: 2px solid #f5f5ff;
-  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
-  border-radius: 50px;
-  transition: all 0.2s ease;
-  text-wrap: nowrap;
-  text-decoration: none;
-  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 0 0 10px 10px;
 }
-body main .panel-control .btn-tool:hover {
-  transform: scale(1.05);
+body main .rule-card:nth-child(3n+1) {
+  --item-color: #82913e;
+}
+body main .rule-card:nth-child(3n+2) {
+  --item-color: #d65454;
+}
+body main .rule-card:nth-child(3n+3) {
+  --item-color: #c29135;
+}
+body main .rule-card header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: var(--item-color);
+  padding: 15px;
+  border: 3px solid #f5f5ff;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px 0;
+  margin-bottom: 15px;
+  border-radius: 10px 10px 0 0;
+}
+body main .rule-card header i {
+  font-size: 2em;
   color: #f5f5ff;
-  text-shadow: rgba(0, 0, 0, 0.6431372549) 1px 2px;
-  background-color: #749449;
-  box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px;
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px 0;
 }
-body main .panel-control .btn-tool i {
-  margin-right: 10px;
-}/*# sourceMappingURL=gestion.css.map */
+body main .rule-card header h3 {
+  color: #f5f5ff;
+  font-family: "Croissant One";
+  font-size: 1.6em;
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px 0;
+  margin: 0;
+}
+body main .rule-card .rule-content {
+  background-color: #f5f5ff;
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+  border: 2px solid #202b1d;
+  flex-grow: 1;
+  box-shadow: inset rgba(0, 0, 0, 0.6431372549) 0 0 10px;
+}
+body main .rule-card .rule-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+body main .rule-card .rule-content ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  font-size: 1.1em;
+  line-height: 1.4;
+  color: #202b1d;
+}
+body main .rule-card .rule-content ul li::before {
+  content: "\f105";
+  font-family: "FontAwesome";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  color: #202b1d;
+}
+body main .rule-card .rule-content ul li strong {
+  color: var(--item-color);
+  font-family: "Croissant One";
+  font-size: 1.05em;
+}/*# sourceMappingURL=convivencia.css.map */

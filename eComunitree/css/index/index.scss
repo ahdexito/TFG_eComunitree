@@ -30,11 +30,12 @@ body {
         .feed {
             width: 100%;
             max-width: 1000px;
-            background-color: $color-dark-transparent;
+            background-color: $color-accent-transparent;
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 100px 20px 100px;
+            padding: 100px 0 100px;
+            box-shadow: $color-shadow 0 0 20px 20px;
             mask-image: linear-gradient(
                 to bottom,
                 transparent 0%,
@@ -50,7 +51,7 @@ body {
                 align-items: flex-end;
                 justify-content: space-between;
                 gap: 10px;
-                padding-bottom: 20px;
+                padding: 0 20px 20px;
 
                 h2 { 
                     flex: 1;

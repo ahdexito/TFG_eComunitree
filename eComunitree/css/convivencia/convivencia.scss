@@ -1,0 +1,141 @@
+@import '../common/base';
+@import '../common/variables';
+@import '../common/mixins';
+@import '../common/nav';
+@import '../common/header';
+@import '../common/aside';
+
+// =========================================================
+// BODY
+// =========================================================
+body {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    // =========================================================
+    // MAIN
+    // =========================================================
+    main {
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        flex-direction: column;
+        width: 100%;
+        max-width: 1000px;
+        background-color: $color-accent-transparent;
+        padding: 100px 0 100px;
+        mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            black 100px,
+            black calc(100% - 100px),
+            transparent 100%
+        );
+        
+        // SECTION HEADER
+        .rules-header {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 0 20px 20px;
+
+            h2 { 
+                flex: 1;
+                color: $color-light; 
+                font-size: 2.5em;
+                margin-right: 30px;
+                text-shadow: $color-shadow 3px 3px 0;
+                width: 100%;
+                font-family: $titulo;
+            }
+        }
+
+        .rule-card {
+            max-width: 940px;
+            margin: 0 auto 50px;
+            background: url(../../img/planta.jpg);
+            background-position: center;
+            background-size: cover;
+            border: 3px solid $color-light;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: $color-shadow 0 0 10px 10px;
+
+            &:nth-child(3n + 1) { --item-color: #{$color-votacion}; }
+            &:nth-child(3n + 2) { --item-color: #{$color-incidencia}; }
+            &:nth-child(3n + 3) { --item-color: #{$color-aviso}; }
+
+            header {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                background-color: var(--item-color);
+                padding: 15px;
+                border: 3px solid $color-light;
+                box-shadow: $color-shadow 5px 5px 0;
+                margin-bottom: 15px;
+                border-radius: 10px 10px 0 0;
+
+                i {
+                    font-size: 2em;
+                    color: $color-light;
+                    text-shadow: $color-shadow 2px 2px 0;
+                }
+
+                h3 {
+                    color: $color-light;
+                    font-family: $titulo;
+                    font-size: 1.6em;
+                    text-shadow: $color-shadow 2px 2px 0;
+                    margin: 0;
+                }
+            }
+
+            .rule-content {
+                background-color: $color-light;
+                padding: 20px;
+                border-radius: 0 0 10px 10px;
+                border: 2px solid $color-dark;
+                flex-grow: 1;
+                box-shadow: inset $color-shadow 0 0 10px;
+
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+
+                    li {
+                        position: relative;
+                        padding-left: 25px;
+                        margin-bottom: 12px;
+                        font-size: 1.1em;
+                        line-height: 1.4;
+                        color: $color-dark;
+
+                        &::before {
+                            content: '\f105';
+                            font-family: 'FontAwesome';
+                            font-weight: 900;
+                            position: absolute;
+                            left: 0;
+                            color: $color-dark;
+                        }
+
+                        strong {
+                            color: var(--item-color);
+                            font-family: $titulo;
+                            font-size: 1.05em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

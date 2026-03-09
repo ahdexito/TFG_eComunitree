@@ -115,9 +115,8 @@
         <section class="panel-control">
             <div class="section-header">
                 <h2><i class="fa-solid fa-shop icono-header"></i> Gestión de Servicios: <small>página <?= $pagina ?></small></h2>
+                <hr>
             </div>
-
-            <hr>
 
             <ul class="acciones">
                 <li>

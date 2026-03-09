@@ -80,9 +80,8 @@
         <section class="panel-control">
             <div class="section-header">
                 <h2><i class="fa-solid fa-bullhorn icono-header"></i> Crear Aviso</h2>
+                <hr>
             </div>
-
-            <hr>
 
             <form method="POST">
                 <div class="form">

@@ -118,15 +118,14 @@
         <section class="panel-control">
             <div class="section-header">
                 <h2><i class="fa-solid fa-users icono-header"></i> Gestión de Usuarios: <small>página <?= $pagina ?></small></h2>
+                <hr>
             </div>
-
-            <hr>
 
             <ul class="acciones">
                 <li>
                     <a href="ins_usuario.php" class="btn-tool">
                         <i class="fa-regular fa-square-plus"></i>
-                        Insertar Usuario
+                        INSERTAR USUARIO
                     </a>
                 </li>
             </ul>

@@ -2,42 +2,39 @@
 
 header.body-header {
     padding: 10px 10px;
-    padding-right: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: url(../../img/encabezado.jpg);
+    background: url(../../img/madera.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     
     a.btn-index {
-        background-color: $color-dark;
+        background: linear-gradient(
+            to bottom,
+            $color-primary-transparent,
+            $color-dark-transparent
+        );
         display: flex;
         align-items: center;
         justify-content: center;
         text-decoration: none;
         transition: all 0.2s ease;
-        border: 3px solid $color-light;
+        border: 2px solid $color-light;
         border-radius: 100px;
         box-shadow: #000 0 0 10px 2px;
-        z-index: 250;
 
         &:hover { 
-            transform: translate(6px, 3px) scale(1.05);
-            box-shadow: #000 2px 2px 20px 2px;
+            z-index: 200;
+            transform: scale(1.02);
             animation: animarFondo 0.7s linear infinite;
         }
 
-        img {
-            width: 90px;
-            padding: 16px 13px 10px;
-        }
-
+        img { width: 90px; padding: 16px 13px 10px; }
         h1 {
             @include respond-to(small_medium) { display: none; }
-            
             color: $color-light;
             font-size: 3em;
             font-family: $titulo;
@@ -47,9 +44,14 @@ header.body-header {
     }
 
     .user {
-        background-color: $color-dark;
+        position: relative;
+        background: linear-gradient(
+            to bottom,
+            $color-primary-transparent,
+            $color-dark-transparent
+        );
         padding-left: 30px;
-        border: 3px solid $color-light;
+        border: 2px solid $color-light;
         border-right: none;
         border-radius: 100px;
         display: flex;
@@ -59,17 +61,11 @@ header.body-header {
         text-shadow: $color-shadow 2px 2px;
         box-shadow: #000 0 0 10px 2px;
 
-        @include respond-to(small) { 
-            padding: 0; 
-            border: none;
-        }
-
         .user-info {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-
-            @include respond-to(small) { display: none; }
+            pointer-events: none;
 
             strong { 
                 font-size: 1.2em; 
@@ -78,26 +74,77 @@ header.body-header {
             }
         }
 
-        a {
-            width: 80px;
-            height: 80px;
-            text-decoration: none;
-            transition: all 0.1s ease;
-
-            &:hover { transform: scale(1.05); }
+        .user-trigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
 
             img {
-                width: 100%;
-                border: 3px solid $color-light;
+                width: 80px;
+                height: 80px;
+                object-fit: cover;
+                aspect-ratio: 1 / 1;
+                border: 2px solid $color-light;
                 border-radius: 100px;
-                transition: transform 0.2s ease;
+                transition: all 0.2s ease;
                 box-shadow: $color-shadow -5px 0 5px 0;
 
-                &:hover { 
-                    transform: scale(1.05);
-                    box-shadow: #000 0 0 10px 2px;
+                &:hover { transform: scale(1.1); }
+            }
+        }
+
+        .user-dropdown {
+            display: none;
+            position: absolute;
+            top: 105%;
+            right: 0;
+            width: 200px;
+            background-color: $color-light;
+            border: 3px solid $color-dark;
+            border-radius: 5px;
+            box-shadow: #000 5px 5px 15px;
+            z-index: 400;
+            text-shadow: none;
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    &:last-child { border: none; }
+
+                    a {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 15px;
+                        padding: 15px 20px;
+                        color: $color-dark;
+                        text-decoration: none;
+                        transition: all 0.2s ease;
+
+                        i { width: 20px; text-align: center; }
+
+                        &:hover { 
+                            background-color: lighten($color-dark, $amount: 10) ;
+                            color: $color-light;
+                            text-shadow: $color-shadow 2px 2px;
+                        }
+
+                        &.logout:hover { background-color: $color-incidencia; }
+                    }
+                }
+
+                hr {
+                    border: 2px solid $color-dark;
                 }
             }
+        }
+
+        &.is-active {
+            .user-dropdown { display: block; }
+            .user-trigger img { transform: scale(1.1); box-shadow: #000 0 0 10px 2px; }
         }
     }
 }

@@ -33,7 +33,7 @@ body {
             max-width: 1500px;
             border-radius: 10px;
             padding: 100px 20px 100px;
-            background-color: $color-dark-transparent;
+            background-color: $color-accent-transparent;
             mask-image: linear-gradient(
                 to bottom,
                 transparent 0%,
@@ -75,9 +75,8 @@ body {
                 .boton {
                     width: 300px;
                     height: 300px;
-                    background-color: var(--item-color);
-                    color: $color-light;
-                    text-shadow: $color-shadow 4px 4px;
+                    background-color: $color-light;
+                    color: $color-dark;
                     border: 3px solid $color-light;
                     border-radius: 20px;
                     display: flex;
@@ -93,15 +92,17 @@ body {
                     transition: 0.2s ease;
 
                     &:nth-child(4n + 1) { --item-color: #{$color-primary}; }
-                    &:nth-child(4n + 2) { --item-color: #{$color-accent-light}; }
-                    &:nth-child(4n + 3) { --item-color: #{$color-accent}; }
-                    &:nth-child(4n + 4) { --item-color: #{lighten($color-dark, 30%)}; }
+                    &:nth-child(4n + 2) { --item-color: #{$color-votacion}; }
+                    &:nth-child(4n + 3) { --item-color: #{$color-incidencia}; }
+                    &:nth-child(4n + 4) { --item-color: #{$color-aviso}; }
 
                     &:hover {
                         color: $color-light;
                         font-size: 2em;
                         transform: scale(1.05);
+                        text-shadow: $color-shadow 4px 4px;
                         box-shadow: $color-shadow 10px 10px 0;
+                        background-color: var(--item-color);
                     }
 
                     i { font-size: 3em; }

@@ -76,9 +76,8 @@
         <section class="panel-control">
             <div class="section-header">
                 <h2><i class="fa-regular fa-square-plus icono-header"></i> Insertar Servicio</h2>
+                <hr>
             </div>
-
-            <hr>
 
             <form method="POST">
                 <div class="form">

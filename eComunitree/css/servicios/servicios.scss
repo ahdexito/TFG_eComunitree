@@ -30,7 +30,7 @@ body {
         .services {
             width: 100%;
             max-width: 1200px;
-            background-color: $color-dark-transparent;
+            background-color: $color-accent-transparent;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -77,21 +77,23 @@ body {
                     input {
                         background-color: $color-light;
                         padding: 10px;
-                        border: 3px solid $color-dark;
+                        border: 3px solid $color-light;
                         border-right: none;
                         border-radius: 50px 0 0 50px;
                         width: 100%;
                         color: $color-dark;
                         font-size: 1em;
+                        box-shadow: $color-shadow 3px 3px 0;
+                        transition: all 0.2s ease;
 
                         &::-webkit-search-cancel-button { -webkit-appearance: none; }
 
                         &:focus {
                             outline: none;
-                            border-color: $color-accent-light;
+                            border-color: $color-primary;
 
                             & + button {
-                                border-color: $color-accent-light;
+                                border-color: $color-primary;
                             }
                         }
                     }
@@ -99,10 +101,12 @@ body {
                     button {
                         padding: 10px;
                         background-color: $color-light;
-                        border: 3px solid $color-dark;
+                        border: 3px solid $color-light;
                         border-left: none;
                         border-radius: 0 50px 50px 0;
                         color: $color-dark;
+                        box-shadow: $color-shadow 3px 3px 0;
+                        transition: all 0.2s ease;
                     }
                 }
             }

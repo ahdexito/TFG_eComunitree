@@ -107,9 +107,9 @@
             <div class="section-header">
                 
                 <h2><i class="fa-regular fa-square-plus icono-header"></i> Crear Incidencia</h2>
-            </div>
 
-            <hr class="hr-section">
+                <hr class="hr-section">
+            </div>
 
             <form method="POST" enctype="multipart/form-data">
                 <div class="form">

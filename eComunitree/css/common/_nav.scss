@@ -3,9 +3,9 @@
 nav {
     position: sticky;
     top: 0;
-    z-index: 200;
+    z-index: 150;
     box-shadow: $color-shadow 0 10px 10px 1px;
-    background: url(../../img/encabezado.jpg);
+    background: url(../../img/madera.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -13,7 +13,7 @@ nav {
 
     ul.navegacion {
         width: 100%;
-        border-bottom: 3px solid $color-light;
+        border-bottom: 2px solid $color-light;
         list-style-type: none;
         padding: 15px 50px;
         display: flex;
@@ -26,8 +26,9 @@ nav {
         font-size: 1.2em;
         background: linear-gradient(
             to top,
-            #050d25c7 0,
-            #ffffff00 100%
+            #000000d7 0,
+            #ffffff00 90%,
+            #ffffff00 100%,
         );
         
         li {

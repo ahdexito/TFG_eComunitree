@@ -17,6 +17,14 @@
 
     // LÓGICA DE FILTRADO
     $filtro_tipo = isset($_GET['tipo']) ? $_GET['tipo'] : 'todos';
+
+    $nombre_filtro_h2 = match($filtro_tipo) {
+        'aviso' => 'Avisos',
+        'incidencia' => 'Incidencias',
+        'votacion' => 'Votaciones',
+        default => 'Publicaciones',
+    };
+
     $where_sql = "";
     $params_url = "";
 
@@ -129,15 +137,15 @@
     <main>
         <section class="panel-control">
             <div class="section-header">
-                <h2><i class="fa-solid fa-shop icono-header"></i> Gestión de Publicaciones: <small>página <?= $pagina ?></small></h2>
+                <h2><i class="fa-solid fa-shop icono-header"></i> Gestión de <?= $nombre_filtro_h2 ?>: <small>página <?= $pagina ?></small></h2>
 
                 <?php if ($_SESSION['rol'] === 'admin'): ?>
                 <div class="filter-container">
                     <div class="btn-filter" id="btn-filter">
                         <i class="fa-solid fa-filter"></i>
-                        <p>FILTRAR: <?= strtoupper($filtro_tipo) ?></p>
+                        <p>FILTRAR</p>
                     </div>
-                    <div id="filter-menu" class="filter-menu" style="display: none;">
+                    <div id="filter-menu" class="filter-menu">
                         <a href="gestion_publicaciones.php?tipo=todos">Todos</a>
                         <a href="gestion_publicaciones.php?tipo=aviso">Avisos</a>
                         <a href="gestion_publicaciones.php?tipo=incidencia">Incidencias</a>
@@ -145,9 +153,9 @@
                     </div>
                 </div>
                 <?php endif; ?>
-            </div>
 
-            <hr>
+                <hr>
+            </div>
             
             <ul class="acciones">
                 <li>
@@ -187,7 +195,7 @@
                         <?php foreach ($publicaciones as $p): ?>
                         <tr>
                             <td>
-                                <a href="edit_publicacion.php?edit=<?= $p['id_publicacion'] ?>">
+                                <a href="edit_publicacion_admin.php?edit=<?= $p['id_publicacion'] ?>">
                                     <i class="fa-regular fa-pen-to-square icon-edit"></i>
                                 </a>
 
@@ -196,18 +204,21 @@
                                     <i class="fa-regular fa-trash-can icon-del"></i>
                                 </a>
                             </td>
+                            
                             <td>#<?= $p['id_publicacion'] ?></td>
-                            <td> <?= htmlspecialchars($p['autor']) ?> </td>
+                            <td><?= htmlspecialchars($p['autor']) ?></td>
+                            
                             <?php
                                 $tipo = htmlspecialchars($p['tipo']);
                                 echo match ($tipo) {
                                     'incidencia' => "<td class='incidencia'><p>Incidencia</p></td>",
-                                    'aviso' => "<td class='aviso'><p>Aviso</p></td>",
-                                    'votacion' => "<td class='votacion'><p>Votación</p></td>",
+                                    'aviso'      => "<td class='aviso'><p>Aviso</p></td>",
+                                    'votacion'   => "<td class='votacion'><p>Votación</p></td>",
                                 };
                             ?>
-                            <td> <?= htmlspecialchars($p['titulo']) ?> </td>
-                            <td> <?= htmlspecialchars($p['fecha_creacion']) ?> </td>                            
+                            
+                            <td><?= htmlspecialchars($p['titulo']) ?></td>
+                            <td><?= htmlspecialchars($p['fecha_creacion']) ?></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

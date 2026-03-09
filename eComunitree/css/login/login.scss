@@ -13,6 +13,12 @@
     color: $color-dark;
     box-sizing: border-box;
     text-decoration: none;
+    box-shadow: $color-shadow 3px 3px 0;
+
+    &:focus {
+        outline: none;
+        border-color: $color-primary;
+    }
 }
 
 @mixin button {
@@ -26,14 +32,19 @@
     cursor: pointer;
     background-color: $color-light;
     color: $color-dark;
+    border-color: $color-light;
+    box-shadow: $color-shadow 3px 3px;
     transition: all 0.2s ease;
 
+    &:focus { border-color: $color-light; }
+
     &:hover {
-        background-color: $color-accent-light;
+        background-color: $color-accent;
         color: $color-light;
-        text-shadow: $color-shadow 2px 2px;
+        text-shadow: none;
         box-shadow: $color-shadow 5px 5px;
         transform: scale(1.05);
+        text-shadow: $color-shadow 2px 2px;
     }
 }
 
@@ -56,7 +67,7 @@
 }
 
 html {
-    background: url(../../img/fondo.jpg);
+    background: url(../../img/salon2.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -67,7 +78,7 @@ html {
     justify-content: center;
 
     body {
-        background-color: $color-dark-transparent;
+        background-color: $color-accent-transparent;
         padding: 20px;
         max-width: 1000px;
         display: flex;
@@ -75,7 +86,10 @@ html {
         gap: 10px;
 
         header {
-            background-color: $color-dark;
+            background: url(../../img/madera.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
             border: 3px solid $color-light;
             border-radius: 15px;
             padding: 20px;
@@ -106,7 +120,10 @@ html {
         }
     
         main {
-            background: radial-gradient($color-card, lighten($color-dark, 10));
+            background: url(../../img/planta.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
             border: 3px solid $color-light;
             border-radius: 15px;
             padding: 20px;
@@ -151,7 +168,6 @@ html {
                         flex: 0;
                         background-color: $color-light;
                         padding: 15px 15px;
-                        &:hover { background-color: $color-primary; }
                     }
                 }
 
@@ -166,48 +182,6 @@ html {
                         color: $color-light;
                         text-shadow: $color-shadow 2px 2px;
                         text-align: left;
-                    }
-                }
-
-                .form-group-genero {
-                    p {
-                        margin: 0 20px 5px;
-                        color: $color-light;
-                        text-shadow: $color-shadow 2px 2px;
-                        text-align: left;
-                        flex-basis: 100%;
-                    }
-
-                    .btns-genero {
-                        display: flex;
-                        justify-content: space-between;
-
-                        .form-genero {
-                            width: 27%;
-                            margin: 0 10px;
-                            position: relative;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            &:nth-of-type(1) { --btn-color: #{lighten($color-dark, 30%)}; }
-                            &:nth-of-type(2) { --btn-color: #{$color-accent}; }
-                            &:nth-of-type(3) { --btn-color: #{$color-primary}; }
-
-                            input[type="radio"] { opacity: 0; position: absolute; width: 0; height: 0; }
-
-                            label {
-                                @include button;
-                                font-size: 0.9em;
-                                &:hover { background-color: var(--btn-color); }
-                                &:active { background-color: $color-accent-light; }
-                            }
-
-                            input[type="radio"]:checked + label {
-                                background-color: $color-accent-light;
-                                color: $color-light;
-                                text-shadow: $color-shadow 2px 2px;
-                            }
-                        }
                     }
                 }
             }
@@ -233,7 +207,7 @@ html {
 
                 button { 
                     @include button; 
-                    &:hover { background-color: $color-primary; }
+                    &:hover { background-color: $color-accent; }
                 }
             }
         }
@@ -251,24 +225,11 @@ html {
             }
         }
 
-        // input[type="password"] { 
-        //     font-size: 2.5em; 
-        //     letter-spacing: 0.2ch;
-        //     padding-top: 10px;
-        //     caret-color: $color-light;
-            
-        //     &:placeholder-shown { 
-        //         font-size: 1.1em;
-        //         letter-spacing: normal;
-        //         padding-top: 0;
-        //     }
-        // }
-
         .error {
-            background-color: $color-primary;
+            background-color: $color-incidencia;
             border: 3px solid $color-light;
             border-radius: 50px;
-            color: #fff;
+            color: $color-light;
             padding: 20px;
             margin-bottom: 20px;
             text-align: center;

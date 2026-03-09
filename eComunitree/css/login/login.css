@@ -9,7 +9,7 @@
 }
 
 html {
-  background: url(../../img/fondo.jpg);
+  background: url(../../img/salon2.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@ html {
   justify-content: center;
 }
 html body {
-  background-color: rgba(41, 65, 104, 0.7450980392);
+  background-color: rgba(92, 116, 63, 0.5058823529);
   padding: 20px;
   max-width: 1000px;
   display: flex;
@@ -28,7 +28,10 @@ html body {
   gap: 10px;
 }
 html body header {
-  background-color: #122442;
+  background: url(../../img/madera.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   border: 3px solid #f5f5ff;
   border-radius: 15px;
   padding: 20px;
@@ -60,7 +63,10 @@ html body h2 {
   text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
 }
 html body main {
-  background: radial-gradient(#696fcc, rgb(28.9285714286, 57.8571428571, 106.0714285714));
+  background: url(../../img/planta.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   border: 3px solid #f5f5ff;
   border-radius: 15px;
   padding: 20px;
@@ -101,10 +107,15 @@ html body main form input {
   border-radius: 50px;
   font-size: 1.1em;
   font-style: "Croissant One";
-  border: 3px solid #122442;
-  color: #122442;
+  border: 3px solid #202b1d;
+  color: #202b1d;
   box-sizing: border-box;
   text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
+}
+html body main form input:focus {
+  outline: none;
+  border-color: #c77a33;
 }
 html body main form .recuerdame {
   display: flex;
@@ -133,10 +144,17 @@ html body main form div.register-footer a {
   border-radius: 50px;
   font-size: 1.1em;
   font-style: "Croissant One";
-  border: 3px solid #122442;
-  color: #122442;
+  border: 3px solid #202b1d;
+  color: #202b1d;
   box-sizing: border-box;
   text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
+}
+html body main form div.register-footer a:focus {
+  outline: none;
+  border-color: #c77a33;
+}
+html body main form div.register-footer a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,23 +163,26 @@ html body main form div.register-footer a {
   font-family: "Croissant One";
   cursor: pointer;
   background-color: #f5f5ff;
-  color: #122442;
+  color: #202b1d;
+  border-color: #f5f5ff;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
   transition: all 0.2s ease;
 }
+html body main form div.register-footer a:focus {
+  border-color: #f5f5ff;
+}
 html body main form div.register-footer a:hover {
-  background-color: #c96625;
+  background-color: #749449;
   color: #f5f5ff;
-  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
+  text-shadow: none;
   box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px;
   transform: scale(1.05);
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
 }
 html body main form div.register-footer a {
   flex: 0;
   background-color: #f5f5ff;
   padding: 15px 15px;
-}
-html body main form div.register-footer a:hover {
-  background-color: #c44051;
 }
 html body main form button {
   width: 100%;
@@ -171,10 +192,17 @@ html body main form button {
   border-radius: 50px;
   font-size: 1.1em;
   font-style: "Croissant One";
-  border: 3px solid #122442;
-  color: #122442;
+  border: 3px solid #202b1d;
+  color: #202b1d;
   box-sizing: border-box;
   text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
+}
+html body main form button:focus {
+  outline: none;
+  border-color: #c77a33;
+}
+html body main form button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -183,15 +211,21 @@ html body main form button {
   font-family: "Croissant One";
   cursor: pointer;
   background-color: #f5f5ff;
-  color: #122442;
+  color: #202b1d;
+  border-color: #f5f5ff;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
   transition: all 0.2s ease;
 }
+html body main form button:focus {
+  border-color: #f5f5ff;
+}
 html body main form button:hover {
-  background-color: #c96625;
+  background-color: #749449;
   color: #f5f5ff;
-  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
+  text-shadow: none;
   box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px;
   transform: scale(1.05);
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
 }
 html body main form .form-group {
   display: flex;
@@ -202,84 +236,6 @@ html body main form .form-group label {
   color: #f5f5ff;
   text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
   text-align: left;
-}
-html body main form .form-group-genero p {
-  margin: 0 20px 5px;
-  color: #f5f5ff;
-  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
-  text-align: left;
-  flex-basis: 100%;
-}
-html body main form .form-group-genero .btns-genero {
-  display: flex;
-  justify-content: space-between;
-}
-html body main form .form-group-genero .btns-genero .form-genero {
-  width: 27%;
-  margin: 0 10px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-html body main form .form-group-genero .btns-genero .form-genero:nth-of-type(1) {
-  --btn-color: rgb(50.7857142857, 101.5714285714, 186.2142857143);
-}
-html body main form .form-group-genero .btns-genero .form-genero:nth-of-type(2) {
-  --btn-color: #975eb8;
-}
-html body main form .form-group-genero .btns-genero .form-genero:nth-of-type(3) {
-  --btn-color: #c44051;
-}
-html body main form .form-group-genero .btns-genero .form-genero input[type=radio] {
-  opacity: 0;
-  position: absolute;
-  width: 0;
-  height: 0;
-}
-html body main form .form-group-genero .btns-genero .form-genero label {
-  width: 100%;
-  height: 60px;
-  padding: 0 20px;
-  border: none;
-  border-radius: 50px;
-  font-size: 1.1em;
-  font-style: "Croissant One";
-  border: 3px solid #122442;
-  color: #122442;
-  box-sizing: border-box;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  font-weight: bold;
-  font-family: "Croissant One";
-  cursor: pointer;
-  background-color: #f5f5ff;
-  color: #122442;
-  transition: all 0.2s ease;
-}
-html body main form .form-group-genero .btns-genero .form-genero label:hover {
-  background-color: #c96625;
-  color: #f5f5ff;
-  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
-  box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px;
-  transform: scale(1.05);
-}
-html body main form .form-group-genero .btns-genero .form-genero label {
-  font-size: 0.9em;
-}
-html body main form .form-group-genero .btns-genero .form-genero label:hover {
-  background-color: var(--btn-color);
-}
-html body main form .form-group-genero .btns-genero .form-genero label:active {
-  background-color: #c96625;
-}
-html body main form .form-group-genero .btns-genero .form-genero input[type=radio]:checked + label {
-  background-color: #c96625;
-  color: #f5f5ff;
-  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
 }
 html body main hr {
   border: 2px solid #f5f5ff;
@@ -312,10 +268,17 @@ html body main .registrarse button {
   border-radius: 50px;
   font-size: 1.1em;
   font-style: "Croissant One";
-  border: 3px solid #122442;
-  color: #122442;
+  border: 3px solid #202b1d;
+  color: #202b1d;
   box-sizing: border-box;
   text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
+}
+html body main .registrarse button:focus {
+  outline: none;
+  border-color: #c77a33;
+}
+html body main .registrarse button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -324,18 +287,24 @@ html body main .registrarse button {
   font-family: "Croissant One";
   cursor: pointer;
   background-color: #f5f5ff;
-  color: #122442;
+  color: #202b1d;
+  border-color: #f5f5ff;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
   transition: all 0.2s ease;
 }
-html body main .registrarse button:hover {
-  background-color: #c96625;
-  color: #f5f5ff;
-  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
-  box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px;
-  transform: scale(1.05);
+html body main .registrarse button:focus {
+  border-color: #f5f5ff;
 }
 html body main .registrarse button:hover {
-  background-color: #c44051;
+  background-color: #749449;
+  color: #f5f5ff;
+  text-shadow: none;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px;
+  transform: scale(1.05);
+  text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
+}
+html body main .registrarse button:hover {
+  background-color: #749449;
 }
 html body .casilla {
   display: flex;
@@ -349,10 +318,10 @@ html body .casilla label {
   text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
 }
 html body .error {
-  background-color: #c44051;
+  background-color: #d65454;
   border: 3px solid #f5f5ff;
   border-radius: 50px;
-  color: #fff;
+  color: #f5f5ff;
   padding: 20px;
   margin-bottom: 20px;
   text-align: center;

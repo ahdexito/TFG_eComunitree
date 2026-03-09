@@ -1,20 +1,34 @@
 @import 'variables';
 
 .feed-body article {
-    background: url(../../img/ladrillos.jpg);
+    max-width: 940px;
+    background: url(../../img/planta.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     padding: 20px;
-    margin-bottom: 50px;
+    margin: 0 auto 100px;
     border: 3px solid $color-light;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
+    box-shadow: $color-shadow 0 0 20px 20px;
 
-    &.advert-card { --article-color: #{$color-primary}; }
-    &.incidence-card { --article-color: #{$color-accent-light}; }
-    &.vote-card { --article-color: #{$color-accent}; }
+    &:last-child { margin-bottom: 30px; }
+
+    &.advert-card { 
+    --article-color: #{$color-aviso}; 
+    --article-color-dark: #{desaturate(darken($color-aviso, 20%), 20%)};
+    }
+
+    &.incidence-card { 
+        --article-color: #{$color-incidencia}; 
+        --article-color-dark: #{desaturate(darken($color-incidencia, 20%), 20%)};
+    }
+
+    &.vote-card { 
+        --article-color: #{$color-votacion}; 
+        --article-color-dark: #{desaturate(darken($color-votacion, 20%), 20%)};
+    }
 
     // =========================================================
     // ARTICLE HEADER
@@ -24,13 +38,16 @@
         gap: 20px;
         flex-wrap: wrap;
         border-radius: 10px;
+        color: var(--article-color-dark);
 
         // ARTICLE HEADER TITLE
         h3 { 
             flex: 1 1 auto;
             background-color: var(--article-color);
             padding: 10px;
-            box-shadow: $color-shadow 10px 10px 0;
+            box-shadow: 
+                $color-shadow 10px 10px 0,
+                inset var(--article-color-dark) 0 0 10px 3px;
             border: 3px solid $color-light;
             border-radius: 10px 0 0 0;
             color: $color-light;
@@ -72,6 +89,8 @@
             }
 
             img {
+                object-fit: cover;
+                aspect-ratio: 1 / 1;
                 width: 70px;
                 height: 70px;
                 box-shadow: $color-shadow 0 0 5px 0;
@@ -83,7 +102,6 @@
                 justify-content: flex-end;
                 flex-direction: column;
                 font-size: 0.8em;
-                color: $color-dark;
                 text-wrap: nowrap;
 
                 strong {
@@ -107,27 +125,25 @@
         flex-direction: column;
         background-color: $color-light;
         border-radius: 0 0 10px 10px;
-        color: $color-dark;
         box-shadow: $color-shadow 10px 10px 0;
 
         // ARTICLE BODY CONTENT
         div.article-body-content {
-            display: block;
+            display: flex;
+            flex-direction: column;
             overflow: hidden;
             font-size: 1.7em;
-            border: 3px solid $color-dark;
-            background-color: $color-card;
-            color: $color-light;
+            background-color: var(--article-color-dark);
             margin-bottom: 10px;
             border-radius: 10px;
+            box-shadow: $color-shadow 0 0 10px 3px;
 
             // ARTICLE BODY TITLE
             h4 {
                 width: fit-content;
                 margin: 15px;
-                color: $color-dark;
-                border: 3px solid $color-dark;
-                font-size: 1em; 
+                color: var(--article-color-dark);
+                font-size: 0.8em; 
                 font-weight: bold;
                 font-family: $titulo;
                 padding: 10px 15px;
@@ -136,25 +152,27 @@
             }
 
             img {
-                float: left;
-                width: 200px;
-                height: 200px;
-                aspect-ratio: 1 / 1;
+                max-width: 250px;
+                max-height: 250px;
                 object-fit: cover;
-                border: 5px solid $color-dark;
-                border-radius: 20px;
-                margin: 30px;
+                border: 2px solid $color-light;
+                border-radius: 10px;
+                margin: 0 auto 30px;
+                box-shadow: $color-shadow 4px 4px 0;
             }
 
             p { 
                 margin: 30px;
-                font-size: 1.5em; 
+                font-size: 1em; 
                 font-weight: bold;
                 text-shadow: $color-shadow 3px 3px;
                 line-height: 1.3em;
+                color: $color-light;
 
                 i { 
                     font-size: 0.7em; 
+                    display: inline-block;
+
                     &:first-child { 
                         transform: translateY(-10px) rotate(-15deg); 
                     }
@@ -173,6 +191,7 @@
             text-wrap: nowrap;
             margin-left: auto;
             font-size: 0.9em;
+            color: var(--article-color-dark);
 
             p { 
                 font-weight: bold;
@@ -196,12 +215,10 @@
         color: $color-light;
         text-shadow: $color-shadow 3px 3px;
         font-size: 1.5em;
-        border: 3px solid $color-light;
         border-radius: 10px;
         margin-top: 20px;
         padding: 20px;
-        background-color: $color-dark-transparent;
-        box-shadow: $color-shadow 10px 10px 0;
+        background-color: #7e7e7e8c;
 
         strong, p { 
             i { margin-right: 10px; }
@@ -237,34 +254,34 @@
                 }
 
                 span {
+                    max-width: 350px;
                     display: inline-block;
-                    background-color: $color-accent;
-                    padding: 15px 10px;
+                    background-color: $color-votacion;
+                    padding: 5px 10px;
                     border-radius: 50px;
                     border: 3px solid $color-light;
                     box-shadow: $color-shadow 6px 6px 0;
                     color: $color-light;
                     font-size: 1em;
                     font-weight: bold;
-                    transition: all 0.05s ease;
-                    text-wrap: nowrap;
+                    transition: all 0.1s ease;
                     text-align: center;
                 }
 
                 &:hover span {
-                    background-color: darken($color-accent, $amount: 10);
+                    background-color: darken($color-votacion, $amount: 10);
                     transform: scale(0.95);
                     box-shadow: $color-shadow 4px 4px 0;
                 }
 
                 &:active span {
-                    background-color: darken($color-accent, $amount: 20);
+                    background-color: darken($color-votacion, $amount: 20);
                     transform: scale(0.85);
                     box-shadow: none;
                 }
 
                 input[type="radio"]:checked + span {
-                    background-color: $color-accent-light;
+                    background-color: darken($color-votacion, $amount: 20);
                     color: $color-light;
                     border: 3px solid $color-light;
                     transform: scale(0.95);
@@ -273,14 +290,15 @@
                 }
 
                 .vote-number {
-                    display: inline;
+                    display: inline-block;
                     width: fit-content;
                     background-color: $color-light;
-                    padding: 10px;
+                    padding: 5px 10px;
                     border-radius: 50px;
                     color: $color-dark;
                     text-shadow: none;
                     margin-left: 10px;
+                    text-wrap: nowrap;
                 }
             }
         }
@@ -296,13 +314,14 @@
             font-size: 1em;
             font-weight: bold;
             font-family: $titulo;
+            text-shadow: $color-shadow 3px 3px;
             transition: all 0.2s ease;
             background: linear-gradient(
                 to right,
-                $color-dark 0%,
-                $color-accent-transparent 50%,
-                $color-primary 51%,
-                $color-accent-light 100%
+                var(--article-color-dark) 0%,
+                var(--article-color) 50%,
+                var(--article-color) 51%,
+                var(--article-color-dark) 100%
             );
             background-size: 210% 100%;
             background-position: left center;
@@ -315,7 +334,6 @@
                 border: 3px solid $color-light;
                 transform: scale(1.1);
                 box-shadow: $color-shadow 5px 5px;
-                text-shadow: $color-shadow 3px 3px;
             }
         }
 
@@ -328,6 +346,17 @@
             text-decoration: none;
 
             strong { text-decoration: none; }
+        }
+    }
+
+    .edit-del-btns {
+        margin-top: 15px;
+
+        a {
+            color: $color-light;
+            margin-right: 15px;
+
+            i { margin-right: 5px; }
         }
     }
 }

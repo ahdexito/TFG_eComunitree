@@ -10,7 +10,7 @@
 }
 
 html {
-    background: url(../../img/fondo.jpg);
+    background: url(../../img/salon2.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -22,65 +22,66 @@ img { @include no-subrayable; }
 
 .menu-checkbox { display: none; }
 
-// Fuera del aside
+.aside-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 250;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
 .menu-button {
     display: flex;
     position: absolute;
     top: 5px;
     right: 10px;
-    border: 3px solid $color-dark;
+    border: 2px solid $color-light;
     z-index: 400;
     background-color: $color-light;
     color: $color-dark;
+    box-shadow: $color-shadow 3px 3px 0;
     font-size: 1.5em;
     padding: 7px 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 
     &:hover {
         transform: scale(1.1);
-        background-color: $color-accent;
+        background-color: $color-primary;
         color: $color-light;
-        box-shadow: $color-shadow 3px 3px 0;
-        text-shadow: $color-shadow 4px 4px;
+        text-shadow: $color-shadow 3px 3px;
+        box-shadow: $color-shadow 5px 5px 0;
     }
 }
 
-// Dentro del aside
 .menu-checkbox:checked {
     & ~ aside.main-aside {
         right: 0;
         opacity: 1;
     }
 
-    & ~ .menu-button { right: 370px; }
+    & ~ .menu-button { 
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    & ~ .aside-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
 }
-
-// // Botón subir a inicio
-// .btn-up {
-//     margin: 50px auto 70px;
-//     padding: 12px 13px;
-//     border: 5px solid $color-light;
-//     border-radius: 50px;
-//     background-color: $color-dark;
-//     color: $color-light;
-//     font-size: 1.5em;
-//     font-family: $titulo;
-//     transition: all 0.2s ease;
-
-//     &:hover {
-//         transform: scale(1.2);
-//         color: $color-dark;
-//         background-color: $color-light;
-//         border-color: $color-dark;
-//     }
-// }
 
 .hr-section {
     width: 100%;
+    margin-bottom: 30px;
     border: 3px solid $color-light;
     border-radius: 10px;
-    margin-bottom: 50px;
     box-shadow: $color-dark 3px 3px 0;
 }

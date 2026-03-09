@@ -1,5 +1,9 @@
 <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-<label for="menu-toggle" class="menu-button"><i class="fa-solid fa-bars"></i></label>
+<label for="menu-toggle" class="menu-button">
+    <i class="fa-solid fa-bars"></i>
+</label>
+
+<div id="aside-overlay" class="aside-overlay"></div>
 
 <aside class="main-aside">
     <h3>Navegación</h3>
@@ -37,8 +41,8 @@
                 Servicios<i class="fa-solid fa-briefcase"></i>
         </a></li>
 
-        <li><a href="#">
-            Calendario<i class="fa-solid fa-calendar-days"></i>
+        <li><a href="<?= $base ?>convivencia.php">
+            Convivencia<i class="fa-solid fa-handshake-angle"></i>
         </a></li>
 
         <li><a href="#">
@@ -50,5 +54,23 @@
             Panel de Control<i class="fa-solid fa-gear"></i>
         </a></li>
         <?php endif; ?>
+
+        <li class="has-dropdown">
+            <p>Sesión<i class="fa-solid fa-user"></i></p>
+
+            <ul class="submenu">
+                <li><a href="<?= $base ?>editar_datos.php">
+                    Mis Datos<i class="fa-solid fa-user-pen"></i> 
+                </a></li>
+
+                <li><a href="<?= $base ?>cambiar_foto.php">
+                    Cambiar Foto<i class="fa-solid fa-camera"></i>
+                </a></li>
+                
+                <li><a href="<?= $base ?>desconectar.php" class="logout" onclick="return confirm('¿Estás seguro de que deseas cerrar sesión?');">
+                    Cerrar Sesión<i class="fa-solid fa-right-from-bracket"></i>
+                </a></li>
+            </ul>
+        </li>
     </ul>
 </aside>

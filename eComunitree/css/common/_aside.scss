@@ -14,14 +14,21 @@
     box-shadow: $color-shadow 0 0 30px 10px;
     overflow-y: auto;
     overflow-x: hidden;
-
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
     background: linear-gradient(
         to bottom,
         $color-dark,
-        $color-card-transparent,
-        $color-card-transparent,
+        $color-accent-transparent,
+        $color-accent-transparent,
         $color-dark
     );
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
 
     h3 {
         color: $color-light;
@@ -42,18 +49,19 @@
         list-style-type: none;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
 
         li {
             position: relative;
 
-            &:nth-child(3n + 1) { --item-color: #{$color-primary}; }
-            &:nth-child(3n + 2) { --item-color: #{$color-accent-light}; }
-            &:nth-child(3n + 3) { --item-color: #{$color-accent}; }
+            &:nth-child(3n + 1) { --item-color: #{$color-votacion}; }
+            &:nth-child(3n + 2) { --item-color: #{$color-incidencia}; }
+            &:nth-child(3n + 3) { --item-color: #{$color-aviso}; }
 
             a, p {
                 background-color: $color-light;
                 color: $color-dark;
+                box-shadow: $color-shadow 3px 3px 0;
                 font-size: 1.3em;
                 font-weight: bold;
                 font-family: $titulo;
@@ -64,7 +72,7 @@
                 align-items: center;
                 justify-content: space-between;
                 padding: 10px;
-                border: 3px solid $color-dark;
+                border: 2px solid $color-light;
                 border-radius: 10px;
                 transition: all 0.2s ease;
             }
@@ -75,7 +83,7 @@
                 transform: scale(1.05);
                 background-color: var(--item-color);
                 color: $color-light;
-                text-shadow: $color-shadow 3px 3px;
+                text-shadow: $color-shadow 2px 2px;
                 box-shadow: $color-shadow 5px 5px 0;
 
                 @include no-subrayable;
@@ -83,8 +91,8 @@
 
             &.has-dropdown {
                 .submenu {
-                    background-color: $color-dark-transparent;
-                    border: 3px solid $color-dark;
+                    background-color: $color-shadow;
+                    border: 3px solid $color-shadow;
                     border-top: none;
                     display: flex; 
                     flex-direction: column;
@@ -99,15 +107,14 @@
                     transition: all 0.4s ease;
     
                     li {
-                        &:nth-child(3n + 1) { --item-color: #{$color-primary}; }
-                        &:nth-child(3n + 2) { --item-color: #{$color-accent-light}; }
-                        &:nth-child(3n + 3) { --item-color: #{$color-accent}; }
+                        &:nth-child(3n + 1) { --item-color: #{$color-votacion}; }
+                        &:nth-child(3n + 2) { --item-color: #{$color-incidencia}; }
+                        &:nth-child(3n + 3) { --item-color: #{$color-aviso}; }
     
                         a { 
                             background-color: $color-light;
-                            border-color: $color-dark;
+                            border-color: $color-light;
                             color: $color-dark;
-                            text-shadow: none;
                             display: flex;
                             align-items: center;
                             justify-content: space-between;
@@ -116,8 +123,8 @@
                             &:hover {
                                 color: $color-light;
                                 text-shadow: $color-shadow 2px 2px;
-                                transform: scale(1.05);
-                                box-shadow: $color-shadow 3px 3px;
+                                transform: scale(1.03);
+                                box-shadow: $color-shadow 5px 5px;
                                 background-color: var(--item-color);
                             }
                         }

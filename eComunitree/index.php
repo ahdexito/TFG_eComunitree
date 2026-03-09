@@ -12,6 +12,14 @@
 
     // LÓGICA DE FILTRADO
     $filtro_tipo = isset($_GET['tipo']) ? $_GET['tipo'] : 'todas';
+
+    [$nombre_filtro, $icono_filtro] = match($filtro_tipo) {
+        'aviso' => ['Avisos', 'fa-bullhorn'],
+        'incidencia' => ['Incidencias', 'fa-triangle-exclamation'],
+        'votacion' => ['Votaciones', 'fa-envelope'],
+        default => ['Todas las Publicaciones', 'fa-comments'],
+    };
+
     $where_sql = "";
     $params_url = "";
 
@@ -100,11 +108,15 @@
     <main>
         <div class="feed">
             <header class="section-header">
-                <h2>Últimas Publicaciones: <small>página <?= $pagina ?></small></h2>
+                <h2>
+                    <i class="fa-solid <?= $icono_filtro ?>"></i>
+                    <?= $nombre_filtro ?>: <small>página <?= $pagina ?></small>
+                </h2>
+                
                 <div class="filter-container">
                     <div class="btn-filter" id="btn-filter">
                         <i class="fa-solid fa-filter"></i>
-                        <p>FILTRO: <br> <?= strtoupper($filtro_tipo) ?></p>
+                        <p>FILTRO</p> 
                     </div>
                     <div id="filter-menu" class="filter-menu">
                         <a href="index.php?tipo=todas">Todas las Publicaciones</a>
@@ -113,12 +125,13 @@
                         <a href="index.php?tipo=incidencia">Incidencias</a>
                     </div>
                 </div>
+
+                <hr class="hr-section">
             </header>
 
             <section class="feed-body">
-            <?php foreach($publicaciones as $p): ?>
 
-                <hr class="hr-section">
+            <?php foreach($publicaciones as $p): ?>
 
                 <?php $fecha = new DateTime($p['fecha_creacion']); ?>
 
@@ -175,7 +188,7 @@
                             <div class="article-body-content">
                                 <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?> </h4>
 
-                                <p><?= '<i class="fa-solid fa-quote-left"></i>' . $p['contenido'] . '<i class="fa-solid fa-quote-right"></i>' ?></p>
+                                <p><?= $p['contenido'] ?></p>
                             </div>
 
                             <div class="article-header-date">
@@ -225,6 +238,9 @@
                                 <button class="vote-confirm disabled" disabled>VOTACIÓN CERRADA</button>
                             <?php endif; ?>
                         </form>
+
+                        <?php include("./includes/edit_del_publi.php"); ?>
+
                     </article>
                 <?php endif; ?>
 
@@ -250,7 +266,7 @@
                             <div class="article-body-content">
                                 <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?> </h4>
 
-                                <p><?= '<i class="fa-solid fa-quote-left"></i>' . $p['contenido'] . '<i class="fa-solid fa-quote-right"></i>' ?></p>
+                                <p><?= $p['contenido'] ?></p>
                             </div>
 
                             <div class="article-header-date">
@@ -258,6 +274,9 @@
                                 <p><i class="fa-solid fa-calendar-days"></i><?= $fecha->format('d/m') ?></p>
                             </div>
                         </section>
+
+                        <?php include("./includes/edit_del_publi.php"); ?>
+
                     </article>
                 <?php endif; ?>
 
@@ -283,11 +302,11 @@
                             <div class="article-body-content">
                                 <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?></h4>
 
+                                <p><?= $p['contenido'] ?></p>
+
                                 <?php if ($p['foto'] !== 'default.jpg'): ?>
                                     <img src="img_incidencias/<?= $p['foto'] ?>" alt="Imagen de la incidencia">
                                 <?php endif; ?>
-                                
-                                <p><?= '<i class="fa-solid fa-quote-left"></i>' . $p['contenido'] . '<i class="fa-solid fa-quote-right"></i>' ?></p>
                             </div>
 
                             <div class="article-header-date">
@@ -298,7 +317,8 @@
                         
                         <footer class="article-footer">
                             <div class="estado">
-                                <strong><i class="fa-solid fa-person-digging"></i> ESTADO: </strong>
+                                <strong><i class="fa-solid fa-person-digging"></i>ESTADO: </strong>
+                                
                                 <?php
                                     $mensaje_estado = match ($p['estado']) {
                                         'pendiente' => '<small style="color:khaki">PENDIENTE <i class="fa-solid fa-circle-pause"></i></small>',
@@ -311,6 +331,9 @@
                                 ?>
                             </div>
                         </footer>
+
+                        <?php include("./includes/edit_del_publi.php"); ?>
+
                     </article>
                 <?php endif; ?>
 

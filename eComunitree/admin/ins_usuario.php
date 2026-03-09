@@ -88,9 +88,8 @@
         <section class="panel-control">
             <div class="section-header">
                 <h2><i class="fa-regular fa-square-plus icono-header"></i> Insertar Usuario</h2>
+                <hr>
             </div>
-
-            <hr>
 
             <form action="" method="POST">
                 <div class="form">

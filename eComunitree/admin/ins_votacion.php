@@ -94,9 +94,8 @@
         <section class="panel-control">
             <div class="section-header">
                 <h2><i class="fa-solid fa-check-to-slot icono-header"></i> Crear Votación</h2>
+                <hr>
             </div>
-
-            <hr>
 
             <form method="POST">
                 <div class="form">
@@ -117,11 +116,18 @@
 
                     <div class="casilla">
                         <label>Opciones de respuesta</label>
+                        
                         <div id="contenedor-opciones">
-                            <input type="text" name="opciones[]" placeholder="Opción 1" required style="margin-bottom: 10px;">
-                            <input type="text" name="opciones[]" placeholder="Opción 2" required style="margin-bottom: 10px;">
+                            <div class="opcion-item">
+                                <input type="text" name="opciones[]" placeholder="Opción 1" required class="input-voto">
+                            </div>
+
+                            <div class="opcion-item">
+                                <input type="text" name="opciones[]" placeholder="Opción 2" required class="input-voto">
+                            </div>
                         </div>
-                        <button type="button" id="btn-agregar-opcion" class="btn-filter" style="width: fit-content; padding: 5px 15px;">
+
+                        <button type="button" id="btn-agregar-opcion" class="btn-filter" style="width: 100%; border-radius: 15px;">
                             <i class="fa-solid fa-plus"></i> Añadir opción
                         </button>
                     </div>

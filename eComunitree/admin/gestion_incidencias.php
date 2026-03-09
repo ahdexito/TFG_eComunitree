@@ -116,9 +116,9 @@
                         <a href="gestion_incidencias.php?estado=resuelta">Resueltas</a>
                     </div>
                 </div>
-            </div>
 
-            <hr>
+                <hr>
+            </div>
 
             <div class="caja-overflow">
                 <table>

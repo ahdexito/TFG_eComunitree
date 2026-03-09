@@ -106,9 +106,8 @@
         <section class="panel-control">
             <div class="section-header">
                 <h2><i class="fa-regular fa-pen-to-square icono-header"></i> Editar Usuario</h2>
+                <hr>
             </div>
-
-            <hr>
 
             <form action="" method="POST">
                 <div class="form">

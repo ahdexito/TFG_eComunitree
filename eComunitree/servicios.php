@@ -67,7 +67,7 @@
     <main>
         <div class="services">
             <header class="services-header">
-                <h2>Servicios: <small>página <?= $pagina ?></small></h2>
+                <h2><i class="fa-solid fa-briefcase"></i> Servicios: <small>página <?= $pagina ?></small></h2>
 
                 <form action="" method="GET" class="search-form">
                     <input type="search" name="s" placeholder="Buscar..." value="<?= htmlspecialchars($buscar) ?>">
