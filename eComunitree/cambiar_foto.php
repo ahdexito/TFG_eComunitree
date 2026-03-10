@@ -78,9 +78,15 @@ if (isset($_FILES['nueva_foto']) && $_FILES['nueva_foto']['error'] === UPLOAD_ER
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php if ($mensaje): ?>
+        <span class="msg"><?= $mensaje ?></span>
+    <?php endif; ?>
+
     <?php include("./includes/header.php"); ?>
 
     <nav>
+        <a href="./index.php" class="btn-back"><i class="fa-solid fa-arrow-left"></i></a>
+
         <ul class="navegacion">
             <li><i class="fa-solid fa-house"></i></li>
             <li><a href="./index.php">Inicio</a></li>
@@ -98,10 +104,6 @@ if (isset($_FILES['nueva_foto']) && $_FILES['nueva_foto']['error'] === UPLOAD_ER
 
                 <hr>
             </div>
-
-            <?php if ($mensaje): ?>
-                <p style="color: white; background: #333; padding: 10px; border-radius: 5px; margin-bottom: 20px;"><?= $mensaje ?></p>
-            <?php endif; ?>
 
             <div class="current-img">
                 <p>Imagen actual:</p>

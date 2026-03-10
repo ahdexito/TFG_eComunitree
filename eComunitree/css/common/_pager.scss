@@ -11,13 +11,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        min-width: 40px;
+        width: 40px;
         height: 40px;
-        padding: 0 5px;
         text-decoration: none;
+        font-weight: bold;
         border-radius: 30px;
-        font-weight: 600;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease;
         border: 2px solid $color-light;
         background-color: $color-light;
         color: $color-dark;

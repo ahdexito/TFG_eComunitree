@@ -1,5 +1,7 @@
 @import './variables';
 
+$color-dark: #351b10;
+
 nav {
     position: sticky;
     top: 0;
@@ -15,7 +17,7 @@ nav {
         width: 100%;
         border-bottom: 2px solid $color-light;
         list-style-type: none;
-        padding: 15px 50px;
+        padding: 15px 70px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -38,6 +40,29 @@ nav {
                 color: $color-light; 
                 font-family: $titulo; 
             }
+        }
+    }
+
+    .btn-back {
+        position: absolute;
+        top: 5px;
+        left: 10px;
+        padding: 4px 5px;
+        border: 2px solid $color-light;
+        background-color: $color-light;
+        color: $color-dark;
+        box-shadow: $color-shadow 3px 3px 0;
+        font-size: 1.5em;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    
+        &:hover {
+            transform: scale(1.1);
+            background-color: $color-primary;
+            color: $color-light;
+            text-shadow: $color-shadow 3px 3px;
+            box-shadow: $color-shadow 5px 5px 0;
         }
     }
 }

@@ -20,7 +20,7 @@ html {
   justify-content: center;
 }
 html body {
-  background-color: rgba(92, 116, 63, 0.5058823529);
+  background-color: rgba(116, 148, 73, 0.5058823529);
   padding: 20px;
   max-width: 1000px;
   display: flex;

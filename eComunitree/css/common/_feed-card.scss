@@ -2,7 +2,7 @@
 
 .feed-body article {
     max-width: 940px;
-    background: url(../../img/planta.jpg);
+    background: url(../../img/madera3.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -218,7 +218,7 @@
         border-radius: 10px;
         margin-top: 20px;
         padding: 20px;
-        background-color: #7e7e7e8c;
+        background-color: color-mix(in srgb, var(--article-color-dark), transparent 20%);
 
         strong, p { 
             i { margin-right: 10px; }
@@ -351,10 +351,11 @@
 
     .edit-del-btns {
         margin-top: 15px;
+        margin-left: auto;
 
         a {
             color: $color-light;
-            margin-right: 15px;
+            margin-left: 15px;
 
             i { margin-right: 5px; }
         }

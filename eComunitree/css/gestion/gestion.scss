@@ -32,6 +32,7 @@ body {
             margin: auto;
             width: 100%;
             max-width: 1500px;
+            min-height: 80vh;
             border-radius: 10px;
             padding: 100px 0 100px;
             background-color: $color-accent-transparent;
@@ -99,6 +100,10 @@ body {
                 border: 3px solid $color-light;
                 box-shadow: $color-dark 5px 5px 0;
 
+                $color-thead: #3b2c1a;;
+                $color-impar: #e9ba84;
+                $color-par: #a37138;
+
                 table {
                     width: 100%;
                     border-collapse: collapse;
@@ -107,20 +112,20 @@ body {
 
                     thead {
                         height: 80px;
-                        background-color: #2e251a;
+                        background-color: $color-thead;
                         color: $color-light;
                     }
 
                     tbody {
                         tr:nth-child(odd) {
-                            background-color: #e9ba84;
-                            color: #2e251a;
+                            background-color: $color-impar;
+                            color: $color-thead;
 
-                            i { color: #2e251a; }
+                            i { color: $color-thead; }
                         }
 
                         tr:nth-child(even) {
-                            background-color: $color-primary;
+                            background-color: $color-par;
                             color: $color-light;
 
                             i { color: $color-light; }

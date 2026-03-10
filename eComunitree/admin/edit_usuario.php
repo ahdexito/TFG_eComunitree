@@ -72,6 +72,8 @@
 
     <!-- NAV -->
     <nav>
+        <a href="./gestion_usuarios.php" class="btn-back"><i class="fa-solid fa-arrow-left"></i></a>
+
         <ul class="navegacion">
             <li><i class="fa-solid fa-house"></i></li>
             <li><a href="../index.php">Inicio</a></li>

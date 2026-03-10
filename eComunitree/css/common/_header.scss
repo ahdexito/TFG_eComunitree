@@ -1,5 +1,7 @@
 @import 'variables';
 
+$color-dark: #351b10;
+
 header.body-header {
     padding: 10px 10px;
     display: flex;
@@ -127,7 +129,7 @@ header.body-header {
                         i { width: 20px; text-align: center; }
 
                         &:hover { 
-                            background-color: lighten($color-dark, $amount: 10) ;
+                            background-color: $color-primary;
                             color: $color-light;
                             text-shadow: $color-shadow 2px 2px;
                         }

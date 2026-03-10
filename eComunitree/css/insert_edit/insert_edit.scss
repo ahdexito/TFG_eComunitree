@@ -5,6 +5,7 @@
 @import '../common/aside';
 @import '../common/nav';
 @import '../common/btn-filter';
+@import '../common/msg';
 
 @mixin input-base {
     width: 100%;
@@ -73,6 +74,7 @@ body {
                 max-width: 880px;
                 width: 100%;
                 margin: auto;
+                padding: 20px;
 
                 .form {
                     display: flex;
@@ -89,7 +91,6 @@ body {
                         border: 5px solid $color-dark;
                         border-radius: 20px;
                         color: $color-light;
-                        box-shadow: $color-shadow 5px 5px 0;
 
                         label, p { 
                             margin: 10px 20px; 
