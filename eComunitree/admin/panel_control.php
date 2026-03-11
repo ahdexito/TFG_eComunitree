@@ -57,7 +57,6 @@
 
                 <a href="gestion_servicios.php" class="boton"><i class="fa-solid fa-briefcase"></i> SERVICIOS</a>
 
-                <a href="gestion_documentacion.php" class="boton"><i class="fa-regular fa-file-lines"></i> DOCUMENTACIÓN</a>
             <?php if ($_SESSION["rol"] === 'admin'): ?>
                 <a href="gestion_usuarios.php" class="boton"><i class="fa-solid fa-users"></i> USUARIOS</a>
             <?php endif; ?>

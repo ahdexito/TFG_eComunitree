@@ -18,18 +18,34 @@ export function agregarOpcionVoto() {
     contenedor.appendChild(div);
 }
 
-export function toggleFiltros(e) {
-    e.preventDefault();
-    
+export function initFiltros() {
+    const btn = document.getElementById('btn-filter-toggle');
     const menu = document.getElementById('filter-menu');
-    const btn = e.currentTarget;
 
-    if (menu.style.display === 'none' || menu.style.display === '') {
-        menu.style.display = 'block';
-        btn.classList.add('active');
-    } else {
-        menu.style.display = 'none';
-        btn.classList.remove('active');
+    if (btn && menu) {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const isOpen = menu.style.display === 'block';
+            
+            if (!isOpen) {
+                menu.style.display = 'block';
+                btn.classList.add('active');
+            } else {
+                menu.style.display = 'none';
+                btn.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (menu.style.display === 'block') {
+                if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                    menu.style.display = 'none';
+                    btn.classList.remove('active');
+                }
+            }
+        });
     }
 }
 

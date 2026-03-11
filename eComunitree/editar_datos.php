@@ -1,97 +1,83 @@
 <?php
     session_start();
-
     include("./db/db.inc");
-    
+    include("./includes/verficar_sesion.php");
     $base = "./";
 
-    if (!isset($_SESSION["id_usuario"])) {
-        header("location:./login.php");
-        die();
-    }
-
     $id_usuario = $_SESSION["id_usuario"];
-    $error = "";
+    $mensaje = "";
 
-    if (isset($_POST['nombre'])) {
+    // Lógica para actualizar datos personales
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nombre'])) {
         $nombre = $_POST["nombre"];
         $apellidos = $_POST["apellidos"] ?? "";
         $email = $_POST["email"];
         $telefono = $_POST["telefono"] ?? "";
         $vivienda = $_POST["vivienda"];
-        
-        $pass_actual = $_POST["pass_actual"];
-        $pass_nueva = $_POST["pass_nueva"];
-        $pass_confirm = $_POST["pass_confirm"];
+        $pass_verificar = $_POST["pass_verificar"]; // Nueva variable
 
-        // VALIDAR SI EL EMAIL YA EXISTE EN OTRO USUARIO
-        $sql_check_email = "SELECT id_usuario FROM usuarios WHERE email = ? AND id_usuario != ?";
-        $stmt_e = $conn->prepare($sql_check_email);
+        // Validar email duplicado
+        $sql_check = "SELECT id_usuario FROM usuarios WHERE email = ? AND id_usuario != ?";
+        $stmt_e = $conn->prepare($sql_check);
         $stmt_e->bind_param("si", $email, $id_usuario);
         $stmt_e->execute();
+        
         if ($stmt_e->get_result()->num_rows > 0) {
-            $error = "El email ya está registrado por otro usuario.";
+            $mensaje = "El email ya está registrado por otro usuario.";
         } else {
-            // OBTENER PASS ACTUAL PARA VALIDAR
-            $sql_pass = "SELECT password FROM usuarios WHERE id_usuario = ?";
-            $stmt_p = $conn->prepare($sql_pass);
+            // VERIFICAR CONTRASEÑA ANTES DE ACTUALIZAR
+            $stmt_p = $conn->prepare("SELECT password FROM usuarios WHERE id_usuario = ?");
             $stmt_p->bind_param("i", $id_usuario);
             $stmt_p->execute();
             $user_db = $stmt_p->get_result()->fetch_assoc();
 
-            if (!password_verify($pass_actual, $user_db['password'])) {
-                $error = "La contraseña actual no es correcta.";
+            if (!password_verify($pass_verificar, $user_db['password'])) {
+                $mensaje = "La contraseña de confirmación es incorrecta.";
             } else {
-                if (!empty($pass_nueva)) {
-                    if ($pass_nueva !== $pass_confirm) {
-                        $error = "Las nuevas contraseñas no coinciden.";
-                    } else {
-                        $pass_hash = password_hash($pass_nueva, PASSWORD_DEFAULT);
-                        $sql_update = "UPDATE usuarios SET nombre=?, apellidos=?, email=?, telefono=?, vivienda=?, password=? WHERE id_usuario=?";
-                        $stmt = $conn->prepare($sql_update);
-                        $stmt->bind_param("ssssssi", $nombre, $apellidos, $email, $telefono, $vivienda, $pass_hash, $id_usuario);
-                    }
-                } else {
-                    $sql_update = "UPDATE usuarios SET nombre=?, apellidos=?, email=?, telefono=?, vivienda=? WHERE id_usuario=?";
-                    $stmt = $conn->prepare($sql_update);
-                    $stmt->bind_param("sssssi", $nombre, $apellidos, $email, $telefono, $vivienda, $id_usuario);
-                }
+                $sql_update = "UPDATE usuarios SET nombre=?, apellidos=?, email=?, profesional=?, vivienda=? WHERE id_usuario=?";
+                // Nota: He mantenido tu estructura original, asegúrate de que el campo 'telefono' o 'profesional' coincida con tu DB. 
+                // Usando los datos del POST:
+                $sql_update = "UPDATE usuarios SET nombre=?, apellidos=?, email=?, telefono=?, vivienda=? WHERE id_usuario=?";
+                $stmt = $conn->prepare($sql_update);
+                $stmt->bind_param("sssssi", $nombre, $apellidos, $email, $telefono, $vivienda, $id_usuario);
 
-                if (empty($error)) {
-                    try {
-                        if ($stmt->execute()) {
-                            $_SESSION["nombre"] = $nombre;
-                            header("location:./index.php?upt=0");
-                            die();
-                        }
-                    } catch (mysqli_sql_exception $e) {
-                        $error = "Error: El email ya está en uso.";
-                    }
+                if ($stmt->execute()) {
+                    $_SESSION["nombre"] = $nombre;
+                    $_SESSION["vivienda"] = $vivienda;
+                    header("location:./index.php?prof=0");
+                    die();
+                } else {
+                    $mensaje = "Error al actualizar los datos.";
                 }
             }
         }
     }
 
-    // Cargar datos actuales para el formulario
-    $stmt_check = $conn->prepare("SELECT * FROM usuarios WHERE id_usuario = ?");
-    $stmt_check->bind_param("i", $id_usuario);
-    $stmt_check->execute();
-    $usuario = $stmt_check->get_result()->fetch_assoc();
+    // Cargar datos actuales
+    $stmt_load = $conn->prepare("SELECT * FROM usuarios WHERE id_usuario = ?");
+    $stmt_load->bind_param("i", $id_usuario);
+    $stmt_load->execute();
+    $usuario = $stmt_load->get_result()->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Perfil | eComunitree</title>
+    <title>eComunitree | Editar Perfil</title>
     <link rel="stylesheet" href="./css/insert_edit/insert_edit.css">
-    <link rel="icon" href="../img/logo-favicon.png" type="image/png">
+    <link rel="icon" href="./img/logo-favicon.png" type="image/png">
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php if ($mensaje): ?> 
+        <span class="msg"><?= $mensaje ?></span> 
+    <?php endif; ?>
+
+    <!-- HEADER -->
     <?php include("./includes/header.php"); ?>
 
+    <!-- NAV -->
     <nav>
         <a href="./index.php" class="btn-back"><i class="fa-solid fa-arrow-left"></i></a>
 
@@ -99,66 +85,51 @@
             <li><i class="fa-solid fa-house"></i></li>
             <li><a href="./index.php">Inicio</a></li>
             <li><i class="fa-solid fa-angle-right"></i></li>
-            <li>Mi Perfil</li>
+            <li>Editar Perfil</li>
         </ul>
 
+        <!-- ASIDE -->
         <?php include("./includes/aside.php"); ?>
     </nav>
     
+    <!-- MAIN -->
     <main>
         <section class="panel-control">
             <div class="section-header">
-                <h2><i class="fa-solid fa-user icono-header"></i> Editar Datos</h2>
+                <h2><i class="fa-solid fa-user-pen icono-header"></i> Mis Datos</h2>
                 <hr>
             </div>
-
-            <?php if ($error): ?>
-                <p style="color: tomato; font-weight: bold; margin: 10px 0;"><?= $error ?></p>
-            <?php endif; ?>
 
             <form action="" method="POST">
                 <div class="form">
                     <div class="casilla">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" id="nombre" value="<?= $usuario["nombre"] ?>" required>
+                        <label>Nombre</label>
+                        <input type="text" name="nombre" value="<?= $usuario["nombre"] ?>" required>
                     </div>
-
                     <div class="casilla">
-                        <label for="apellidos">Apellidos</label>
-                        <input type="text" name="apellidos" id="apellidos" value="<?= $usuario["apellidos"] ?>" required>
+                        <label>Apellidos</label>
+                        <input type="text" name="apellidos" value="<?= $usuario["apellidos"] ?>" required>
                     </div>
-
                     <div class="casilla">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" value="<?= $usuario["email"] ?>" required>
+                        <label>Email</label>
+                        <input type="email" name="email" value="<?= $usuario["email"] ?>" required>
                     </div>
-
                     <div class="casilla">
-                        <label for="telefono">Teléfono</label>
-                        <input type="text" name="telefono" id="telefono" value="<?= $usuario["telefono"] ?>">
+                        <label>Teléfono</label>
+                        <input type="text" name="telefono" value="<?= $usuario["telefono"] ?>">
                     </div>
-
                     <div class="casilla">
-                        <label for="vivienda">Vivienda</label>
-                        <input type="text" name="vivienda" id="vivienda" value="<?= $usuario["vivienda"] ?>" required>
+                        <label>Vivienda</label>
+                        <input type="text" name="vivienda" value="<?= $usuario["vivienda"] ?>" required>
                     </div>
-
                     <div class="casilla">
-                        <label for="pass_actual">Contraseña Actual (Requerida)</label>
-                        <input type="password" name="pass_actual" id="pass_actual" required>
-                    </div>
-
-                    <div class="casilla">
-                        <label for="pass_nueva">Nueva Contraseña (Opcional)</label>
-                        <input type="password" name="pass_nueva" id="pass_nueva">
-                    </div>
-
-                    <div class="casilla">
-                        <label for="pass_confirm">Confirmar Nueva Contraseña</label>
-                        <input type="password" name="pass_confirm" id="pass_confirm">
+                        <label>Confirmar Contraseña</label>
+                        <input type="password" name="pass_verificar" placeholder="Introduce tu contraseña" required>
                     </div>
                 </div>
-                <button type="submit" class="guardar"><i class="fa-solid fa-floppy-disk"></i> Guardar Cambios</button>
+                <button type="submit" class="guardar">
+                    <i class="fa-solid fa-floppy-disk"></i> Guardar Cambios
+                </button>
             </form>
         </section>
     </main>

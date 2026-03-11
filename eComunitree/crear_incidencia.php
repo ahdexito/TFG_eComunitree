@@ -1,14 +1,8 @@
 <?php
     session_start();
-
-    include("db/db.inc");
-
-    $base = "./";
-    
-    if (!isset($_SESSION["rol"])) {
-        header("location:../index.php");
-        die();
-    } 
+    include("./db/db.inc");
+    include("./includes/verficar_sesion.php");
+    $base = "./"; 
 
     // OBTENER TIPOS DE INCIDENCIAS
     $resultado = $conn->query(
@@ -62,14 +56,16 @@
             $stmt2->execute();
 
             $conn->commit();
-            header("location:admin/email.php?publi=0");
+            $_SESSION['proceso_envio'] = true; 
+            header("location:admin/email.php");
+            exit();
 
         } catch (Exception $e) {
             $conn->rollback();
             if ($nombre_imagen !== "default.jpg" && file_exists("img_incidencias/" . $nombre_imagen)) {
                 unlink("img_incidencias/" . $nombre_imagen);
             }
-            header("location:index.php?ins=error");
+            header("location:index.php?inci=1");
         }
     }    
 ?>
@@ -144,7 +140,7 @@
                 </div>
 
                 <button type="submit" class="guardar">
-                    <i class="fa-solid fa-floppy-disk"></i> Publicar Incidencia
+                    <i class="fa-solid fa-floppy-disk"></i> Confirmar
                 </button>
             </form>
         </section>

@@ -5,15 +5,12 @@
 
     $base = "../";
     
-    if (!isset($_SESSION["rol"])) {
+    if (!isset($_SESSION["rol"]) || $_SESSION["rol"] === 'vecino') {
         header("location:../login.php?usu=1");
         die();
     }
-    
-    elseif ($_SESSION["rol"] !== 'admin') {
-        header("location:../login.php?usu=1");
-        die();
-    }
+
+    $mensaje = "";
 
     // PAGINADOR
     $num_lineas = 5;
@@ -52,6 +49,24 @@
         header("location:gestion_usuarios.php");
         exit();
     }
+
+    // ALERTAS DE CREACIÓN DE USUARIO
+    if (isset($_GET["ins"])) {
+        // registro correcto
+        if ($_GET["ins"] == 0) $mensaje = "Usuario insertado correctamente.";
+        
+        // problema al insertar
+        if ($_GET["ins"] == 1) $mensaje = "Ha ocurrido un error al intentar insertar el usuario.";
+    }
+
+    // ALERTAS DE MODIFICACIÓN DE USUARIO
+    if (isset($_GET["upt"])) {
+        // actualización correcta
+        if ($_GET["upt"] == 0) $mensaje = "Usuario actualizado correctamente.";
+        
+        // problema al actualizar
+        if ($_GET["upt"] == 1) $mensaje = "Ha ocurrido un error al intentar actualizar el usuario.";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -65,6 +80,10 @@
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php if ($mensaje): ?>
+        <span class="msg"><?= $mensaje ?></span>
+    <?php endif; ?>
+
     <!-- HEADER -->
     <?php include("../includes/header.php"); ?>
     
@@ -84,36 +103,6 @@
         <!-- ASIDE -->
         <?php include("../includes/aside.php"); ?>
     </nav>
-
-    <?php
-        // ALERTAS DE CREACIÓN DE USUARIO
-        if (isset($_GET["usu"])) {
-            if ($_GET["usu"] == 0) { // registro correcto
-                echo '<div class="alerta"><i class="fa-solid fa-circle-check check"></i>
-                Usuario insertado correctamente.</div>';
-            }
-            if ($_GET["usu"] == 1) { // email ya existe
-                echo '<div class="alerta"><i class="fa-solid fa-circle-exclamation exclamacion"></i>
-                El email ya existe en la base de datos.</div>';
-            }
-            if ($_GET["usu"] == 2) { // problema al insertar
-                echo '<div class="alerta"><i class="fa-solid fa-circle-xmark xmark"></i>
-                Ha ocurrido un error al intentar insertar el usuario.</div>';
-            }
-        }
-
-        // ALERTAS DE MODIFICACIÓN DE USUARIO
-        if (isset($_GET["upt"])) {
-            if ($_GET["upt"] == 0) { // actualización correcta
-                echo '<div class="alerta"><i class="fa-solid fa-circle-check check"></i>
-                Usuario actualizado correctamente.</div>';
-            }
-            if ($_GET["upt"] == 1) { // problema al actualizar
-                echo '<div class="alerta"><i class="fa-solid fa-circle-xmark xmark"></i>
-                Ha ocurrido un error al intentar actualizar el usuario.</div>';
-            }
-        }
-    ?>
 
     <!-- MAIN -->
     <main>

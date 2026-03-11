@@ -1,17 +1,21 @@
 import { 
     iniciarTempoMsj, 
     agregarOpcionVoto, 
-    toggleFiltros, 
+    initFiltros, 
     initAsideDropdowns, 
     initAside, 
     initUserMenu } 
 from "./modules/ui.js";
 
 // Inicializar los mensajes y el menú lateral
-iniciarTempoMsj();
-initAsideDropdowns();
-initAside();
-initUserMenu();
+document.addEventListener('DOMContentLoaded', () => {
+    initFiltros();
+    iniciarTempoMsj();
+    initAsideDropdowns();
+    initAside();
+    initUserMenu();
+});
+
 
 const btnOpcion = document.getElementById('btn-agregar-opcion');
 if (btnOpcion) btnOpcion.addEventListener('click', agregarOpcionVoto);

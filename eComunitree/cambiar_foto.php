@@ -1,71 +1,67 @@
 <?php
-session_start();
-include("./db/db.inc");
-$base = "./";
+    session_start();
+    include("./db/db.inc");
+    include("./includes/verficar_sesion.php");
+    $base = "./";
 
-if (!isset($_SESSION["id_usuario"])) {
-    header("location:./login.php");
-    die();
-}
+    $id_usuario = $_SESSION["id_usuario"];
+    $mensaje = "";
 
-$id_usuario = $_SESSION["id_usuario"];
-$mensaje = "";
-
-// Lógica para BORRAR FOTO (Restablecer a default.jpg)
-if (isset($_POST['borrar_foto'])) {
-    if ($_SESSION["foto"] != "default.jpg") {
-        $archivo_viejo = "./img_user/" . $_SESSION["foto"];
-        if (file_exists($archivo_viejo)) {
-            unlink($archivo_viejo);
-        }
-        
-        $sql = "UPDATE usuarios SET foto = 'default.jpg' WHERE id_usuario = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $id_usuario);
-        
-        if ($stmt->execute()) {
-            $_SESSION["foto"] = "default.jpg";
-            $mensaje = "Foto eliminada. Se ha restablecido la imagen predeterminada.";
-        }
-        $stmt->close();
-    } else {
-        $mensaje = "Ya tienes la foto predeterminada.";
-    }
-}
-
-// Lógica para SUBIR NUEVA FOTO
-if (isset($_FILES['nueva_foto']) && $_FILES['nueva_foto']['error'] === UPLOAD_ERR_OK) {
-    $archivo = $_FILES['nueva_foto'];
-    $tipo = $archivo['type'];
-    $ruta_temporal = $archivo['tmp_name'];
-    
-    $permitidos = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
-    
-    if (in_array($tipo, $permitidos)) {
-        $extension = pathinfo($archivo['name'], PATHINFO_EXTENSION);
-        $nuevo_nombre = "user_" . $id_usuario . "_" . time() . "." . $extension;
-        $destino = "./img_user/" . $nuevo_nombre;
-
-        if (move_uploaded_file($ruta_temporal, $destino)) {
-            // Borrar anterior si no es la default
-            if ($_SESSION["foto"] != "default.jpg" && file_exists("./img_user/" . $_SESSION["foto"])) {
-                unlink("./img_user/" . $_SESSION["foto"]);
+    // Lógica para BORRAR FOTO (Restablecer a default.jpg)
+    if (isset($_POST['borrar_foto'])) {
+        if ($_SESSION["foto"] != "default.jpg") {
+            $archivo_viejo = "./img_user/" . $_SESSION["foto"];
+            if (file_exists($archivo_viejo)) {
+                unlink($archivo_viejo);
             }
-
-            $sql = "UPDATE usuarios SET foto = ? WHERE id_usuario = ?";
+            
+            $sql = "UPDATE usuarios SET foto = 'default.jpg' WHERE id_usuario = ?";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("si", $nuevo_nombre, $id_usuario);
+            $stmt->bind_param("i", $id_usuario);
             
             if ($stmt->execute()) {
-                $_SESSION["foto"] = $nuevo_nombre;
-                $mensaje = "Foto actualizada con éxito.";
+                $_SESSION["foto"] = "default.jpg";
+                $mensaje = "Foto eliminada. Se ha restablecido la imagen predeterminada.";
             }
             $stmt->close();
+        } else {
+            $mensaje = "Ya tienes la foto predeterminada.";
         }
-    } else {
-        $mensaje = "Formato no permitido.";
     }
-}
+
+    // Lógica para SUBIR NUEVA FOTO
+    if (isset($_FILES['nueva_foto']) && $_FILES['nueva_foto']['error'] === UPLOAD_ERR_OK) {
+        $archivo = $_FILES['nueva_foto'];
+        $tipo = $archivo['type'];
+        $ruta_temporal = $archivo['tmp_name'];
+        
+        $permitidos = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+        
+        if (in_array($tipo, $permitidos)) {
+            $extension = pathinfo($archivo['name'], PATHINFO_EXTENSION);
+            $nuevo_nombre = "user_" . $id_usuario . "_" . time() . "." . $extension;
+            $destino = "./img_user/" . $nuevo_nombre;
+
+            if (move_uploaded_file($ruta_temporal, $destino)) {
+                // Borrar anterior si no es la default
+                if ($_SESSION["foto"] != "default.jpg" && file_exists("./img_user/" . $_SESSION["foto"])) {
+                    unlink("./img_user/" . $_SESSION["foto"]);
+                }
+
+                $sql = "UPDATE usuarios SET foto = ? WHERE id_usuario = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("si", $nuevo_nombre, $id_usuario);
+                
+                if ($stmt->execute()) {
+                    $_SESSION["foto"] = $nuevo_nombre;
+                    $mensaje = "Foto actualizada con éxito.";
+                }
+                $stmt->close();
+            }
+        } else {
+            $mensaje = "Formato no permitido.";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -117,8 +113,9 @@ if (isset($_FILES['nueva_foto']) && $_FILES['nueva_foto']['error'] === UPLOAD_ER
                         <input type="file" name="nueva_foto" id="nueva_foto" class="imagen" accept="image/*" required>
                     </div>
                 </div>
+                
                 <button type="submit" class="guardar">
-                    <i class="fa-solid fa-upload"></i> Actualizar Foto
+                    <i class="fa-solid fa-floppy-disk"></i> Guardar Cambios
                 </button>
             </form>
 

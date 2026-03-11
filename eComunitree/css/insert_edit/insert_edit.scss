@@ -18,7 +18,7 @@
 
     &:focus {
         outline: none;
-        border-color: $color-primary;
+        border-color: $color-accent;
     }
 }
 
@@ -38,7 +38,7 @@ body {
                 black calc(100% - 100px),
                 transparent 100%
             );
-            background-color: $color-accent-transparent;
+            background-color: $color-primary-transparent;
             display: flex;
             flex-direction: column;
 
@@ -57,7 +57,7 @@ body {
                     font-size: 2.5em;
                     font-family: $titulo;
                     margin-right: 30px;
-                    text-shadow: $color-dark 3px 3px 0;
+                    text-shadow: $color-shadow 3px 3px 0;
                     width: 100%;
                 }
             }
@@ -67,7 +67,7 @@ body {
                 border: 3px solid $color-light;
                 border-radius: 10px;
                 margin-bottom: 30px;
-                box-shadow: $color-dark 3px 3px 0;
+                box-shadow: $color-shadow 3px 3px 0;
             }
 
             form {
@@ -84,13 +84,14 @@ body {
 
                     .casilla {
                         @include input-base;
-                        padding: 0;
+                        padding: 5px;
                         display: flex;
                         flex-direction: column;
-                        background-color: $color-dark;
-                        border: 5px solid $color-dark;
+                        background-color: $color-primary-dark;
+                        border: 2px solid $color-light;
                         border-radius: 20px;
                         color: $color-light;
+                        box-shadow: $color-shadow 0 0 20px 5px;
 
                         label, p { 
                             margin: 10px 20px; 
@@ -145,18 +146,18 @@ body {
                     margin: 50px auto 0;
                     cursor: pointer;
                     background-color: $color-light;
-                    color: $color-dark;
+                    color: $color-primary-dark;
                     border: 2px solid $color-light;
                     box-shadow: $color-shadow 3px 3px;
                     font-weight: bold;
-                    font-size: 2em;
+                    font-size: 1.5em;
                     font-family: $titulo;
                     transition: all 0.2s ease;
 
                     &:hover {
                         scale: 1.02;
                         color: $color-light;
-                        background-color: $color-accent;
+                        background-color: $color-primary;
                         box-shadow: $color-shadow 6px 6px;
                         text-shadow: $color-shadow 3px 3px;
                     }
@@ -180,10 +181,7 @@ body {
             margin-bottom: 10px;
             display: flex;
             justify-content: center;
-
-            .input-voto {
-                margin-bottom: 10px;
-            }
+            align-items: center;
 
             .btn-borrar {
                 background-color: $color-light;
@@ -191,8 +189,8 @@ body {
                 color: $color-incidencia;
                 border: none;
                 border-radius: 15px;
-                width: 65px;
-                height: 58px;
+                width: 80px;
+                height: 64px;
                 border: 2px solid $color-light;
                 transition: all 0.2s ease;
 
@@ -201,6 +199,8 @@ body {
                     color: $color-light;
                     text-shadow: $color-shadow 3px 3px;
                 }
+
+                i { font-size: 1.2em; }
             }
         } 
 
@@ -208,7 +208,7 @@ body {
             padding: 10px;
             width: 100%;
             background-color: $color-light;
-            color: $color-dark;
+            color: $color-primary-dark;
             border-radius: 15px;
             font-size: 1em;
             cursor: pointer;
@@ -222,22 +222,31 @@ body {
                 width: 100%;
                 cursor: pointer;
                 font-size: 1.1em;
-                border: 2px solid $color-dark;
-                background-color: $color-dark;
+                border: none;
+                background-color: $color-primary;
                 color: $color-light;
-                padding: 8px 15px;
+                padding: 10px 15px;
                 border-radius: 10px;
                 margin-right: 15px;
+                text-shadow: $color-shadow 2px 2px;
                 transition: all 0.2s;
 
                 &:hover {
-                    background-color: $color-accent;
-                    text-shadow: $color-shadow 2px 2px;
+                    background-color: $color-primary-dark;
+                    text-shadow: none;
                 }
             }
         }
 
-        #btn-agregar-opcion:hover { transform: none; box-shadow: none; background-color: $color-primary; }
+        #btn-agregar-opcion {
+            height: 64px;
+
+            &:hover { 
+                transform: none; 
+                box-shadow: none; 
+                background-color: $color-primary; 
+            }
+        }
     }
 }
 

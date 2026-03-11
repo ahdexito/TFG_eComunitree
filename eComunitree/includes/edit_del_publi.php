@@ -4,7 +4,7 @@
             <i class="fa-regular fa-pen-to-square"></i>Editar
         </a>
 
-        <a href="gestion/gestion_publicaciones.php?eliminar=<?= $p['id_publicacion'] ?>" 
+        <a href="./index.php?eliminar=<?= $p['id_publicacion'] ?>" 
             class="btn-del" 
             onclick="return confirm('¿Estás seguro de que deseas eliminar tu publicación?');">
             <i class="fa-regular fa-trash-can"></i>Eliminar

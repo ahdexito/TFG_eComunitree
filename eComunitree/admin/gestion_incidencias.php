@@ -15,21 +15,21 @@
         $nuevo_estado = $_POST['cambiar_estado'];
         $id_p = intval($_POST['id_publicacion']);
         
-        // Preparamos la consulta para evitar inyección SQL
         $stmt = $conn->prepare("UPDATE incidencias SET estado = ? WHERE id_publicacion = ?");
         $stmt->bind_param("si", $nuevo_estado, $id_p);
         
-        if ($stmt->execute()) {
-            // Recargamos para evitar reenvío de formulario y reflejar cambios
-            $url_actual = "gestion_incidencias.php" . (isset($_SERVER['QUERY_STRING']) ? "?" . $_SERVER['QUERY_STRING'] : "");
-            header("Location: " . $url_actual);
-            exit();
-        }
+        // Determinar el resultado para el mensaje
+        $res = $stmt->execute() ? "0" : "1";
         $stmt->close();
+
+        // Construir la URL manteniendo el filtro y la página, pero añadiendo el mensaje
+        $url_actual = "gestion_incidencias.php" . (isset($_SERVER['QUERY_STRING']) ? "?" . $_SERVER['QUERY_STRING'] : "?");
+        header("Location: " . $url_actual . "&upt=" . $res);
+        exit();
     }
 
     // LÓGICA DE FILTRADO
-    $filtro_estado = isset($_GET['estado']) ? $_GET['estado'] : 'todos';
+    $filtro_estado = isset($_GET['estado']) ? $_GET['estado'] : 'todas';
     $where_sql = "";
     $params_url = "";
 
@@ -66,6 +66,13 @@
 
     $resultado = $conn->query($sql);
     $incidencias = $resultado->fetch_all(MYSQLI_ASSOC);
+
+    $mensaje = "";
+    if (isset($_GET['upt'])) {
+        $mensaje = ($_GET['upt'] === '0') 
+            ? "Estado de la incidencia actualizado correctamente." 
+            : "Error al actualizar el estado.";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -78,6 +85,10 @@
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php if ($mensaje): ?>
+        <span class="msg"><?= $mensaje ?></span>
+    <?php endif; ?>
+
     <!-- HEADER -->
     <?php include("../includes/header.php"); ?>
 
@@ -107,12 +118,12 @@
                 <h2><i class="fa-solid fa-triangle-exclamation"></i> Gestión de Incidencias: <small>página <?= $pagina ?></small></h2>
 
                 <div class="filter-container">
-                    <div class="btn-filter" onclick="toggleFiltros(event)">
+                    <div class="btn-filter" id="btn-filter-toggle"">
                         <i class="fa-solid fa-filter"></i>
-                        <p>ESTADO: <?= strtoupper($filtro_estado) ?></p>
+                        <p><?= strtoupper($filtro_estado) ?></p>
                     </div>
-                    <div id="filter-menu" class="filter-menu" style="display: none;">
-                        <a href="gestion_incidencias.php?estado=todos">Todos</a>
+                    <div id="filter-menu" class="filter-menu">
+                        <a href="gestion_incidencias.php?estado=todos">Todas</a>
                         <a href="gestion_incidencias.php?estado=pendiente">Pendientes</a>
                         <a href="gestion_incidencias.php?estado=en_proceso">En Proceso</a>
                         <a href="gestion_incidencias.php?estado=resuelta">Resueltas</a>

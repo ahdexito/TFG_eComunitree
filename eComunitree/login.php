@@ -1,9 +1,11 @@
 <?php
     session_start();
+    include("./db/db.inc");
+    $mensaje = "";
 
-    include("db/db.inc");
-
-    $error_msg = "";
+    if (isset($_GET["usu"]) && $_GET["usu"] == 1) {
+        $mensaje = "No tienes permiso para acceder a la página introducida. Inicia sesión con una cuenta válida o contacta con tu administrador.";
+    }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
@@ -19,10 +21,10 @@
 
                 // Preparación de consulta segura contra SQL Injection
                 $stmt = $conn->prepare(
-                    "SELECT id_usuario, nombre, email, password, rol, vivienda, foto 
+                    "SELECT id_usuario, nombre, email, password, rol, vivienda, foto, activo 
                     FROM usuarios 
                     WHERE email = ?"
-                    );
+                );
 
                 $stmt->bind_param("s", $email_input);
                 $stmt->execute();
@@ -31,6 +33,13 @@
                 // Verificación de existencia del usuario
                 if ($usuario = $result->fetch_assoc()) {
 
+                    // VERIFICAR SI ESTÁ ACTIVO
+                    if ($usuario["activo"] == 0) {
+                        header("location:./login.php?usu=1");
+                        die();
+                    }
+
+                    // VERIFICAR CONTRASEÑA
                     if (password_verify($password_input, $usuario["password"])) {
 
                         $_SESSION["id_usuario"] = $usuario["id_usuario"];
@@ -53,23 +62,16 @@
 
                         header("location:./index.php");
                         die();
-                    } else {
-                        // Contraseña incorrecta
-                        $error_msg = "El email y/o la contraseña NO coinciden.";
-                    }
-                } else {
-                    // Email no encontrado
-                    $error_msg = "El email y/o la contraseña NO coinciden.";
-                }
-
+                    } 
+                    else $mensaje = "El email y/o la contraseña NO coinciden."; 
+                } 
+                else $mensaje = "El email y/o la contraseña NO coinciden.";
                 $stmt->close();
-            } else {
-                $error_msg = "Error en el campo 'contraseña'.";
-            }
-        } else {
-            if (isset($_POST["email"])) {
-                $error_msg = "El email NO es válido.";
-            }
+            } 
+            else $mensaje = "Error en el campo 'contraseña'.";
+        } 
+        else {
+            if (isset($_POST["email"])) $mensaje = "El email NO es válido.";
         }
     }
 ?>
@@ -85,26 +87,16 @@
     <title>eComunitree | Login</title>
 </head>
 <body>
+    <?php if ($mensaje): ?>
+        <span class="msg"><?= $mensaje ?></span>
+    <?php endif; ?>
+
     <header>
         <img src="./img/logo-transparencia.png" alt="logotipo">
         <h1>eComunitree</h1>
     </header>
 
     <h2>Gestiona tu comunidad de forma fácil y digital.</h2>
-
-    <!-- Imprimir errores de procesamiento de usuario -->
-    <?php if (!empty($error_msg)): ?>
-            <div class='error msg-timer'>
-                <i class='fa-solid fa-triangle-exclamation'></i><?php echo $error_msg; ?>
-            </div>
-    <?php endif; ?>
-
-    <?php if (isset($_GET["usu"]) && $_GET["usu"] == 1): ?>
-        <div class='error msg-timer'>
-            <i class='fa-solid fa-triangle-exclamation'></i> 
-            No tienes permiso para acceder a la página introducida. Inicia sesión con una cuenta válida o contacta con tu administrador.
-        </div>
-    <?php endif; ?>
 
     <main>
         <form method="POST">

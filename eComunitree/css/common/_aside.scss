@@ -10,7 +10,7 @@
     right: -400px;
     z-index: 300;
     transition: all 0.4s ease;
-    border-left: 3px solid $color-light;
+    border-left: 2px solid $color-light;
     box-shadow: $color-shadow 0 0 30px 10px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -20,10 +20,10 @@
     justify-content: flex-start;
     background: linear-gradient(
         to bottom,
-        $color-dark,
+        $color-accent-dark,
         $color-accent-transparent,
         $color-accent-transparent,
-        $color-dark
+        $color-accent-dark
     );
 
     -ms-overflow-style: none;
@@ -40,7 +40,7 @@
 
     hr {
         border: 2px solid $color-light;
-        box-shadow: $color-dark 3px 3px 0;
+        box-shadow: $color-shadow 3px 3px 0;
         border-radius: 10px;
         margin-bottom: 20px;
     }
@@ -54,13 +54,9 @@
         li {
             position: relative;
 
-            &:nth-child(3n + 1) { --item-color: #{$color-votacion}; }
-            &:nth-child(3n + 2) { --item-color: #{$color-incidencia}; }
-            &:nth-child(3n + 3) { --item-color: #{$color-aviso}; }
-
             a, p {
                 background-color: $color-light;
-                color: $color-dark;
+                color: $color-accent-dark;
                 box-shadow: $color-shadow 3px 3px 0;
                 font-size: 1.3em;
                 font-weight: bold;
@@ -81,7 +77,7 @@
 
             &:hover > a, &:hover > p {
                 transform: scale(1.05);
-                background-color: var(--item-color);
+                background-color: $color-accent;
                 color: $color-light;
                 text-shadow: $color-shadow 2px 2px;
                 box-shadow: $color-shadow 5px 5px 0;
@@ -107,14 +103,10 @@
                     transition: all 0.4s ease;
     
                     li {
-                        &:nth-child(3n + 1) { --item-color: #{$color-votacion}; }
-                        &:nth-child(3n + 2) { --item-color: #{$color-incidencia}; }
-                        &:nth-child(3n + 3) { --item-color: #{$color-aviso}; }
-    
                         a { 
                             background-color: $color-light;
                             border-color: $color-light;
-                            color: $color-dark;
+                            color: $color-primary-dark;
                             display: flex;
                             align-items: center;
                             justify-content: space-between;
@@ -125,7 +117,7 @@
                                 text-shadow: $color-shadow 2px 2px;
                                 transform: scale(1.03);
                                 box-shadow: $color-shadow 5px 5px;
-                                background-color: var(--item-color);
+                                background-color: $color-accent;
                             }
                         }
                     }
@@ -134,7 +126,7 @@
                 &.is-active {
                     > p { 
                         transform: scale(1.05);
-                        background-color: var(--item-color);
+                        background-color: $color-accent;
                         color: $color-light;
                         text-shadow: $color-shadow 3px 3px;
                         box-shadow: $color-shadow 5px 5px 0;

@@ -1,7 +1,5 @@
 @import 'variables';
 
-$color-dark: #351b10;
-
 header.body-header {
     padding: 10px 10px;
     display: flex;
@@ -16,8 +14,8 @@ header.body-header {
     a.btn-index {
         background: linear-gradient(
             to bottom,
-            $color-primary-transparent,
-            $color-dark-transparent
+            $color-accent-transparent,
+            $color-accent-dark
         );
         display: flex;
         align-items: center;
@@ -35,6 +33,7 @@ header.body-header {
         }
 
         img { width: 90px; padding: 16px 13px 10px; }
+
         h1 {
             @include respond-to(small_medium) { display: none; }
             color: $color-light;
@@ -49,8 +48,8 @@ header.body-header {
         position: relative;
         background: linear-gradient(
             to bottom,
-            $color-primary-transparent,
-            $color-dark-transparent
+            $color-accent-transparent,
+            $color-accent-dark
         );
         padding-left: 30px;
         border: 2px solid $color-light;
@@ -71,8 +70,15 @@ header.body-header {
 
             strong { 
                 font-size: 1.2em; 
-                margin-bottom: 5px;
                 font-family: $titulo;
+            }
+
+            hr {
+                width: 100%; 
+                margin-bottom: 7px; 
+                border: 1px solid $color-light; 
+                border-radius: 10px;
+                box-shadow: $color-shadow 1px 1px 0;
             }
         }
 
@@ -100,9 +106,9 @@ header.body-header {
             position: absolute;
             top: 105%;
             right: 0;
-            width: 200px;
+            width: 250px;
             background-color: $color-light;
-            border: 3px solid $color-dark;
+            border: 3px solid $color-accent-dark;
             border-radius: 5px;
             box-shadow: #000 5px 5px 15px;
             z-index: 400;
@@ -114,32 +120,32 @@ header.body-header {
                 margin: 0;
 
                 li {
-                    &:last-child { border: none; }
+                    &:last-child { 
+                        border: none; 
+                        border-top: 3px solid $color-accent-dark;
+                    }
 
                     a {
+                        text-align: end;
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
                         gap: 15px;
                         padding: 15px 20px;
-                        color: $color-dark;
+                        color: $color-accent-dark;
                         text-decoration: none;
                         transition: all 0.2s ease;
 
                         i { width: 20px; text-align: center; }
 
                         &:hover { 
-                            background-color: $color-primary;
+                            background-color: $color-accent;
                             color: $color-light;
                             text-shadow: $color-shadow 2px 2px;
                         }
 
                         &.logout:hover { background-color: $color-incidencia; }
                     }
-                }
-
-                hr {
-                    border: 2px solid $color-dark;
                 }
             }
         }

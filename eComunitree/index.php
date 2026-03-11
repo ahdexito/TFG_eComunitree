@@ -1,23 +1,46 @@
 <?php
     session_start();
-
-    include("db/db.inc");
-
+    include("./db/db.inc");
+    include("./includes/verficar_sesion.php");
     $base = "./";
 
-    if (!isset($_SESSION["rol"])) {
-        header("location:login.php");
-        die();
+    // GESTIÓN DE MENSAJES
+    $mensaje = "";
+
+    if (isset($_GET['del']) && $_GET['del'] == 0) {
+        $mensaje = "Publicación eliminada correctamente.";
+    } 
+    elseif (isset($_GET['ins'])) {
+        $mensaje = ($_GET['ins'] == 0) ? "Publicación añadida con éxito." : "Error al añadir la publicación.";
+    } 
+    elseif (isset($_GET["upt"])) {
+        $mensaje = ($_GET["upt"] == 0) ? "Publicación actualizada correctamente." : "Error al actualizar la publicación.";
+    } 
+    elseif (isset($_GET["prof"]) && $_GET["prof"] == 0) $mensaje = "Datos actualizados correctamente.";
+
+    elseif (isset($_GET['error'])) {
+        $mensaje = ($_GET['error'] == 'acceso_denegado') ? "No tienes permisos para realizar esta acción." : "";
+    }
+    elseif (isset($_GET["vote"])) {
+        $get_vote = (string)$_GET["vote"];
+
+        $mensaje = match ($get_vote) {
+            '0' => "Votación realizada correctamente.",
+            '1' => "Ya has votado en esta publicación.",
+            '2' => "Esta votación ya se ha cerrado, no puedes votar.",
+            '3' => "Ha sucedido un error inesperado al realizar la votación. Inténtalo de nuevo.",
+            default => ""
+        };
     }
 
     // LÓGICA DE FILTRADO
     $filtro_tipo = isset($_GET['tipo']) ? $_GET['tipo'] : 'todas';
 
-    [$nombre_filtro, $icono_filtro] = match($filtro_tipo) {
-        'aviso' => ['Avisos', 'fa-bullhorn'],
-        'incidencia' => ['Incidencias', 'fa-triangle-exclamation'],
-        'votacion' => ['Votaciones', 'fa-envelope'],
-        default => ['Todas las Publicaciones', 'fa-comments'],
+    [$nombre_boton, $icono_filtro] = match($filtro_tipo) {
+        'aviso' => ['AVISOS', 'fa-bullhorn'],
+        'incidencia' => ['INCIDENCIAS', 'fa-triangle-exclamation'],
+        'votacion' => ['VOTACIONES', 'fa-envelope'],
+        default => ['TODAS', 'fa-comments'],
     };
 
     $where_sql = "";
@@ -65,6 +88,18 @@
     
     $resultado = $conn->query($sql_main);
     $publicaciones = $resultado->fetch_all(MYSQLI_ASSOC);
+
+    // ELIMINAR PUBLICACIONES
+    if (isset($_GET["eliminar"])) {
+        $id_publicacion = intval($_GET["eliminar"]);
+        $stmt = $conn -> prepare("DELETE FROM publicaciones WHERE id_publicacion = ?");
+        $stmt -> bind_param("i", $id_publicacion);
+        $stmt -> execute();
+        $stmt -> close();
+
+        header("location:index.php?del=0");
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -78,18 +113,10 @@
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <?php if (isset($_GET['ins'])): ?>
-        <div class="alerta <?php echo ($_GET['ins'] === 'ok') ? 'exito' : 'error'; ?>">
-            <?php 
-                if ($_GET['ins'] === 'ok') {
-                    echo '<i class="fa-solid fa-circle-check"></i> Incidencia publicada correctamente.';
-                } else {
-                    echo '<i class="fa-solid fa-circle-exclamation"></i> Hubo un error al publicar. Inténtalo de nuevo.';
-                }
-            ?>
-        </div>
+    <?php if ($mensaje): ?>
+        <span class="msg"><?= $mensaje ?></span>
     <?php endif; ?>
-
+                
     <!-- HEADER -->
     <?php include("includes/header.php"); ?>
 
@@ -109,17 +136,17 @@
         <div class="feed">
             <header class="section-header">
                 <h2>
-                    <i class="fa-solid <?= $icono_filtro ?>"></i>
-                    <?= $nombre_filtro ?>: <small>página <?= $pagina ?></small>
+                    <i class="fa-solid fa-comments"></i>
+                    Últimas Publicaciones: <small>página <?= $pagina ?></small>
                 </h2>
                 
                 <div class="filter-container">
-                    <div class="btn-filter" id="btn-filter">
+                    <div class="btn-filter" id="btn-filter-toggle">
                         <i class="fa-solid fa-filter"></i>
-                        <p>FILTRO</p> 
+                        <p><?= $nombre_boton ?></p> 
                     </div>
                     <div id="filter-menu" class="filter-menu">
-                        <a href="index.php?tipo=todas">Todas las Publicaciones</a>
+                        <a href="index.php?tipo=todas">Todas</a>
                         <a href="index.php?tipo=votacion">Votaciones</a>
                         <a href="index.php?tipo=aviso">Avisos</a>
                         <a href="index.php?tipo=incidencia">Incidencias</a>
@@ -300,7 +327,7 @@
 
                         <section class="article-body">                                
                             <div class="article-body-content">
-                                <h4><i class="fa-solid fa-star-of-life"></i> <?= $p['titulo'] ?></h4>
+                                <h4><i class="fa-solid fa-star-of-life"></i> <?= strtoupper($p['tipo_incidencia_nombre']) . ": " . $p['titulo'] ?></h4>
 
                                 <p><?= $p['contenido'] ?></p>
 

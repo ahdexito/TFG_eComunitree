@@ -5,31 +5,42 @@
 
     $base = "../";
     
-    if (!isset($_SESSION["rol"])) {
+    if (!isset($_SESSION["rol"]) || $_SESSION["rol"] === 'vecino') {
         header("location:../login.php?usu=1");
         die();
     }
-    
-    elseif ($_SESSION["rol"] === 'vecino') {
-        header("location:../login.php?usu=1");
-        die();
+
+    $mensaje = "";
+
+    // GESTIÓN DE MENSAJES
+    if (isset($_GET['del']) && $_GET['del'] == 0) {
+        $mensaje = "Publicación eliminada correctamente.";
+    } 
+    elseif (isset($_GET["ins"])) {
+        $mensaje = ($_GET["ins"] == 0) ? "Publicación añadida correctamente." : "Error al añadir la publicación.";
+    } 
+    elseif (isset($_GET["upt"])) {
+        $mensaje = ($_GET["upt"] == 0) ? "Publicación actualizada correctamente." : "Error al actualizar la publicación.";
+    }
+    elseif (isset($_GET['error']) && $_GET['error'] == 'acceso_denegado') {
+        $mensaje = "No tienes permiso para realizar esta acción.";
     }
 
     // LÓGICA DE FILTRADO
-    $filtro_tipo = isset($_GET['tipo']) ? $_GET['tipo'] : 'todos';
+    $filtro_tipo = isset($_GET['tipo']) ? $_GET['tipo'] : 'todas';
 
-    $nombre_filtro_h2 = match($filtro_tipo) {
-        'aviso' => 'Avisos',
-        'incidencia' => 'Incidencias',
-        'votacion' => 'Votaciones',
-        default => 'Publicaciones',
+    $texto_boton = match($filtro_tipo) {
+        'aviso' => 'AVISOS',
+        'incidencia' => 'INCIDENCIAS',
+        'votacion' => 'VOTACIONES',
+        default => 'TODAS',
     };
 
     $where_sql = "";
     $params_url = "";
 
     if ($filtro_tipo !== 'todos') {
-        // Validamos para evitar inyecciones (solo permitimos estos 3 tipos)
+        // Validar para evitar inyecciones (solo permite estos 3 tipos)
         if (in_array($filtro_tipo, ['aviso', 'incidencia', 'votacion'])) {
             $where_sql = " WHERE p.tipo = '$filtro_tipo' ";
             $params_url = "&tipo=$filtro_tipo"; // Para arrastrar el filtro en los enlaces
@@ -73,7 +84,7 @@
         $stmt -> execute();
         $stmt -> close();
 
-        header("location:gestion_publicaciones.php");
+        header("location:gestion_publicaciones.php?del=0");
         exit();
     }
 ?>
@@ -89,6 +100,10 @@
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php if ($mensaje): ?>
+        <span class="msg"><?= $mensaje ?></span>
+    <?php endif; ?>
+
     <!-- HEADER -->
     <?php include("../includes/header.php"); ?>
 
@@ -109,49 +124,23 @@
         <?php include("../includes/aside.php"); ?>
     </nav>
 
-    <?php
-        // ALERTAS DE CREACIÓN DE PUBLICACIÓN
-        if (isset($_GET["publi"])) {
-            if ($_GET["publi"] == 0) { // inserción correcta
-                echo '<div class="alerta"><i class="fa-solid fa-circle-check check"></i>
-                Publicación añadida correctamente.</div>';
-            }
-            if ($_GET["publi"] == 1) { // problema al insertar
-                echo '<div class="alerta"><i class="fa-solid fa-circle-xmark xmark"></i>
-                Ha ocurrido un error al añadir la publicación.</div>';
-            }
-        }
-
-        // ALERTAS DE MODIFICACIÓN DE PUBLICACIÓN
-        if (isset($_GET["upt"])) {
-            if ($_GET["upt"] == 0) { // actualización correcta
-                echo '<div class="alerta"><i class="fa-solid fa-circle-check check"></i>
-                Publicación actualizada correctamente.</div>';
-            }
-            if ($_GET["upt"] == 1) { // problema al actualizar
-                echo '<div class="alerta"><i class="fa-solid fa-circle-xmark xmark"></i>
-                Ha ocurrido un error al actualizar la publicación.</div>';
-            }
-        }
-    ?>
-
     <!-- MAIN -->
     <main>
         <section class="panel-control">
             <div class="section-header">
-                <h2><i class="fa-solid fa-shop icono-header"></i> Gestión de <?= $nombre_filtro_h2 ?>: <small>página <?= $pagina ?></small></h2>
+                <h2><i class="fa-solid fa-comments"></i> Gestión de Publicaciones: <small>página <?= $pagina ?></small></h2>
 
                 <?php if ($_SESSION['rol'] === 'admin'): ?>
                 <div class="filter-container">
-                    <div class="btn-filter" id="btn-filter">
+                    <div class="btn-filter" id="btn-filter-toggle">
                         <i class="fa-solid fa-filter"></i>
-                        <p>FILTRAR</p>
+                        <p><?= $texto_boton ?></p>
                     </div>
                     <div id="filter-menu" class="filter-menu">
-                        <a href="gestion_publicaciones.php?tipo=todos">Todos</a>
+                        <a href="gestion_publicaciones.php?tipo=todos">Todas</a>
+                        <a href="gestion_publicaciones.php?tipo=votacion">Votaciones</a>
                         <a href="gestion_publicaciones.php?tipo=aviso">Avisos</a>
                         <a href="gestion_publicaciones.php?tipo=incidencia">Incidencias</a>
-                        <a href="gestion_publicaciones.php?tipo=votacion">Votaciones</a>
                     </div>
                 </div>
                 <?php endif; ?>

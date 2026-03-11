@@ -1,10 +1,17 @@
 @import './variables';
 
+.filter-container { 
+    margin-left: auto;
+    position: relative;
+    width: fit-content;
+}
+
 .btn-filter {
-    width: 150px;
-    color: $color-dark;
+    width: 100%;
+    min-width: 140px;
+    color: $color-primary-dark;
     background-color: $color-light;
-    padding: 10px 15px;
+    padding: 10px;
     border: 2px solid $color-light;
     border-radius: 5px;
     box-shadow: $color-shadow 3px 3px 0;
@@ -14,7 +21,6 @@
     gap: 20px;
     cursor: pointer;
     text-decoration: none;
-    text-align: end;
     font-weight: bold;
     font-size: 1.2em;
     transition: all 0.2s ease;
@@ -28,47 +34,49 @@
         transform: scale(1.05);
         color: $color-light;
         text-shadow: $color-shadow 2px 2px;
-        background-color: $color-accent;
+        background-color: $color-primary;
         box-shadow: $color-shadow 5px 5px 0;
     }
 
     &.active { 
         border-radius: 5px 5px 0 0;
+        transform: none;
     }
-}
-
-.filter-container { 
-    margin-left: auto;
-    position: relative;
-    width: fit-content;
 }
 
 .filter-menu {
     display: none;
-    width: 158px;
+    width: 100%;
+    box-sizing: border-box;
     position: absolute;
     top: 100%;
-    right: -4px;
+    left: 0;
     background: $color-light;
     z-index: 100;
     border-radius: 0 0 5px 5px;
     box-shadow: $color-shadow 5px 5px 0;
-    margin-top: 1px;
+    margin-top: 0px; 
+    border: 2px solid transparent;
+    border-top: none;
 }
 
 .filter-menu a {
     display: block;
-    padding: 10px 20px;
+    padding: 10px 15px;
     text-decoration: none;
-    color: $color-dark;
+    color: $color-primary-dark;
+    white-space: nowrap;
 }
 
 .filter-menu a:hover { 
     color: $color-light;
-    text-shadow: $color-dark 2px 2px;
+    text-shadow: $color-shadow 2px 2px;
 
-    &:first-child { background-color: $color-primary; }
+    &:first-child { background-color: $color-accent; }
     &:nth-child(2) { background-color: $color-votacion; }
     &:nth-child(3) { background-color: $color-aviso; }
-    &:last-child { background-color: $color-incidencia; }
+    &:last-child { 
+        background-color: $color-incidencia; 
+        border-radius: 0 0 5px 5px;
+    }
 }

@@ -38,15 +38,11 @@
         </li>
 
         <li><a href="<?= $base ?>servicios.php">
-                Servicios<i class="fa-solid fa-briefcase"></i>
+            Servicios<i class="fa-solid fa-briefcase"></i>
         </a></li>
 
         <li><a href="<?= $base ?>convivencia.php">
             Convivencia<i class="fa-solid fa-handshake-angle"></i>
-        </a></li>
-
-        <li><a href="#">
-            Documentación<i class="fa-regular fa-file-lines"></i>
         </a></li>
         
         <?php if ($_SESSION["rol"] !== "vecino"): ?>
@@ -61,6 +57,10 @@
             <ul class="submenu">
                 <li><a href="<?= $base ?>editar_datos.php">
                     Mis Datos<i class="fa-solid fa-user-pen"></i> 
+                </a></li>
+                
+                <li><a href="<?= $base ?>cambiar_password.php">
+                    Cambiar Contraseña<i class="fa-solid fa-key"></i>
                 </a></li>
 
                 <li><a href="<?= $base ?>cambiar_foto.php">

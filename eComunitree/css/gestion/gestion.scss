@@ -6,6 +6,7 @@
 @import '../common/pager';
 @import '../common/btn-filter';
 @import '../common/nav';
+@import '../common/msg';
 
 // =========================================================
 // BODY
@@ -35,7 +36,7 @@ body {
             min-height: 80vh;
             border-radius: 10px;
             padding: 100px 0 100px;
-            background-color: $color-accent-transparent;
+            background-color: $color-primary-transparent;
             mask-image: linear-gradient(
                 to bottom,
                 transparent 0%,
@@ -59,7 +60,7 @@ body {
                     font-size: 2.5em;
                     font-family: $titulo;
                     margin-right: 30px;
-                    text-shadow: $color-dark 3px 3px 0;
+                    text-shadow: $color-shadow 3px 3px 0;
                     width: 100%;
                     
                     small {
@@ -74,7 +75,7 @@ body {
                 border: 3px solid $color-light;
                 border-radius: 10px;
                 margin-bottom: 30px;
-                box-shadow: $color-dark 3px 3px 0;
+                box-shadow: $color-shadow 3px 3px 0;
             }
 
             .acciones {
@@ -98,11 +99,11 @@ body {
                 margin: 0 auto 30px;
                 overflow-x: auto;
                 border: 3px solid $color-light;
-                box-shadow: $color-dark 5px 5px 0;
+                box-shadow: $color-shadow 5px 5px 0;
 
-                $color-thead: #3b2c1a;;
-                $color-impar: #e9ba84;
-                $color-par: #a37138;
+                $color-thead: #282b1f;
+                $color-impar: #b0be72;
+                $color-par: #5a6138;
 
                 table {
                     width: 100%;
@@ -148,12 +149,6 @@ body {
                             text-decoration: none;
                             i { font-size: 1.5em; }
                         }
-
-                        img {
-                            width: 150px;
-                            border-radius: 10px;
-                            box-shadow: #000 0px 0px 15px 3px;
-                        }
                     }
 
                     td.text-area {
@@ -188,7 +183,7 @@ body {
                 width: 100%;
                 max-width: 400px;
                 margin: auto;
-                color: $color-dark;
+                color: $color-primary-dark;
                 background-color: $color-light;
                 padding: 15px;
                 border: 2px solid $color-light;
@@ -203,7 +198,7 @@ body {
                     transform: scale(1.05);
                     color: $color-light;
                     text-shadow: $color-shadow 1px 2px;
-                    background-color: $color-accent;
+                    background-color: $color-primary;
                     box-shadow: $color-shadow 5px 5px;
                 }
 

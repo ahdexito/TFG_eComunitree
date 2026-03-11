@@ -10,6 +10,11 @@
         die();
     }
 
+    $mensaje = "";
+
+    // email ya existe
+    if (isset($_GET["ins"]) && $_GET["ins"] == 2) $mensaje = "El email ya existe en la base de datos.";
+    
     if (isset($_POST["nombre"]) && !empty($_POST["nombre"])) {
         $nombre = $_POST["nombre"];
         $apellidos = $_POST["apellidos"] ?? "";
@@ -27,7 +32,7 @@
         $res = $stmt_check->get_result();
 
         if ($res->num_rows > 0) {
-            header("location:gestion_usuarios.php?usu=1");
+            header("location:ins_usuario.php?ins=2");
             die();
         }
 
@@ -41,9 +46,9 @@
         $stmt_insert->bind_param("sssssssi", $nombre, $apellidos, $email, $pass_encriptada, $rol, $telefono, $vivienda, $activo);
 
         if ($stmt_insert->execute()) {
-            header("location:gestion_usuarios.php?usu=0");
+            header("location:gestion_usuarios.php?ins=0");
         } else {
-            header("location:gestion_usuarios.php?usu=2");
+            header("location:gestion_usuarios.php?ins=2");
         }
 
         $stmt_insert->close();
@@ -63,6 +68,10 @@
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php if ($mensaje): ?>
+        <span class="msg"><?= $mensaje ?></span>
+    <?php endif; ?>
+
     <!-- HEADER -->
     <?php include("../includes/header.php"); ?>
 
@@ -144,7 +153,9 @@
                     </div>
                 </div>
 
-                <button type="submit" class="guardar"><i class="fa-solid fa-floppy-disk"></i> Guardar Usuario</button>
+                <button type="submit" class="guardar">
+                    <i class="fa-solid fa-floppy-disk"></i> Confirmar
+                </button>
             </form>
         </section>
     </main>

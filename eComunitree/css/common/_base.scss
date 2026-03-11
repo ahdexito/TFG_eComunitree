@@ -1,8 +1,6 @@
 @import 'variables';
 @import 'mixins';
 
-$color-dark: #351b10;
-
 * {
     margin: 0;
     padding: 0;
@@ -45,7 +43,7 @@ img { @include no-subrayable; }
     border: 2px solid $color-light;
     z-index: 400;
     background-color: $color-light;
-    color: $color-dark;
+    color: $color-accent-dark;
     box-shadow: $color-shadow 3px 3px 0;
     font-size: 1.5em;
     padding: 7px 5px;
@@ -55,7 +53,7 @@ img { @include no-subrayable; }
 
     &:hover {
         transform: scale(1.1);
-        background-color: $color-primary;
+        background-color: $color-accent;
         color: $color-light;
         text-shadow: $color-shadow 3px 3px;
         box-shadow: $color-shadow 5px 5px 0;
@@ -85,5 +83,5 @@ img { @include no-subrayable; }
     margin-bottom: 30px;
     border: 3px solid $color-light;
     border-radius: 10px;
-    box-shadow: $color-dark 3px 3px 0;
+    box-shadow: $color-shadow 3px 3px 0;
 }

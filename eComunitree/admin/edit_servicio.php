@@ -133,7 +133,9 @@
                     </div>
                 </div>
 
-                <button type="submit" class="guardar"><i class="fa-solid fa-floppy-disk"></i> Actualizar Servicio</button>
+                <button type="submit" class="guardar">
+                    <i class="fa-solid fa-floppy-disk"></i> Guardar Cambios
+                </button>
             </form>
         </section>
     </main>

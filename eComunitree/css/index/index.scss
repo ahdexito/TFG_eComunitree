@@ -7,6 +7,7 @@
 @import '../common/pager';
 @import '../common/btn-filter';
 @import '../common/nav';
+@import '../common/msg';
 
 // =========================================================
 // BODY
@@ -30,7 +31,7 @@ body {
         .feed {
             width: 100%;
             max-width: 1000px;
-            background-color: $color-accent-transparent;
+            background-color: $color-primary-transparent;
             flex: 1;
             display: flex;
             flex-direction: column;

@@ -1,6 +1,5 @@
 <?php
     session_start();
-
     include("db/db.inc");
 
     if (!isset($_SESSION["id_usuario"]) || $_SERVER["REQUEST_METHOD"] !== "POST") {
@@ -20,7 +19,8 @@
     $res = $stmt_check->get_result()->fetch_assoc();
 
     if (!$res || new DateTime() > new DateTime($res['fecha_cierre'])) {
-        header("location:index.php?error=cerrada");
+        // Votación cerrada
+        header("location:index.php?vote=2");
     }
 
     // Insertar el voto
@@ -32,14 +32,16 @@
 
     try {
         if ($stmt_voto->execute()) {
-            header("location:index.php?vote=success");
+            // Votación realizada correctamente
+            header("location:index.php?vote=0");
         }
     } catch (mysqli_sql_exception $e) {
         if ($e->getCode() === 1062) {
-            header("location:index.php?error=ya_votado");
+            // Votación ya votada
+            header("location:index.php?vote=1");
         } else {
-            $msg = urlencode($e->getMessage());
-            header("location:index.php?error=db&detalle=$msg");
+            // Error inesperado
+            header("location:index.php?vote=3");
         }
     }
 

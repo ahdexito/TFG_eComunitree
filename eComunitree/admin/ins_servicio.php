@@ -5,12 +5,7 @@
 
     $base = "../";
 
-    if (!isset($_SESSION["rol"])) {
-        header("location:../login.php?usu=1");
-        die();
-    }
-    
-    elseif ($_SESSION["rol"] === 'vecino') {
+    if (!isset($_SESSION["rol"]) || $_SESSION["rol"] === 'vecino') {
         header("location:../login.php?usu=1");
         die();
     }
@@ -29,11 +24,11 @@
             VALUES ('$nombre', '$descripcion', '$telefono', '$email', '$enlace', '$activo')";
 
         if (mysqli_query($conn, $sql)) {
-            header("location:gestion_servicios.php?serv=0");// insertado correctamente
+            header("location:gestion_servicios.php?ins=0");// insertado correctamente
         } 
             
         else {
-            header("location:gestion_servicios.php?serv=1");// error al insertar
+            header("location:gestion_servicios.php?ins=1");// error al insertar
         }
 
         die();
@@ -117,7 +112,9 @@
                     </div>
                 </div>
 
-                <button type="submit" class="guardar"><i class="fa-solid fa-floppy-disk"></i> Guardar Servicio</button>
+                <button type="submit" class="guardar">
+                    <i class="fa-solid fa-floppy-disk"></i> Confirmar
+                </button>
             </form>
         </section>
     </main>

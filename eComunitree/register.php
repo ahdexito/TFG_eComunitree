@@ -1,9 +1,7 @@
 <?php
     session_start();
-    include("db/db.inc");
-
-    $error_msg = "";
-    $success_msg = "";
+    include("./db/db.inc");
+    $mensaje = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
@@ -20,7 +18,7 @@
             
             // VERIFICAR QUE DOBLE CAMPO PASSWORD COINCIDE
             if ($password_input !== $password_again) {
-                $error_msg = "Las contraseñas no coinciden.";
+                $mensaje = "Las contraseñas no coinciden.";
             }
 
             // VALIDAR FORMATO DE EMAIL
@@ -33,7 +31,7 @@
                 $result_check = $stmt_check->get_result();
 
                 if ($result_check->num_rows > 0) {
-                    $error_msg = "Este correo electrónico ya está registrado.";
+                    $mensaje = "Este correo electrónico ya está registrado.";
                 } else {
                     // CIFRADO DE CONTRASEÑA
                     $password_hashed = password_hash($password_input, PASSWORD_BCRYPT);
@@ -58,21 +56,17 @@
                         $_SESSION["foto"] = 'default.jpg';
 
                         // Redirigir directamente al index
-                        header("Location: index.php");
+                        header("Location:index.php");
                         die();
-
-                    } else {
-                        $error_msg = "Hubo un error al guardar los datos. Inténtalo de nuevo.";
-                    }
+                    } 
+                    else $mensaje = "Hubo un error al guardar los datos. Inténtalo de nuevo.";
                     $stmt_insert->close();
                 }
                 $stmt_check->close();
-            } else {
-                $error_msg = "El formato del correo electrónico no es válido.";
-            }
-        } else {
-            $error_msg = "Por favor, rellena todos los campos obligatorios.";
-        }
+            } 
+            else $mensaje = "El formato del correo electrónico no es válido.";
+        } 
+        else $mensaje = "Por favor, rellena todos los campos obligatorios.";
     }
 ?>
 
@@ -86,24 +80,16 @@
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php if ($mensaje): ?>
+        <span class="msg"><?= $mensaje ?></span>
+    <?php endif; ?>
+
     <header>
         <img src="./img/logo-transparencia.png" alt="logotipo">
         <h1>eComunitree</h1>
     </header>
 
     <h2>Gestiona tu comunidad de forma fácil y digital.</h2>
-
-    <?php if (!empty($error_msg)): ?>
-        <div class='error msg-timer'">
-            <i class='fa-solid fa-triangle-exclamation'></i> <?php echo $error_msg; ?>
-        </div>
-    <?php endif; ?>
-
-    <?php if (!empty($success_msg)): ?>
-        <div class='success msg-timer'">
-            <i class='fa-solid fa-circle-check'></i> <?php echo $success_msg; ?>
-        </div>
-    <?php endif; ?>
 
     <main>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
@@ -130,6 +116,8 @@
                 <label for="email">Correo Electrónico</label>
                 <input type="email" name="email" id="email" placeholder="Correo electrónico" required>
             </div>
+
+            <hr>
             
             <div class="casilla">
                 <label for="password">Contraseña</label>

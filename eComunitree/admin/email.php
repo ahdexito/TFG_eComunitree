@@ -7,7 +7,18 @@
     require '../src/PHPMailer/src/PHPMailer.php';
     require '../src/PHPMailer/src/SMTP.php';
 
+    session_start();
+
     include("../db/db.inc");
+
+    // VERIFICACIÓN DE ACCESO
+    if (!isset($_SESSION['proceso_envio']) || $_SESSION['proceso_envio'] !== true) {
+        // Si no viene de crear una publicación, lo mandamos al index
+        header("location:../login.php?usu=1");
+        exit();
+    }
+
+    unset($_SESSION['proceso_envio']);
 
     $sql_publicaciones = $conn->query("SELECT titulo, contenido, tipo FROM publicaciones ORDER BY id_publicacion DESC LIMIT 1");
 
@@ -59,8 +70,8 @@
 
         $mail->send();
 
-        if ($tipo_publi === "incidencia") header("location:../index.php?publi=0");
-        else header("location:gestion_publicaciones.php?publi=0");
+        if ($tipo_publi === "incidencia") header("location:../index.php?ins=0");
+        else header("location:gestion_publicaciones.php?ins=0");
         exit();
 
     } catch (Exception $e) {

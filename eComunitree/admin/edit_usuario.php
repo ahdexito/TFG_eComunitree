@@ -180,7 +180,10 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="guardar"><i class="fa-solid fa-floppy-disk"></i> Actualizar Usuario</button>
+
+                <button type="submit" class="guardar">
+                    <i class="fa-solid fa-floppy-disk"></i> Guardar Cambios
+                </button>
             </form>
         </section>
     </main>

@@ -19,13 +19,13 @@
         transition: all 0.2s ease;
         border: 2px solid $color-light;
         background-color: $color-light;
-        color: $color-dark;
+        color: $color-primary-dark;
         box-shadow: $color-shadow 2px 2px 0;
     }
 
     a.num-link:hover, a.pag-arrow:hover {
         color: $color-light;
-        background-color: $color-accent;
+        background-color: $color-primary;
         text-shadow: $color-shadow 2px 2px;
         border-color: $color-light;
         transform: scale(1.1);
@@ -33,7 +33,7 @@
     }
 
     .activo, .dots {
-        background-color: $color-dark;
+        background-color: $color-primary-dark;
         color: $color-light;
         border-color: $color-light;
         cursor: default;

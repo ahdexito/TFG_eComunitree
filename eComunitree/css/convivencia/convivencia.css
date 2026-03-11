@@ -56,7 +56,7 @@ img {
   border: 2px solid #f5f5ff;
   z-index: 400;
   background-color: #f5f5ff;
-  color: #351b10;
+  color: #2e1c15;
   box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
   font-size: 1.5em;
   padding: 7px 5px;
@@ -66,7 +66,7 @@ img {
 }
 .menu-button:hover {
   transform: scale(1.1);
-  background-color: #c77a33;
+  background-color: #ca7740;
   color: #f5f5ff;
   text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
   box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px 0;
@@ -91,7 +91,7 @@ img {
   margin-bottom: 30px;
   border: 3px solid #f5f5ff;
   border-radius: 10px;
-  box-shadow: #351b10 3px 3px 0;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
 }
 
 nav {
@@ -143,7 +143,7 @@ nav .btn-back {
 }
 nav .btn-back:hover {
   transform: scale(1.1);
-  background-color: #c77a33;
+  background-color: #ca7740;
   color: #f5f5ff;
   text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
   box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px 0;
@@ -161,7 +161,7 @@ header.body-header {
   background-attachment: fixed;
 }
 header.body-header a.btn-index {
-  background: linear-gradient(to bottom, rgba(199, 122, 51, 0.5333333333), rgba(29, 19, 12, 0.8549019608));
+  background: linear-gradient(to bottom, rgba(202, 119, 64, 0.5333333333), #2e1c15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -194,7 +194,7 @@ header.body-header a.btn-index h1 {
 }
 header.body-header .user {
   position: relative;
-  background: linear-gradient(to bottom, rgba(199, 122, 51, 0.5333333333), rgba(29, 19, 12, 0.8549019608));
+  background: linear-gradient(to bottom, rgba(202, 119, 64, 0.5333333333), #2e1c15);
   padding-left: 30px;
   border: 2px solid #f5f5ff;
   border-right: none;
@@ -214,8 +214,14 @@ header.body-header .user .user-info {
 }
 header.body-header .user .user-info strong {
   font-size: 1.2em;
-  margin-bottom: 5px;
   font-family: "Croissant One";
+}
+header.body-header .user .user-info hr {
+  width: 100%;
+  margin-bottom: 7px;
+  border: 1px solid #f5f5ff;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 1px 1px 0;
 }
 header.body-header .user .user-trigger {
   cursor: pointer;
@@ -241,9 +247,9 @@ header.body-header .user .user-dropdown {
   position: absolute;
   top: 105%;
   right: 0;
-  width: 200px;
+  width: 250px;
   background-color: #f5f5ff;
-  border: 3px solid #351b10;
+  border: 3px solid #2e1c15;
   border-radius: 5px;
   box-shadow: #000 5px 5px 15px;
   z-index: 400;
@@ -256,14 +262,16 @@ header.body-header .user .user-dropdown ul {
 }
 header.body-header .user .user-dropdown ul li:last-child {
   border: none;
+  border-top: 3px solid #2e1c15;
 }
 header.body-header .user .user-dropdown ul li a {
+  text-align: end;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 15px;
   padding: 15px 20px;
-  color: #351b10;
+  color: #2e1c15;
   text-decoration: none;
   transition: all 0.2s ease;
 }
@@ -272,15 +280,12 @@ header.body-header .user .user-dropdown ul li a i {
   text-align: center;
 }
 header.body-header .user .user-dropdown ul li a:hover {
-  background-color: #c77a33;
+  background-color: #ca7740;
   color: #f5f5ff;
   text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
 }
 header.body-header .user .user-dropdown ul li a.logout:hover {
-  background-color: #d65454;
-}
-header.body-header .user .user-dropdown ul hr {
-  border: 2px solid #351b10;
+  background-color: #c2503c;
 }
 header.body-header .user.is-active .user-dropdown {
   display: block;
@@ -300,7 +305,7 @@ header.body-header .user.is-active .user-trigger img {
   right: -400px;
   z-index: 300;
   transition: all 0.4s ease;
-  border-left: 3px solid #f5f5ff;
+  border-left: 2px solid #f5f5ff;
   box-shadow: rgba(0, 0, 0, 0.6431372549) 0 0 30px 10px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -308,7 +313,7 @@ header.body-header .user.is-active .user-trigger img {
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
-  background: linear-gradient(to bottom, #202b1d, rgba(116, 148, 73, 0.5058823529), rgba(116, 148, 73, 0.5058823529), #202b1d);
+  background: linear-gradient(to bottom, #2e1c15, rgba(202, 119, 64, 0.5333333333), rgba(202, 119, 64, 0.5333333333), #2e1c15);
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -324,7 +329,7 @@ header.body-header .user.is-active .user-trigger img {
 }
 .main-aside hr {
   border: 2px solid #f5f5ff;
-  box-shadow: #202b1d 3px 3px 0;
+  box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
   border-radius: 10px;
   margin-bottom: 20px;
 }
@@ -337,18 +342,9 @@ header.body-header .user.is-active .user-trigger img {
 .main-aside ul li {
   position: relative;
 }
-.main-aside ul li:nth-child(3n+1) {
-  --item-color: #82913e;
-}
-.main-aside ul li:nth-child(3n+2) {
-  --item-color: #d65454;
-}
-.main-aside ul li:nth-child(3n+3) {
-  --item-color: #c29135;
-}
 .main-aside ul li a, .main-aside ul li p {
   background-color: #f5f5ff;
-  color: #202b1d;
+  color: #2e1c15;
   box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
   font-size: 1.3em;
   font-weight: bold;
@@ -369,7 +365,7 @@ header.body-header .user.is-active .user-trigger img {
 }
 .main-aside ul li:hover > a, .main-aside ul li:hover > p {
   transform: scale(1.05);
-  background-color: var(--item-color);
+  background-color: #ca7740;
   color: #f5f5ff;
   text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
   box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px 0;
@@ -393,19 +389,10 @@ header.body-header .user.is-active .user-trigger img {
   border-radius: 0 0 10px 10px;
   transition: all 0.4s ease;
 }
-.main-aside ul li.has-dropdown .submenu li:nth-child(3n+1) {
-  --item-color: #82913e;
-}
-.main-aside ul li.has-dropdown .submenu li:nth-child(3n+2) {
-  --item-color: #d65454;
-}
-.main-aside ul li.has-dropdown .submenu li:nth-child(3n+3) {
-  --item-color: #c29135;
-}
 .main-aside ul li.has-dropdown .submenu li a {
   background-color: #f5f5ff;
   border-color: #f5f5ff;
-  color: #202b1d;
+  color: #2b3015;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -416,11 +403,11 @@ header.body-header .user.is-active .user-trigger img {
   text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
   transform: scale(1.03);
   box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px;
-  background-color: var(--item-color);
+  background-color: #ca7740;
 }
 .main-aside ul li.has-dropdown.is-active > p {
   transform: scale(1.05);
-  background-color: var(--item-color);
+  background-color: #ca7740;
   color: #f5f5ff;
   text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
   box-shadow: rgba(0, 0, 0, 0.6431372549) 5px 5px 0;
@@ -447,7 +434,7 @@ body main {
   flex-direction: column;
   width: 100%;
   max-width: 1000px;
-  background-color: rgba(116, 148, 73, 0.5058823529);
+  background-color: rgba(130, 145, 62, 0.5058823529);
   padding: 100px 0 100px;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100px, black calc(100% - 100px), transparent 100%);
           mask-image: linear-gradient(to bottom, transparent 0%, black 100px, black calc(100% - 100px), transparent 100%);
@@ -483,13 +470,13 @@ body main .rule-card {
   box-shadow: rgba(0, 0, 0, 0.6431372549) 0 0 10px 10px;
 }
 body main .rule-card:nth-child(3n+1) {
-  --item-color: #82913e;
+  --item-color: #5e9979;
 }
 body main .rule-card:nth-child(3n+2) {
-  --item-color: #d65454;
+  --item-color: #c2503c;
 }
 body main .rule-card:nth-child(3n+3) {
-  --item-color: #c29135;
+  --item-color: #db9a20;
 }
 body main .rule-card header {
   display: flex;
@@ -518,7 +505,7 @@ body main .rule-card .rule-content {
   background-color: #f5f5ff;
   padding: 20px;
   border-radius: 0 0 10px 10px;
-  border: 2px solid #202b1d;
+  border: 2px solid #351b10;
   flex-grow: 1;
   box-shadow: inset rgba(0, 0, 0, 0.6431372549) 0 0 10px;
 }
@@ -533,7 +520,7 @@ body main .rule-card .rule-content ul li {
   margin-bottom: 12px;
   font-size: 1.1em;
   line-height: 1.4;
-  color: #202b1d;
+  color: #351b10;
 }
 body main .rule-card .rule-content ul li::before {
   content: "\f105";
@@ -541,7 +528,7 @@ body main .rule-card .rule-content ul li::before {
   font-weight: 900;
   position: absolute;
   left: 0;
-  color: #202b1d;
+  color: #351b10;
 }
 body main .rule-card .rule-content ul li strong {
   color: var(--item-color);

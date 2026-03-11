@@ -5,15 +5,12 @@
 
     $base = "../";
     
-    if (!isset($_SESSION["rol"])) {
+    if (!isset($_SESSION["rol"]) || $_SESSION["rol"] === 'vecino') {
         header("location:../login.php?usu=1");
         die();
     }
-    
-    elseif ($_SESSION["rol"] === 'vecino') {
-        header("location:../login.php?usu=1");
-        die();
-    }
+
+    $mensaje = "";
 
     // PAGINADOR
     $num_lineas = 8;
@@ -53,6 +50,24 @@
         header("location:gestion_servicios.php");
         exit();
     }
+
+    // ALERTAS DE CREACIÓN DE SERVICIO
+    if (isset($_GET["ins"])) {
+         // inserción correcta
+        if ($_GET["ins"] == 0) $mensaje = "Servicio añadido correctamente.";
+        
+        // problema al insertar
+        if ($_GET["ins"] == 1) $mensaje = "Ha ocurrido un error al añadir el servicio.";
+    }
+
+    // ALERTAS DE MODIFICACIÓN DE SERVICIO
+    if (isset($_GET["upt"])) {
+        // actualización correcta
+        if ($_GET["upt"] == 0) $mensaje = "Servicio actualizado correctamente.";
+
+        // problema al actualizar
+        if ($_GET["upt"] == 1) $mensaje = "Ha ocurrido un error al actualizar el servicio.";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -66,6 +81,10 @@
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <?php if ($mensaje): ?>
+        <span class="msg"><?= $mensaje ?></span>
+    <?php endif; ?>
+
     <!-- HEADER -->
     <?php include("../includes/header.php"); ?>
 
@@ -85,32 +104,6 @@
         <!-- ASIDE -->
         <?php include("../includes/aside.php"); ?>
     </nav>
-
-    <?php
-        // ALERTAS DE CREACIÓN DE SERVICIO
-        if (isset($_GET["serv"])) {
-            if ($_GET["serv"] == 0) { // inserción correcta
-                echo '<div class="alerta"><i class="fa-solid fa-circle-check check"></i>
-                Servicio añadido correctamente.</div>';
-            }
-            if ($_GET["serv"] == 1) { // problema al insertar
-                echo '<div class="alerta"><i class="fa-solid fa-circle-xmark xmark"></i>
-                Ha ocurrido un error al añadir el servicio.</div>';
-            }
-        }
-
-        // ALERTAS DE MODIFICACIÓN DE SERVICIO
-        if (isset($_GET["upt"])) {
-            if ($_GET["upt"] == 0) { // actualización correcta
-                echo '<div class="alerta"><i class="fa-solid fa-circle-check check"></i>
-                Servicio actualizado correctamente.</div>';
-            }
-            if ($_GET["upt"] == 1) { // problema al actualizar
-                echo '<div class="alerta"><i class="fa-solid fa-circle-xmark xmark"></i>
-                Ha ocurrido un error al actualizar el servicio.</div>';
-            }
-        }
-    ?>
 
     <!-- MAIN -->
     <main>

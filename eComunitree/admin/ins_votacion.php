@@ -48,11 +48,12 @@
             }
 
             $conn->commit();
+            // Mensaje ins=0 enviado en email.php
             header("location:email.php");
 
         } catch (Exception $e) {
             $conn->rollback();
-            header("location:gestion_publicaciones.php?publi=1");
+            header("location:gestion_publicaciones.php?ins=1");
         }
         exit();
     }    
@@ -136,7 +137,7 @@
                 </div>
 
                 <button type="submit" class="guardar">
-                    <i class="fa-solid fa-floppy-disk"></i> Publicar Votación
+                    <i class="fa-solid fa-floppy-disk"></i> Confirmar
                 </button>
             </form>
         </section>
