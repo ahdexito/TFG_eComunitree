@@ -6,7 +6,12 @@
 <div id="aside-overlay" class="aside-overlay"></div>
 
 <aside class="main-aside">
-    <h3>Navegación</h3>
+    <div class="aside-header">
+        <h3>Navegación</h3>
+        <label for="menu-toggle" class="close-aside">
+            <i class="fa-solid fa-xmark"></i>
+        </label>
+    </div>
     <hr>
     <ul>
         <li><a href="<?= $base ?>index.php">

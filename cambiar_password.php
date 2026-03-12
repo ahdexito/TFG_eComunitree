@@ -48,8 +48,13 @@
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <?php if ($mensaje): ?> 
-        <span class="msg"><?= $mensaje ?></span> 
+    <?php if ($mensaje): ?>
+        <div class="msg msg-timer" id="mensaje-contenedor">
+            <p><?= $mensaje ?></p>
+            <button type="button" class="btn-cerrar-msg" id="btn-cerrar-js">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
     <?php endif; ?>
 
     <!-- HEADER -->

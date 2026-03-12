@@ -4,7 +4,8 @@ import {
     initFiltros, 
     initAsideDropdowns, 
     initAside, 
-    initUserMenu } 
+    initUserMenu,
+} 
 from "./modules/ui.js";
 
 // Inicializar los mensajes y el menú lateral

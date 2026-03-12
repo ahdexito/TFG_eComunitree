@@ -51,10 +51,27 @@ export function initFiltros() {
 
 export function iniciarTempoMsj() {
     const mensajes = document.querySelectorAll('.msg-timer');
+    
     mensajes.forEach((mensaje) => {
+        // Cierre manual INSTANTÁNEO
+        const btnCerrar = mensaje.querySelector('.btn-cerrar-msg');
+        if (btnCerrar) {
+            btnCerrar.onclick = () => {
+                mensaje.remove(); 
+            };
+        }
+
+        // Cierre automático con TRANSICIÓN
         setTimeout(() => {
-            mensaje.style.opacity = '0';
-            setTimeout(() => mensaje.remove(), 2000);
+            if (mensaje && mensaje.parentElement) {
+                mensaje.style.transition = 'opacity 2s ease, top 2s ease';
+                mensaje.style.opacity = '0';
+                mensaje.style.top = '-50px';
+                
+                setTimeout(() => {
+                    if (mensaje && mensaje.parentElement) mensaje.remove();
+                }, 2000);
+            }
         }, 3000);
     });
 }
@@ -68,14 +85,9 @@ export function initAsideDropdowns() {
         if (trigger) {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
-                
-                // Si ya está abierto, se cierra. Si no, se abre
                 const wasActive = dropdown.classList.contains('is-active');
-                
-                // Cerrar todos los dropdowns primero
                 dropdowns.forEach(d => d.classList.remove('is-active'));
 
-                // Si no estaba activo, se activa
                 if (!wasActive) {
                     dropdown.classList.add('is-active');
                 }
@@ -105,7 +117,6 @@ export function initUserMenu() {
             userContainer.classList.toggle('is-active');
         });
 
-        // Cerrar al hacer click fuera
         document.addEventListener('click', (e) => {
             if (!userContainer.contains(e.target)) {
                 userContainer.classList.remove('is-active');

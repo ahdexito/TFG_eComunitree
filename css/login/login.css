@@ -16,13 +16,35 @@
   border-radius: 10px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 15px;
   font-weight: bold;
   text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
-  color: white;
+  color: #f5f5ff;
+  border: 2px solid #f5f5ff;
   background-color: #db9a20;
   box-shadow: rgba(0, 0, 0, 0.6431372549) 0 0 15px 5px;
-  animation: aparecer-desaparecer 8s ease-in-out forwards;
+  animation: aparecer-desaparecer 5s ease-in-out forwards;
+}
+.msg p {
+  margin: 0;
+  flex: 1;
+}
+.msg .btn-cerrar-msg {
+  background: none;
+  border: none;
+  color: #f5f5ff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  transition: transform 0.2s ease;
+}
+.msg .btn-cerrar-msg:hover {
+  transform: scale(1.2);
+  color: #2e1c15;
 }
 
 @keyframes aparecer-desaparecer {

@@ -15,13 +15,38 @@
     border-radius: 10px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: space-between;
+    gap: 15px;
     font-weight: bold;
     text-shadow: $color-shadow 2px 2px;
-    color: white;
+    color: $color-light;
+    border: 2px solid $color-light;
     background-color: $color-aviso;
     box-shadow: $color-shadow 0 0 15px 5px;
-    animation: aparecer-desaparecer 8s ease-in-out forwards;
+    animation: aparecer-desaparecer 5s ease-in-out forwards;
+
+    p {
+        margin: 0;
+        flex: 1;
+    }
+
+    .btn-cerrar-msg {
+        background: none;
+        border: none;
+        color: $color-light;
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: scale(1.2);
+            color: $color-accent-dark;
+        }
+    }
 }
 
 @keyframes aparecer-desaparecer {
