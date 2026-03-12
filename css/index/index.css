@@ -423,6 +423,11 @@ img {
 .feed-body article .article-footer .estado {
   text-decoration: none;
 }
+@media (max-width: 600px) {
+  .feed-body article .article-footer .estado {
+    font-size: 0.8em;
+  }
+}
 .feed-body article .article-footer .estado strong {
   text-decoration: none;
 }

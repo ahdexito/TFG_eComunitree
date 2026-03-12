@@ -359,6 +359,8 @@
         .estado {
             text-decoration: none;
 
+            @include respond-to(small) { font-size: 0.8em; }
+
             strong { text-decoration: none; }
         }
     }

@@ -110,7 +110,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Editar Publicación</title>
+    <title>eComunitree | Editar Publicación</title>
     <link rel="stylesheet" href="../css/insert_edit/insert_edit.css">
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
 </head>

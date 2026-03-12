@@ -107,7 +107,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eComunitree | Index</title>
+    <title>eComunitree | Inicio</title>
     <link rel="stylesheet" href="css/index/index.css">
     <link rel="icon" href="img/logo-favicon.png" type="image/png">
     <script src="https://kit.fontawesome.com/bc8e4b1cda.js" crossorigin="anonymous"></script>
@@ -349,7 +349,7 @@
                         
                         <footer class="article-footer">
                             <div class="estado">
-                                <strong><i class="fa-solid fa-person-digging"></i>ESTADO: </strong>
+                                <strong>- ESTADO: </strong>
                                 
                                 <?php
                                     $mensaje_estado = match ($p['estado']) {
