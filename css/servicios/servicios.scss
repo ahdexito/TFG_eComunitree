@@ -61,17 +61,21 @@ body {
                     margin-right: 30px;
                     text-shadow: $color-shadow 3px 3px 0;
                     width: 100%;
-                    text-wrap: nowrap;
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
                 }
 
                 small { 
                     font-style: italic;
                     font-weight: lighter;
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
                 }
                 
                 form {
                     margin-left: auto;
-                    width: 300px;
+                    width: 100%;
+                    max-width: 300px;
                     display: flex;
                     justify-content: flex-end;
 
@@ -133,7 +137,12 @@ body {
                     color: $color-light;
                     text-shadow: $color-shadow 2px 2px;
 
-                    h3 { margin-bottom: 10px; }
+                    h3 { 
+                        margin-bottom: 10px; 
+                        word-wrap: break-word;
+                        overflow-wrap: break-word;
+                    }
+
 
                     i {
                         font-size: 3rem; 
@@ -157,6 +166,8 @@ body {
                         gap: 15px;
                         box-shadow: $color-shadow 3px 3px 0;
                         transition: all 0.2s ease;
+                        word-wrap: break-word;
+                        overflow-wrap: break-word;
 
                         &:hover {
                             transform: scale(1.03);

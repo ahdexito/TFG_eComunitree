@@ -396,7 +396,7 @@ header.body-header .user.is-active .user-trigger img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 .main-aside ul li.has-dropdown .submenu li a:hover {
   color: #f5f5ff;

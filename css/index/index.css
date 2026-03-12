@@ -142,10 +142,12 @@ img {
   border-radius: 10px 0 0 0;
   color: #f5f5ff;
   text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
-  text-wrap: nowrap;
   font-size: 2.2em;
   font-family: "Croissant One";
   margin-bottom: 20px;
+  text-wrap: balance;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .feed-body article header.article-header h3 i {
   margin-right: 10px;
@@ -201,7 +203,7 @@ img {
   justify-content: flex-end;
   flex-direction: column;
   font-size: 0.8em;
-  text-wrap: nowrap;
+  text-wrap: wrap;
 }
 .feed-body article header.article-header .article-header-user .user-info strong {
   font-size: 1.2em;
@@ -223,7 +225,6 @@ img {
 .feed-body article section.article-body div.article-body-content {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   font-size: 1.7em;
   background-color: #2b3015;
   margin-bottom: 10px;
@@ -231,8 +232,8 @@ img {
   box-shadow: rgba(0, 0, 0, 0.6431372549) 0 0 10px 3px;
 }
 .feed-body article section.article-body div.article-body-content h4 {
-  width: -moz-fit-content;
-  width: fit-content;
+  width: auto;
+  max-width: calc(100% - 30px);
   margin: 15px;
   color: #2b3015;
   font-size: 0.8em;
@@ -241,6 +242,9 @@ img {
   padding: 10px 15px;
   border-radius: 10px;
   background-color: #f5f5ff;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: inline-block;
 }
 .feed-body article section.article-body div.article-body-content img {
   display: block;
@@ -266,6 +270,8 @@ img {
   text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
   line-height: 1.3em;
   color: #f5f5ff;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .feed-body article section.article-body div.article-body-content p i {
   font-size: 0.7em;
@@ -352,6 +358,8 @@ img {
   font-weight: bold;
   transition: all 0.1s ease;
   text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .feed-body article .article-footer .vote-btns .vote-option:hover span {
   background-color: rgb(97.9710144928, 109.2753623188, 46.7246376812);
@@ -688,7 +696,7 @@ header.body-header .user.is-active .user-trigger img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 .main-aside ul li.has-dropdown .submenu li a:hover {
   color: #f5f5ff;
@@ -973,8 +981,12 @@ body main .feed .section-header h2 {
   text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
   width: 100%;
   font-family: "Croissant One";
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 body main .feed .section-header small {
   font-style: italic;
   font-weight: lighter;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }/*# sourceMappingURL=index.css.map */

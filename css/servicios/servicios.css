@@ -346,7 +346,7 @@ header.body-header .user.is-active .user-trigger img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 .main-aside ul li.has-dropdown .submenu li a:hover {
   color: #f5f5ff;
@@ -396,11 +396,15 @@ section.services-body article .article-header h3 {
   margin-bottom: 5px;
   color: #f5f5ff;
   text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 section.services-body article .article-header p {
   font-style: italic;
   color: #f5f5ff;
   text-shadow: rgba(0, 0, 0, 0.6431372549) 2px 2px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 section.services-body article .article-body {
   border-radius: 10px;
@@ -426,12 +430,16 @@ section.services-body article .article-body ul li u {
 }
 section.services-body article .article-body ul li p {
   display: inline;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 section.services-body article .article-body ul li a {
   color: #2ecc71;
   background-color: #2b3015;
   padding: 5px 10px;
   border-radius: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .pager {
@@ -608,15 +616,19 @@ body main .services .services-header h2 {
   margin-right: 30px;
   text-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
   width: 100%;
-  text-wrap: nowrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 body main .services .services-header small {
   font-style: italic;
   font-weight: lighter;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 body main .services .services-header form {
   margin-left: auto;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   display: flex;
   justify-content: flex-end;
 }
@@ -672,6 +684,8 @@ body main .services .services-body .no-results {
 }
 body main .services .services-body .no-results h3 {
   margin-bottom: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 body main .services .services-body .no-results i {
   font-size: 3rem;
@@ -694,6 +708,8 @@ body main .services .services-body .no-results a {
   gap: 15px;
   box-shadow: rgba(0, 0, 0, 0.6431372549) 3px 3px 0;
   transition: all 0.2s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 body main .services .services-body .no-results a:hover {
   transform: scale(1.03);

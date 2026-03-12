@@ -62,11 +62,15 @@ body {
                     text-shadow: $color-shadow 3px 3px 0;
                     width: 100%;
                     font-family: $titulo;
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
                 }
 
                 small { 
                     font-style: italic; 
                     font-weight: lighter;
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
                 }
             }
         }

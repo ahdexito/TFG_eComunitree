@@ -23,12 +23,16 @@ section.services-body article {
             margin-bottom: 5px;
             color: $color-light;
             text-shadow: $color-shadow 3px 3px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         p { 
             font-style: italic; 
             color: $color-light;
             text-shadow: $color-shadow 2px 2px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
     }
 
@@ -55,13 +59,19 @@ section.services-body article {
                     font-family: $titulo;
                 }
 
-                p { display: inline; }
+                p { 
+                    display: inline; 
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
+                }
 
                 a {
                     color: #2ecc71;
                     background-color: $color-primary-dark;
                     padding: 5px 10px;
                     border-radius: 10px;
+                    word-wrap: break-word;
+                    overflow-wrap: break-word;
                 }
             }
         }
