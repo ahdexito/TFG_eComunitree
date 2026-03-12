@@ -1,2 +1,10 @@
 db/db.inc
 admin/email.php
+
+img_incidencias/*
+!img_incidencias/default.jpg
+img_user/*
+!img_user/default.jpg
+
+mysql_data/
+.DS_Store
