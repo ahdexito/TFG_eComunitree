@@ -34,6 +34,7 @@
             $stmt2->execute();
 
             $conn->commit();
+            $_SESSION['proceso_envio'] = true; 
             // Mensaje ins=0 enviado en email.php
             header("location:email.php");
 
