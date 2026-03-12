@@ -58,11 +58,12 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
 }
 html body {
   background: linear-gradient(to bottom, transparent 0%, rgba(130, 145, 62, 0.5058823529) 100px, rgba(130, 145, 62, 0.5058823529) calc(100% - 100px), transparent 100%);
   padding: 100px 20px;
-  width: 100%;
+  width: calc(100% - 40px);
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
@@ -115,6 +116,7 @@ html body main {
   display: flex;
   justify-content: space-between;
   gap: 80px;
+  overflow: hidden;
 }
 @media (max-width: 600px) {
   html body main {
