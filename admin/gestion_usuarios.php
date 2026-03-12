@@ -50,22 +50,18 @@
         exit();
     }
 
-    // ALERTAS DE CREACIÓN DE USUARIO
-    if (isset($_GET["ins"])) {
-        // registro correcto
-        if ($_GET["ins"] == 0) $mensaje = "Usuario insertado correctamente.";
-        
-        // problema al insertar
-        if ($_GET["ins"] == 1) $mensaje = "Ha ocurrido un error al intentar insertar el usuario.";
+    // GESTIÓN DE MENSAJES
+    if (isset($_GET['del']) && $_GET['del'] == 0) {
+        $mensaje = "Usuario eliminado correctamente.";
+    } 
+    elseif (isset($_GET["ins"])) {
+        $mensaje = ($_GET["ins"] == 0) ? "Usuario añadido correctamente." : "Error al añadir el usuario.";
+    } 
+    elseif (isset($_GET["upt"])) {
+        $mensaje = ($_GET["upt"] == 0) ? "Usuario actualizado correctamente." : "Error al actualizar el usuario.";
     }
-
-    // ALERTAS DE MODIFICACIÓN DE USUARIO
-    if (isset($_GET["upt"])) {
-        // actualización correcta
-        if ($_GET["upt"] == 0) $mensaje = "Usuario actualizado correctamente.";
-        
-        // problema al actualizar
-        if ($_GET["upt"] == 1) $mensaje = "Ha ocurrido un error al intentar actualizar el usuario.";
+    elseif (isset($_GET['error']) && $_GET['error'] == 'acceso_denegado') {
+        $mensaje = "No tienes permiso para realizar esta acción.";
     }
 ?>
 
@@ -156,10 +152,10 @@
                             </td>
                             <td>#<?= $u['id_usuario'] ?></td>
                             <td><?= htmlspecialchars($u['nombre']) ?></td>
-                            <td><?= htmlspecialchars($u['apellidos']) ?></td>
+                            <td><?= htmlspecialchars($u['apellidos'] ?? "") ?></td>
                             <td><?= htmlspecialchars($u['email']) ?></td>
                             <td><?= htmlspecialchars($u['rol']) ?></td>
-                            <td><?= htmlspecialchars($u['telefono']) ?></td>
+                            <td><?= htmlspecialchars($u['telefono'] ?? "") ?></td>
                             <td><?= htmlspecialchars($u['vivienda']) ?></td>
                         </tr>
                         <?php endforeach; ?>

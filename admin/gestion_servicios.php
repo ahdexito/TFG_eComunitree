@@ -51,22 +51,18 @@
         exit();
     }
 
-    // ALERTAS DE CREACIÓN DE SERVICIO
-    if (isset($_GET["ins"])) {
-         // inserción correcta
-        if ($_GET["ins"] == 0) $mensaje = "Servicio añadido correctamente.";
-        
-        // problema al insertar
-        if ($_GET["ins"] == 1) $mensaje = "Ha ocurrido un error al añadir el servicio.";
+    // GESTIÓN DE MENSAJES
+    if (isset($_GET['del']) && $_GET['del'] == 0) {
+        $mensaje = "Servicio eliminado correctamente.";
+    } 
+    elseif (isset($_GET["ins"])) {
+        $mensaje = ($_GET["ins"] == 0) ? "Servicio añadido correctamente." : "Error al añadir el servicio.";
+    } 
+    elseif (isset($_GET["upt"])) {
+        $mensaje = ($_GET["upt"] == 0) ? "Servicio actualizado correctamente." : "Error al actualizar el servicio.";
     }
-
-    // ALERTAS DE MODIFICACIÓN DE SERVICIO
-    if (isset($_GET["upt"])) {
-        // actualización correcta
-        if ($_GET["upt"] == 0) $mensaje = "Servicio actualizado correctamente.";
-
-        // problema al actualizar
-        if ($_GET["upt"] == 1) $mensaje = "Ha ocurrido un error al actualizar el servicio.";
+    elseif (isset($_GET['error']) && $_GET['error'] == 'acceso_denegado') {
+        $mensaje = "No tienes permiso para realizar esta acción.";
     }
 ?>
 
@@ -160,9 +156,9 @@
                             </td>
                             <td> <?= htmlspecialchars($s['nombre']) ?> </td>
                             <td> <?= htmlspecialchars($s['descripcion']) ?> </td>
-                            <td> <?= htmlspecialchars($s['telefono']) ?> </td>
-                            <td> <?= htmlspecialchars($s['email']) ?> </td>                            
-                            <td> <?= htmlspecialchars($s['enlace']) ?> </td>
+                            <td> <?= htmlspecialchars($s['telefono'] ?? "") ?> </td>
+                            <td> <?= htmlspecialchars($s['email'] ?? "") ?> </td>                            
+                            <td> <?= htmlspecialchars($s['enlace'] ?? "") ?> </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

@@ -103,7 +103,7 @@ CREATE TABLE votos (
 CREATE TABLE servicios (
     id_servicio INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
-    descripcion VARCHAR(300),
+    descripcion VARCHAR(300) NOT NULL,
     telefono VARCHAR(30),
     email VARCHAR(150),
     enlace VARCHAR(255),
