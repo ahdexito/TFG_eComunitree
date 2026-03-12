@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include("./db/db.inc");
     include("./includes/verficar_sesion.php");
     $base = "./";
 ?>

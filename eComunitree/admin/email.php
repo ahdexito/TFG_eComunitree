@@ -8,13 +8,17 @@
     require '../src/PHPMailer/src/SMTP.php';
 
     session_start();
-
     include("../db/db.inc");
+
+    if (!isset($_SESSION["id_usuario"])) {
+        header("location:../login.php?usu=1");
+        exit();
+    }
 
     // VERIFICACIÓN DE ACCESO
     if (!isset($_SESSION['proceso_envio']) || $_SESSION['proceso_envio'] !== true) {
         // Si no viene de crear una publicación, lo mandamos al index
-        header("location:../login.php?usu=1");
+        header("location:../login.php");
         exit();
     }
 
