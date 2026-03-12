@@ -910,7 +910,6 @@ nav .btn-back:hover {
   left: 50%;
   transform: translateX(-50%);
   z-index: 900;
-  min-width: 300px;
   pointer-events: auto;
   padding: 16px 25px;
   border-radius: 10px;
