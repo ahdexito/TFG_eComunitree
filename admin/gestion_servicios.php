@@ -47,7 +47,7 @@
         $stmt -> execute();
         $stmt -> close();
 
-        header("location:gestion_servicios.php");
+        header("location:gestion_servicios.php?del=0");
         exit();
     }
 

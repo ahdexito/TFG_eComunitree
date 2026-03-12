@@ -46,7 +46,7 @@
         $stmt -> execute();
         $stmt -> close();
 
-        header("location:gestion_usuarios.php");
+        header("location:gestion_usuarios.php?del=0");
         exit();
     }
 
