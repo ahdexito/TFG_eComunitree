@@ -48,7 +48,7 @@
     }
 
     // PAGINADOR
-    $num_lineas = 8;
+    $num_lineas = 12;
     $pagina = isset($_GET['pag']) ? max(1, intval($_GET['pag'])) : 1;
     $offset = ($pagina - 1) * $num_lineas;
 
