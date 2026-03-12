@@ -1,10 +1,21 @@
+# --- Archivos Sensibles (Configuraciones) ---
 db/db.inc
 admin/email.php
 
+# --- Carpetas de Datos y Docker ---
+mysql_data/
+docker-compose.yml
+
+# --- Imágenes de Incidencias ---
+# Ignora todo el contenido de la carpeta
 img_incidencias/*
+# Pero permite que se suba la imagen por defecto
 !img_incidencias/default.jpg
+
+# --- Imágenes de Usuario ---
 img_user/*
 !img_user/default.jpg
 
-mysql_data/
+# --- Basura del Sistema ---
 .DS_Store
+Thumbs.db
