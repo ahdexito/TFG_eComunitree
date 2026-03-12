@@ -189,7 +189,18 @@
                         $fecha_cierre = new DateTime($p['fecha_cierre']);
                         $hoy = new DateTime();
                         $diferencia = $hoy->diff($fecha_cierre);
-                        $dias_restantes = $diferencia->invert ? "Finalizada" : $diferencia->format('%a días');
+
+                        if ($diferencia->invert) {
+                            $tiempo_texto = "Finalizada";
+                        } else {
+                            // Si quedan 0 días, mostrar horas y minutos
+                            if ($diferencia->days < 1) {
+                                $tiempo_texto = $diferencia->format('%h h %i min');
+                            } else {
+                                // Si queda 1 día o más, mostrar solo los días
+                                $tiempo_texto = $diferencia->format('%a días');
+                            }
+                        }
 
                         // Verificar si el usuario ya ha votado
                         $id_usuario = $_SESSION['id_usuario'];
@@ -236,7 +247,7 @@
                                 <i class="fa-solid fa-triangle-exclamation"></i>TU VOTO CUENTA
                             </strong>
                             <p>
-                                <i class="fa-solid fa-hourglass-half"></i>Expira en: <time> <?= $dias_restantes ?> </time>
+                                <i class="fa-solid fa-hourglass-half"></i>Expira en: <time> <?= $tiempo_texto ?> </time>
                             </p>
                             
                             <div class="vote-btns">

@@ -65,7 +65,7 @@
             if ($nombre_imagen !== "default.jpg" && file_exists("img_incidencias/" . $nombre_imagen)) {
                 unlink("img_incidencias/" . $nombre_imagen);
             }
-            header("location:index.php?inci=1");
+            header("location:index.php?ins=1");
         }
     }    
 ?>
