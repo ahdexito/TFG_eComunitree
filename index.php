@@ -129,7 +129,7 @@
     <nav>
         <ul class="navegacion">
             <li><i class="fa-solid fa-house"></i></li>
-            <li>Inicio</li>
+            <li><a href="./index.php">Inicio</a></li>
         </ul>
 
         <!-- ASIDE -->
