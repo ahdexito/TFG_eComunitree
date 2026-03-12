@@ -350,9 +350,9 @@ header.body-header .user.is-active .user-trigger img {
 .main-aside .aside-header .close-aside:hover {
   color: #f5f5ff;
   background-color: #ca7740;
-  transform: rotate(-90deg) scale(1.1);
+  transform: rotate(-180deg) scale(1.1);
   box-shadow: #2e1c15 0 0 0 5px;
-  text-shadow: rgba(0, 0, 0, 0.6431372549) -2px 2px;
+  text-shadow: rgba(0, 0, 0, 0.6431372549) -2px -2px;
 }
 .main-aside hr {
   border: 2px solid #f5f5ff;

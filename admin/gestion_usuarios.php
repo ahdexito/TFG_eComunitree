@@ -13,7 +13,7 @@
     $mensaje = "";
 
     // PAGINADOR
-    $num_lineas = 5;
+    $num_lineas = 12;
     $pagina = isset($_GET['pag']) ? max(1, intval($_GET['pag'])) : 1;
     $offset = ($pagina - 1) * $num_lineas;
 
@@ -78,7 +78,7 @@
 <body>
     <?php if ($mensaje): ?>
         <div class="msg msg-timer" id="mensaje-contenedor">
-            <p><?= $mensaje ?></p>
+            <p><i class="fa-solid fa-bell"></i> <?= $mensaje ?></p>
             <button type="button" class="btn-cerrar-msg" id="btn-cerrar-js">
                 <i class="fa-solid fa-xmark"></i>
             </button>

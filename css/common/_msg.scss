@@ -1,4 +1,4 @@
-@import url('./variables');
+@import 'variables';
 
 .msg {
     width: calc(100% - 40px);;
@@ -11,40 +11,51 @@
     box-sizing: border-box;
     z-index: 900;
     pointer-events: auto;
-    padding: 16px 25px;
-    border-radius: 10px;
+    padding: 15px 20px;
+    border-radius: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 15px;
     font-weight: bold;
+    font-size: 1.2em;
+    border: 3px solid $color-accent-dark;
     text-shadow: $color-shadow 2px 2px;
     color: $color-light;
-    border: 2px solid $color-light;
-    background-color: $color-aviso;
+    background-color: $color-accent;
     box-shadow: $color-shadow 0 0 15px 5px;
     animation: aparecer-desaparecer 5s ease-in-out forwards;
+
+    i { font-size: 1.5em; }
 
     p {
         margin: 0;
         flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 15px;
     }
 
     .btn-cerrar-msg {
+        width: 50px;
+        height: 50px;
         background: none;
-        border: none;
-        color: $color-light;
-        font-size: 1.2rem;
+        border: 3px solid $color-light;
+        color: $color-accent;
+        font-size: 1.1rem;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 5px;
-        transition: transform 0.2s ease;
+        border-radius: 50px;
+        background-color: $color-light;
+        transition: transform 0.3s ease;
 
         &:hover {
-            transform: scale(1.2);
-            color: $color-accent-dark;
+            transform: scale(1.2) rotate(-180deg);
+            color: $color-light;
+            text-shadow: none;
+            background-color: $color-accent-dark;
         }
     }
 }

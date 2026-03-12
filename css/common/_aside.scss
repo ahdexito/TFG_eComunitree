@@ -61,9 +61,9 @@
             &:hover {
                 color: $color-light;
                 background-color: $color-accent;
-                transform: rotate(-90deg) scale(1.1);
+                transform: rotate(-180deg) scale(1.1);
                 box-shadow: $color-accent-dark 0 0 0 5px;
-                text-shadow: $color-shadow -2px 2px;
+                text-shadow: $color-shadow -2px -2px;
             }
         }
     }
